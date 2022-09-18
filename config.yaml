@@ -1,4 +1,4 @@
-baseURL: "https://boisterous-dieffenbachia-b267e6.netlify.app/" # url address of the website | required
+baseURL: "https://rwater.house" # url address of the website | required
 title: "Russell Waterhouse" # title of the site; usually same as brand name | required
 copyright: "Copyright &#169; 2020 Softorage. All rights reserved." # should match 'brand -> name', and 'contentLicense' under params below; used in default rss template: https://gohugo.io/templates/rss/#configure-rss | optional
 languageCode: "en-us" # recommended | no default
