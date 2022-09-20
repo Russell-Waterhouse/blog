@@ -27,7 +27,6 @@ build:
 params:
   social: 
     profiles: # social platforms you are present on. see supported ones here | highly recommended
-      github: "https://github.com/Softorage"
       # TODO: Add linkedin button here
     share: ["linkedin"] # accepts array of values: "facebook", "twitter", "linkedin", "whatsapp", "reddit", "email". just type the name of those you want you articles to be able to be shared on
   meta:
