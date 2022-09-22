@@ -8,7 +8,7 @@ date: 2021-12-31T20:38:00-07:00
 
 In this short blog post, I will explain the difference between data, type, newtype, class, and instance keywords in haskell and how they all work together. This is not meant to be an in-depth tutorial, but just a reference guide. If you program occasionally in haskell and just want a quick reference, bookmark this page.
 
-# data:
+## data:
 
 This just defines a new data type in haskell. I tend to think about "data" as a row in a database. For example
 
@@ -22,12 +22,12 @@ data Book = Book {
 
 Here, I have defined a book using haskell's record syntax. Of course this is a massively simplified example, and I've used a Double to represent currency, which should never be done in the real world. Nonetheless, this example gets the point across
 
-# type:
+## type:
 
 This is just a synonym for an existing type. An example of this is String and [char].
 You can use one interchangably with the other.
 
-# newtype:
+## newtype:
 
 This gives an existing type a new identity. It is often used to make typechecking more strict.
 
@@ -37,7 +37,7 @@ type Address = Address String
 
 With these 2 types defined, the type checker would notice if you accidentally put an address string in a parameter that should have taken an email address string. If the parameter just accepts any string, this mistake would not be caught until runtime. It is generally considered good practice to define and use types like this within your code base for this reason. Remember, one of the goals of good software development is to catch bugs as early as possible. This is the reason for tdd, static typechecking, etc. If we can catch a bug at compile time, the end user will never see it. Okay, rant over, onto the class keyword.
 
-# class:
+## class:
 
 A class is a generic interface that defines a common feature set that can be used over a wide variety of types. Examples of this are ord (for ordering) or eq (for testing equality) in haskell. A simplified implementation of the eq typeclass is shown below, taken from page 130 of the book "Real world Haskell" by Bryan O’Sullivan, John Goerzen, and Don Stewart.
 
@@ -46,7 +46,7 @@ isEqual :: a -> a -> Bool
 
 It should be noted that a class must be declared in its own file
 
-# instance:
+## instance:
 
 instance is the keyword used to define an implementation of a class. This is demonstrated below,
 using an example from page 131 of "Real World Haskell"
