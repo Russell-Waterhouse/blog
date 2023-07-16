@@ -39,13 +39,13 @@ What would that advice look like?
 6. "Don't even bother trying to climb, those on the top will just push you down!"
 7. "Take the Northeast Ridge route on Mount Everest"
 
-Here's the problem with all of thot advice:   
+Here's the problem with all of that advice:   
 These people are just describing their own mountains.
 
 Let me break it down:
 Let's start with advice #1. This advice came from someone that had a mountain North of where they 
 started.  Perhaps they got very high with this approach, and for people that 
-start where they started, it would be good advice.  You might see an army of  
+start where they started, it would be good advice. You might see an army of  
 people saying that this advice worked for them.  
 
 However, if the biggest mountain to you is to the South, this would be bad
