@@ -1,8 +1,8 @@
 ---
 title: "Advice"
 author: "Russell Waterhouse"
-description: "description here"
-tags: ["", ""]
+description: "A short post about my thoughts on following advice"
+tags: ["advice"]
 date: 2023-07-16T13:20:26-07:00
 draft: false
 ---
@@ -94,7 +94,8 @@ Of course, the real world isn't just mountaineers. It's merchants and
 engineers and single mothers and venture captalists and singers and 
 forklift operators and fast food managers and mountaineers and everyone else.
 
-So when you read advice on the internet telling you to do ANYTHING, just stop 
+So when you read advice on the internet telling you to do ANYTHING, any 
+career advice, financial advice, fitness advice, etc. just stop 
 and ask yourself if that advice would work on your mountain today.
 
 Now of course, that also applies to everything that you've read in this blog 
