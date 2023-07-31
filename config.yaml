@@ -31,8 +31,8 @@ params:
     share: ["linkedin"] # accepts array of values: "facebook", "twitter", "linkedin", "whatsapp", "reddit", "email". just type the name of those you want you articles to be able to be shared on
   meta:
     author: "Russell Waterhouse" # website-wide author | required
-    footerMessage: "Building Better Software" # text shown in footer above footer links | optional
-    tagline: "Building Better Software" # shown in website title on homepage and also used in seo | required
+    footerMessage: "Building Better Products" # text shown in footer above footer links | optional
+    tagline: "Building Better Products" # shown in website title on homepage and also used in seo | required
     description: "A blog dedicated to building software that is more efficient, less faulty, and more secure" # should include brand name | character length: 50 to 160 characters
     contentLicense: "CC-BY-SA-3.0" # cc-by-3.0, etc or 'All right reserved.' should also be same as the one in copyright above
     titleSeparator: " | " # used in website/blog title, to separate (say) page title from website/blog title | default: " | "
