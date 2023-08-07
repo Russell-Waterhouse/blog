@@ -4,7 +4,7 @@ author: "Russell Waterhouse"
 description: "My initial impressions with the Dvorak keyboard layout"
 tags: ["dvorak", "keyboard layouts", "efficiency"]
 date: 2023-07-30T20:58:25-07:00
-draft: true
+draft: false
 ---
 
 # Learning Dvorak
