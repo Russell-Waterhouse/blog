@@ -9,6 +9,8 @@ draft: false
 
 # Fill the Gaps in Your Knowledge
 
+![A picture of a puzzle being filled in](/post/images/gaps-cover.jpg "Filling in the Gaps")
+
 As a junior software engineer, you are pretty much guaranteed to be learning a
 lot constantly, especially as you start. 
 
