@@ -47,7 +47,9 @@ knowledge.
 
 Knowing that, when I get some down time, I've been working to fill those gaps.
 
-I've started a repository of programming tools, for me to put data structures,
+I've started a 
+[repository of programming tools](https://github.com/Russell-Waterhouse/programming-tools), 
+for me to put data structures,
 algorithms, design patterns, and software architectures, and I've started
 filling it out with the things that I want to master, going back to the basics.
 
@@ -57,8 +59,8 @@ really simple way to practice the fundamentals of these languages.
 It also comes with the benefit of practicing these programming tools, useful 
 for both a job and a technical interview.
 
-I've also been working through the 2022 advent of code in Ruby, and after that
-I'll do 2021 in Haskell.
+I've also been working through the [2022 advent of code in Ruby](https://github.com/Russell-Waterhouse/advent_of_code_2022),
+and after that I'll do 2021 in Haskell.
 
 This work for me still leaves a gap in my framework knowledge. I don't know all
 the features of rails that I should. I think to learn that I would have to
