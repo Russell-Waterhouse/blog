@@ -20,13 +20,16 @@ interesting, so I thought I would share my findings in a blog post.
 
 A linked list is one of the most foundational data structures in computer 
 science. In fact, they come as a base language feature 
-in many languages such as ruby, python, and haskell.  They work by allocating
+in many languages such as Ruby, python, and Haskell.  They work by allocating
 memory for the data (in my implementations this is an integer), as well as 
 a pointer to the next node in the list. Of course, you can embellish them further
 to turn them into doubly linked lists, circular lists, arraylists, etc. but for 
 the sake of simplicity, I've just implemented vanilla singly-linked lists.
 
-//TODO: Insert draw.io of linked list here
+
+![A Diagram of a linked List, showing each node having 2 values, value and next,
+where next points to the next node](/post/images/ll.drawio.png "Linked List Diagram")
+
 
 In terms of theoretical time efficiency, it has the following properties on its
 basic operations:
@@ -47,6 +50,10 @@ each node.  However, many developers, if not most developers, don't need to
 worry about efficiency because we don't work with systems that will see enough 
 load for this to make a meaningful difference.
 
+I plan on measuring the performance of all of these implementations later on 
+this year to demonstrate this.
+
+
 ## The C Implementation
 
 The C implementation can be found in my programming tools repo 
@@ -57,7 +64,6 @@ this blog post.
 
 Don't bother reading all of the code in depth, just take a glance and move on,
 we'll do our analysis once we've seen all of the implementations.
-
 
 linked-list.h: 
 ```
@@ -220,7 +226,7 @@ Again, don't bother reading it all now, just take a look and move on.
 
 ## The Ruby Implementation
 The Ruby implementation can be found in my programming tools repo 
-[here](https://github.com/Russell-Waterhouse/programming-tools/tree/main/data-structures/linked-list/ruby)
+[here](https://github.com/Russell-Waterhouse/programming-tools/tree/main/data-structures/linked-list/Ruby)
 
 Again, don't bother reading it all in depth, just take a look at it, see the 
 forest, not the trees, and move on.
@@ -334,7 +340,7 @@ end
 ## The Haskell Implementation
 
 The Haskell implementation can be found in my programming tools repo 
-[here](https://github.com/Russell-Waterhouse/programming-tools/tree/main/data-structures/linked-list/haskell)
+[here](https://github.com/Russell-Waterhouse/programming-tools/tree/main/data-structures/linked-list/Haskell)
 
 Again, don't worry about understanding it all in depth right now, just
 take a look and move on. I'll explain things in more detail in the analysis 
@@ -382,9 +388,62 @@ size node = 1 + size (next node)
 ## Analysis
 
 
+### Analysis Caveats
+
+First, I want to talk a little bit about my skills in each language. 
+
+#### C
+
+I wrote some fairly small but complicated projects in C in University, but 
+have had no professional experience with the language. I've also never had a
+proper code review in the language, leaving me very ignorant to best practices
+and industry standards.
+
+I find 
+beauty and utility in C's simplicity, but that doesn't mean that I have a firm
+grasp on the best way to do anything in the language. This is a naive approach.
+I'm aware that there is a better way to do `remove` thanks to Linus Torvalds, 
+but didn't implement it to make this more beginner friendly.
+
+I'm sure there are many more improvements that I don't know about.
+In fact, I would wager that if you got 100 skilled C developers to make the same
+project every single one would be better than my implementation in nearly every
+way. 
+
+#### Ruby
+
+I currently help maintain a fairly large Ruby on Rails project at Leanpub.
+I've been in this role for about 7 months now, so I have a solid grasp on the
+fundamentals of the language, but there are still some things that trip me up 
+in the language. 
+
+Just like in C, I'm sure that there are improvements to be made here and that 
+my style might not match what is standard for Ruby programmers, but all in all
+I'm more confident in this implementation than I am the C implementation.
+
+I think that if you got 100 skilled Ruby developers to make the same project, 
+many would look like mine, though I suspect that many wouldn't split up the 
+implementation into a Node class and a LinkedList class. That's the Java 
+programmer in me coming out. 
+
+#### Haskell
+
+I currently help maintain the book generation workflow at Leanpub, which uses
+Haskell as its main language. I have written production Haskell, which 
+automatically makes me cooler than 99% of other developers out there.
+
+That being said, I only have a few months of professional Haskell experience, 
+and there is still a lot to know about the language. 
+
+All that being said, because there is so little to the Haskell implementation, 
+I would bet that all 100 skilled Haskell developers would make an implementation
+very much like mine, if given the challenge.
+
+
 ### Development Time
 
-First, let's talk about the most visible cost to an engineer thinking about
+With the disclaimer out of the way, let's talk about the most 
+visible cost to an engineer thinking about
 using any of these languages: development time.
 
 I didn't keep track of my development time in any of these languages, simply 
@@ -405,13 +464,15 @@ I think this should be visible why this is in the following table:
 Why is that? It's the same data structure, implemented by the same developer.
 Let's take a look at each `print_list` implementation to see why first.
 
-For all aof the implementations, it returns a string representation of the list
+For all of the implementations, it returns a string representation of the list
 formatted as such:  
 ```
 34 -> 42 -> -42 -> 
 ```
 
 Let's start with the C implementation:
+
+#### C
 
 ```
 #define INIT_PRINT_BUFFER_SIZE 255
@@ -457,10 +518,10 @@ char* print_list(List* list) {
 }
 ```
 That's 36 lines of code *just to print the list*. That's one more line of code
-than the entire haskell linked list implementation. 
+than the entire Haskell linked list implementation. 
 
 Why it's so long is clearly visible immediately: memory management. 
-Neither haskell nor ruby has to double the size of the string buffer if it gets 
+Neither Haskell nor Ruby has to double the size of the string buffer if it gets 
 too large, neither one had to remember to add the null terminator.
 
 I'm aware that there are ways to make my implementation smaller, but the point 
@@ -476,8 +537,16 @@ C's traditional function naming style doesn't help here either. Why does
 `snprintf` get called twice in the `int_to_string` method in two seemingly 
 unrelated ways? 
 
+Overall, while it is almost certianly more efficient than anything else on 
+this list, the C implementation took the most time and uses a lot of concepts
+that a new developer would need to understand somewhat deeply to work on, such
+as the difference between the stack and the heap, memory management, strings
+in C, etc.
 
-What about the ruby implementation?
+
+What about the Ruby implementation?
+
+#### Ruby
 
 ```
   def to_string()
@@ -495,9 +564,13 @@ That's much more concise. Since Ruby has a really nice string class and string
 interpolation to build on top of, it's much more concise than the C version.
 
 However, even though it's more concise, it's still legible to a programmer that 
-has never seen ruby code before. 
+has never seen Ruby code before. 
 
-The final step in this journey is the haskell implementation.
+As well, it has abstracted away many of the complexities of the C program. 
+
+The final step in this journey is the Haskell implementation.
+
+#### Haskell 
 
 ```
 printList :: Node -> String
@@ -505,13 +578,67 @@ printList EmptyNode = ""
 printList node = show (val node) ++ " -> " ++ printList (next node)
 ```
 
-Wow, that is concise, bordering on terse. If you've never seen haskell before,
+Wow, that is concise, bordering on terse. If you've never seen Haskell before,
 you may not understand what is going on here. And, on top of that, it's 
 recursive, a concept that people usually take longer to grasp than loops.
 
-Note, that in both the C and ruby implementations, I could have implemented 
+Note, that in both the C and Ruby implementations, I could have implemented 
 the functions recursively, but people would have looked at me funny. Fact is,
 outside of pure functional languages that don't have loops, recursion isn't 
 used as often as loops in industry, even if they would make more concise code.
 
+I'm not sure if it's because Haskell has such a different syntax, or if it's 
+because it has such a different style, or if it's because it is actually just 
+difficult to understand by nature, but I find that people are very likely to
+have a difficult time looking at a piece of Haskell code and understand what's
+actually going on in the program, far more than something like Ruby or Java.
+
+
+## My Personal Opinion
+
+All three of these linked list implementations are in languages that I enjoy 
+for different reasons. Haskell and C, in my eyes, take the same simplicity
+principle to the extreme in different ways. C takes simplicity of the
+low-level to an extreme, and Haskell takes simplicity of the high level to 
+an extreme. I like simplicity in my code, which is why I love both of these 
+languages. Ruby, on the other hand, splits the difference nicely.
+
+If I'm doing work on systems where footprint, performance, and memory usage are
+important considerations, I'm going to choose C every time (especially if 
+security isn't that important, such as for devices that are never connected to
+the internet). Neither Haskell or Ruby is going to give me as much control over
+performance. However, if I'm just trying to build a system where performance 
+isn't as much of a concern as development time, I would probably want Ruby, 
+Haskell, or another such high-level language. I probably wouldn't choose either
+one for a new project today, as ruby is a dying language and haskell is too
+obscure with too steep of a learning curve to turn into a production language
+(although that hasn't stopped many many companies from doing it, so maybe I'm 
+wrong here)
+
+
+## Conclusions
+
+I've taken the time to implement the most basic data structure in C, Haskell,
+and Ruby, and compared the development time and development experience 
+between the 3 languages. There is a lot more dimensions to analyze than this, and
+I plan to 
+in later blog posts. However, I think the results from this first bit of analysis
+are interesting. The haskell implementation took the least amount of time, followed
+by ruby, followed by C. C took so long because it takes a while to deal with memory 
+management and strings as arrays, and Haskell took so short because it made 
+heavy use of the inherent recursive nature of the data structure, something that 
+haskell handles very well.
+
+If you're interested to see these implementations compared on the following 
+dimensions, please follow me on [LinkedIn](https://www.linkedin.com/in/russell-waterhouse-a4b1351a2)
+where I post all of my blog posts. 
+
+- Memory usage
+- CPU usage
+- Footprint (compiled size)
+- Maintenance/Extensibility
+- Safety/Security
+- Tooling
+
+I plan on analyzing all of these dimensions soon.
 
