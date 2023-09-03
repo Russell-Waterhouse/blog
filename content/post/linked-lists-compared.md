@@ -2,12 +2,12 @@
 title: "Linked Lists Compared"
 author: "Russell Waterhouse"
 description: "A short overview of linked lists implemented in functional, procedural, and an object-oriented way"
-tags: ["linked-list", "data structures", "algorithms", "functional programming", "procedural programming", "object oriented programming"]
+tags: ["linked-list", "data structures", "algorithms", "functional programming", "procedural programming", "object oriented programming", "C", "Ruby", "Haskell"]
 date: 2023-08-26T09:23:27-07:00
 draft: false
 ---
 
-# Linked Lists Functional, Procedural, and Object Oriented
+# Linked Lists Functional, Procedural, and Object Oriented; Part 1
 ![A picture of Linked Lists on a chalkboard](/post/images/linked-lists.jpg
 "Linked Lists in all Flavours!")
 
@@ -66,7 +66,7 @@ Don't bother reading all of the code in depth, just take a glance and move on,
 we'll do our analysis once we've seen all of the implementations.
 
 linked-list.h: 
-```
+```c
 typedef struct Node {
     struct Node* next;
     int value;
@@ -87,7 +87,7 @@ int size(List* list);
 
 
 linked-list.c:
-```
+```c
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
@@ -232,7 +232,7 @@ Again, don't bother reading it all in depth, just take a look at it, see the
 forest, not the trees, and move on.
 
 node.rb:
-```
+```ruby
 class Node
 
   @val
@@ -262,7 +262,7 @@ end
 ```
 
 linked_list.rb:
-```
+```ruby
 require_relative "node"
 
 class LinkedList
@@ -346,7 +346,7 @@ Again, don't worry about understanding it all in depth right now, just
 take a look and move on. I'll explain things in more detail in the analysis 
 section.
 
-```
+```haskell
 module LinkedList where
 
 data Node = Node 
@@ -394,7 +394,7 @@ First, I want to talk a little bit about my skills in each language.
 
 #### C
 
-I wrote some fairly small but complicated projects in C in University, but 
+I wrote some fairly small but complicated projects in C in university, but 
 have had no professional experience with the language. I've also never had a
 proper code review in the language, leaving me very ignorant to best practices
 and industry standards.
@@ -466,7 +466,7 @@ Let's take a look at each `print_list` implementation to see why first.
 
 For all of the implementations, it returns a string representation of the list
 formatted as such:  
-```
+```plaintext
 34 -> 42 -> -42 -> 
 ```
 
@@ -474,7 +474,7 @@ Let's start with the C implementation:
 
 #### C
 
-```
+```c
 #define INIT_PRINT_BUFFER_SIZE 255
 #define MAX_STR_SIZE_FOR_INT 10
 #define SIZE_OF_ARROW_STR 4
@@ -537,7 +537,7 @@ C's traditional function naming style doesn't help here either. Why does
 `snprintf` get called twice in the `int_to_string` method in two seemingly 
 unrelated ways? 
 
-Overall, while it is almost certianly more efficient than anything else on 
+Overall, while it is almost certainly more efficient than anything else on 
 this list, the C implementation took the most time and uses a lot of concepts
 that a new developer would need to understand somewhat deeply to work on, such
 as the difference between the stack and the heap, memory management, strings
@@ -548,7 +548,7 @@ What about the Ruby implementation?
 
 #### Ruby
 
-```
+```ruby
   def to_string()
     current = @head
     list_str = ""
@@ -572,7 +572,7 @@ The final step in this journey is the Haskell implementation.
 
 #### Haskell 
 
-```
+```haskell
 printList :: Node -> String
 printList EmptyNode = ""
 printList node = show (val node) ++ " -> " ++ printList (next node)
@@ -609,12 +609,12 @@ security isn't that important, such as for devices that are never connected to
 the internet). Neither Haskell or Ruby is going to give me as much control over
 performance. However, if I'm just trying to build a system where performance 
 isn't as much of a concern as development time, I would probably want Ruby, 
-Haskell, or another such high-level language. I probably wouldn't choose either
-one for a new project today, as ruby is a dying language and haskell is too
-obscure with too steep of a learning curve to turn into a production language
-(although that hasn't stopped many many companies from doing it, so maybe I'm 
-wrong here)
+Haskell, or another such high-level language. 
 
+If we were to look at development time for this one data structure as our only
+data point, we would want to choose Haskell. However, there are many other 
+dimensions to analyze here (see appendix A for more), and I would caution 
+against using this single data point as evidence for Haskell's superiority.
 
 ## Conclusions
 
@@ -623,11 +623,13 @@ and Ruby, and compared the development time and development experience
 between the 3 languages. There is a lot more dimensions to analyze than this, and
 I plan to 
 in later blog posts. However, I think the results from this first bit of analysis
-are interesting. The haskell implementation took the least amount of time, followed
-by ruby, followed by C. C took so long because it takes a while to deal with memory 
+are interesting. The Haskell implementation took the least amount of time, followed
+by Ruby, followed by C. C took so long because it takes a while to deal with memory 
 management and strings as arrays, and Haskell took so short because it made 
 heavy use of the inherent recursive nature of the data structure, something that 
-haskell handles very well.
+Haskell handles very well. 
+
+## Appendix A: Futurie Analysis
 
 If you're interested to see these implementations compared on the following 
 dimensions, please follow me on [LinkedIn](https://www.linkedin.com/in/russell-waterhouse-a4b1351a2)
@@ -639,6 +641,17 @@ where I post all of my blog posts.
 - Maintenance/Extensibility
 - Safety/Security
 - Tooling
+- Paradigm
 
 I plan on analyzing all of these dimensions soon.
+I'm excited to see if the Haskell implementation uses as much memory as I think
+it will.
+
+
+## Appendix B: Further Improvements
+
+I plan on redoing these implementations later next year, tracking my time
+as I do. I want hard numbers for exactly how long things take. I think 
+that even though I don't know all the languages equally well, there might be 
+large trends in that data worth discussing.
 
