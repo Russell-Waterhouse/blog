@@ -87,6 +87,7 @@ Unfortunately, this one might require some hand waving to nail down, but stick
 with me.
 
 I define maintainable to be the following: 
+
 ```
 A competent Junior Engineer, familiar with data structures and algorithms, but unfamiliar
 with your language, framework, libraries used, and code base, should be able to get set up and 
@@ -120,6 +121,42 @@ app depends on be here next year? Next 5 years? Next Decade?"
 
 ### 4. It is as Secure as Possible
 
+I hear you say "Yeah right, my little app with 10 users and no payment processing
+needs fort knox security. This is just more dogma from the cult of security"
+
+And if you are thinking this, you are the one that needs to hear this the most.
+
+Many of today's most sophisticated attacks leverage services that shouldn't have
+needed to be secure. 
+
+Microsoft just got hacked because some key material ended
+up in a debug log that ended up being in the corporate network TODO: CITE. 
+
+LastPass got hacked because an engineer left an unpatched media server on their
+home network. 
+
+Almost everyone running onPrem exchange server got a webshell dropped on their
+machine.
+
+Cybersecurity isn't just about the data that your service handles, it's also
+about all of the data adjacent to your service now and in the future.
+
+Now I'm not saying to bankrupt yourself taking security to an 11 out of 10, 
+but take some common-sense mitigations to cyber threats. A good place to 
+start is the following:
+
+1. If you are releasing a new service, get someone familiar with that security
+domain to look at it closely.  That could be a security audit for your code, 
+a review of your IAM policies. 
+
+2. If you're building a service that uses authentication, make sure that you offer
+2FA to your customers. 
+
+3. If you're using third party libraries, get versions that are being maintained,
+so that when there is a vulnerability discovered in one, you can easily update 
+to a patched version (think log4j)
+
+
 ### 5. It is Performant as Necessary
 
 Some code needs to be performant, and some does not. Most exists somewhere in 
@@ -140,7 +177,8 @@ here is what DOES produce some good code.
 I have recently found that any time I find myself annoyed, I will do refactoring
 until I'm no longer annoyed, then I will implement my feature or fix my bug. 
 This means that I am usually working in something that I understand and find 
-agreeable.
+agreeable. It also means that the more something annoys me, the bigger the 
+refactoring will be.
 
 For bigger refactorings, I'll usually ask my team first. A simple
 "Hey this module has been bugging me, I'm thinking about refactoring it to X instead
@@ -156,8 +194,34 @@ For little refactorings, just do it.
 // TODO: 
 
 ### Unit Test Pure Logic
+If my code has some pure logic in it, and the logic is complex enough that I'm
+not sure I can write it correctly the first time, I'll extract the pure 
+logic out into its own function and unit test it until I'm satisfied I've gotten
+it correctly.
 
 ### Have a Good Local Testing Environment
+A good development environment is worth its weight in gold. If you've gotten 
+to a point where you need to deploy to staging to test your changes, you're 
+in trouble and should stop and carefully reconsider the decisions you've made.
+
+
+### Get Your Code Reviewed
+You know the old joke "4 out of 5 developers enjoy code review" TODO: Insert
+meme here.
+
+I do. Code review can be great, or it can be terrible, and it is largely out of
+your hands. Bike shedding TODO CITE is real and kills morale. 
+
+Don't do it, and more importantly, don't tolerate it. 
+
+Because code review is actually very important, and it's one of the fastest
+ways to learn things and one of the most efficient ways to pass on all that
+knowledge that is in people's heads but isn't documented. 
+
+If you're dealing with a lot of bikeshedding, you might want to limit PR's to
+being done during scrum. Yes, it breaks the traditional "standup", but it's a
+really great way to make sure that nobody has the time to get into
+bike-shedding territory. 
 
 ## What Produces 'Bad Code'
 
