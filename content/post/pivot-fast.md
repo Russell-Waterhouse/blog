@@ -19,19 +19,20 @@ formalize my thoughts on.
 
 ## What is Pivoting Fast?
 
-I'm not sure if there's another name for it elsewhere, but I call it pivoting 
-fast.  Pivoting fast is the idea that as soon as you get an indicator that 
-you're taking the wrong approach to a problem, pivot to a different approach.
+I don't claim to be coining a term, as a quick google search will show tons of
+other advice on the topic, however I do claim to have made this discovery
+independently. Pivoting fast is the idea that as soon as you get an indicator
+that you're taking the wrong approach to a problem, pivot to a different
+approach.
 
-That's a little vague, so let me try to clarify with an example. 
-Say you're working on a 
-new feature for your software, and you're unsure if you should take approach A
-or approach B. They both seem about equally well suited to your use case on
-paper, and both approaches are about equally popular.
+That's a little vague, so let me try to clarify with an example. Say you're
+working on a new feature for your software, and you're unsure if you should
+take approach A or approach B. They both seem about equally well suited to your
+use case on paper, and both approaches are about equally popular.
 
-Eventually, you make a decision and try it. An hour in, you find yourself 
-frustrated with the workflow and ergonomics of the solution, so you 
-go back and try approach B.  That's fast pivoting.
+Eventually, you make a decision and try it. An hour in, you find yourself
+frustrated with the workflow and ergonomics of the solution, so you go back and
+try approach B.  That's fast pivoting.
 
 The quicker that you make the decision, the faster the pivot. If you can make
 that decision after a half hour, even better.
@@ -99,6 +100,16 @@ This creates technical debt, and there are 2 ways around that.
 2. Default on the debt and re-write the whole thing, usually creating 
 about as much tech debt as you had previously in the process.
 
+Neither one is good, and both are painful in the long term. If the creation 
+of technical debt has a reasonable chance of creating more developer hours 
+than it will take to fix, then it should probably be done. Usually this means
+that your technical debt will result in so much more company revenue that they'll
+be able to hire more developers. It can sometimes mean that your technical debt
+is replacing something that was even worse. That's refinancing debt, and 
+makes sense. As far as I can see, all other technical debt is bad debt. The
+monetary example would be going into debt to buy a sewing machine to start 
+your own clothing business vs. going into debt to buy a second sports car.
+One of these is good debt, and the other is bad debt, and should be avoided.
 
 ## When Not to Pivot Fast
 
@@ -113,12 +124,14 @@ changing, pivots should be made carefully and with great consideration.
 You may in fact commit to never changing that version of your product, 
 and instead doing a new realease with any changes. 
 
+While costly, it allows you to not break backwards compatability while still
+growing and adapting and pivoting.
 
 ## Conclusion
 
 Unless you're working on very stable software, try to pivot faster, just this
 week. You may be surprised at how much you like it and how good for your workflow
 it is. It will mean abandoning approaches faster, and it may feel like you're 
-wasting time trying more things, but you're not going to be a slave to that
-sunk cost fallacy, right?
+wasting time trying more things, but you're far too clever to be caught in a 
+sunk cost fallacy like those feelings, right?
 
