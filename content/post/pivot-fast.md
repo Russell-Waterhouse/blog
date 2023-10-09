@@ -13,7 +13,7 @@ draft: false
 
 
 In this article I'm going to be reflection on something that I've 
-experienced a few times over the last few weeks and I want to 
+experienced a few times over the last few weeks, and I want to 
 formalize my thoughts on.
 
 
@@ -32,7 +32,7 @@ use case on paper, and both approaches are about equally popular.
 
 Eventually, you make a decision and try it. An hour in, you find yourself
 frustrated with the workflow and ergonomics of the solution, so you go back and
-try approach B.  That's fast pivoting.
+try approach B. That's fast pivoting.
 
 The quicker that you make the decision, the faster the pivot. If you can make
 that decision after a half hour, even better.
@@ -75,6 +75,27 @@ extremely quickly based on feedback from the markets.
 
 All of these are great places to commit to pivoting fast. 
 
+## How to Pivot Fast
+
+To pivot fast, you'll need 2 things.
+
+1. You'll need alternative options to pivot to.
+2. You'll need to know when something is going wrong.
+
+The process looks something like this.
+
+1. Define the problem that you're working on.
+2. Define several solutions to the problem.
+3. Pick a solution and try it out.
+4. After a short amount of time, stop and ask yourself if you still 
+think this is the right approach. If the answer is anything other than 
+"Absolutely, yes", pivot and try another approach.
+
+The more feedback you can make this decision with, the better.
+In almost all situations, it's better to be doing the right thing poorly 
+than to be doing the incorrect thing well. In this sense, pivoting to the 
+right thing quickly is one of the most important things you can do.
+
 
 ## Why to Pivot Fast
 
@@ -92,7 +113,7 @@ the wrong approach in some way. Are you going to re-write it, or are you going
 to ship it? Of course you're going to ship it! It works, after all, and you're
 not going to get to the rest of your backlog if you take forever on this one
 ticket. There are features to build and security vulnerabilities to patch 
-and paypal just dropped API support for one of your critical payment paths, 
+and PayPal just dropped API support for one of your critical payment paths, 
 so of course you ship instead. 
 
 This creates technical debt, and there are 2 ways around that. 
@@ -113,18 +134,18 @@ One of these is good debt, and the other is bad debt, and should be avoided.
 
 ## When Not to Pivot Fast
 
-Now, pivoting fast is a good thing in many many situations. 
-However, there is one that it would be a disasterous mistake: when 
-people depend on you not pivoting. If you make banking software, people
+Now, pivoting fast is a good thing in many situations. 
+However, there is one that it would be a disastrous mistake: when 
+people depend on stability, not pivoting. If you make banking software, people
 are counting on you not changing your mortgage calculating software radically.
 
-With this kind of softwore, where someone else's workflow depends on you not
+With this kind of software, where someone else's workflow depends on you not
 changing, pivots should be made carefully and with great consideration. 
 
 You may in fact commit to never changing that version of your product, 
-and instead doing a new realease with any changes. 
+and instead doing a new release with any changes. 
 
-While costly, it allows you to not break backwards compatability while still
+While costly, it allows you to not break backwards compatibility while still
 growing and adapting and pivoting.
 
 ## Conclusion
