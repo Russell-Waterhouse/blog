@@ -9,6 +9,8 @@ draft: False
 
 # Haskell Tutoriall Part 2
 
+![](/post/images/haskell-pt-2.png)
+
 In this part 2 of our Haskell tutorial, I'm going to show you how to install
 Haskell from scratch on your computer. 
 
@@ -63,18 +65,18 @@ chmod +x ghcup-installer.sh && ./ghcup-installer.sh
 Now that you've got ghcup installed, run the terminal user interface (tui) 
 with the following command:
 
-```
+```bash
 ghcup tui
 ```
 
 
 You'll be greeted by something like this: 
 
-TODO: Insert picture here
+![](/post/images/ghcup.png)
 
 
 We're going to install the most recent versions of things by scrolling
-to the version of everything that we want and pressing the i key (i for install)
+to the version of everything that we want and pressing the `i` key (i for install)
 
 Each install will take a few minutes, so grab a coffee and a few good songs and
 enjoy.
