@@ -3,7 +3,7 @@ title: "Ruby Parameter Passing: A Quick Reference"
 author: "Russell Waterhouse"
 description: "A quick reference about ruby's many ways to pass arguments to functions"
 tags: ["ruby"]
-date: 2023-09-15T10:26:05-07:00
+date: 2023-11-01T10:26:05-07:00
 draft: false
 ---
 
