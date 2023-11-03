@@ -8,6 +8,11 @@ draft: false
 ---
 
 # Ruby Variables: A Quick Reference
+
+
+![](/post/images/ruby-small.png)
+
+
 This is meant to be a quick reference to bookmark if you don't work on Ruby 
 code all that often, it's not meant to be a deep dive into the language
 
