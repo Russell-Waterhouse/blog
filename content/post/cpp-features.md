@@ -187,11 +187,11 @@ All I did was throw it in a table and exclude arrays because why would I use
 one of those while learning C++ when Vectors Exist?  
 | Data Structure | #include Library | Quick Explanation | 
 | -------------- | ---------------- | ----------------- |
-| Vecor          | #include <vector> | Dynamically sized arrays | 
-| Stacks         | #include <stack> | Stacks            |
-| Queues         | #include <queue> | Queues            | 
-| Sets           | #include <set>   | Set               |
-| Hash Map       | #include map     | Key Value Pairs   | 
+| Vecor          | #include \<vector> | Dynamically sized arrays | 
+| Stacks         | #include \<stack> | Stacks            |
+| Queues         | #include \<queue> | Queues            | 
+| Sets           | #include \<set>  | Set               |
+| Hash Map       | #include \<map>  | Key Value Pairs   | 
 
 ## Structs
 These should be used when you have simple data and don't want the features that
