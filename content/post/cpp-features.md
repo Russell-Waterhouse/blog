@@ -74,7 +74,7 @@ true || false // logical OR
 
 ## NULL 
 - `NULL` is a macro for null pointers (pointers that point nowhere). 
-- `nullptr` is the ponter literal which specifies a null pointer value (introduced
+- `nullptr` is the pointer literal which specifies a null pointer value (introduced
 in C++11).  
 - `void` is a keyword that represents a lack of type or empty type.
 
@@ -230,25 +230,188 @@ enum class WeekDay {
 ```
 
 ## Functions
+Functions take parameters and return values. Default is pass by value.
+```cpp
+int printInt(int i) {
+    //i is a copy of whatever was passed in
+    std::cout << i << std::endl;
+    return 0;
+}
 
+int printReference(int& j) {
+    // j is a reference to the original variable
+    // modifying j would also modify the original variable
+    std::cout << j << std::endl;
+    return 0;
+}
 
-## Exceptions and Error Handling
+int main() {
+    int x {99};
+    int& y {x};
+    printInt(x);
+    printReference(y);
+    return 0;
+}
+```
+
+## Error Handling
+C++ is a really fun language, it has both c-style segfaults and java-style 
+exception handling.
+
+### Throwing Exceptions
+```cpp
+#include <iostream>
+#include <stdexcept>
+
+int main() {
+    throw std::runtime_error("This is a runtime error");
+    return -1;
+}
+```
+
+### Catching Exceptions
+```cpp
+#include <iostream>
+#include <stdexcept>
+
+int main() {
+    try {
+        throw std::runtime_error("This is a runtime error");
+    } catch (const std::exception& e) {
+        std::cerr << "Caught exception: " << e.what() << std::endl;
+    }
+
+    return 0;
+}
+```
+
+### Debugging Segfaults
+1. Compile your program with debug information (the `-g` flag)
+2. Run your program with gdb (`gdb ./program_name`)
+3. Examine the output. Example: 
+
+Program that could segfault in several places: 
+```cpp
+// DON'T WRITE ANY CODE LIKE THIS, 
+// IT'S LITERALLY ALL UNSAFE
+#include <iostream>
+#include <vector>
+
+int& CreateSegfault() {
+    int x = 4;
+    int& y = {x};
+    return y;
+}
+
+int main() {
+    int& a = CreateSegfault();
+    int b = 99;
+    int c = a + b;
+    a++;
+    c++;
+
+    std::vector<int> j = {1, 2, 3};
+    int& k = j.at(1);
+    j.clear();
+    k++;
+
+    int& m = *(int*)NULL;
+    m++;
+    return 0;
+}
+```
+As an aside, isn't it crazy that on my machine that compiles without any warnings?  
+I think that if C++ cannot fix that, Rust will win eventually. 
+I also think that eventually is probably 10 years away.
+
+Output when run: 
+```cpp
+./segfault
+Segmentation fault (core dumped)
+```
+
+GDB output: 
+```bash
+gdb ./segfault
+GNU gdb (GDB) Fedora Linux 13.2-6.fc38
+Copyright (C) 2023 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+Type "show copying" and "show warranty" for details.
+This GDB was configured as "x86_64-redhat-linux-gnu".
+Type "show configuration" for configuration details.
+For bug reporting instructions, please see:
+<https://www.gnu.org/software/gdb/bugs/>.
+Find the GDB manual and other documentation resources online at:
+    <http://www.gnu.org/software/gdb/documentation/>.
+
+For help, type "help".
+Type "apropos word" to search for commands related to "word"...
+Reading symbols from ./segfault...
+(gdb) run
+Starting program: /home/russ/repos/programming-tools/tools/debuggers/gdb/segfault
+
+This GDB supports auto-downloading debuginfo from the following URLs:
+  <https://debuginfod.fedoraproject.org/>
+Enable debuginfod for this session? (y or [n]) n
+Debuginfod has been disabled.
+To make this setting permanent, add 'set debuginfod enabled off' to .gdbinit.
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib64/libthread_db.so.1".
+
+Program received signal SIGSEGV, Segmentation fault.
+0x000000000040129b in main () at segfaults.cc:23
+23          m++;
+```
+
+We can see clearly here that we crash on line 23 when incrementing the `m` 
+variable.
+
+### Preventing Errors
+These aren't anything that C++ enforces, I'm just going to quickly describe a 
+holistic approach I'm taking here to make sure that I limit the number of
+errors that I create. 
+- Use smart pointers or references instead of raw pointers.
+- Returning std::optional<> when I might return a value.
+- Limit the use of NULL, void, and null_ptr.
+- Avoid macros.
+- Return status codes from functions that might have problems instead of throwing exceptions.
+- Not doing any weird typecasting, have safe functions for converting types.
+- Using for-each loops when iterating through a data structure.
+- generous use of `const` and only mutating data when necessary.
+- Keep things as simple as possible.
+
+I do the above to limit the following class of bugs: 
+- Memory related problems(segfaults, memory leaks, use after free, etc.).
+- NullPointerException.
+- Macro confusion.
+- Typecasting errors
+- Off by 1 errors
+- Side effect errors (Haskell programmers know what I'm talking about)
 
 ## Classes
 Classic object oriented programming stuff here. 
 ```cpp
-class Car {
-    string brand;
-    string model;
-    int year;
-
-    void drive() {
-        std::cout << "vrooooom" << std::endl;
-    }
-}
 ```
 
 ## Objects
+There are a few ways to create objects. 
+
+### Stack Allocated Objects (Autumatically Managed)
+Do this when at all possible.
+```cpp
+
+```
+
+### Heap Allocated Objects (Manually Managed)
+You probably don't want to do this, see the section on smart pointers
+below. 
+That being said, here's how you would if you wanted to. 
+```cpp
+
+```
+
 
 ## Instance Variables
 
