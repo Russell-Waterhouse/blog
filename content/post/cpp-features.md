@@ -437,6 +437,14 @@ I'm not going to define macros. You probably shouldn't either.
 ## Modules
 
 ## Program Arguments
+In C++, you access program arguments the same way that you do in C. 
+
+Your main function gets an `int argc` and a `char* argv[]`.
+These c-style string arguments can be converted to C++ strings 
+by doing the following: 
+```cpp
+std::string arg = argv[index];
+```
 
 ## Program IO
 Input from a user (stdin)
@@ -454,7 +462,7 @@ std::cout << "The user said: " << s << std::endl;
 
 ## Concurrency
 In the world of C++ concurrency, you really have 2 options: Threads and 
-Coroutines.  Coroutines were introduced in C++20 and Threads are a classic. 
+Coroutines. Coroutines were introduced in C++20 and Threads are a classic. 
 Use whatever you're more familiar with, and if you're unfamiliar with concurrency, 
 I recommend coroutines. I'll probably use threads because I'm more familiar with
 them, but I might learn coroutines for fun.
@@ -479,16 +487,66 @@ In order, the arguments mean the following:
 - -o name for the output file, default is `a.out`
 
 ## Debugger
+For a debugger, I don't think I can do better than GDB, the GNU Debugger.
+I'll be using that while learning C++.
 
 ## Language Server
+For a language server, I'm going to be using 
+[clangd](https://clangd.llvm.org/)
+
+In the little experiments I've been doing while writing this blog post, it's
+been more than sufficient for my needs. 
 
 ## Test Framework
+I'll probably be using gtest, Google's C++ testing framework.
+Here's an example gpt generated about using it: 
+```cpp
+#include <gtest/gtest.h>
+
+int add(int a, int b) {
+    return a + b;
+}
+
+TEST(AdditionTest, HandlesPositiveInput) {
+    EXPECT_EQ(3, add(1, 2));
+}
+
+TEST(AdditionTest, HandlesNegativeInput) {
+    EXPECT_EQ(-1, add(-1, 0));
+}
+
+// More tests...
+
+```
+Finally, compile your main file with gtest linked, run your code, and watch
+the tests pass. 
+```cpp
+#include <gtest/gtest.h>
+
+// ... (your test cases)
+
+int main(int argc, char **argv) {
+    ::testing::InitGoogleTest(&argc, argv);
+    return RUN_ALL_TESTS();
+}
+```
 
 ## Package Manager
 There are many C++ Packages, but I'll be using the most popular, which 
 is [Conan](https://conan.io/).
 
-## Packages
+I'll be using 
+[this tutorial by ForgottenUmbrella on GitHub](https://gist.github.com/ForgottenUmbrella/0f32f6446b2948a3a5a99687b264910d)
+to set it up and get using it
 
+## Packages
+I'm not going to list every popular package on Conan's center, but I will 
+highlight a few that I might use very soon. 
+- OpenSSL: Needs no introduction
+- fmt: A safe and fast alternative to printf and IOStreams
+- gtest: Google's C++ testing framework
+- nlohmann_json: C++ json parser
+- spdlog: C++ Logging library
+- libbacktrace: Can be linked into a C++ program to produce symbolic backtraces.
 
 
