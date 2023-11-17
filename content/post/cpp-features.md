@@ -460,20 +460,6 @@ std::cout << "The user said: " << s << std::endl;
 
 ## Functions
 
-## Concurrency
-In the world of C++ concurrency, you really have 2 options: Threads and 
-Coroutines. Coroutines were introduced in C++20 and Threads are a classic. 
-Use whatever you're more familiar with, and if you're unfamiliar with concurrency, 
-I recommend coroutines. I'll probably use threads because I'm more familiar with
-them, but I might learn coroutines for fun.
-
-I'll do a brief overview of the two methods below, but like everything else 
-in this post, don't mistake it for a full turorial. 
-
-### Coroutines
-
-### Threads
-
 ## Compiler
 There are many C++ compilers, but I'll be using g++ because it's already on
 my machine (Fedora 38 at the time of writing).    
