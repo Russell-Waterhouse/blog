@@ -393,6 +393,21 @@ I do the above to limit the following class of bugs:
 ## Classes
 Classic object oriented programming stuff here. 
 ```cpp
+class Vehicle{
+public: 
+    Vehicle(String name){
+        //constructor things
+    }
+    ~Vehicle() {
+        //destructor things
+    }
+
+private: 
+    void funny() {
+        std::cout << "beep boop";
+    }
+}
+
 ```
 
 ## Objects
@@ -401,7 +416,12 @@ There are a few ways to create objects.
 ### Stack Allocated Objects (Autumatically Managed)
 Do this when at all possible.
 ```cpp
-
+#include <vector>
+#include <memory>
+int main(){
+    Vector<int> v {10, 20, 30};
+    int i = 10;
+}
 ```
 
 ### Heap Allocated Objects (Manually Managed)
@@ -409,9 +429,14 @@ You probably don't want to do this, see the section on smart pointers
 below. 
 That being said, here's how you would if you wanted to. 
 ```cpp
-
+#include <vector>
+#include <memory>
+int main(){
+    unique_ptr<Vector<int>> V = std::make_unique();
+    unique_ptr<int> V = std::make_unique();
+    shared_ptr<String> = std::make_shared();
+}
 ```
-
 
 ## Instance Variables
 
