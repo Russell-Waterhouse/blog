@@ -456,6 +456,76 @@ Don't use those, use References or Smart Pointers.
 
 ## Smart Pointers
 
+### Unique Pointers
+Unique pointers are the sole owner of their data, and when they go out of scope
+they 
+Initialization, freeing, moving
+
+```cpp
+#include <stdmemory>
+
+int main() {
+    std::unique_ptr<int> foo = std::make_unique(1);
+    std::unique_ptr<int> bar = std::make_unique(2);
+
+    foo = std::move(bar); // 1 is freed, bar is now a nullptr, foo points to 2
+    std::unique_ptr<int> baz = std::unique_ptr<int>(std::move(foo)); // foo is nullptr, baz points to 2
+    baz.reset(); // baz is nullptr, 2 is freed.
+    return 0;
+    // No matter what happened before, whether there was exceptions or not,
+    // when foo and bar go out of scope, both 1 and 2 will have been freed.
+}
+```
+Of note, there is no `copy`, so in the example above you couldn't have called
+```cpp
+foo = bar;
+```
+That simply wouldn't compile.
+
+### Shared Pointers
+Shared pointers are pointers to a shared object, tracked through reference 
+counting. When the reference counter reaches 0, the memory is freed. 
+
+It has more overhead than unique pointer, so unique pointer should be 
+preferred. 
+
+Initialization, sharing, and resetting:
+
+```cpp
+#include <memory>
+
+int main() {
+    std::shared_ptr<int> foo = std::make_shared<int>(1);
+    std::shared_ptr<int> bar = foo; // Both foo and bar now share ownership of the integer with value 1
+
+    // Modifying shared pointers
+    *foo = 42; // Changes the value to 42 through either foo or bar
+
+    // Resetting shared pointers
+    foo.reset(); // Decrements the reference count; memory is not freed since bar still owns it
+    bar.reset(); // Reference count reaches zero; memory is freed
+
+    return 0;
+    // No matter what happened before, when foo and bar go out of scope,
+    // the dynamically allocated memory will be freed only when the reference count drops to zero.
+}
+```
+
+In the shared pointers example above, both `foo` and `bar` share ownership of the dynamically allocated integer. Changes made through one shared pointer are reflected in the other. Unlike unique pointers, shared pointers support assignment and copying, as demonstrated by the assignment of `bar` to `foo`. The memory is freed only when the last shared pointer pointing to it is reset or goes out of scope.
+
+
+```cpp
+#include <stdmemory>
+
+int main() {
+    std::shared_ptr<int> foo = std::make_shared(1);
+    std::shared_ptr<int> bar = std::make_shared(2);
+
+
+    return 0;
+}
+```
+
 ## Macros
 I'm not going to define macros. You probably shouldn't either.
 
