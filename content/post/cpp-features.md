@@ -7,6 +7,12 @@ date: 2023-11-08T19:16:25-08:00
 draft: false
 ---
 
+# EDIT: 
+I started this blog post in November, then I got sick, and advent of code has started. 
+I'll continue updating this blog post, but for now, I want what's already done
+published more than I want to wait on a complete post. I'll update this 
+with what I need whenever I get the chance in this chaotic month.
+
 # Every C++ Feature You Need to Get Started
 I'm going to be learning C++ during advent of code 2023. 
 In advance of this, I'm going to make a quick reference guide for myself
