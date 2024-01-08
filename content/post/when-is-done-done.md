@@ -3,7 +3,7 @@ title: "When Is Done Actually Done?"
 author: "Russell Waterhouse"
 description: "What is 'good enough', and what is not? I'm going to explore how I draw that line."
 tags: ["softwareengineering", "engineering"]
-date: 2023-11-25T11:34:19-08:00
+date: 2024-01-07T11:34:19-08:00
 draft: false
 ---
 
