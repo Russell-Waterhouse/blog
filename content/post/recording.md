@@ -2,7 +2,7 @@
 title: "What I Learned from Recording my Coding"
 author: "Russell Waterhouse"
 description: "What I've Learned and What I'm Changing"
-tags: ["", ""]
+tags: ["improving"]
 date: 2023-12-13T20:56:50-08:00
 draft: false
 ---
