@@ -9,6 +9,8 @@ draft: false
 
 # What I've Learned from Recording Myself Coding
 
+![](/post/images/podium-win.png)
+
 Recently, I read [this article](https://danluu.com/p95-skill/), 
 talking about how the way to become better, if not one of the best, at
 any skill. I agreed with some of the article, and disagreed with some of the 
