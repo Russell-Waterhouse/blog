@@ -9,6 +9,8 @@ draft: false
 
 # When is Something 'Good Enough'?
 
+![](/post/images/pizzas.png)
+
 I introduced my last blog post with a short story, and I really liked how
 that felt, so I'm going to do that again here. 
 
