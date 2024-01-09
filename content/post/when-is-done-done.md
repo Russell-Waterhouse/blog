@@ -40,7 +40,7 @@ Imagine that you've somehow managed to convince the King of England to come to
 your place for dinner. If it goes well, you're going to get a position as one 
 of his aides. It's a good position that pays millions of dollars a year 
 (remember, I said imagine). You've known that this dinner is happening for 
-3 months, and you've had all of that time to prepare. What do you serve the King
+3 months, and you've had all that time to prepare. What do you serve the King
 of England? 
 
 - A) That freezer pizza you keep for just such an emergency? 
@@ -51,15 +51,15 @@ Of course you do up the pork roast. The King would not be impressed with freezer
 pizza, no matter how catchy the commercial jingle was. 
 
 Sure, you could have done "Better". Freezer pizza is so much Cheaper!
-And Faster! And Easier!
+And faster! And Easier!
 
 ## The Question: Resource Allocation
-There are several questions here, and I'll try to boil them down.  
+There are several questions here, and I'll try to boil them down.
 
-What is considered "Good Enough"?  
-What is considered "Better"?  
-What is considered "Too Costly to Implement"?  
-What is considered "Too Costly to Do Wrong"
+What is considered "Good Enough"?
+What is considered "Better"?
+What is considered "Too Costly to Implement"?
+What is considered "Too Costly to Do Wrong"?
 
 Usually, when I'm working with this problem day-to-day, the question looks 
 something like this:
@@ -70,7 +70,7 @@ That's the question of Resource Allocation and Prioritization.
 
 So how do we effectively allocate resources, and more importantly, how do we formalize it in a
 way that we can explain others. Throughout my career, nobody has explicitly told me this,
-and often times just yelled at me when I got it wrong. I hope to prevent that from befalling
+and often just yelled at me when I got it wrong. I hope to prevent that from befalling
 any other new engineer in the workforce.
 
 The answer is simple, and the answer, like always, is that of cost.
@@ -108,7 +108,7 @@ your health, assuming that you don't eat a freezer pizza very often.
 
 What's the cost of delay of the freezer pizza? Well, let's assume that if you don't get a good night of 
 sleep, you'll be in a worse mood, putting you at a 5% chance of getting fired and a 35% chance of quitting. 
-All of a sudden, the cost of not doing that freezer pizza became 40% of your salary (Yes I know that both my 
+Suddenly, the cost of not doing that freezer pizza became 40% of your salary (Yes, I know that both my 
 math is wrong AND that this is a little ridiculous, but the point still stands.) 
 This freezer pizza is DEFINITELY worth doing. 
 
@@ -141,7 +141,7 @@ Again, the cost of delay metric gives us the same solution as our gut did: we sh
 that big cheque!
 
 ### A More Realistic Scenario
-"But Russell!" I hear you screaming, "Those scenarios are ridiculous and you just made them up to serve a point and to look good!"
+"But Russell!" I hear you screaming, "Those scenarios are ridiculous, and you just made them up to serve a point and to look good!"
 
 And to that I say "Yes, yes I did."
 
@@ -151,7 +151,7 @@ that you might come across in your day job as a developer.
 Say there's a ticket that says that for a small portion of my user base, say ~3%, my service is producing 
 corrupted files that cannot be read correctly.
 
-Let's say I was given this hypothetical ticket. I diagnose the problem fairly quickly, and produce a patch 
+Let's say I was given this hypothetical ticket. I diagnose the problem quickly, and produce a patch 
 that appears to fix the problem.
 
 Now, I have some decisions to make.
@@ -165,12 +165,12 @@ How much time should I spend doing manual QA of this code?
 Let's break down the costs and the cost of delay!
 
 Remember, this is a patch that appears to work for a bug that is active in production systems and affecting a small subset of our users.
-Also, let's say this is a fairly surgical patch, ~6 lines of code or so. Not a big change.
+Also, let's say this is a surgical patch, ~6 lines of code or so. Not a big change.
 
 The cost of adding comments to code before shipping is nonzero, but the cost of delay is zero. Those comments can be added 
 after we have shipped and fixed the problem in production. I don't believe in that "if you don't do it right away you won't ever
 do it" line. I go back and add comments to code that I worked on that was urgent afterwards. If you're not disciplined enough to 
-actually follow through with that, maybe you would do this math differently. 
+follow through with that, maybe you would do this math differently. 
 
 Thus, I add the comments in a separate PR that I do after the patch was live in production systems.
 It is much the same story with the documentation.
