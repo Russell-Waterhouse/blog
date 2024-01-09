@@ -37,6 +37,7 @@ Sure, you could have done "Better." You could have had the home-cooked meal with
 vegetables, homemade salad dressing, a little red meat to keep your iron up, and
 some dessert for the soul. It would be healthier and tastier!
 
+
 ### Story 2: Royalty Visits
 Imagine that you've somehow managed to convince the King of England to come to
 your place for dinner. If it goes well, you're going to get a position as one 
@@ -55,12 +56,16 @@ pizza, no matter how catchy the commercial jingle was.
 Sure, you could have done "Better". Freezer pizza is so much Cheaper!
 And faster! And Easier!
 
+
 ## The Question: Resource Allocation
 There are several questions here, and I'll try to boil them down.
 
 What is considered "Good Enough"?
+
 What is considered "Better"?
+
 What is considered "Too Costly to Implement"?
+
 What is considered "Too Costly to Do Wrong"?
 
 Usually, when I'm working with this problem day-to-day, the question looks 
@@ -77,6 +82,7 @@ any other new engineer in the workforce.
 
 The answer is simple, and the answer, like always, is that of cost.
 
+
 ## What is the Cost of Delay
 I'm going to introduce you, dear reader, to the concept of "Cost of Delay".
 Cost of delay is simple to understand, but widely applicable. Cost of Delay is
@@ -85,7 +91,7 @@ simply the cost that the organization occurs to NOT do something this week.
 If the cost of not doing something is zero, then we probably shouldn't put a lot of
 resources into doing it. If the cost of not doing something is millions of dollars,
 then we should probably do it, and do it before anything that only costs us hundreds of
-dollars to not do.
+dollars to delay.
 
 Now you might be wondering why we calculate the cost of delay instead of the expected net present
 value or something like that. The answer is simple: things that we must do for compliance, or to keep
@@ -93,6 +99,8 @@ customers from leaving, have a low expected net present value, but have a massiv
 considered. For example, doing a lot of QA on a new feature that you're building to make sure that you've
 not introduced any regressions has a very low expected value, but it prevents customers from leaving your
 service because they think that it's unstable.
+
+When paired with the expected cost of a project, we get a very clean way to prioritize tasks.
 
 Now, let's apply this to the scenario that I've laid out above.
 
