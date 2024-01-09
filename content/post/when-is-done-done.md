@@ -118,7 +118,7 @@ The cost of doing a really good meal is, say, $100 and your time to prepare it, 
 The cost of delay is pretty much zero. There is no meaningful reason that we should put that much effort into
 this meal that we wouldn't get by putting that much effort into a meal next week.
 
-So we conclude the same as our gut told us when using the cost of delay: we should eat the freezer pizza.
+So, we conclude the same as our gut told us when using the cost of delay: we should eat the freezer pizza.
 
 
 ### Story 2: Royalty Visits
@@ -137,7 +137,7 @@ to give you that position, the expected cost of 10% of millions of dollars in sa
 Make that meal!
 
 
-Again, the cost of delay metric gives us the same solution as our gut did: we should make that big meal and get 
+Again, the cost of delay metric gives us the same solution as our gut did: we should make that big meal and get
 that big cheque!
 
 ### A More Realistic Scenario
@@ -145,20 +145,16 @@ that big cheque!
 
 And to that I say "Yes, yes I did."
 
-But I understand that you want something more realistic, so let me walk you through a scenario that 
-I came across in my day job as a developer at Leanpub. 
+But I understand that you want something more realistic, so let me walk you through a scenario 
+that you might come across in your day job as a developer.
 
-Note, I have omitted most of the precise details of this story out of respect for my employer, Leanpub, and their authors, readers, and employees.
-For context, I'm something of a glue engineer at Leanpub and work with several teams and projects, ensuring that things
-work together smoothly for our customers. 
+Say there's a ticket that says that for a small portion of my user base, say ~3%, my service is producing 
+corrupted files that cannot be read correctly.
 
-At times I will be working with the book generation team, who is responsible for taking manuscripts written by our authors
-and turning those into PDF and EPUB books that our readers will love.
+Let's say I was given this hypothetical ticket. I diagnose the problem fairly quickly, and produce a patch 
+that appears to fix the problem.
 
-We had an issue in our book generation software that was causing some of our EPUB files to be formatted incorrectly.
-I was given the ticket. I diagnosed the problem fairly quickly, and produced a patch that appeared to fix the problem.
-
-Now, I had some decisions to make.
+Now, I have some decisions to make.
 
 How much time should I spend adding comments to this code?
 
@@ -169,20 +165,20 @@ How much time should I spend doing manual QA of this code?
 Let's break down the costs and the cost of delay!
 
 Remember, this is a patch that appears to work for a bug that is active in production systems and affecting a small subset of our users.
-Also, you should know that this was a fairly surgical patch, ~6 lines of code or so. Not a big change.
+Also, let's say this is a fairly surgical patch, ~6 lines of code or so. Not a big change.
 
 The cost of adding comments to code before shipping is nonzero, but the cost of delay is zero. Those comments can be added 
 after we have shipped and fixed the problem in production. I don't believe in that "if you don't do it right away you won't ever
 do it" line. I go back and add comments to code that I worked on that was urgent afterwards. If you're not disciplined enough to 
 actually follow through with that, maybe you would do this math differently. 
 
-Thus, I added the comments in a separate PR that I did after the patch was live in production systems.
-It was much the same story with the documentation.
+Thus, I add the comments in a separate PR that I do after the patch was live in production systems.
+It is much the same story with the documentation.
 
 Next, manual QA. The cost of doing enough manual QA such that I was reasonably confident that we aren't breaking things worse
-turned out to be about an hour of my time with this patch. As a side note, while we do have automated tests that run in our deploy pipeline,
+is about an hour of my time with this patch. As a side note, while we do have automated tests that run in our deploy pipeline,
 I have yet to work at a company where the automated tests caught 100% of all bugs that would have reached users, and thus consider
-a good round of manual QA by the developer to be a professional standard. However the cost of not doing that QA pass could have
+a good round of manual QA by the developer to be a professional standard. However, the cost of not doing that QA pass could have
 been releasing bigger and worse bugs to our users, and the cost of that could have been incredible amounts of lost revenue from
 angry users leaving our platform.
 
