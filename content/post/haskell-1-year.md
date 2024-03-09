@@ -283,7 +283,7 @@ functionD items = let
 ```
 
 
-## Fearless Concurrency
+### Fearless Concurrency
 
 I haven't done any concurrency, but I think that's noteworthy and I want to
 talk about it for a second. Most of the programs that we write take some data
@@ -304,7 +304,7 @@ So, maybe Haskell has a great concurrency experience, and maybe it has a
 terrible one, but I think the fact that I have no idea after a year of shipping
 it tells us that the answer probably doesn't matter as much as is advertised.
 
-## Testability
+### Testability
 
 I haven't really found Haskell to be more testable than any other language. I
 can write a mess of code in the IO monad that's totally testable, or I can
@@ -312,7 +312,7 @@ break business logic out into discrete functions that are easily tested. Same
 way I can in Ruby or Java or Python or Rust or C or Kotlin. You get the point.
 
 
-## The Ecosystem and Developer Experience
+### The Ecosystem and Developer Experience
 
 The LSP is good, not great. I occasionally see errors highlighted that aren't
 actually errors, but more often than not it's working, which is more than I can
@@ -327,7 +327,7 @@ that I actually need to debug, it's usually just quicker to throw in 3 print
 statements and recompile and run on the actual test data that's giving me
 issues.
 
-## Lazy Evaluation
+### Lazy Evaluation
 
 It makes print debugging slightly more difficult. Instead of doing this:
 
