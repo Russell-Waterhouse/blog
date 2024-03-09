@@ -40,8 +40,8 @@ Code](https://www.amazon.ca/Clean-Code-Handbook-Software-Craftsmanship/dp/013235
 you read [Head First Design
 Patterns](https://www.amazon.ca/Head-First-Design-Patterns-Brain-Friendly/dp/0596007124/).
 You tried TDD, and learned all the Java Mocking libraries.  And some of it
-helped, for a time.  But nothing seemed to fix the underlying issue, whatever
-that was.
+helped, for a time.  But nothing seemed to fix some underlying issue that you
+can sense, but not articulate.
 
 Nothing seemed to make Java development as good as development should feel.
 
@@ -64,8 +64,8 @@ And boy did I find opinions.
 Here's a short list of opinions I found, and my thoughts on them at the time.
 
 - Remote work was the problem (no, I still liked working remotely in python)
-- You aren't doing TDD right (no, I was following all the classic advice to a
-  T)
+- You aren't doing TDD right (no, I was following all the classic advice
+  diligently)
 - You aren't using enough design patterns (I'm sure I am).
 - You are using too many design patterns (Possible, but not likely. I think
   it's a tasteful amount).
@@ -87,7 +87,8 @@ time.
 
 And then, I found a Goto conference talk about functional programming. It put
 into words a lot of the issues that I had been having, but hadn't been able to
-formalize.
+formalize. I have no idea which one it was, but if you google `Goto conference
+functional programming`, it's probably on the first page of results.
 
 The more I dug into this functional programming idea, the more it seemed like
 the answer to all of my problems. Problems like:
@@ -132,7 +133,8 @@ Haskell. You can read more about it on their website
 
 I think that Haskell is like everything else. Some good, some bad, some parts
 overrated, some parts underrated. It's far more interesting to break it down by
-feature. Here's my thoughts on every noteworthy feature, in no particular order.
+feature. Here's my thoughts on every noteworthy feature and Haskell promise
+that I was sold, in no particular order.
 
 ### The Type System
 
@@ -225,17 +227,20 @@ And a function that does some set of transformations to a list of this data.
 transformData :: [Item] -> [Item]
 transformData inputData = functionC (functionB (functionA inputData))
 
-functionA :: [Item] -> [Item] functionA = undefined
+functionA :: [Item] -> [Item]
+functionA = undefined
 
-functionB :: [Item] -> [Item] functionB = undefined
+functionB :: [Item] -> [Item]
+functionB = undefined
 
-functionC :: [Item] -> [Item] functionC = undefined 
+functionC :: [Item] -> [Item]
+functionC = undefined
 ```
 
 For those of you that know Haskell, you could also do this. 
 
 ```haskell
-transformData :: [Item] -> [Item] 
+transformData :: [Item] -> [Item]
 transformData = functionC . functionB . functionA
 ```
 
@@ -247,52 +252,47 @@ and C get.
 
 Now if you remember, the whole reason that we do the immutability thing in
 Haskell is because we don't want the effects of our changes in one part of the
-program to cause problems in another part. That hasn't been my experience. In
+program to cause problems in another part. That hasn't been my experience.
+
+In
 the exact same pattern as described above, I've caused bugs in function B
-because I changed function A. Maybe if I had previously used a ton of global
-mutable variables, immutability would have been revolutionary for me.
+because I changed function A.
+
+Perhaps if I normally used a ton of global mutable variables, immutability
+would have been revolutionary for me.
 
 So far, the only effect I've really seen is that I now find code like this
 sometimes.
 
-```haskell 
+```haskell
 
 functionD :: [Item] -> [Item]
-functionD xs = let
+functionD xs =
+    let
         xs' = functionA xs
         other1 = functionB xs'
         xs'' = functionC xs'
         other2 = functionD xs''
         xs''' = functionE xs''
     in
-        finalFunction xs''' other1 other2 
+        finalFunction xs''' other1 other2
 ```
 
-With mutability (and better formatting conventions), that could look like this.
-
-```haskell
-functionD :: [Item] -> [Item]
-functionD items = let
-        items = functionA items
-        other1 = functionB items
-        items = functionC
-        items other2 = functionD items
-        items = functionE items
-    in
-        finalFunction items other1 other2
-```
-
+Of course, there are techniques to avoid this pattern, but the immutability
+does tend to push some developers towards this. I'm not judging, I did it while
+I was new. I'm just letting you know that if you work on a Haskell code base,
+you're probably going to find a variable named `xs'''` somewhere.
 
 ### Fearless Concurrency
 
-I haven't done any concurrency, but I think that's noteworthy and I want to
+I haven't done any concurrency, but I think that's noteworthy, and I want to
 talk about it for a second. Most of the programs that we write take some data
 from somewhere, modify it a little, and put it somewhere else.  
 
 That's it.  
 
 And you can make that concurrent at the per-data level, where each input is
-processed concurrently, the way that modern webservers or databases do.
+processed concurrently, the way that modern web servers or databases do.
 
 But for each input, usually the data has to go through transformation A, then
 B, then C, then the result is spit out wherever you're putting data, be that
@@ -327,6 +327,15 @@ that I actually need to debug, it's usually just quicker to throw in 3 print
 statements and recompile and run on the actual test data that's giving me
 issues.
 
+Whoever saw the `String` type in Haskell and said "You know what we need?
+A `Text` Type" will need to answer for their sins. An unpleasant amount
+of my code is just converting between those two data types because some
+functions need `Text` and some need `String`.
+
+Anytime data is put in a closure I immediately find it much harder to debug
+and code trace, but I don't use closures that often, so that is probably
+just a skill issue.
+
 ### Lazy Evaluation
 
 It makes print debugging slightly more difficult. Instead of doing this:
@@ -335,8 +344,8 @@ It makes print debugging slightly more difficult. Instead of doing this:
 func :: [Item] -> [Item]
 func items =
     let foo = functionA items
-    let bar = functionB items
-    let not_evaluated = Debug.trace ("the value of foo is: " <> show foo)
+        bar = functionB items
+        not_evaluated = Debug.trace ("the value of foo is: " <> show foo)
     in
         functionC foo bar
 ```
@@ -347,16 +356,42 @@ You have to do something like this to make sure the trace actually gets evaluate
 func :: [Item] -> [Item]
 func items =
     let foo = functionA items
-    let bar = functionB items
-    let bar' = Debug.trace ("the value of foo is: " <> show foo) bar
+        bar = functionB items
+        bar' = Debug.trace ("the value of foo is: " <> show foo) bar
     in
         functionC foo bar'
 ```
 
-All this to say, Lazy evaluation means almost nothing to me in my day-to-day
+All this to say, lazy evaluation means almost nothing to me in my day-to-day
 development experience.
 
+
+### Resource Usage
+
+I don't buy that idea that Haskell's GHC compiler is always brilliant and
+perfect and actually does mutations under the hood to make sure that no extra
+resources are used. From what little profiling and optimization I've done,
+it sure feels like there is a lot of performance left on the table.
+
+
+### Refactoring
+
+Refactoring in Haskell is nice. It's usually pretty easy to abstract
+bits out into their own functions and modules.
+
 ## My Conclusions
+
+Overall, I think Haskell delivered a little less to me than was advertised.
+I was sold on the idea that my programs are going to do incredible complex
+things with concurrency levels not previously seen to mortal eyes in a way
+that makes refactoring a dream.
+
+A more accurate description is a quirky language with an amazing type system,
+decent developer experience, and almost no job opportunities. Still a good
+language, and I don't regret learning it or using it. However, if anyone on
+the internet is telling you that Haskell, or functional programming in general,
+is the solution to all of your, problems, I think they have fundamentally
+misunderstood your problems.
 
 Overall, I think that Haskell does some things better than any other language
 that I know. However, Pure Functional Programming isn't one of them. For me,
