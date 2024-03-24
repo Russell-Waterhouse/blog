@@ -3,7 +3,7 @@ title: "1 Year With Haskell, Part I"
 author: "Russell Waterhouse"
 description: "My thoughts about the last year of writing production Haskell"
 tags: ["haskell", "functional programming"]
-date: 2024-03-24T16:07:11-08:00
+date: 2024-03-24T14:13:05-07:00
 draft: false
 ---
 
