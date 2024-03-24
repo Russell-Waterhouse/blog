@@ -443,7 +443,6 @@ what I've actually experiences.
 | "If it compiles it's correct" | ✅ | Largely true in my experience. Haskell type system is a winner |
 | Easier debugging and unit testing | ❌ | Debugging and unit testing is a skill, not a language feature |
 | Easier Refactoring | ✅ | While refactoring is a skill, it is slightly easier in Haskell |
-| Easier Testability | ❌ | Writing testable code is a skill, and you can be bad at it in Haskell |
 
 
 A more accurate description is a quirky language with an amazing type system,
