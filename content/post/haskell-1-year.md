@@ -430,20 +430,20 @@ what I've actually experiences.
 
 | Advertisement | My Experience | Notes |
 | ------------- | ------------- | ----- |
-| Mundane changes will no longer break things in unexpected ways because of immutability | :x: | It can still happen. |
-| No more unbearable system complexity, because pure functional programming prevents you mixing IO with business logic. | :x: | You can still write unbearably complex programs in Haskell. |
-| Scalability of the system is great because of easier concurrency. | :warning: | I'm not too sure where the limit's of Haskell's scale is. I haven't hit it yet. |
-| Reduced code duplication because function composition is so easy. | :x: | Any time you don't refactor your code before shipping it you'll get unnecessary duplication. That's not a Haskell feature. |
-| Systems that are so easy to debug | :x: | Debugging is a skill, and programming language independent. |
-| No more Null Pointer Exceptions | :white_check_mark: | The type system and standard use of the Maybe Monad and Either Monad make Null Pointer Exceptions a thing of the past |
-| No more incomprehensible loops | :warning: | Yes, no incomprehensible loops, they were replaced by incomprehensible recursion and `mapM` |
-| Fearless concurrency | :warning: | Maybe, but it probably doesn't matter as much as what was advertised |
-| Reduced logical errors because the code is easier to read. | :x: | Easier to read is just a synonym for "How similar it is to what I normally read". Haskell is incomprehensible to those that haven't learned it. |
-| Provably correct programs | :warning: | Maybe, but the chance that you'll ever formally prove a program is correct is 0 |
-| "If it compiles it's correct" | :white_check_mark: | Largely true in my experience. Haskell type system is a winner |
-| Easier debugging and unit testing | :x: | Debugging and unit testing is a skill, not a language feature |
-| Easier Refactoring | :white_check_mark: | While refactoring is a skill, it is slightly easier in Haskell |
-| Easier Testability | :x: | Writing testable code is a skill, and you can be bad at it in Haskell |
+| Mundane changes will no longer break things in unexpected ways because of immutability | ❌ | It can still happen. |
+| No more unbearable system complexity, because pure functional programming prevents you mixing IO with business logic. | ❌ | You can still write unbearably complex programs in Haskell. |
+| Scalability of the system is great because of easier concurrency. | ⚠️ | I'm not too sure where the limit's of Haskell's scale is. I haven't hit it yet. |
+| Reduced code duplication because function composition is so easy. | ❌ | Any time you don't refactor your code before shipping it you'll get unnecessary duplication. That's not a Haskell feature. |
+| Systems that are so easy to debug | ❌ | Debugging is a skill, and programming language independent. |
+| No more Null Pointer Exceptions | ✅ | The type system and standard use of the Maybe Monad and Either Monad make Null Pointer Exceptions a thing of the past |
+| No more incomprehensible loops | ⚠️ | Yes, no incomprehensible loops, they were replaced by incomprehensible recursion and `mapM` |
+| Fearless concurrency | ⚠️ | Maybe, but it probably doesn't matter as much as what was advertised |
+| Reduced logical errors because the code is easier to read. | ❌ | Easier to read is just a synonym for "How similar it is to what I normally read". Haskell is incomprehensible to those that haven't learned it. |
+| Provably correct programs | ⚠️ | Maybe, but the chance that you'll ever formally prove a program is correct is 0 |
+| "If it compiles it's correct" | ✅ | Largely true in my experience. Haskell type system is a winner |
+| Easier debugging and unit testing | ❌ | Debugging and unit testing is a skill, not a language feature |
+| Easier Refactoring | ✅ | While refactoring is a skill, it is slightly easier in Haskell |
+| Easier Testability | ❌ | Writing testable code is a skill, and you can be bad at it in Haskell |
 
 
 A more accurate description is a quirky language with an amazing type system,
