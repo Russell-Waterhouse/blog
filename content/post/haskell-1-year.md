@@ -11,7 +11,7 @@ draft: false
 
 ## Foreword
 
-First, a few disclaimers.
+### Disclaimers
 
 All of my thoughts and opinions here are entirely my own, and do not reflect
 the opinions of my associates, my employer, or anyone else.
@@ -23,9 +23,12 @@ being said, if you haven't shipped Haskell for a year, think long and hard
 before dropping "skill issue" in the comments.
 
 I encourage you to scrutinize my claims before taking anything I've said and
-making decisions based off of it.
+making decisions based off of it. Don't blindly decide whether to learn or use
+Haskell because some guy on the internet said so.
 
-Second, if you just want to know about my thoughts, skip to that section.
+### [Skip to my thoughts](#what-are-my-thoughts-after-1-year)
+If you just want to know about my thoughts,
+[skip to that section.](#what-are-my-thoughts-after-1-year)
 However, if you want the full story, which I believe is far more valuable, read
 the whole blog post. I know it's long, but it is years of experience condensed
 into a 15-minute read.
@@ -71,9 +74,10 @@ Here's a short list of opinions I found, and my thoughts on them at the time.
   it's a tasteful amount).
 - Your system isn't architected correctly (everybody's definition of
   "correctly" changes too often).
-- You haven't done the single responsibility principle correctly (somehow each
-  of my classes has both 1/4 responsibility and 3 responsibilities at the same
-  time).
+- You haven't done the single responsibility principle correctly (everybody's
+  definition of "Single" responsibility changes too much. All of my java classes
+  either don't even have a single responsibility, or 17 responsibilities,
+  depending on whose definition of "Single" I'm using.).
 
 You get the idea. I had tried enough of the band-aids to figure out that a
 band-aid wasn't going cut it.
@@ -87,8 +91,9 @@ time.
 
 And then, I found a Goto conference talk about functional programming. It put
 into words a lot of the issues that I had been having, but hadn't been able to
-formalize. I have no idea which one it was, but if you google `Goto conference
-functional programming`, it's probably on the first page of results.
+formalize. I have no idea which Goto conference talk it was, but if you google
+`Goto conference functional programming`, it's probably on the first page of
+results.
 
 The more I dug into this functional programming idea, the more it seemed like
 the answer to all of my problems. Problems like:
@@ -113,9 +118,10 @@ software development AND the answer to all my problems, I set out to learn it.
 ## Learning Haskell.
 
 I started out with small, LeetCode style programs. I eventually made one or two
-bigger programs.  I understood Monads.  I watched a few lectures on Category
-theory on YouTube.  I was not an expert by any definition, but I knew more
-Haskell than most programmers ever will.  
+bigger programs.  I learned Monads are just a slick design pattern to do
+function composition with embellished types.  I watched a few lectures on
+Category theory on YouTube.  I was not an expert by any definition, but I knew
+more Haskell than most programmers ever will.
 
 Then school got busy, I helped found the [University of Victoria Cybersecurity
 Club](https://github.com/VikeSec), and Haskell just wasn't my biggest priority.
@@ -128,6 +134,14 @@ crashed. And somehow, in all of that, I managed to find a job building
 leanpub.com, where they have some book generation systems in, you guessed it,
 Haskell. You can read more about it on their website
 [here](https://ruboss.com/blog/for-potential-coops)
+
+Having already Haskell, I was fit for a role on the book generation team, which
+I now lead.
+
+I'm not going to talk about the process of going from weekend Haskell to
+production Haskell because that's not important. Going from weekend scale to
+production scale with any technology poses challenges, and Haskell is no 
+different.
 
 ## What are My Thoughts After 1 Year
 
@@ -159,6 +173,10 @@ inferencing combo offers most of the benefits that Haskell has.
 Every time I write code in TypeScript or Ruby or Python, I really wish I had
 Haskell's type system.
 
+To be very clear, when you see Haskell lovers saying that "If it compiles it
+works", that is to a very large degree, true, and it's all thanks to the type
+system. We have few runtime errors in our Haskell book generation system.
+
 ### The Formatting Conventions
 
 I hate them. For every further Haskell example you see, I'm going to format
@@ -178,12 +196,12 @@ And instead I like this:
 
 ```haskell
 data Book = Book {
-      bookId :: Int,
-      title :: String,
-      author :: String,
-      isbn :: String,
-      price :: Double
-    }
+    bookId :: Int,
+    title :: String,
+    author :: String,
+    isbn :: String,
+    price :: Double
+  }
 ```
 
 Also, every single list variable is `xs` (pronounced X's, as in several of X).
@@ -193,13 +211,25 @@ a bad idea. Why Haskell programmers haven't figured it out yet is beyond me.
 
 ### The IO Limitations
 
+The IO limitations in Haskell are that you can't do any IO actions when you're
+not in the context of the IO Monad. For those of you not writing Haskell, that
+basically means that if you don't declare a function as doing some sort of IO,
+like reading from a file or making a network call, you can't do IO. Additionally,
+you can't call any IO function from a non-IO function.
+
+When you listen to people talk about this, they insist that this encourages
+people to use
+[Hexagonal Architecture](https://en.wikipedia.org/wiki/Hexagonal_architecture_(software)).
+
 This feels like it was kinda snake oil to me. The whole point of this
 restriction is you're not supposed to be able to do IO actions just anywhere in
 your code all willy-nilly, thus increasing the amount of code that you have
 that is totally deterministic (those lovely pure functions that everybody loves
 so much). However, in my experience, IO gets brought along with other custom
 monads that I'm working in, that I'm never more than a function or two deeper
-than an IO monad.
+than an IO monad. In theory, it's a rigid limitation that produces more pure
+code. In practice, in my experience, it's a leaky abstraction that divides
+my code base in two for very little benefit.
 
 ### The Immutability
 
@@ -237,7 +267,7 @@ functionC :: [Item] -> [Item]
 functionC = undefined
 ```
 
-For those of you that know Haskell, you could also do this. 
+For those of you that know Haskell, you could also do this.
 
 ```haskell
 transformData :: [Item] -> [Item]
@@ -285,20 +315,21 @@ you're probably going to find a variable named `xs'''` somewhere.
 
 ### Fearless Concurrency
 
-I haven't done any concurrency, but I think that's noteworthy, and I want to
-talk about it for a second. Most of the programs that we write take some data
-from somewhere, modify it a little, and put it somewhere else.  
+I haven't done any concurrency in Haskell, but I think that's noteworthy, and I
+want to talk about it for a second. Most of the programs that we write take
+some data from somewhere, modify it a little, and put it somewhere else.
 
-That's it.  
+That's it.
 
-And you can make that concurrent at the per-data level, where each input is
-processed concurrently, the way that modern web servers or databases do.
+And you can make that concurrent at the per-data level, where each independent
+piece of input is processed concurrently, the way that modern web servers or
+databases do.
 
-But for each input, usually the data has to go through transformation A, then
-B, then C, then the result is spit out wherever you're putting data, be that
-CSV, Database, or HTTP response. And if C depends on B which depends on A,
-which it almost always does in my experience, you can't make that any more
-concurrent.
+But for each independent bit of input, usually the data has to go through
+transformation A, then B, then C, then the result is spit out wherever you're
+putting data, be that CSV, Database, or HTTP response. And if C depends on B
+which depends on A, which it almost always does in my experience, you can't
+make that any more concurrent.
 
 So, maybe Haskell has a great concurrency experience, and maybe it has a
 terrible one, but I think the fact that I have no idea after a year of shipping
@@ -307,7 +338,7 @@ it tells us that the answer probably doesn't matter as much as is advertised.
 ### Testability
 
 I haven't really found Haskell to be more testable than any other language. I
-can write a mess of code in the IO monad that's totally testable, or I can
+can write a mess of code in the IO monad that's totally untestable, or I can
 break business logic out into discrete functions that are easily tested. Same
 way I can in Ruby or Java or Python or Rust or C or Kotlin. You get the point.
 
@@ -318,14 +349,14 @@ The LSP is good, not great. I occasionally see errors highlighted that aren't
 actually errors, but more often than not it's working, which is more than I can
 say for my experience with TypeScript's Language Server.
 
-Installation with [ghcup](https://www.haskell.org/ghcup/) is pretty easy and
+Installation with [ghcup](https://www.haskell.org/ghcup/) is pretty easy, and
 I've never had any real problems with it.
 
-I mainly resort to print debugging with `Debug.trace`, because between the
-time it takes to start a `stack repl` and construct the deeply nested data
-that I actually need to debug, it's usually just quicker to throw in 3 print
-statements and recompile and run on the actual test data that's giving me
-issues.
+I mainly resort to print debugging with `Debug.trace`, because between the time
+it takes to start a `stack repl` and construct the deeply nested data
+structures that I actually need to debug, it's usually just quicker to throw in
+3 print statements and recompile and run on the actual test data that's giving
+me issues.
 
 Whoever saw the `String` type in Haskell and said "You know what we need?
 A `Text` Type" will need to answer for their sins. An unpleasant amount
@@ -377,7 +408,15 @@ it sure feels like there is a lot of performance left on the table.
 ### Refactoring
 
 Refactoring in Haskell is nice. It's usually pretty easy to abstract
-bits out into their own functions and modules.
+bits out into their own functions and modules. This is more due to the type
+system than the immutability.
+
+### Provably Correct Programs
+
+I have no experience here, but outside the realm of safety-critical systems, I
+can't see this being a thing that any company actually invests the time and
+resources into doing correctly. Like concurrency, I think it matters far less
+than advertised.
 
 ## My Conclusions
 
@@ -386,28 +425,49 @@ I was sold on the idea that my programs are going to do incredible complex
 things with concurrency levels not previously seen to mortal eyes in a way
 that makes refactoring a dream.
 
+If you weren't counting, here's a table illustrating the advertisement to 
+what I've actually experiences.
+
+| Advertisement | My Experience | Notes |
+| ------------- | ------------- | ----- |
+| Mundane changes will no longer break things in unexpected ways because of immutability | :x: | It can still happen. |
+| No more unbearable system complexity, because pure functional programming prevents you mixing IO with business logic. | :x: | You can still write unbearably complex programs in Haskell. |
+| Scalability of the system is great because of easier concurrency. | :warning: | I'm not too sure where the limit's of Haskell's scale is. I haven't hit it yet. |
+| Reduced code duplication because function composition is so easy. | :x: | Any time you don't refactor your code before shipping it you'll get unnecessary duplication. That's not a Haskell feature. |
+| Systems that are so easy to debug | :x: | Debugging is a skill, and programming language independent. |
+| No more Null Pointer Exceptions | :white_check_mark: | The type system and standard use of the Maybe Monad and Either Monad make Null Pointer Exceptions a thing of the past |
+| No more incomprehensible loops | :warning: | Yes, no incomprehensible loops, they were replaced by incomprehensible recursion and `mapM` |
+| Fearless concurrency | :warning: | Maybe, but it probably doesn't matter as much as what was advertised |
+| Reduced logical errors because the code is easier to read. | :x: | Easier to read is just a synonym for "How similar it is to what I normally read". Haskell is incomprehensible to those that haven't learned it. |
+| Provably correct programs | :warning: | Maybe, but the chance that you'll ever formally prove a program is correct is 0 |
+| "If it compiles it's correct" | :white_check_mark: | Largely true in my experience. Haskell type system is a winner |
+| Easier debugging and unit testing | :x: | Debugging and unit testing is a skill, not a language feature |
+| Easier Refactoring | :white_check_mark: | While refactoring is a skill, it is slightly easier in Haskell |
+| Easier Testability | :x: | Writing testable code is a skill, and you can be bad at it in Haskell |
+
+
 A more accurate description is a quirky language with an amazing type system,
 decent developer experience, and almost no job opportunities. Still a good
 language, and I don't regret learning it or using it. However, if anyone on
 the internet is telling you that Haskell, or functional programming in general,
-is the solution to all of your, problems, I think they have fundamentally
-misunderstood your problems.
+is the solution to all of your problems, I think they have fundamentally
+misunderstood your problems and their root causes.
+
+To be fair, I don't believe that's malicious. I believe it comes out of dealing
+with much less complexity in weekend-sized Haskell projects than production
+code has. If my only experience with Haskell was getting home from my day-job
+writing enterprise Java, firing up neovim instead of IntelliJ, and working on a
+passion project that has no users, I would think Haskell was God's gift to man.
+I know that was certainly the case for me.
 
 Overall, I think that Haskell does some things better than any other language
-that I know. However, Pure Functional Programming isn't one of them. For me,
-learning Haskell has made me a better developer, but not for the reasons
+that I know, but Pure Functional Programming isn't going to save us all.
+
+Learning Haskell has made me a better developer, but not for the reasons
 advertised to me. It has made me a better developer because it has allowed me
 to see what makes good code and what makes bad code in very different contexts.
 What it has done for me is given me an environment to isolate the true enemies
-of programming.
-
-It has allowed me to see that, regardless of programming paradigm, any time
-code does many complex things, there is going to be a lot of code, and if that
-code's complexity isn't managed carefully, it grows unwieldy.
-
-And any time that you extract code that does business logic from code that does
-IO, the system gets simpler to understand and easier to test. I have a hunch it
-also makes the result less faulty, though I have no data to support that.
+of programming and the techniques that universally combat them.
 
 That's what I'm going to be talking about in Part 2 - the true enemies of
 programming that Haskell has unmasked for me.
