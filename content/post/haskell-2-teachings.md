@@ -31,14 +31,15 @@ true in any environment.
 
 Here are the principles of Good Code in an easily-digested list:
 
-- Correct in all inputs. This includes function parameters AND IO.
-- Never produces surprising outputs. This includes function returns AND IO.
-- As secure as necessary.
-- As performant as necessary.
-- Hides necessary complexity behind an elegant abstraction.
-- Avoids any unnecessary abstraction.
-- Manages all resources correctly.
-- TODO: I need something that talks about descriptive variable names, unit tests, comments, etc.
+1. Correct in all inputs. This includes function parameters AND IO.
+2. Never produces surprising outputs. This includes function returns AND IO.
+3. Manages all resources correctly.
+4. As secure as necessary.
+5. As performant as necessary.
+6. Encapsulates necessary complexity behind an elegant abstraction.
+7. Avoids all unnecessary abstraction.
+8. Adheres to the style guide of the project.
+9. Makes you proud to show it to your peers.
 
 As far as I can tell, these are the universal truths of software engineering.
 
@@ -149,3 +150,33 @@ With that, this program now follows principle 1.
 
 
 ## Principle 2: Never Produces Surprising Outputs, including IO outputs.
+
+## Principle 3: Manages All Resources Correctly
+
+Open files need to be closed. Memory needs to be freed. Connections need to be
+closed. Database transactions need to be committed or rolled back.
+
+Like all the other principles on this list, it's a simple principle, but we
+often forget it. I don't feel like I need to give an example here. Know what
+resources you're using and how to manage them correctly.
+
+
+## Principle 4: As Secure as Necessary
+
+Security is hard. You, as an engineer, should know the biggest security risks
+of the project that you're working on. For web developers, this is the [OWASP
+Top 10](https://owasp.org/www-project-top-ten/). You should know the threat
+model of your project.
+
+## Principle 5: As Performant as Necessary
+
+## Principle 6: Encapsulates Necessary Complexity Behind an Elegant Abstraction
+
+## Principle 7: Avoids Any Unnecessary Abstraction
+
+## Principle 8: Adheres to the Style Guide of the Project
+
+## Principle 9: Makes You Proud to Show it to Your Peers
+
+
+
