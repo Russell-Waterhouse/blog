@@ -183,14 +183,62 @@ There is real complexity in the world. This complexity will creep into your
 code. Handle the complexity one time, in the most simple way possible, and
 put that complexity behind a good API.
 
-My favourite example of this is
+How do you know an API is elegant? It has the following characteristics:
+
+1. It is well-documented
+2. It does not leak implementation details.
+3. It does not surprise the client programmer.
+
+My favourite example of this is ... // TODO
 
 
 ## Principle 7: Avoids Any Unnecessary Abstraction
 
+This is the principle that frustrates me most as a developer. I have no stats
+to back up this claim, but I think this is the principle most often violated in
+programming.
+
+When you have a necessary piece of complexity, you wrap it behind an elegant
+API. Unnecessary abstraction is when you add a layer of indirection on top of
+this, usually to either:
+
+a) save keystrokes.
+b) "reduce repetition"
+c) "developer experience"
+
+So, how can you tell when you've encapsulated necessary complexity versus added
+an unnecessary layer of abstraction? Here are what I think the best heuristics
+are:
+
+1. If I need to know how the underlying implementation works, it's probably not
+a necessary abstraction. If I need to know how the underlying implementation
+works, then you haven't truly abstracted anything away, and now I need to
+understand both the underlying implementation AND the new abstraction, instead
+of just the underlying implementation. For example, I don't need to know how
+assembly works to write C code, but I do need to know how HTML works to write
+Haml.
+
+
+2. If this abstraction predicts some sort of future requirement, it's probably
+a bad abstraction. Often we choose the wrong abstraction for our current
+requirements, the chance that we get the right abstraction for future
+requirements is slim to none. The exception to this rule is if the abstraction
+adds "slop" to the system, and allows for future requirements to be added with
+minimal changes to the system. For example, defining a protocol that has a few
+extra bytes of padding, so that future requirements can be added without
+breaking the protocol.
+
+
 ## Principle 8: Adheres to the Style Guide of the Project
+
+If your project requires javadoc-style comments, unit tests for all of your
+business logic, and proper logging and monitoring set up, then the code that
+you submit in a PR to that project should contain javadoc-style comments,
+unit thests for all of your business logic, and proper logging and monitoring.
 
 ## Principle 9: Makes You Proud to Show it to Your Peers
 
-
+This is the last catchall principle. You should not be proud of code littered
+with TODO comments. Business logic code without any regression tests should
+bring you shame.
 
