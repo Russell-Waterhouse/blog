@@ -36,7 +36,7 @@ Here are the principles of Good Code in an easily-digested list:
 3. Manages all resources correctly.
 4. As secure as necessary.
 5. As performant as necessary.
-6. Encapsulates necessary complexity behind an elegant abstraction.
+6. Encapsulates necessary complexity behind an elegant API.
 7. Avoids all unnecessary abstraction.
 8. Adheres to the style guide of the project.
 9. Makes you proud to show it to your peers.
@@ -166,11 +166,25 @@ resources you're using and how to manage them correctly.
 Security is hard. You, as an engineer, should know the biggest security risks
 of the project that you're working on. For web developers, this is the [OWASP
 Top 10](https://owasp.org/www-project-top-ten/). You should know the threat
-model of your project.
+model of your project. You should know how to identify and mitigate the most
+common security risks. Most importantly, you should know when you are out of
+your depth, and require the help of a security professional.
 
 ## Principle 5: As Performant as Necessary
 
-## Principle 6: Encapsulates Necessary Complexity Behind an Elegant Abstraction
+You should know the performance requirements of your system, and you should
+profile your system to know where the bottlenecks are, and take steps to
+mitigate those bottlenecks when your system falls below the performance
+requirements.
+
+## Principle 6: Encapsulates Necessary Complexity Behind an Elegant API
+
+There is real complexity in the world. This complexity will creep into your
+code. Handle the complexity one time, in the most simple way possible, and
+put that complexity behind a good API.
+
+My favourite example of this is
+
 
 ## Principle 7: Avoids Any Unnecessary Abstraction
 
