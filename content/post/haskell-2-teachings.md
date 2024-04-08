@@ -27,6 +27,14 @@ language with an amazing type system that has taught me a lot, just not in the
 ways that you expect. For me, it taught me programming principles that remain
 true in any environment.
 
+First, let's define what I think these principles lead to. I think that the
+primary job of the software engineer is to create code that has the lowest
+possible fault rates and the lowest possible maintenance costs.
+
+It is the job of the product designer to make a product that people will want to
+buy. It is the job of the software engineer to keep the costs of that product
+down while building those features.
+
 ## The Principles of Good Code
 
 Here are the principles of Good Code in an easily-digested list:
@@ -43,18 +51,32 @@ Here are the principles of Good Code in an easily-digested list:
 
 As far as I can tell, these are the universal truths of software engineering.
 
+Let me be clear here. I am stating that ALL code that satisfies these 9
+principles is good code. I am also stating that all code that doesn't satisfy
+these 9 principles is not good code.
+
+Note, this list talks just about the quality of code, not the utility of it.
+I'm talking just about the code, not the product. I can write totally useless
+code that satisfies my requirements, and that would be good code to me.
+What makes a good product is a totally different discussion.
+
+Also note that I'm not making a case against bad code. I don't believe that all
+bad code is unacceptable and should be deleted. There is utility in cutting
+some corners, especially in proof of concept code. Technical debt, like
+financial debt, makes sense if it's profitable.
+
 It's not SOLID, it's not Uncle Bob's Clean Code, it's not DRY, it's not any of
 that stuff that Twitter talks about. Mind you, I think a lot of those point in
 a similar direction to what I'm proposing here, but I believe there to be
 distinct differences. I believe that all of those either
 
-- Don't make sense outside an object-oriented context
+- Don't make sense outside an object-oriented context.
 - Will lead you astray in some or all situations.
 
 So let me dive a little deeper into what I'm talking about here with some
 examples.
 
-## Principle 1: Correct under all inputs, even IO inputs
+### Principle 1: Correct under all inputs, even IO inputs
 
 This sounds trivial, but it is easy to get wrong. Let's look at a simple C
 program to show my example.
@@ -149,9 +171,9 @@ int main(int argc, char **argv) {
 With that, this program now follows principle 1.
 
 
-## Principle 2: Never Produces Surprising Outputs, including IO outputs.
+### Principle 2: Never Produces Surprising Outputs, including IO outputs.
 
-## Principle 3: Manages All Resources Correctly
+### Principle 3: Manages All Resources Correctly
 
 Open files need to be closed. Memory needs to be freed. Connections need to be
 closed. Database transactions need to be committed or rolled back.
@@ -161,7 +183,7 @@ often forget it. I don't feel like I need to give an example here. Know what
 resources you're using and how to manage them correctly.
 
 
-## Principle 4: As Secure as Necessary
+### Principle 4: As Secure as Necessary
 
 Security is hard. You, as an engineer, should know the biggest security risks
 of the project that you're working on. For web developers, this is the [OWASP
@@ -170,14 +192,25 @@ model of your project. You should know how to identify and mitigate the most
 common security risks. Most importantly, you should know when you are out of
 your depth, and require the help of a security professional.
 
-## Principle 5: As Performant as Necessary
+If you're writing banking software, your software better be pretty damn secure.
+If you're writing code for an ice cream machine that doesn't connect to the
+internet, your code doesn't have to be secured to nearly the same level.
+
+Lastly, when you have the choice between taking 2 different approaches to solve
+a problem, if all other things are equal, choose the option that is more likely
+to be secure.
+
+### Principle 5: As Performant as Necessary
 
 You should know the performance requirements of your system, and you should
 profile your system to know where the bottlenecks are, and take steps to
 mitigate those bottlenecks when your system falls below the performance
 requirements.
 
-## Principle 6: Encapsulates Necessary Complexity Behind an Elegant API
+Like security, if you're trying to choose between 2 different solutions to a
+problem and all other things are equal, choose the more performant solution.
+
+### Principle 6: Encapsulates Necessary Complexity Behind an Elegant API
 
 There is real complexity in the world. This complexity will creep into your
 code. Handle the complexity one time, in the most simple way possible, and
@@ -192,7 +225,7 @@ How do you know an API is elegant? It has the following characteristics:
 My favourite example of this is ... // TODO
 
 
-## Principle 7: Avoids Any Unnecessary Abstraction
+### Principle 7: Avoids Any Unnecessary Abstraction
 
 This is the principle that frustrates me most as a developer. I have no stats
 to back up this claim, but I think this is the principle most often violated in
@@ -202,9 +235,9 @@ When you have a necessary piece of complexity, you wrap it behind an elegant
 API. Unnecessary abstraction is when you add a layer of indirection on top of
 this, usually to either:
 
-a) save keystrokes.
-b) "reduce repetition"
-c) "developer experience"
+1. Save keystrokes.
+2. Reduce repetition
+3. "Developer Experience"
 
 So, how can you tell when you've encapsulated necessary complexity versus added
 an unnecessary layer of abstraction? Here are what I think the best heuristics
@@ -229,16 +262,26 @@ extra bytes of padding, so that future requirements can be added without
 breaking the protocol.
 
 
-## Principle 8: Adheres to the Style Guide of the Project
+### Principle 8: Adheres to the Style Guide of the Project
 
 If your project requires javadoc-style comments, unit tests for all of your
 business logic, and proper logging and monitoring set up, then the code that
 you submit in a PR to that project should contain javadoc-style comments,
-unit thests for all of your business logic, and proper logging and monitoring.
+unit tests for all of your business logic, and proper logging and monitoring.
 
-## Principle 9: Makes You Proud to Show it to Your Peers
+Now, you may not like the style guide of the project, and you may disagree with
+it. You may even be right. But a single pull request is no place to challenge
+that style guide. The place to challenge that style guide is in a meeting with
+the repository maintainers present and data backing up your position.
+
+Also, a consistent code base is worth something, so until you can make a
+coherent and convincing case that breaking this consistency has a better value
+than consistency, keep the consistency.
+
+### Principle 9: Makes You Proud to Show it to Your Peers
 
 This is the last catchall principle. You should not be proud of code littered
 with TODO comments. Business logic code without any regression tests should
 bring you shame.
+
 
