@@ -12,6 +12,10 @@ draft: false
 In no particular order, here is every one of my favorite quotes, organized by
 author.
 
+As a disclaimer, just because I list an author here doesn't mean that I agree
+with anything else the author has said. I believe that we can take good ideas
+from everyone. If Hitler had a great doughnut recipe, I would use it.
+
 
 ## Alex Hormozi
 
@@ -79,3 +83,8 @@ devour you."
 
 "But problems are cowards and bullies, and they only take advantage if they
 think they can win."
+
+## Gregor Hohpe
+
+"Excessive complexity is nature’s punishment for organizations that are unable
+to make decisions."
