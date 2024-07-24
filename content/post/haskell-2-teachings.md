@@ -39,7 +39,7 @@ down while building those features.
 
 Here are the principles of Good Code in an easily-digested list:
 
-1. Correct in all inputs. This includes function parameters AND IO.
+1. Correct with all inputs. This includes function parameters AND IO.
 2. Never produces surprising outputs. This includes function returns AND IO.
 3. Manages all resources correctly.
 4. As secure as necessary.
@@ -47,7 +47,7 @@ Here are the principles of Good Code in an easily-digested list:
 6. Encapsulates necessary complexity behind an elegant API.
 7. Avoids all unnecessary abstraction.
 8. Adheres to the style guide of the project.
-9. Makes you proud to show it to your peers.
+9. Makes you proud to show it to your peers. TODO: re-write this one
 
 As far as I can tell, these are the universal truths of software engineering.
 
