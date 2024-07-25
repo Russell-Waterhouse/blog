@@ -47,13 +47,12 @@ Here are the principles of Good Code in an easily-digested list:
 6. Encapsulates necessary complexity behind an elegant API.
 7. Avoids all unnecessary abstraction.
 8. Adheres to the style guide of the project.
-9. Makes you proud to show it to your peers. TODO: re-write this one
 
 As far as I can tell, these are the universal truths of software engineering.
 
-Let me be clear here. I am stating that ALL code that satisfies these 9
+Let me be clear here. I am stating that ALL code that satisfies these 8
 principles is good code. I am also stating that all code that doesn't satisfy
-these 9 principles is not good code.
+these 8 principles is not good code.
 
 Note, this list talks just about the quality of code, not the utility of it.
 I'm talking just about the code, not the product. I can write totally useless
@@ -173,6 +172,58 @@ With that, this program now follows principle 1.
 
 ### Principle 2: Never Produces Surprising Outputs, including IO outputs.
 
+If you're calling a function called `add`, you would expect that `add(1, 2)`
+would return `3`.
+
+Under no circumstances would you expect it to return
+`9999999999999999999999999`, nor would you expect it to raise an exception, nor
+would you expect it to read or write from a database, nor would you expect it to
+return a string, nor would you expect it to make a POST request to any server
+anywhere.
+
+If your function does any of those unexpected things, it is not good code.
+At best, you've tried to do too many things in one function and documented it
+poorly. At worst, you've intentionally deceived the client calling your code.
+
+Haskell accomplishes this with the type system, which includes the IO monad.
+However, you don't need Haskell to accomplish this. You can accomplish
+the same with good naming and documentation in a language like Ruby.
+
+Take for example these ruby function signatures. Can you tell what outputs they
+should produce?
+
+```ruby
+def add(a, b)
+
+def get_user(id)
+
+def store_file_in_cloud(file, cloud_file_path)
+```
+
+`add` probably takes 2 integers and returns an int, and it might raise an exception
+if you pass in a non-integer object. `get_user` probably takes an int and returns a user
+object, and it might raise an exception if the user doesn't exist, or if the db
+is down. You can also assume it does some sort of IO action to find that user.
+`store_file_in_cloud` probably takes a file and a cloud file path, and
+returns nothing, and it might raise an exception if the cloud is down, or if the
+POST request it makes fails for some reason, like if the file is too big.
+
+Also, Haskell's type system doesn't prevent you from violating this principle.
+You can easily write code so obtuse that it's impossible to tell what outputs
+the client programmer should reasonably expect.
+
+Here's an example of a function that violates this principle:
+
+```haskell
+
+doAllTheBadThings :: IO ()
+
+```
+
+We don't know what it does, all we know is that it does bad things with IO.
+Is it removing all the files on your computer? Is it sending all of your
+passwords to a foreign server? Is it framing you for murder? Who knows!
+
 ### Principle 3: Manages All Resources Correctly
 
 Open files need to be closed. Memory needs to be freed. Connections need to be
@@ -180,7 +231,8 @@ closed. Database transactions need to be committed or rolled back.
 
 Like all the other principles on this list, it's a simple principle, but we
 often forget it. I don't feel like I need to give an example here. Know what
-resources you're using and how to manage them correctly.
+resources you're using and how to manage them correctly in the programming
+language you're using.
 
 
 ### Principle 4: As Secure as Necessary
@@ -193,8 +245,18 @@ common security risks. Most importantly, you should know when you are out of
 your depth, and require the help of a security professional.
 
 If you're writing banking software, your software better be pretty damn secure.
+You should understand the security threat model of your software, you should
+have security professionals review your code, you should have a security
+team run regular penetration tests on your code, you should have an incident
+response plan. You should ALWAYS sacrifice new features for security.
+This is not a "move fast and break things" environment.
+
 If you're writing code for an ice cream machine that doesn't connect to the
 internet, your code doesn't have to be secured to nearly the same level.
+For that kind of a project, you can do the minimum required to reasonably secure
+your code, and that's good enough. If someone finds a way to hack an ice cream
+machine that doesn't connect to the internet, the impact of that is minimal to
+none.
 
 Lastly, when you have the choice between taking 2 different approaches to solve
 a problem, if all other things are equal, choose the option that is more likely
@@ -218,12 +280,34 @@ put that complexity behind a good API.
 
 How do you know an API is elegant? It has the following characteristics:
 
-1. It is well-documented
-2. It does not leak implementation details.
-3. It does not surprise the client programmer.
+1. Is well-documented.
+2. Does not leak implementation details (except when providing "escape hatches").
+3. Does not surprise the client programmer.
 
-My favourite example of this is ... // TODO
+My favourite example of this is the C programming language. There is
+necessary complexity in assembly. C takes the necessary complexity of not just
+one assembly language, but many assembly languages, and puts it behind an elegant
+API. Writing code that needs to run on ARM and x86? C's got your back.
 
+
+C is well-documented.
+
+C doesn't leak implementation details. You don't need to know how to add 2 numbers
+in assembly to write the following C code:
+```c
+int add(int a, int b) {
+    return a + b;
+}
+```
+However, if you're working on a project that requires you to write assembly, you
+can write inline assembly in C. This is an "escape hatch" that allows you to
+access the underlying complexity if you need to. This makes the easy things easy,
+and the hard things possible.
+
+C doesn't usually surprise the client programmer. If you're writing C code, you
+normally don't have to look at the assembly code that the C compiler produces.
+
+Is C flawless? Absolutely not. But it is a good example of a good abstraction.
 
 ### Principle 7: Avoids Any Unnecessary Abstraction
 
@@ -233,10 +317,10 @@ programming.
 
 When you have a necessary piece of complexity, you wrap it behind an elegant
 API. Unnecessary abstraction is when you add a layer of indirection on top of
-this, usually to either:
+this, usually to for one of the following reasons:
 
 1. Save keystrokes.
-2. Reduce repetition
+2. Reduce repetition.
 3. "Developer Experience"
 
 So, how can you tell when you've encapsulated necessary complexity versus added
@@ -251,11 +335,10 @@ of just the underlying implementation. For example, I don't need to know how
 assembly works to write C code, but I do need to know how HTML works to write
 Haml.
 
-
 2. If this abstraction predicts some sort of future requirement, it's probably
 a bad abstraction. Often we choose the wrong abstraction for our current
 requirements, the chance that we get the right abstraction for future
-requirements is slim to none. The exception to this rule is if the abstraction
+requirements is slim to none. The exception to this heuristic is if the abstraction
 adds "slop" to the system, and allows for future requirements to be added with
 minimal changes to the system. For example, defining a protocol that has a few
 extra bytes of padding, so that future requirements can be added without
@@ -278,10 +361,9 @@ Also, a consistent code base is worth something, so until you can make a
 coherent and convincing case that breaking this consistency has a better value
 than consistency, keep the consistency.
 
-### Principle 9: Makes You Proud to Show it to Your Peers
+## Conclusion
 
-This is the last catchall principle. You should not be proud of code littered
-with TODO comments. Business logic code without any regression tests should
-bring you shame.
-
+And that's it. That's what Haskell has taught me. Good code isn't about OO or
+FP or procedural code. Good code isn't about knowing the GoF design patterns or
+TDD. Good code is about following these 8 principles.
 
