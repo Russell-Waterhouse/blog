@@ -34,7 +34,7 @@ as much as possible.
 Here is a short overview.
 | Concept | Example | Explanation |
 | ------- | ------- | ----------- |
-| File Name | my-file-name.cc | All lower case and use - or _. I like - more. |
+| File Name | my_file_name.cc | All lower case and use - or _. I like _ more. |
 | Type Names | MyClass | Mixed case, starting with a capital. Classes, structs, enums, etc all follow this. | 
 | Variable names (almost everything) | my_variable | snake_case | 
 | Variable names (Data members of classes) | my_class_data_member_ | Trailing underscore (_) | 
@@ -445,17 +445,47 @@ int main(){
 ```
 
 ## Instance Variables
+Declaration:
+```cpp
+class MyClass {
+public:
+    int public_var_1;
+    double public_var_2;
+private:
+    int private_var_1;
+    double private_var_2;
+};
+```
+
+default initialization:
+```cpp
+class MyClass {
+public:
+    int public_var_1 = 987;
+    double public_var_2 = 123.45;
+private:
+    int private_var_1 = 123;
+    double private_var_2 = 987.65;
+};
+```
+
+access:
+// TODO
 
 ## Methods
+// TODO
 
 ## Class Functions
-(like static in Java)
+// Like static in Java
+// TODO
 
 ## Inheritance
-// Like inheritance in Java.
+// Like inheritance in Java
+// TODO
 
 ## Concepts
 // Like interfaces in Java.
+// TODO
 
 ## Pointer
 Don't use those, use References or Smart Pointers.
@@ -556,10 +586,13 @@ std::cout << "The user said: " << s << std::endl;
 ```
 
 ## File IO
+// TODO
 
 ## Network IO
+// TODO
 
 ## Functions
+// TODO
 
 ## Compiler
 There are many C++ compilers, but I'll be using g++ because it's already on
