@@ -14,12 +14,12 @@ published more than I want to wait on a complete post. I'll update this
 with what I need whenever I get the chance in this chaotic month.
 
 # Every C++ Feature You Need to Get Started
-I'm going to be learning C++ during advent of code 2023. 
+I'm going to be learning C++ during advent of code 2023.
 In advance of this, I'm going to make a quick reference guide for myself
 for the language. Hopefully, I can get everything that I'll need in December
-all in one place. 
+all in one place.
 
-## Disclaimers: 
+## Disclaimers:
 1. I don't know C++, and while I did have people who do know C++ proofread this
 blog post, I don't claim that I am correct. All errors are my own. 
 2. Most of this code won't compile, has no main, etc. Don't be sending me 
