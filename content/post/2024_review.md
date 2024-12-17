@@ -30,4 +30,5 @@ to building a set of tools that I constantly use.
 \* I'm still experimenting with different
 systems programming languages. I'm using C++ to do
 advent of code, and I'm building small web servers in 
-C, C++, and Rust to try to compare all 3 languages. 
+C, C++, and Rust to try to compare all 3 languages. The issue I'm having right now is I don't have enough bandwidth to learn both rust and C++ and I would use them in different cases
+
