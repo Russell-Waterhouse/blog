@@ -470,22 +470,57 @@ private:
 ```
 
 access:
-// TODO
+```cpp
+int main() {
+    MyClass foo;
+    foo.public_var_1 = 10;
+    foo.public_var_2 = 20.0;
+    foo.private_var_1 = 30; // This will not compile
+    foo.private_var_2 = 40.0; // This will not compile
+    return 0;
+}
+```
 
 ## Methods
-// TODO
+Just declare a function in the class. 
+```cpp
+class MyClass {
+public:
+    void myMethod() {
+        std::cout << "Hello World" << std::endl;
+    }
+};
 
-## Class Functions
-// Like static in Java
-// TODO
+int main() {
+    MyClass foo;
+    foo.myMethod();
+    return 0;
+}
+```
 
 ## Inheritance
-// Like inheritance in Java
-// TODO
+```cpp
+class Base {
+public:
+    void baseMethod() {
+        std::cout << "Base Method" << std::endl;
+    }
+};
 
-## Concepts
-// Like interfaces in Java.
-// TODO
+class Derived : public Base {
+public:
+    void derivedMethod() {
+        std::cout << "Derived Method" << std::endl;
+    }
+};
+
+int main() {
+    Derived foo;
+    foo.baseMethod();
+    foo.derivedMethod();
+    return 0;
+}
+```
 
 ## Pointer
 Don't use those, use References or Smart Pointers.
@@ -493,8 +528,8 @@ Don't use those, use References or Smart Pointers.
 ## Smart Pointers
 
 ### Unique Pointers
-Unique pointers are the sole owner of their data, and when they go out of scope
-they 
+Added in C++ 11, unique pointers are the sole owner of their data, and when they go out of scope
+they free the memory that they point to.
 Initialization, freeing, moving
 
 ```cpp
@@ -580,19 +615,40 @@ std::string arg = argv[index];
 ## Program IO
 Input from a user (stdin)
 ```cpp
-string s; 
+string s;
 std::cin >> s
 std::cout << "The user said: " << s << std::endl;
 ```
 
 ## File IO
-// TODO
+```cpp
+#include <fstream>
+#include <iostream>
+#include <string>
 
-## Network IO
-// TODO
+int main() {
+    std::ofstream file("example.txt");
+    file << "Hello, World!";
+    file.close();
+
+    std::ifstream read_file("example.txt");
+    std::string line;
+    while (std::getline(read_file, line)) {
+        std::cout << line << std::endl;
+    }
+    read_file.close();
+
+    return 0;
+}
+```
 
 ## Functions
-// TODO
+Functions are declared in the following way:
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+```
 
 ## Compiler
 There are many C++ compilers, but I'll be using g++ because it's already on
