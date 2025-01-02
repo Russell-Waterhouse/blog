@@ -9,11 +9,10 @@ draft: false
 
 # 2024's Winners and Losers
 
-2024 is coming to a close, so I thought I'd
-do a quick review of what tech I've used, what I've
-liked, and what I didn't. 
+2024 is coming to a close, so I thought I'd do a quick review of what tech I've
+used, what I've liked, and what I didn't.
 
-## Favourite Project
+## Winning Project
 my favourite project in 2024 has been my development environment
 setup script: [setup script](https://github.com/Russell-Waterhouse/dev_environment)
 
@@ -22,7 +21,7 @@ tons of value out of it. I no longer need to add things to one machine that
 I've already added to another. I no longer need to worry about borking my
 machine. The workflow is exactly what I wanted.
 
-## Favourite Programming Languages of the Year
+## Winning Programming Languages
 
 This year I've started putting HEAVY focus on using the right tool for the job,
 and it has made programming far more enjoyable. Here are the languages I've
@@ -60,7 +59,7 @@ need out of the toolbox and use it.
 Yes, you do have to think about different things than you would in any other
 programming language. That's true of all programming languages. I'm not
 convinced I spent more time thinking about memory management in C++ than I
-thought about JavaScripts' event loop or whitespace in Python. Every language
+thought about JavaScript's event loop or whitespace in Python. Every language
 has some feature that you must be careful with. For some reason everyone seems
 to think C++'s quirks are harder to deal with than other languages' quirks. I'm
 unconvinced.
@@ -105,14 +104,15 @@ at Rust to make it worth it right now.
 #### Go
 
 I've been experimenting with Go for the last 2 weeks. I built a quick web
-server on a plane ride with templ and HTMX, and I liked the experience. I read
-a book on the programming language in about a day, and that appeals a lot to me.
-If I can learn the syntax in a day, there's a good chance the overhead of gaining
-and maintaining skill in the language isn't as heavy as C++ or Rust.
+server on a plane ride with templ and HTMX, and I liked the experience. It took
+me only about a day to read a book on the programming language,
+and that appeals a lot to me. If I can learn the syntax in a day, there's a
+good chance the overhead of gaining and maintaining skill in the language isn't
+as heavy as C++ or Rust.
 
 I'll be building a bigger project in Go to evaluate it further. 
 
-## Favourite Development Environment of the Year
+## Winning Development Environment
 1. Neovim
 2. TMUX
 3. Fedora Linux
@@ -121,9 +121,42 @@ I completely re-wrote my development environment this year, and I'm very happy
 with the results. I've been using a Neovim/TMUX combo for about 10 months now,
 and I've never worked faster or felt more in-control of my environment.
 
-Fedora Linux is just everything I think Linux should be: minimal, fast, with
-decent defaults. I've used it for years and I've never had any problems.
+Fedora Linux is just everything I think Linux should be: minimal, fast,
+configurable, with decent defaults. I've used it for years, and I've never had
+any problems.
 
-## Favourite Frameworks
-1. 
+## Winning Frameworks
+1. Remix
+
+Remix was the framework that finally made me understand the appeal of React
+and upgraded me from a backend/devops developer to a full-stack developer.
+
+## Winning Devops Tools
+
+1. Docker
+2. AWS CDK
+
+I've been using Docker for years, and it's always been a great tool. To
+be able to wipe my computer, install Docker, clone a project, and immediately
+be able to work in it is something special.
+
+AWS CDK is something I've used for about 18 months now, and I find it to be a
+better experience than tools like terraform.
+
+## Losing Programming Languages
+For me, the biggest loser of 2024 was Perl. I'm new to it, and I don't like
+the error handling. I've moved several Perl scripts to python just for better
+error handling. Maybe it was great for its time, but I don't think it has
+a place in my stack.
+
+## Losing Development Environments
+1. Windows
+
+For a brief stint this year, I tried to use Windows as my main development
+OS. Everything that used to be just a cli command on Linux was now an electron
+app, which usually didn't install correctly the first time. The integration
+with WSL just left me confused. I haven't had to think about any of the
+"windows way" of doing things since I moved to Linux full-time in 2021, and
+I just found myself frustrated with the amount of problems that I had to solve
+that I didn't have to solve on Linux. I'm back on Fedora now, and I'm happy.
 
