@@ -59,20 +59,24 @@ need out of the toolbox and use it.
 Yes, you do have to think about different things than you would in any other
 programming language. That's true of all programming languages. I'm not
 convinced I spent more time thinking about memory management in C++ than I
-thought about JavaScript's event loop or whitespace in Python. Every language
-has some feature that you must be careful with. For some reason everyone seems
-to think C++'s quirks are harder to deal with than other languages' quirks. I'm
-unconvinced.
+thought about JavaScript's event loop or whitespace in Python (that's a joke,
+folks). Every language has some feature that you must be careful with. For some
+reason everyone seems to think C++'s quirks are harder to deal with than other
+languages' quirks. I'm unconvinced.
 
 HOWEVER, that doesn't mean that C++ fits this niche for me. C++ has a range
-unparalleled by any other language I've ever used. However, I would only want
-all that range if I planned to use it all, and right now I'm just not working
-on any projects that need the lower-level features of C++. Add to that fact the
-reality that to get the performance
-out of C++ that you would expect from C++, you have to be somewhat experienced
-with it, and I'm not there and don't have the bandwidth to get there right now.
-I'm a full-stack developer at a small startup, so here's what I've worked with
-in the last month:
+unparalleled by any other language I've ever used. In no other language do I
+have the range to work at literally level of abstraction level I've ever worked
+in.
+
+However, I would only want all that range if I planned to use it all, and right
+now I'm just not working on any projects that need the lower-level features of
+C++. Add to that fact the reality that to get the performance out of C++ that
+you would expect from C++, you have to be somewhat experienced with it, and I'm
+not there and don't have the bandwidth to get there right now. I'm a full-stack
+developer at a small startup, so here's what I've worked with in the last
+month:
+
 - React
 - Vue
 - Express
