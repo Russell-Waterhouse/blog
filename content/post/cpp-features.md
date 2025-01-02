@@ -14,12 +14,12 @@ published more than I want to wait on a complete post. I'll update this
 with what I need whenever I get the chance in this chaotic month.
 
 # Every C++ Feature You Need to Get Started
-I'm going to be learning C++ during advent of code 2023. 
+I'm going to be learning C++ during advent of code 2023.
 In advance of this, I'm going to make a quick reference guide for myself
 for the language. Hopefully, I can get everything that I'll need in December
-all in one place. 
+all in one place.
 
-## Disclaimers: 
+## Disclaimers:
 1. I don't know C++, and while I did have people who do know C++ proofread this
 blog post, I don't claim that I am correct. All errors are my own. 
 2. Most of this code won't compile, has no main, etc. Don't be sending me 
@@ -34,7 +34,7 @@ as much as possible.
 Here is a short overview.
 | Concept | Example | Explanation |
 | ------- | ------- | ----------- |
-| File Name | my-file-name.cc | All lower case and use - or _. I like - more. |
+| File Name | my_file_name.cc | All lower case and use - or _. I like _ more. |
 | Type Names | MyClass | Mixed case, starting with a capital. Classes, structs, enums, etc all follow this. | 
 | Variable names (almost everything) | my_variable | snake_case | 
 | Variable names (Data members of classes) | my_class_data_member_ | Trailing underscore (_) | 
@@ -445,17 +445,82 @@ int main(){
 ```
 
 ## Instance Variables
+Declaration:
+```cpp
+class MyClass {
+public:
+    int public_var_1;
+    double public_var_2;
+private:
+    int private_var_1;
+    double private_var_2;
+};
+```
+
+default initialization:
+```cpp
+class MyClass {
+public:
+    int public_var_1 = 987;
+    double public_var_2 = 123.45;
+private:
+    int private_var_1 = 123;
+    double private_var_2 = 987.65;
+};
+```
+
+access:
+```cpp
+int main() {
+    MyClass foo;
+    foo.public_var_1 = 10;
+    foo.public_var_2 = 20.0;
+    foo.private_var_1 = 30; // This will not compile
+    foo.private_var_2 = 40.0; // This will not compile
+    return 0;
+}
+```
 
 ## Methods
+Just declare a function in the class. 
+```cpp
+class MyClass {
+public:
+    void myMethod() {
+        std::cout << "Hello World" << std::endl;
+    }
+};
 
-## Class Functions
-(like static in Java)
+int main() {
+    MyClass foo;
+    foo.myMethod();
+    return 0;
+}
+```
 
 ## Inheritance
-// Like inheritance in Java.
+```cpp
+class Base {
+public:
+    void baseMethod() {
+        std::cout << "Base Method" << std::endl;
+    }
+};
 
-## Concepts
-// Like interfaces in Java.
+class Derived : public Base {
+public:
+    void derivedMethod() {
+        std::cout << "Derived Method" << std::endl;
+    }
+};
+
+int main() {
+    Derived foo;
+    foo.baseMethod();
+    foo.derivedMethod();
+    return 0;
+}
+```
 
 ## Pointer
 Don't use those, use References or Smart Pointers.
@@ -463,8 +528,8 @@ Don't use those, use References or Smart Pointers.
 ## Smart Pointers
 
 ### Unique Pointers
-Unique pointers are the sole owner of their data, and when they go out of scope
-they 
+Added in C++ 11, unique pointers are the sole owner of their data, and when they go out of scope
+they free the memory that they point to.
 Initialization, freeing, moving
 
 ```cpp
@@ -550,16 +615,40 @@ std::string arg = argv[index];
 ## Program IO
 Input from a user (stdin)
 ```cpp
-string s; 
+string s;
 std::cin >> s
 std::cout << "The user said: " << s << std::endl;
 ```
 
 ## File IO
+```cpp
+#include <fstream>
+#include <iostream>
+#include <string>
 
-## Network IO
+int main() {
+    std::ofstream file("example.txt");
+    file << "Hello, World!";
+    file.close();
+
+    std::ifstream read_file("example.txt");
+    std::string line;
+    while (std::getline(read_file, line)) {
+        std::cout << line << std::endl;
+    }
+    read_file.close();
+
+    return 0;
+}
+```
 
 ## Functions
+Functions are declared in the following way:
+```cpp
+int add(int a, int b) {
+    return a + b;
+}
+```
 
 ## Compiler
 There are many C++ compilers, but I'll be using g++ because it's already on
