@@ -147,6 +147,19 @@ be able to work in it is something special.
 AWS CDK is something I've used for about 18 months now, and I find it to be a
 better experience than tools like terraform.
 
+## Winning Resources
+1. GitHub Copilot
+2. OpenAI's ChatGPT
+
+I currently use Copilot to write comments and unit tests. I don't let it write
+code because I've spent too many hours tracking down little bugs it's prone to
+make that I feel I could have avoided if I'd just written the code myself.
+
+I use GPT as a sort of "all documentation" search engine, and I use it as a
+first step of research when I'm trying to figure out how to do something new.
+For example, if I'm newly testing a non-deterministic algorithm, I'll start by
+asking ChatGPT for common approaches to testing non-deterministic algorithms.
+
 ## Losing Programming Languages
 For me, the biggest loser of 2024 was Perl. I'm new to it, and I don't like
 the error handling. I've moved several Perl scripts to python just for better
@@ -164,3 +177,6 @@ with WSL just left me confused. I haven't had to think about any of the
 I just found myself frustrated with the amount of problems that I had to solve
 that I didn't have to solve on Linux. I'm back on Fedora now, and I'm happy.
 
+## Conclusion
+2024 was a great year for me. I've branched out a lot, and I've built myself
+a very solid set of tools to work with. I'm excited to see what 2025 brings.
