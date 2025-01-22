@@ -3,9 +3,9 @@
 Browsing through whatever tech forum
 you choose, you'll see blog posts and
 rants from different engineers and
-influencers telling you that you should
+influencers telling you that EVERYONE should
 go slower or faster or test more or test
-less or replace JavaScript with TypeScrip 
+less or replace JavaScript with TypeScript 
 or replace TypeScript with JavaScript
 or whatever. 
 
@@ -19,15 +19,14 @@ where TDD is the right answer
 
 Not everyone does, and everyone that doesn't
 thinks that you're an idiot for proclaiming
-that it's the One True Way to write software. 
+that it's the One True Way™️ to write software. 
 
 What we as engineers should do is
 understand the requirements and make design
 choices based off of that. 
 
 Most people don't like that, because most people think it's hard.  
-
-But here's the big secret, it doesn't need to be hard. 
+It doesn't need to be hard. 
 
 Let me give you some examples.
 
@@ -55,9 +54,11 @@ And from the requirements, design decisions are also pretty easily made.
 As you can see, facts about the environment lead naturally to requirements which lead naturally to design decisions. 
 
 Now of course, you might think that I've chosen bad design decisions from the requirements, and fair enough. But now that we have both the context and the requirement, we can actually have a hope of discussing the design decision in a way that makes sense. 
+We can run an experiment and measure which design decisions suit our requirements better, and then build our system with this knowledge.
+Before we drew up those requirements, we had no hope in hell of doing that kind of thing. 
 
 
-# So some other header here
+# Nuanced Decisions Win in the Long-Term
 
 I would like to see the industry move towards a standardized set of tools that we all agree work best in X context which has Y requirements. 
 
@@ -66,9 +67,12 @@ Here's a little table to get us started.
 | Requirement | Decision I recommend |
 | ----------- | --------- |
 | You're building a website that's mostly forms that doesn't need to scale to infinity, but needs to be built fast. Minimal client-side interactivity is needed.  | Ruby on Rails or Django, no SPA |
-| You're building a website that needs to have high amounts of client-side interactivity, with multiple UI components depending on each other updating in real time as the client interacts with your site. | SPA Franework like React or Svelte |
+| You're building a website that needs to have high amounts of client-side interactivity, with multiple UI components depending on each other updating in real time as the client interacts with your site. | SPA Franework like React or Vue |
+| Your interactive web app needs great SEO and good first-page load times | Server side render that project (Remix or Next perhaps?) |
 | You're building an application that needs so much performance that it cannkt be interpreted, and this application is going to be open to the internet, so memory corruption vulnerabilities are unacceptable. | Write it in Rust |
 | You're working on an embedded project where you need to integrate deeply with some C or C++ libraries. your project is never going to be connected to the internet. | Use C or C++ | 
 | You're writing a section of purely computational code with reasonably well-defined requirements that is complicated | Use TDD |
 | You're a bootstrapped startup trying to quickly find product-market fit | move as fast as you can without being negligant |
 | You're a bank writing e-transfer software | Do literally every check and balance under the sun |
+| You're writing a one-time-use script that is only going to be used by you | Write it as quick and dirty as you can and move on |
+| You're writing a service that needs to be maintained and updated over the next 10-25 years. | Make that maintainable as possible, lest whoever inherits it ever find your home address |
