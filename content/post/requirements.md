@@ -88,9 +88,13 @@ Over the last year I've been building a utility belt of tools to reach for first
 | ----------- | ---- |
 | Automating a simple task | BASH Scripting |
 | Automating a complex task | Python Scripting |
-| Interactive SEO-friendly web app | Remix |
+| Low-performance programming | Python |
+| High-performance programming | TBD |
 | CSS | Tailwind |
 | Runtime Environment Management | Docker | 
 | Deployment of low-traffic web apps | Serverless | 
-| Deployment of high-traffic web apps | Terraform + kubernetes |
+| Deployment of high-traffic web apps | Terraform + Kubernetes |
+| High-traffic Database | Postgres |
+| Low-traffic Database | SQLite |
+| Interactive SEO-friendly web app | Remix |
 
