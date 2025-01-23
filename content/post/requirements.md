@@ -30,7 +30,7 @@ It doesn't need to be hard.
 
 Let me give you some examples.
 
-# Example 1: Tax Software
+## Example 1: Tax Software
 
 Let's say you're writing tax software for the general public to use during tax season.  How should you design that? Well, let's just dtart with some obvious facts about this. 
 
@@ -58,7 +58,7 @@ We can run an experiment and measure which design decisions suit our requirement
 Before we drew up those requirements, we had no hope in hell of doing that kind of thing. 
 
 
-# Nuanced Decisions Win in the Long-Term
+## Answers For Common Cases
 
 I would like to see the industry move towards a standardized set of tools that we all agree work best in X context which has Y requirements. 
 
@@ -76,3 +76,21 @@ Here's a little table to get us started.
 | You're a bank writing e-transfer software | Do literally every check and balance under the sun |
 | You're writing a one-time-use script that is only going to be used by you | Write it as quick and dirty as you can and move on |
 | You're writing a service that needs to be maintained and updated over the next 10-25 years. | Make that maintainable as possible, lest whoever inherits it ever find your home address |
+
+## Going Even Deeper
+
+I'm a firm believer that if you aren't adaptable as a developer, you're a bad developer. If you're the kind of developer that has only worked in one project in one language and couldn't write a new project in a new language tomorrow if you had to,
+you should fix that!
+
+Over the last year I've been building a utility belt of tools to reach for first when required. Here's that, if you want to start with that too!
+
+| Requirement | Tool |
+| ----------- | ---- |
+| Automating a simple task | BASH Scripting |
+| Automating a complex task | Python Scripting |
+| Interactive SEO-friendly web app | Remix |
+| CSS | Tailwind |
+| Runtime Environment Management | Docker | 
+| Deployment of low-traffic web apps | Serverless | 
+| Deployment of high-traffic web apps | Terraform + kubernetes |
+
