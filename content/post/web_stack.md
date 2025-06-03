@@ -1,7 +1,7 @@
 ---
 title: "Choosing a Web Stack for 2035"
 author: "Russell Waterhouse"
-description: "I want a web framework that will last me 10 years. Here's how I found it."
+description: "I want a web framework that will last me 10 years."
 tags: ["", ""]
 date: 2025-06-02T14:59:29-06:00
 draft: false
