@@ -12,7 +12,7 @@ draft: false
 The year is 2025, and web code written in 2015 is either:
 - a) unmaintained
 - b) outdated
-- c) required at least one major re-write since 2015
+- c) re-written
 - d) some combination of the above
 
 So what do you do if you're a small team or an individual dev that's moving
@@ -30,7 +30,7 @@ web development on the internet. I'll catch you up on what you've missed.
 These are the highlights as I see them. The below are NOT data-driven summaries of events,
 but my opinion of what has happened and what trends are happening now.
 1. React dominated frontend web development. What isn't a React SPA is a Vue/Angular/Solid/Svelte SPA. MPA's are rare.
-2. Create-react-app died and has been replaced by vite.
+2. Create-react-app died.
 3. TypeScript dominates almost every new frontend project, no matter what JS framework you're using.
 4. "Meta-frameworks" became super popular. NextJS and Remix/React Router v7 are popular on React, Nuxt is popular in the Vue Ecosystem, SvelteKit for Svelte, etc.
 5. TailWindCSS got to be the most-loved CSS solution.
@@ -99,26 +99,35 @@ It's toeing the line for "Extenuating circumstances that mean that I shouldn't c
 
 I don't like the idea of a hosting provider owning my code that much.
 
-#### Remix
+#### React Router v7 Framework Mode (Formerly Remix)
 
-Remix is second-place in this race and, until a few days ago, I believed it to
-be the right answer. However, there are a few things that have happened that
-give me pause.
+React Router v7 Framework Mode is second-place in popularity to Next. Until a
+few days ago, I believed it to be the right answer. However, there are a few
+things that have happened that give me pause.
 
-Remix eventually became "framework mode" in React Router v7. At this point, if
-you wanted all the nice Remix features, you just used React Router v7, and Remix
-as a framework was done.  I was okay with this.
+Before the framework now known as React Router v7 Framework mode came to be, it
+was known as Remix. The Remix team and the React Router team saw much overlap
+between what they were doing, and since Remix was built on React Router, they
+decided to merge Remix into the v7 branch of React Router and call it framework
+mode. At this point, if you wanted all the nice Remix features, you just used
+React Router v7, and Remix as a framework was done. I was okay with this.
 
-Then, a few days ago, they came out with Remix v3, which is starting with a fork
+Then, a few days ago, they announced Remix v3, which is starting with a fork
 of Preact, and isn't related in any way at all to Remix v2 or React Router v7.
 
-Speaking candidly, I do not know what they were doing when they made this decision,
-and it leads me to question the future of both Remix AND React Router v7.
+Speaking candidly, I do not know what they were doing when they made this
+decision, and it leads me to question the future of both Remix AND React Router
+v7.
 
-When the people in charge of this framework are forking frameworks and completely
-abandoning versioning conventions, I question whether either "Framework mode React Router v7"
-OR Remix will last 10 years without requiring everyone who uses their frameworks
-to completely re-write their frontends.
+When the people in charge of this framework are forking frameworks and
+completely abandoning versioning conventions, I question whether either
+"Framework mode React Router v7" OR Remix will last 10 years without requiring
+everyone who uses their frameworks to completely re-write their frontends.
+
+Don't take this the wrong way, I like what these creators have put fourth in
+Remix and I like the principles they've outlined in their announcement, but I
+have no faith that their work will last the 10 years without a rewrite that I'm
+hoping for.
 
 ### Other Meta-Frameworks
 
@@ -141,11 +150,12 @@ Not nearly as popular as Vue or Angular when looking at NPM downloads, skipping 
 Not nearly as popular as Vue or Angular when looking at NPM downloads, skipping for now.
 
 
-### And, the Dilemma
+## The Dilemma
 
-Finally, I've arrived at the crux of my issue with frontend web dev currently.
-If I believe that meta-frameworks are the future (which I do), then I would want to start
-a project with Next, React Router v7, Nuxt, Analog, SvelteKit, or SolidStart.
+Finally, I've arrived at the crux of my issue with frontend web dev
+meta-frameworks currently. If I believe that meta-frameworks are the future
+(which I do), then I would want to start a project with Next, React Router v7,
+Nuxt, Analog, SvelteKit, or SolidStart.
 
 HOWEVER, each of those has things that concern me.
 - Next's ties with Vercel concern me. I worry I would need to re-write my frontend after failing to deploy without Vercel enough times.
@@ -155,22 +165,24 @@ HOWEVER, each of those has things that concern me.
 - Svelte's popularity concerns me.
 - Solid's popularity concerns me.
 
-So, for the frontend in my web stack, my choices are either:
+So, for meta-frameworks, my choices are either:
 1. Go with something popular that feels unstable.
 2. Go with something less popular (that doesn't necessarily feel more stable).
 
+
+## The Uncomfortable Solution
 So what about avoiding the meta-framework stuff and just using vanilla React?
 
 Well, vanilla react has actually been pretty good about backwards
 compatibility. While not up to "modern standards," class components still run
-on modern react versions. However, I think that way of developing frontend apps
-is slowly losing to meta-frameworks. That would be a bet that people are still
-starting vanilla react web apps with a separate backend in 9 years. I'm not
-sure the trend supports that.
+on modern react versions. However, I think projects today are being started
+without a meta-framework less and less. I'm unable to bet with certainty people
+will still be starting vanilla react web apps without a meta-framework in 9
+years. I'm not sure the trend supports that. Unfortunately, I still think that
+bet is my best choice.
 
-I think if I was starting something new today, I would just use vanilla react
-and know that in 8 years my codebase is going to look dated to anyone who
-started their web dev life in the age of NextJS. I can eat the cost of an extra
-day here or there when onboarding to explain to new devs "this is like NextJS
-but without XYZ". I can't eat the cost of months to years of rewriting my
-frontend.
+If I was starting something new today, I would just use vanilla react and know
+that in 8 years my codebase is going to look dated to anyone who started their
+web dev life in the age of NextJS. I can eat the cost of an extra day here or
+there when onboarding to explain to new devs "this is like NextJS but without
+XYZ". I can't eat the cost of months to years of rewriting my frontend.
