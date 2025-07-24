@@ -119,7 +119,7 @@ working might look like this:
 ```js
 
 export async function insertParsedValue(req, res) {
-  const reqJson = req.body();
+  const reqJson = req.body;
   const db = await getDBConnection();
   const dbResponse = await db.insert({
     foo: reqJson.foo,
@@ -147,7 +147,7 @@ export async function insertParsedValue(req, res) {
   try {
     let reqJson = undefined;
     try {
-      reqJson = req.body();
+      reqJson = req.body;
     } catch (e) {
       return res.status(400).json({
         status: "error",
@@ -216,7 +216,7 @@ export async function insertParsedValue(req, res) {
   try {
     let reqJson = undefined;
     try {
-      reqJson = req.body();
+      reqJson = req.body;
     } catch (e) {
       return res.status(400).json({
         userMessage: "The JSON file you tried to upload is not valid JSON.",
@@ -268,7 +268,7 @@ export async function insertParsedValue(req, res) {
   try {
     let reqJson = undefined;
     try {
-      reqJson = req.body();
+      reqJson = req.body;
     } catch (e) {
       return res.status(400).json({ userMessage: strings.invalidJSON });
     }
@@ -309,7 +309,7 @@ export async function insertParsedValue(req, res) {
   try {
     let reqJson = undefined;
     try {
-      reqJson = req.body();
+      reqJson = req.body;
     } catch (e) {
       return res.status(400).json({ userMessage: strings.invalidJSON });
     }
