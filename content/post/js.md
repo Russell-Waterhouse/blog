@@ -119,11 +119,11 @@ working might look like this:
 ```js
 
 export async function insertParsedValue(req, res) {
-  const json = req.json();
+  const reqJson = req.body();
   const db = await getDBConnection();
   const dbResponse = await db.insert({
-    foo: json.foo,
-    bar: json.bar,
+    foo: reqJson.foo,
+    bar: reqJson.bar,
   });
   return res.status(201).json({
       status: "ok",
@@ -145,9 +145,9 @@ So, handling these errors, your code might instead look like this:
 
 export async function insertParsedValue(req, res) {
   try {
-    let json = undefined;
+    let reqJson = undefined;
     try {
-      json = req.json();
+      reqJson = req.body();
     } catch (e) {
       return res.status(400).json({
         status: "error",
@@ -155,7 +155,7 @@ export async function insertParsedValue(req, res) {
       });
     }
 
-    if (!("foo" in json) || !("bar" in json)) {
+    if (!("foo" in reqJson) || !("bar" in reqJson)) {
       return res.status(400).json({
         status: "error",
         userMessage: "The JSON file you tried to upload is not formatted correctly. Please ensure both a `foo` and a `bar` key are present"
@@ -173,8 +173,8 @@ export async function insertParsedValue(req, res) {
       });
     }
     const dbResponse = await db.insert({
-      foo: json.foo,
-      bar: json.bar,
+      foo: reqJson.foo,
+      bar: reqJson.bar,
     });
     if (dbResponse.ok) {
       return res.status(201).json({
@@ -199,3 +199,155 @@ export async function insertParsedValue(req, res) {
 Now those that are keen among you might know that there are clever ways to make this
 not look so bad. And you're right.
 ### Problem 4. General lack of cohesion.
+
+
+
+### Appendix A: Cleaning up my error handling example
+
+I did the error handling example to show that handling lots of different errors differently is hard in JavaScript. 
+All of the error handling code I wrote there has to live somewhere, so let's clean it up and see how nice we can
+make it. 
+
+For the first step, we don't need `status` in the response json, the HTTP response code (i.e. 500) will let us know that.
+
+```js
+
+export async function insertParsedValue(req, res) {
+  try {
+    let reqJson = undefined;
+    try {
+      reqJson = req.body();
+    } catch (e) {
+      return res.status(400).json({
+        userMessage: "The JSON file you tried to upload is not valid JSON.",
+      });
+    }
+
+    if (!("foo" in reqJson) || !("bar" in reqJson)) {
+      return res.status(400).json({
+        userMessage: "The JSON file you tried to upload is not formatted correctly. Please ensure both a `foo` and a `bar` key are present"
+      });
+    }
+
+    try {
+      const db = await getDBConnection();
+    } catch (e) {
+      console.error(e);
+      await notifyPagerDutyOfCriticalError("The database is down!");
+      return res.status(500).json({
+        userMessage: "We have encountered an error and are investigating. We apologize for the inconvenience",
+      });
+    }
+    const dbResponse = await db.insert({
+      foo: reqJson.foo,
+      bar: reqJson.bar,
+    });
+    if (dbResponse.ok) {
+      return res.status(201).json({
+          userMessage: "Record successfully created",
+      });
+    }
+
+    return handleDBErroMessage(dbResponse, req, res);
+  } catch (e) {
+    console.error(e);
+    await notifyPagerDutyOfCriticalError(`Something unexpected happend and should be investigated: ${prettPrintError(e)}`);
+    return res.status(500).json({
+      userMessage: "We have encountered an error and are investigating. We apologize for the inconvenience",
+    });
+  }
+}
+```
+
+Second, we're probably going to have all of these `userMessages` in translations files somewhere and accessed by keys.
+This will clean up the magic strings in the code.
+
+```js
+
+export async function insertParsedValue(req, res) {
+  try {
+    let reqJson = undefined;
+    try {
+      reqJson = req.body();
+    } catch (e) {
+      return res.status(400).json({ userMessage: strings.invalidJSON });
+    }
+
+    if (!("foo" in reqJson) || !("bar" in reqJson)) {
+      return res.status(400).json({ userMessage: strings.jsonKeysError });
+    }
+
+    try {
+      const db = await getDBConnection();
+    } catch (e) {
+      console.error(e);
+      await notifyPagerDutyOfCriticalError("The database is down!");
+      return res.status(500).json({ userMessage: strings.investigatingError });
+    }
+    const dbResponse = await db.insert({
+      foo: reqJson.foo,
+      bar: reqJson.bar,
+    });
+    if (dbResponse.ok) {
+      return res.status(201).json({ userMessage: strings.record_created_success });
+    }
+
+    return handleDBErroMessage(dbResponse, req, res);
+  } catch (e) {
+    console.error(prettPrintError(e));
+    await notifyPagerDutyOfCriticalError(`Something unexpected happend and should be investigated: ${prettPrintError(e)}`);
+    return res.status(500).json({ userMessage: strings.investigatingError });
+  }
+}
+```
+
+Already, this is looking a lot better, but we can go a step further. We can do input validation all in one function.
+
+```js
+
+export async function insertParsedValue(req, res) {
+  try {
+    let reqJson = undefined;
+    try {
+      reqJson = req.body();
+    } catch (e) {
+      return res.status(400).json({ userMessage: strings.invalidJSON });
+    }
+
+    if (!("foo" in reqJson) || !("bar" in reqJson)) {
+      return res.status(400).json({ userMessage: strings.jsonKeysError });
+    }
+
+    try {
+      const db = await getDBConnection();
+    } catch (e) {
+      console.error(e);
+      await notifyPagerDutyOfCriticalError("The database is down!");
+      return res.status(500).json({ userMessage: strings.investigatingError });
+    }
+    const dbResponse = await db.insert({
+      foo: reqJson.foo,
+      bar: reqJson.bar,
+    });
+    if (dbResponse.ok) {
+      return res.status(201).json({ userMessage: strings.record_created_success });
+    }
+
+    return handleDBErroMessage(dbResponse, req, res);
+  } catch (e) {
+    console.error(prettPrintError(e));
+    await notifyPagerDutyOfCriticalError(`Something unexpected happend and should be investigated: ${prettPrintError(e)}`);
+    return res.status(500).json({ userMessage: strings.investigatingError });
+  }
+}
+```
+
+
+
+
+
+I want to be very clear here, the fact that I can say "In a real production system this error handling logic would be distributed among more
+modules and abstractions does NOT invalidate the point that I'm making here. The point that I'm making with the error handling code is that
+a lot of error handling code needs to be written, and to respond differently to each unique runtime error this try-catch paradigm means that
+this gross error handling code needs to live *somewhere*. Moving it around into its own abstractions is the right thing to do, but we can't
+make the mistake of saying the chaos doesn't exist just because the chaos is well-managed.
