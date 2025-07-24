@@ -36,3 +36,7 @@ All IO return values are checked, and errors handled correctly.
 ## 8. Secure
 - Dependencies updated.
 - No pre-auth actions allowed.
+
+## 9. Has style decisions that I like:
+
+- snake_case over camelCase or PascalCase - I just like it.
