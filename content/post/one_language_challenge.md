@@ -9,9 +9,9 @@ draft: true
 
 # One Language Challenge
 
-I'm announcing that I'm starting a one-language programming challenge. For the next 6 months,
-I'm going to program all my personal projects in one language, except
-any exploration work I'm doing that will help my day job.
+I'm announcing that I'm starting a one-language programming challenge. For the
+next 6 months, I'm going to program all my personal projects in one language,
+except any exploration work I'm doing that will help my day job.
 
 # What I have done until now
 
@@ -28,30 +28,51 @@ realize that I'm in a ruby code base, or I'll have to look up how to use get
 environment variables in TypeScript. My language exploration is starting to have
 a productivity cost, and I won't stand for that.
 
-Originally, I was going to do this in C, because C is so universal and is such
-a sharp tool. I figured with a little help from the
-[stb libs](https://github.com/nothings/stb), C might be a worthy answer to my
-evergreen question "What high-performance language should I have in my
-tool box". If nothing else, I think it would have done a good job until I could
-say whether Rust or C++ would win.
+In the last year, I've written programs in C++, Zig, Rust, and Go, trying to
+figure out which of those four are going to go into my box of tools to reach
+for. I've been trying to figure out what they're good at and which of them
+are going to become dominant.
 
-However, right before I committed to it, I took one last look and found
-a language that I think will be even more suitable.
+And while I think I know what they're good for (Go for web backends, Zig for
+control, Rust for safety, and C++ for C interop), I haven't any clue of which
+of them is going to be dominant or dead in ten years.
 
-## Zig, the better C?
+I feel familiar enough with these languages that if I needed to start a big
+project with them, I could be productive in all of those languages in a few
+days.
 
-Imagine a C where you have generics, better error handling, better strings,
-better arrays, better enums, yet still have the ability to use raw pointers.
+If tomorrow I was told to write a new web backend, I could do it in Rust or I
+could do it in Go (depending on the performance required).
 
-That's Zig. I'm still in the early days of learning it, but I've seen enough
-right now to know that if I have to settle on one language to use for the
-next six months, I want it to be Zig.
+If tomorrow I was told to write a project that needs interop with C, I could
+have some decent C++ banged out by the end of the week.
+
+I still think Zig is too early to build long-maintained programs in, but when
+it hits a stable release I plan to go deep into it.
+
+So now that I know these new languages well enough to be a little
+future-proofed, I want to choose a single language to do my personal projects
+in.
+
+And C, how I've missed you.
+
+## Why C
+
+I'm choosing to do everything in C for the next six months for a few reasons.
+
+First, it's simple. After all the language exploration I've done, I've come to
+admire that about C. It means I can work in C on the weekends and not forget
+how to write Ruby code during the week.
+
+Second, I've noticed that many of the programmers that I really admire have
+programmed in C for extended periods of time. They understand what the computer
+is doing at very low-levels. They understand nuances about performance that
+I can understand in an academic way, but not yet instrinsically know.
+
+Third, it's the first language I learned. C feels to me like a refreshing beer
+with an old friend. I work in interpreted web languages during the day, it's
+nice to sit down with C in the evenings or on weekends and program without any
+of the hundreds of layers of abstractions that the modern web stack builds
+with.
 
 
-## So why not before now?
-
-Quite frankly, I've completely dismissed Zig up until now because I wanted to
-wait until it was at a stable version 1.0.
-
-However, none of my hobby projects are so big that updating between Zig versions
-is going to be hard.
