@@ -67,7 +67,7 @@ how to write Ruby code during the week.
 Second, I've noticed that many of the programmers that I really admire have
 programmed in C for extended periods of time. They understand what the computer
 is doing at very low-levels. They understand nuances about performance that
-I can understand in an academic way, but not yet instrinsically know.
+I can understand in an academic way, but not yet intrinsically know.
 
 Third, it's the first language I learned. C feels to me like a refreshing beer
 with an old friend. I work in interpreted web languages during the day, it's
@@ -82,4 +82,4 @@ everything with the least dependencies I can. Unless it's a stable ABI at the
 lowest level possible, I don't want to depend on it.
 
 Fifth, in the next 9 months I plan to do some embedded
-programming, so C is a natural choice. 
+programming, so C is a natural choice.
