@@ -81,3 +81,5 @@ runtime, no more `node_modules`. A big part of this is going to be doing
 everything with the least dependencies I can. Unless it's a stable ABI at the
 lowest level possible, I don't want to depend on it.
 
+Fifth, in the next 9 months I plan to do some embedded
+programming, so C is a natural choice. 
