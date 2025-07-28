@@ -75,4 +75,9 @@ nice to sit down with C in the evenings or on weekends and program without any
 of the hundreds of layers of abstractions that the modern web stack builds
 with.
 
+Fourth, C gives me an opportunity to go back to a place without all the crazy
+abstractions that I work with daily. No more browser API's, no more async
+runtime, no more `node_modules`. A big part of this is going to be doing
+everything with the least dependencies I can. Unless it's a stable ABI at the
+lowest level possible, I don't want to depend on it.
 
