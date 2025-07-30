@@ -4,7 +4,7 @@ author: "Russell Waterhouse"
 description: "Can I use one language for a whole year?"
 tags: ["6-month-challenge"]
 date: 2025-07-15T09:48:33-06:00
-draft: true
+draft: false
 ---
 
 # One Language Challenge
