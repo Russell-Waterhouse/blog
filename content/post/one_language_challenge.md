@@ -13,7 +13,7 @@ I'm announcing that I'm starting a one-language programming challenge. For the
 next 12 months, I'm going to program all my personal projects in one language,
 except any exploration work I'm doing that will help my day job.
 
-# What I have done until now
+## What I have done until now
 
 Until now, I've generally used the right tool for the job. When doing web
 stuff, I've used TypeScript. When scripting, I've used python or bash. When
@@ -115,4 +115,43 @@ In the next 12 months I plan to do both some graphics programming and
 some embedded programming. These are areas where C really shines.
 
 I want my own custom screensaver and I want some smart devices in my house
-running on my own ESP32 running my own C code.
+running on my own ESP32. C is going to be great for those. Even if I wasn't
+doing this challenge, I would still do those projects in C. And for everyone
+saying that I could program an ESP32 in Rust, you're right! And the
+documentation for how to do it sucked!
+
+
+### 6. AI Sucks at C
+
+I don't hate AI, but I also recognize that if I'm leaning on AI heavily I'm not
+learning anything.
+
+As far as I can tell, AI trained heavily on all the first year CS undergrads' C
+projects. I'm not impressed with the C code that AI writes, and that's good for
+me. I don't want to be using AI for my personal projects. My personal projects
+are where I learn new concepts and try new things. I'm not doing personal
+projects with the goal of having a final product. It's one of the reasons so
+many projects on my GitHub are archived, and why so many of my personal
+projects never even make it onto my GitHub. I learned the thing I wanted to
+learn, and I moved on.
+
+## The Preliminary Roadmap
+
+So what projects do I have planned? Here's a list:
+
+1. A program that generates C code, so I can have generic data structures without using `void*`.
+  - As an aside, I very nearly chose zig for this challenge because I wanted generic data structures.
+  - Repo is already public [here](https://github.com/russell-waterhouse/c_generators), though far from complete at the time of posting.
+2. My own standard library.
+  - Obviously, I'm not re-implementing everything from the C standard library, but I want a few typedefs for ints, a few extra functions for working with strings, and maybe my own dynamic array implemntation.
+3. My own screensaver.
+  - I've had an idea for a screensaver with dots moving around the screen and lines appearing between them. I'm sure I got the idea from some hacking website I saw at some point, but I want to make my own.
+4. An ESP32-automated morning routine.
+  - Curtains opened, coffee machine started, lights brought up slowly, music playing, all before I even get out of bed.
+5. Port [my dev environment setup script](https://github.com/Russell-Waterhouse/dev_environment) to C.
+  - It's in python now, why not do it in C?
+
+And quite frankly, if I get all of that done in a year, it will have been a
+good year.
+
+
