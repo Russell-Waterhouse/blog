@@ -146,12 +146,40 @@ So what projects do I have planned? Here's a list:
   - Obviously, I'm not re-implementing everything from the C standard library, but I want a few typedefs for ints, a few extra functions for working with strings, and maybe my own dynamic array implemntation.
 3. My own screensaver.
   - I've had an idea for a screensaver with dots moving around the screen and lines appearing between them. I'm sure I got the idea from some hacking website I saw at some point, but I want to make my own.
-4. An ESP32-automated morning routine.
+4. Advent of code 2025
+  - I hope to get at least half the challenges done this year.
+5. An ESP32-automated morning routine.
   - Curtains opened, coffee machine started, lights brought up slowly, music playing, all before I even get out of bed.
-5. Port [my dev environment setup script](https://github.com/Russell-Waterhouse/dev_environment) to C.
+6. Port [my dev environment setup script](https://github.com/Russell-Waterhouse/dev_environment) to C.
   - It's in python now, why not do it in C?
 
 And quite frankly, if I get all of that done in a year, it will have been a
-good year.
+good year. However, there's some stretch goals I have in mind.
+
+1. A full (but small) web app in C (perhaps with some small JS scripts for client-side interactions).
+  - We use Java, Ruby, Go, TypeScript, etc. for backend servers, I want to try one in C.
+2. A full (but small) desktop app in C.
+  - The king of desktop app development right now seems to be electron, I want to try one in C.
+
+I really hope that I can get to these stretch goals and complete them.  
+Even more than that, I really hope that I complete these stretch goals in a
+reasonable amount of time. 
+
+If I can do it reasonably efficiently, that would prove a theory that I have:
+languages like Java and Ruby and frameworks like React and Electron are
+*luxuries*, and beyond the initial bump of productivity the frameworks give
+projects in very early stages, they don't offer the productivity advantage that
+they claim. Moreover, once I write a web app in C and a desktop app in C, unless
+the API that I'm building to changes (and I plan to build to fundamental
+API's like GLIBC and OpenGL), my projects would be done. They wouldn't require
+a dependabot setup.
+
+And realistically speaking, I doubt anyone malicious looking for binary
+exploits in my web server written in C when they could just ransomware a big
+company that they got access to through social engineering, or write a bot to
+drop a webshell on [every internet exposed
+sharepoint](https://www.washingtonpost.com/technology/2025/07/20/microsoft-sharepoint-hack/).
+
+
 
 
