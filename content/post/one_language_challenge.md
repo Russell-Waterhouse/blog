@@ -171,17 +171,31 @@ If I can do it reasonably efficiently, that would prove a theory that I have:
 languages like Java and Ruby and frameworks like React and Electron are
 *luxuries*, and beyond the initial bump of productivity the frameworks give
 projects in very early stages, they don't offer the productivity advantage that
-they claim. Moreover, once I write a web app in C and a desktop app in C, unless
+they claim. 
+
+For reasons that I don't fully understand yet, there's this concept in application
+development that C is the language for the Linux Kernel and nothing else. Real applications
+are written in interpreted languages. I don't know where that started or why that started. 
+perhaps there's something about C that fundamentally makes it bad for building applications,
+perhaps there's not. Either way, I'm going to find out for myself. 
+
+Moreover, once I write a web app in C and a desktop app in C, unless
 the API that I'm building to changes (and I plan to build to fundamental
 API's like GLIBC and OpenGL), my projects would be done. They wouldn't require
 a dependabot setup.
 
-And realistically speaking, I doubt anyone malicious looking for binary
-exploits in my web server written in C when they could just ransomware a big
+And to those security-aware folks worried about me putting a web server written in C on
+the open internet, let's speak plainly for a moment about the real security concerns there. 
+I doubt anyone malicious is going to be able to afford to take the time to look 
+for binary exploits in my side project when they could just ransomware a big
 company that they got access to through social engineering, or write a bot to
 drop a webshell on [every internet exposed
 sharepoint](https://www.washingtonpost.com/technology/2025/07/20/microsoft-sharepoint-hack/).
 
+Cybersecurity is, right now, a balancing act between risk prevention,
+risk mitigation, and risk acceptance, and when compiling with all the security
+flags to prevent stack smashing and being a small side project with no monetary
+incentive to hack, I accept the risks I'm creating here for memory exploits. 
 
 
 
