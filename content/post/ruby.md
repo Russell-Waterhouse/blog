@@ -28,3 +28,11 @@ more popular language with a bigger ecosystem where I don't have to write that
 code, and the dependencies are maintained by Azure itself, why would I pick
 Ruby for a new project?
 
+Now, I love Ruby. I think there's a fundamental care for developers that Ruby
+has that I haven't seen replicated in any other language I've ever used.
+The fact that array.size and array.length BOTH exist because the developers
+knew we'd try using both... why hasn't every other language done that?
+
+But when I'm making business decisions, I'm not sure that I'm so much more
+productive in ruby that it's worth the time it would take for me to absorb the
+cost of this ecosystem.
