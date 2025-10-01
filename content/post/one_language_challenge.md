@@ -71,8 +71,11 @@ I'm choosing to do everything in C for the next 12 months for a few reasons.
 ### 1. It's Simple
 
 After all the language exploration I've done, I've come to
-admire that about C. It means I can work in C on the weekends and not forget
-how to write Ruby code during the week.
+admire the simplicity C. It means I can work in C on the weekends and not forget
+how to write Ruby code during the week. It also means that two programmers
+solving the same problem in C will probably use the same tools and language
+features. I can't say that about C++ or Rust.
+
 
 It also means that I can look at someone else's C code and see what they're
 doing with very little other context. I can't do that with C++ or Rust.
@@ -84,7 +87,7 @@ programmed in C for extended periods of time. They understand what the computer
 is doing at very low levels. They understand nuances about performance that
 I can understand in an academic way, but not yet intrinsically know.
 
-I want the deep understanding about programming that C programmers all seem to know. 
+I want the deep understanding about programming that C programmers all seem to know.
 
 ### 3. It's Familiar
 
@@ -95,7 +98,7 @@ university, I still feel like I never truly mastered the language.
 
 I feel like I hiked all around the foothills of that mountain, but never truly
 went for the summit. What better time to do that, with all the learning and
-growing I've done since university.
+growing I've done since university?
 
 ### 4. Escape from Dependency Hell
 
@@ -108,7 +111,7 @@ runtime, and no more `node_modules`.
 A big part of this challenge is going to be doing everything with the least
 dependencies I can. Unless it's a stable ABI at the lowest level possible, I
 don't want to depend on it. At the end of this challenge, I really hope to have
-only depended on the C standard language, berkeley sockets, and a graphics
+only depended on the C standard library, berkeley sockets, and a graphics
 library.
 
 ### 5. Low-Level Support
@@ -126,7 +129,7 @@ documentation for how to do it sucked!
 ### 6. AI Sucks at C
 
 I don't hate AI, but I also recognize that if I'm leaning on AI heavily I'm not
-learning anything.
+learning.
 
 As far as I can tell, AI trained heavily on all the first year CS undergrads' C
 projects. I'm not impressed with the C code that AI writes, and that's good for
@@ -171,13 +174,13 @@ If I can do it reasonably efficiently, that would prove a theory that I have:
 languages like Java and Ruby and frameworks like React and Electron are
 *luxuries*, and beyond the initial bump of productivity the frameworks give
 projects in very early stages, they don't offer the productivity advantage that
-they claim. 
+they claim.
 
 For reasons that I don't fully understand yet, there's this concept in application
 development that C is the language for the Linux Kernel and nothing else. Real applications
-are written in interpreted languages. I don't know where that started or why that started. 
+are written in interpreted languages. I don't know where that started or why that started.
 perhaps there's something about C that fundamentally makes it bad for building applications,
-perhaps there's not. Either way, I'm going to find out for myself. 
+perhaps there's not. Either way, I'm going to find out for myself.
 
 Moreover, once I write a web app in C and a desktop app in C, unless
 the API that I'm building to changes (and I plan to build to fundamental
@@ -185,7 +188,7 @@ API's like GLIBC and OpenGL), my projects would be done. They wouldn't require
 a dependabot setup.
 
 And to those security-aware folks worried about me putting a web server written in C on
-the open internet, let's speak plainly for a moment about the real security concerns there. 
+the open internet, let's speak plainly for a moment about the real security concerns there.
 I doubt anyone malicious is going to be able to afford to take the time to look 
 for binary exploits in my side project when they could just ransomware a big
 company that they got access to through social engineering, or write a bot to
@@ -195,7 +198,12 @@ sharepoint](https://www.washingtonpost.com/technology/2025/07/20/microsoft-share
 Cybersecurity is, right now, a balancing act between risk prevention,
 risk mitigation, and risk acceptance, and when compiling with all the security
 flags to prevent stack smashing and being a small side project with no monetary
-incentive to hack, I accept the risks I'm creating here for memory exploits. 
+incentive to hack, I accept the risks I'm creating here for memory exploits.
 
 
+## What I'm Hoping For
 
+I'm hoping that this challenge allows me to work in an environment where
+performance matters, the abstractions are few, the dependencies are dependable,
+and the software produced is rock-solid. I hope after a year, I'm a better
+developer than I am now.
