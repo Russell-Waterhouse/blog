@@ -179,7 +179,7 @@ they claim.
 For reasons that I don't fully understand yet, there's this concept in application
 development that C is the language for the Linux Kernel and nothing else. Real applications
 are written in interpreted languages. I don't know where that started or why that started.
-perhaps there's something about C that fundamentally makes it bad for building applications,
+Perhaps there's something about C that fundamentally makes it bad for building applications,
 perhaps there's not. Either way, I'm going to find out for myself.
 
 Moreover, once I write a web app in C and a desktop app in C, unless
@@ -192,7 +192,7 @@ the open internet, let's speak plainly for a moment about the real security conc
 I doubt anyone malicious is going to be able to afford to take the time to look 
 for binary exploits in my side project when they could just ransomware a big
 company that they got access to through social engineering, or write a bot to
-drop a webshell on [every internet exposed
+drop a webshell on [every internet-exposed
 sharepoint](https://www.washingtonpost.com/technology/2025/07/20/microsoft-sharepoint-hack/).
 
 Cybersecurity is, right now, a balancing act between risk prevention,
