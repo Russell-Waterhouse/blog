@@ -1,15 +1,22 @@
 ---
 title: "Js"
 author: "Russell Waterhouse"
-description: "description here"
-tags: ["", ""]
+description: "Clarifying my Thoughts on JavaScript"
+tags: ["JavaScript", "TypeScript"]
 date: 2025-05-26T14:26:34-06:00
 draft: false
 ---
 
 # My Relationship with JavaScript
 
-## Part 1: Why I'm writing this:
+## Disclaimer
+
+Quick disclaimer here, for the rest of the article, you can substitute
+JavaScript with TypeScript in your head if you prefer it. Everything I say
+about JavaScript in this article applies to both JavaScript and TypeScript, and
+no issue discussed below is fixed by a type system.
+
+## Why I'm writing this:
 
 I am a professional developer. I get paid to sit down at my desk and put my
 fingers on the keyboard and write code, among other things.
@@ -19,17 +26,17 @@ in other programming languages I can in JavaScript. After 3 hours in
 JavaScript, I feel the same amount of mental fatigue that I feel after 4 of
 Ruby or 5 of Rust.
 
-I want to try to figure out why that is here:
+That's not because writing code in JavaScript is hard, it's not.
 
-I think the reason is that everything that I have to do in JavaScript feels
-like it is much more time and effort than it should be or could be in other
-languages. That's not because writing code in JavaScript is hard, it's not.
 Nor is it because writing code in JavaScript is time-consuming; I believe
 JavaScript to be the language that I can write a proof-of-concept in fastest.
+
 It's because as soon as I hit a problem in JavaScript, it takes far too long to
 debug.
 
-I think this is because of a couple of features of the language and the
+I think the reason is that everything that I have to do in JavaScript feels
+like it is much more time and effort than it should be or could be in other
+languages. I think this is because of a couple of features of the language and the
 ecosystem that intersect in painful ways.
 
 ### Problem 1. Exceptions instead of errors-as-values.
@@ -51,7 +58,99 @@ track down. Normally, this happens because I've written a helper-function that
 I assume is called in a try-catch block one level of abstraction higher, but I
 forgot about a code-path that doesn't have a try-catch block.
 
-Tracking down exceptions in the JavaScript ecosystem is often trivial.
+Tracking down exceptions in the JavaScript ecosystem is often trivial. Except
+when paired with Problem 2.
+
+Before we get there though, let me show you an example of what I mean. Say our
+initial working implementation of a backend function that parses some uploaded
+JSON looks like this:
+
+
+```js
+
+export async function insertParsedValue(req, res) {
+  const reqJson = req.body;
+  const db = await getDBConnection();
+  const dbResponse = await db.insert({
+    foo: reqJson.foo,
+    bar: reqJson.bar,
+  });
+  return res.status(201).json({
+      status: "ok",
+      userMessage: "Record successfully created",
+  });
+}
+```
+
+And if that code worked, that would be great! There's nothing in there that I'm
+going to complain about.
+However, programming doesn't work like that. Users upload bad data, databases
+go down, Venezuela's currency becomes so worthless that it gets rounded to zero
+and your currency-handling code is now blowing up at 2 am because you're dividing
+by zero.
+
+So, handling these errors, your code might instead look like this:
+
+```js
+
+export async function insertParsedValue(req, res) {
+  try {
+    let reqJson;
+    try {
+      reqJson = req.body;
+    } catch (e) {
+      return res.status(400).json({
+        status: "error",
+        userMessage: "The JSON file you tried to upload is not valid JSON.",
+      });
+    }
+
+    if (!("foo" in reqJson) || !("bar" in reqJson)) {
+      return res.status(400).json({
+        status: "error",
+        userMessage: "The JSON file you tried to upload is not formatted correctly. Please ensure both a `foo` and a `bar` key are present"
+      });
+    }
+
+    try {
+      const db = await getDBConnection();
+    } catch (e) {
+      console.error(e);
+      await notifyPagerDutyOfCriticalError("The database is down!");
+      return res.status(500).json({
+        status: "error",
+        userMessage: "We have encountered an error and are investigating. We apologize for the inconvenience",
+      });
+    }
+    const dbResponse = await db.insert({
+      foo: reqJson.foo,
+      bar: reqJson.bar,
+    });
+    if (dbResponse.ok) {
+      return res.status(201).json({
+          status: "ok",
+          userMessage: "Record successfully created",
+      });
+    }
+
+    return handleDBErrorMessage(dbResponse, req, res);
+  } catch (e) {
+    console.error(e);
+    await notifyPagerDutyOfCriticalError(`Something unexpected happend and should be investigated: ${prettPrintError(e)}`);
+    return res.status(500).json({
+      status: "error",
+      userMessage: "We have encountered an error and are investigating. We apologize for the inconvenience",
+    });
+  }
+}
+```
+
+
+Now those that are keen among you might know that there are clever ways to make this
+not look so bad. And you're right. See appendix A for more details.
+
+My point is, handling each error uniquely with try-catch doesn't spark joy for
+me.
 
 ### Problem 2. Async/Await and Promises.
 
@@ -60,9 +159,11 @@ callback hell that plagued the JavaScript ecosystem not so long ago.
 
 However, I still don't think it's the right abstraction for concurrent
 programming. I understand that in IO-heavy applications, such as the web often is,
-it can look like a good abstraction. The single core in this lambda can do other
-things in the event loop while we're `await`-ing this database query to resolve.
-And all without threads! Isn't that awesome!
+it can look like a good abstraction.
+
+The single core in this lambda can do other things in the event loop while
+we're `await`-ing this network request to resolve. And all without threads!
+Isn't that awesome!
 
 And quite frankly, no I don't think it's awesome. Real example here, let's say
 you're writing JS on the backend, and you have two functions like this:
@@ -108,105 +209,17 @@ function call to a dependency that I've passed bad data to, but that's all that
 the stack trace tells me. If I'm lucky, I've only used the dependency in the
 stack trace once or twice in my app. I'm not often that lucky.
 
-### Problem 3. Errors appear at runtime, not build-time.
 
-The amount of code that you would actually need to write to handle runtime
-errors correctly in JavaScript is a little bit insane. Let's say that you had
-a function in a js backend that parses an uploaded json file and inserts it into
-the database. Your initial implementation while you're trying to get things
-working might look like this: 
+### Conclusion
 
-```js
-
-export async function insertParsedValue(req, res) {
-  const reqJson = req.body;
-  const db = await getDBConnection();
-  const dbResponse = await db.insert({
-    foo: reqJson.foo,
-    bar: reqJson.bar,
-  });
-  return res.status(201).json({
-      status: "ok",
-      userMessage: "Record successfully created",
-  });
-}
-```
-
-And if that code worked, that would be great! There's nothing in there that I'm
-going to complain about.
-However, programming doesn't work like that. Users upload bad data, databases
-go down, Venezuela's currency becomes so worthless that it gets rounded to zero
-and your currency-handling code is now blowing up at 2 am because you're dividing
-by zero.
-
-So, handling these errors, your code might instead look like this:
-
-```js
-
-export async function insertParsedValue(req, res) {
-  try {
-    let reqJson = undefined;
-    try {
-      reqJson = req.body;
-    } catch (e) {
-      return res.status(400).json({
-        status: "error",
-        userMessage: "The JSON file you tried to upload is not valid JSON.",
-      });
-    }
-
-    if (!("foo" in reqJson) || !("bar" in reqJson)) {
-      return res.status(400).json({
-        status: "error",
-        userMessage: "The JSON file you tried to upload is not formatted correctly. Please ensure both a `foo` and a `bar` key are present"
-      });
-    }
-
-    try {
-      const db = await getDBConnection();
-    } catch (e) {
-      console.error(e);
-      await notifyPagerDutyOfCriticalError("The database is down!");
-      return res.status(500).json({
-        status: "error",
-        userMessage: "We have encountered an error and are investigating. We apologize for the inconvenience",
-      });
-    }
-    const dbResponse = await db.insert({
-      foo: reqJson.foo,
-      bar: reqJson.bar,
-    });
-    if (dbResponse.ok) {
-      return res.status(201).json({
-          status: "ok",
-          userMessage: "Record successfully created",
-      });
-    }
-
-    return handleDBErroMessage(dbResponse, req, res);
-  } catch (e) {
-    console.error(e);
-    await notifyPagerDutyOfCriticalError(`Something unexpected happend and should be investigated: ${prettPrintError(e)}`);
-    return res.status(500).json({
-      status: "error",
-      userMessage: "We have encountered an error and are investigating. We apologize for the inconvenience",
-    });
-  }
-}
-```
-
-
-Now those that are keen among you might know that there are clever ways to make this
-not look so bad. And you're right.
-### Problem 4. General lack of cohesion.
-
-
+I'm very productive in JavaScript, but these two features of the language are
+starting to wear on my nerves a bit. Thanks for reading my rant.
 
 ### Appendix A: Cleaning up my error handling example
 
-I did the error handling example to show that handling lots of different errors differently is hard in JavaScript. 
+I did the error handling example to show that handling lots of different errors differently is hard in JavaScript.
 All of the error handling code I wrote there has to live somewhere, so let's clean it up and see how nice we can
-make it. 
+make it.
 
 For the first step, we don't need `status` in the response json, the HTTP response code (i.e. 500) will let us know that.
 
@@ -214,7 +227,7 @@ For the first step, we don't need `status` in the response json, the HTTP respon
 
 export async function insertParsedValue(req, res) {
   try {
-    let reqJson = undefined;
+    let reqJson;
     try {
       reqJson = req.body;
     } catch (e) {
@@ -248,7 +261,7 @@ export async function insertParsedValue(req, res) {
       });
     }
 
-    return handleDBErroMessage(dbResponse, req, res);
+    return handleDBErrorMessage(dbResponse, req, res);
   } catch (e) {
     console.error(e);
     await notifyPagerDutyOfCriticalError(`Something unexpected happend and should be investigated: ${prettPrintError(e)}`);
@@ -266,7 +279,7 @@ This will clean up the magic strings in the code.
 
 export async function insertParsedValue(req, res) {
   try {
-    let reqJson = undefined;
+    let reqJson;
     try {
       reqJson = req.body;
     } catch (e) {
@@ -292,7 +305,7 @@ export async function insertParsedValue(req, res) {
       return res.status(201).json({ userMessage: strings.record_created_success });
     }
 
-    return handleDBErroMessage(dbResponse, req, res);
+    return handleDBErrorMessage(dbResponse, req, res);
   } catch (e) {
     console.error(prettPrintError(e));
     await notifyPagerDutyOfCriticalError(`Something unexpected happend and should be investigated: ${prettPrintError(e)}`);
@@ -301,13 +314,17 @@ export async function insertParsedValue(req, res) {
 }
 ```
 
-Already, this is looking a lot better, but we can go a step further. We can do input validation all in one function.
+Already, this is looking a lot better, but we can go a few steps further.
+
+`notifyPagerDutyOfCriticalError` should take an error as a param to log, and
+`getDBConnection` should be refactored to notify pager duty if
+something was wrong, and just return a falsey value if something did.
 
 ```js
 
 export async function insertParsedValue(req, res) {
   try {
-    let reqJson = undefined;
+    let reqJson;
     try {
       reqJson = req.body;
     } catch (e) {
@@ -318,13 +335,11 @@ export async function insertParsedValue(req, res) {
       return res.status(400).json({ userMessage: strings.jsonKeysError });
     }
 
-    try {
-      const db = await getDBConnection();
-    } catch (e) {
-      console.error(e);
-      await notifyPagerDutyOfCriticalError("The database is down!");
+    const db = await getDBConnectionOrNull();
+    if (!db) {
       return res.status(500).json({ userMessage: strings.investigatingError });
     }
+
     const dbResponse = await db.insert({
       foo: reqJson.foo,
       bar: reqJson.bar,
@@ -333,21 +348,25 @@ export async function insertParsedValue(req, res) {
       return res.status(201).json({ userMessage: strings.record_created_success });
     }
 
-    return handleDBErroMessage(dbResponse, req, res);
+    return handleDBErrorMessage(dbResponse, req, res);
   } catch (e) {
-    console.error(prettPrintError(e));
-    await notifyPagerDutyOfCriticalError(`Something unexpected happend and should be investigated: ${prettPrintError(e)}`);
+    await notifyPagerDutyOfCriticalError("Something unexpected happend and should be investigated.", e);
     return res.status(500).json({ userMessage: strings.investigatingError });
   }
 }
 ```
 
+There are still improvements you could make, but I'll stop here lest this become
+a refactoring blog post.
 
 
 
-
-I want to be very clear here, the fact that I can say "In a real production system this error handling logic would be distributed among more
-modules and abstractions does NOT invalidate the point that I'm making here. The point that I'm making with the error handling code is that
-a lot of error handling code needs to be written, and to respond differently to each unique runtime error this try-catch paradigm means that
-this gross error handling code needs to live *somewhere*. Moving it around into its own abstractions is the right thing to do, but we can't
-make the mistake of saying the chaos doesn't exist just because the chaos is well-managed.
+I want to be very clear here, the fact that I can say "In a real production
+system this error handling logic would be distributed among more modules and
+abstractions" does NOT invalidate the point that I'm making here. The point that
+I'm making with the error handling code is that a lot of error handling code
+needs to be written, and to respond differently to each unique runtime error
+this try-catch paradigm means that this gross error handling code needs to live
+*somewhere*. Moving it around into its own abstractions is the right thing to
+do, but we can't make the mistake of saying the chaos doesn't exist just
+because the chaos is well-managed.
