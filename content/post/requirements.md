@@ -5,28 +5,29 @@ you choose, you'll see blog posts and
 rants from different engineers and
 influencers telling you that EVERYONE should
 go slower or faster or test more or test
-less or replace JavaScript with TypeScript 
+less or replace JavaScript with TypeScript
 or replace TypeScript with JavaScript
-or whatever. 
+or whatever.
 
 Every single one of these opinions is wrong,
 and I have no respect for anyone who
-propagates these absolutes. 
+propagates these absolutes.
 
 Perhaps you work in an environment
-where TDD is the right answer 
-100% of the time. 
+where TDD is the right answer
+100% of the time.
 
 Not everyone does, and everyone that doesn't
 thinks that you're an idiot for proclaiming
-that it's the One True Way™️ to write software. 
+that it's the One True Way™️ to write software.
 
 What we as engineers should do is
 understand the requirements and make design
-choices based off of that. 
+choices based off of that.
 
-Most people don't like that, because most people think it's hard.  
-It doesn't need to be hard. 
+Most people don't like that, because most people think it's hard.
+
+It doesn't need to be hard.
 
 Let me give you some examples.
 
@@ -37,7 +38,7 @@ Let's say you're writing tax software for the general public to use during tax s
 1. Taxes have to be correct. Incorrect values are unacceptable.
 2. Tax codes change all the time.
 3. Everyone does their taxes all pretty much at once.
-4. Nobody cares if their taxes take 5 seconds to calculate the final result. 
+4. Nobody cares if their taxes take 500 ms or 5 seconds to calculate the final result.
 
 Based on these statements, we can draw requirements. 
 1. All tax calculating parts of the software need to have high correctness.
@@ -45,56 +46,58 @@ Based on these statements, we can draw requirements.
 3. This tax software should be able to handle a massive number of concurrent users.
 4. This solution does not need to be blazingly fast.
 
-And from the requirements, design decisions are also pretty easily made. 
-1. Perhaps all tax calculations need to have 100% code coverage. Perhaps this part of the code should have invariance testing (TODO: link to what that is). Perhaps these calculations should be checked by tax professionals.
+And from the requirements, design decisions are also pretty easily made.
+1. Perhaps all tax calculations need to have 100% code coverage. Perhaps these calculations should be checked by tax professionals.
 2. All tax calculation code should be pure functions with no side effects to make modifying them easy. That module should have very loose coupling so updating one tax calculations does not affect others that should not be affeccted.
-3. Depending on how you define massive, perhaps you should wrap this service in docker and autoscale it horizontally and verticalky behind some load balancers. perhaps uou run several instances in different AWS zones.
-4. We probably don't have to write it in C++ or Rust, we can probably just use Python or something like that.
+3. Depending on how you define massive, perhaps you should wrap this service in docker and autoscale it horizontally and verticalky behind some load balancers. Perhaps you should run several instances in different AWS regions.
+4. We probably don't have to write it in C++ or Rust, we can probably just use any language with adequate math primitives.
 
-As you can see, facts about the environment lead naturally to requirements which lead naturally to design decisions. 
+As you can see, facts about the environment lead naturally to requirements
+which lead naturally to design decisions.
 
-Now of course, you might think that I've chosen bad design decisions from the requirements, and fair enough. But now that we have both the context and the requirement, we can actually have a hope of discussing the design decision in a way that makes sense. 
-We can run an experiment and measure which design decisions suit our requirements better, and then build our system with this knowledge.
-Before we drew up those requirements, we had no hope in hell of doing that kind of thing. 
+Now of course, you might think that I've chosen bad design decisions from the
+requirements, and fair enough. But now that we have both the context and the
+requirement, we can actually have a hope of discussing the design decision in a
+way that makes sense. We can run an experiment and measure which design
+decisions suit our requirements better, and then build our system with this
+knowledge. Before we drew up those requirements, we had no hope in hell of
+doing that kind of thing.
 
 
 ## Answers For Common Cases
 
-I would like to see the industry move towards a standardized set of tools that we all agree work best in X context which has Y requirements. 
+Over my entire career, I've been putting tools in my toolbox for common cases.
+Here's a table of the answers I've come up with so far.
 
-Here's a little table to get us started. 
-
-| Requirement | Decision I recommend |
-| ----------- | --------- |
-| You're building a website that's mostly forms that doesn't need to scale to infinity, but needs to be built fast. Minimal client-side interactivity is needed.  | Ruby on Rails or Django, no SPA |
-| You're building a website that needs to have high amounts of client-side interactivity, with multiple UI components depending on each other updating in real time as the client interacts with your site. | SPA Franework like React or Vue |
-| Your interactive web app needs great SEO and good first-page load times | Server side render that project (Remix or Next perhaps?) |
-| You're building an application that needs so much performance that it cannkt be interpreted, and this application is going to be open to the internet, so memory corruption vulnerabilities are unacceptable. | Write it in Rust |
-| You're working on an embedded project where you need to integrate deeply with some C or C++ libraries. your project is never going to be connected to the internet. | Use C or C++ | 
-| You're writing a section of purely computational code with reasonably well-defined requirements that is complicated | Use TDD |
-| You're a bootstrapped startup trying to quickly find product-market fit | move as fast as you can without being negligant |
-| You're a bank writing e-transfer software | Do literally every check and balance under the sun |
-| You're writing a one-time-use script that is only going to be used by you | Write it as quick and dirty as you can and move on |
-| You're writing a service that needs to be maintained and updated over the next 10-25 years. | Make that maintainable as possible, lest whoever inherits it ever find your home address |
-
-## Going Even Deeper
-
-I'm a firm believer that if you aren't adaptable as a developer, you're a bad developer. If you're the kind of developer that has only worked in one project in one language and couldn't write a new project in a new language tomorrow if you had to,
-you should fix that!
-
-Over the last year I've been building a utility belt of tools to reach for first when required. Here's that, if you want to start with that too!
-
-| Requirement | Tool |
-| ----------- | ---- |
+| Requirement | Tool Or Technique |
+| ----------- | -------------------- |
 | Automating a simple task | BASH Scripting |
 | Automating a complex task | Python Scripting |
 | Low-performance programming | Python |
-| High-performance programming | TBD |
+| High-performance programming | Investigation In Progress |
 | CSS | Tailwind |
-| Runtime Environment Management | Docker | 
-| Deployment of low-traffic web apps | Serverless | 
+| Runtime Environment Management | Docker |
+| Deployment of low-traffic web apps | Serverless |
 | Deployment of high-traffic web apps | Terraform + Kubernetes |
 | High-traffic Database | Postgres |
 | Low-traffic Database | SQLite |
 | Interactive SEO-friendly web app | Remix |
+| A website that's mostly forms that doesn't need to scale to infinity, but needs to be built fast. Minimal client-side interactivity is needed. | MPA framework, no SPA |
+| Your interactive web app needs great SEO and good first-page load times. | Server side rendering (Remix or Next perhaps?) |
+| An application that needs so much performance that it cannkt be interpreted, and this application is going to be open to the internet, so memory corruption vulnerabilities are unacceptable. | Write it in Rust |
+| You're working on an embedded project where you need to integrate deeply with some C or C++ libraries. Your project is never going to be connected to the internet. | Use C or C++ | 
+| A section of purely computational code with reasonably well-defined requirements that is complicated. | Use TDD |
+| You're a bootstrapped startup trying to quickly find product-market fit. | move as fast as you can without being negligent. |
+| You're a bank writing e-transfer software. | Do literally every check and balance under the sun. |
+| A one-time-use script that is only going to be used by you | Write it as quick and dirty as you can and move on. |
+| A service that needs to be maintained and updated over the next 10-25 years. | Make that maintainable as possible, lest whoever inherits it ever find your home address. Prefer dependencies that change very little. |
 
+
+## Why I Advocate For This
+
+I advocate for this "use the right tool for the right job approach" because
+using the wrong tool or wrong technique is actively harmful. We have enough software
+out there using enough tools and techniques where we should, as an industry and
+as individuals, start to be able to say when to use each tool.
+
+Until then, we're just using hammers to drive screws.
