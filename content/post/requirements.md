@@ -38,9 +38,9 @@ Most people don't like that, because most people think it's hard.
 
 It doesn't need to be hard.
 
-Let me give you some examples.
+Let me give you an example.
 
-## Example 1: Tax Software
+## Example: Tax Software
 
 Let's say you're writing tax software for the general public to use during tax season.  How should you design that? Well, let's just dtart with some obvious facts about this. 
 
