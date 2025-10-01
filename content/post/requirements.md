@@ -1,3 +1,12 @@
+---
+title: "Requirements are all that matter"
+author: "Russell Waterhouse"
+description: "Let's bring nuance back to software development"
+tags: ["requirements"]
+date: 2025-01-12T10:26:05-07:00
+draft: false
+---
+
 # Dear Software Engineers: Your Requirements Are All That Matter
 
 Browsing through whatever tech forum
