@@ -88,3 +88,8 @@ think they can win."
 
 "Excessive complexity is nature’s punishment for organizations that are unable
 to make decisions."
+
+## Henry Ford
+
+"If you always do what you've always done, you'll always get what you've always
+got."
