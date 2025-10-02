@@ -8,41 +8,63 @@ draft: false
 ---
 
 # The type of code that I like to write
+
 After writing code professionally for a few years, I thought it was time that
 I formalize my current definition of good code. I'm sure that it will change
 over time as I grow, but I think that everything here is a good starting point.
 
 The following is my list, in order of importance.
 
-## General rules:
-### 1. No failing silently.
-Failing is fine, but log, show errors to the user, and alert the on-call staff
-when you fail.
 
-### 2. Don't add an abstraction until you have to.
+### 1. Has no known bug.
+
+Never ship code that you know has a bug in it, and never add more features to
+your code while you have open bug reports from users.
+
+
+### 2. Contains no unnecessary abstractions.
+
 For two reasons, you shouldn't add an abstraction until you need to.
 1. If it turns out you never need that abstraction, it's just technical debt.
 2. If you don't need it yet, the odds you pick the right abstraction are zero.
 
-### 3. Favour explicit control-flow.
+As an example, if your function is only called once, for the love of all that
+is good in this world don't take function pointers as parameters, just call the
+function. There's no need to generalize what is specific and doesn't need to be
+generalized.
+
+Also, don't write getters and setters like this:
+
+```java
+
+public int getFoo() {
+  return this.foo;
+}
+
+public void setFoo(int foo) {
+  this.foo = foo;
+}
+```
+
+This adds nothing and just adds function calls to memory access. Just make the
+member public. Nothing is accomplished by this.
+
+
+### 3. Uses only explicit control-flow.
+
 I don't want to program in a code base where I can't look at a line of code
 and know what's happened before it and what will happen after it.
 
-### 4. Favour vertical code over horizontal code.
+### 4. Favours vertical code over horizontal code.
+
 If you're indenting too much, it's a strong sign you should refactor.
 
-## Explicit Rules
-
-### 1. Has no known bugs.
-
-I don't ship code that I know has flaws.
-
-
-### 2. Handles All Errors Elegantly.
+### 5. Handles All Errors Elegantly.
 
 This can be broken down into 2 categories.
 
 #### Category 1: Errors that should never happen (unexpected errors).
+
 These errors indicate a bug in your program or understanding of the problem.
 
 - An error message with debug information is logged.
@@ -55,28 +77,31 @@ Examples of errors that should never happen:
 - Unexpected type mismatches (dynamically typed languages only).
 - Two different structs having the same unique ID.
 - An API call returns data in an unexpected format.
-- Program invariant is broken (varies program-to-program).
+- Program invariant is broken.
 
 #### Category 2: Recoverable errors (expected errors).
+
 These errors indicate something you anticipated could go wrong has gone wrong.
 
 They should be handled as below:
 - An error message with debug information is logged.
 - Recovery is attempted.
   - If recovery is successful, this is logged and regular control flow resumes.
-  - If recovery fails, handle like a category 1 error
+  - If recovery fails, handle like a category 1 error.
 
 Examples of recoverable errors:
 - HTTP request returns an unexpected response.
 - File read/write fails because device is busy.
-- The user uploaded data in an unexpected format.
+- The user uploaded data in an incorrect format.
 
 
-### 3. All Return Values Are Checked and All Exceptions Are Caught.
-A great way to cover rule 2: Handle all errors Elegantly is to simply always check
-return values and wrap anything that might throw an exception in a try block.
+### 6. All Return Values Are Checked and All Exceptions Are Caught.
 
-Examples of return values to check:  
+A great way to cover "rule 5: Handle all errors Elegantly" is to simply always
+check return values and wrap anything that might throw an exception in a try
+block.
+
+Examples of return values to check:
 - IO Operations (Network responses, file write successful, etc.).
 - Return values from functions that might fail.
 
@@ -85,19 +110,19 @@ being caught.
 
 Sometimes this return value code and error-handling code can easily be
 implemented elegantly, and sometimes it just can't. Either way, I prefer it
-being there to my code failing in production when 
+being there. The alternative 2 am prod outages and angry customers.
 
-### 4. All Parameters are Checked For Validity.
+### 7. All Parameters are Checked For Validity.
 
 If your function cannot work with all the parameters passed in as null, check
 for that. If it should never happen, handle that error case as outlined in rule
-2 category 1.
+5 category 1.
 
 If your HTTP endpoint expects a POST request with a specific JSON format,
 you should first validate that's what you got, and return a 4XX error if you
 didn't.
 
-### 5. Meets a sane floor of performance.
+### 8. Meets a sane floor of performance.
 
 There are few actions a user could do that should take longer than 33 ms to
 complete (30 fps). We should be suspicious of anything that takes longer than
@@ -108,12 +133,12 @@ should be removed. If there's a legitimate reason for it taking longer than 33
 ms to complete, there should be a clear indication on the UI explaining how
 long the action will take. Loading bars help here.
 
-### 6. Has Business logic extracted into pure functions where available.
+### 9. Has Business logic extracted into pure functions where available.
 
 If you have some data structure that needs to have some procedure ran on it,
 wrap that in a function and unit test it. It's easy to do quickly
 
-### 7. Has a suite of end-to-end (e2e) tests that test core functionality.
+### 10. Has a suite of end-to-end (e2e) tests that test core functionality.
 
 There should be some command that I can run to verify that in the current
 environment, the current code has at least one code path that correctly
@@ -126,7 +151,7 @@ I place no limits on how fast it should run, but it should run every time a new
 version of the program is deployed.
 
 Now I know that there are many reasons not to use end-to-end tests, but allow
-me to argue against the most common issues:
+me to argue against the most common objections:
 
 1. They're flaky.
 
@@ -163,23 +188,35 @@ re-writing them catches regressions that were in the new UI. Also, as an aside,
 every UI change to your core functionality SHOULD be expensive to you, because
 it's expensive for your users.
 
-### 8. Has a suite of unit tests to test pure functions
+### 11. Has a suite of unit tests to test pure functions.
+
+There will be lots of places in your program where you're just manipulating
+data. Data comes in, gets manipulated, and goes back out again. Everywhere like
+that, I like to follow this pattern:
+
+```js
+export async function main() {
+  const input = await getInputWithIO();
+  const output = pureFunctionCalculatingOutput(input);
+  const result = await writeOutputWIthIO(output);
+}
+```
+
+If you separate the IO (in getting the input and writing the output somewhere)
+from the pure function that actually calculates the output, the
+`pureFunctionCalculatingOutput` becomes trivial to unit test.
+
+I've found that this allows me to handle expected IO errors (retry logic,
+buffering, etc.) clearly, and unit test easily without mocking or any
+such complicated thing.
+
+Additionally, if the logic is wrong, there's an easy place to write a test to
+isolate the problem and prevent regressions.
 
 
-### 9. Has a CI/CD pipeline that runs these tests before deployment, but not on every push.
+### 9. Has a CI/CD pipeline that runs all tests before deployment, but not on every push.
 
-### 10. Has No Anti-Patterns
-
-Here are some of the most common anti-patterns and why I don't like them.
-#### Anti-pattern 1. Unnecessary Abstraction.
-
-If your function is only called once, for the love of god don't take function
-pointers as parameters, just call the function.
-
-If your 
-
-
-#### Anti-pattern 2. Default Values.
+### 10. Never sets default values.
 
 Here's an example of using default values.
 
@@ -188,7 +225,6 @@ export function foo(param1, param2) {
   if (!param2) {
     param2 = "some defaut value";
   }
-  
 
   ...
 }
@@ -196,11 +232,24 @@ export function foo(param1, param2) {
 
 This pattern feels useful, if you're not expecting to need have param2 in all
 cases when calling foo, using a default is handy right in the function. It
-reduces duplication.
+reduces duplication. The same thing can also be accomplished like this:
+
+```js
+export function foo(param1, param2 = "some default value") {
+
+  ...
+}
+```
+
 
 However, I've found too often this hides cases where param2 has been lost
-somewhere higher in the call stack, turning an obvious bug into a silent failure.
+somewhere higher in the call stack, turning an obvious bug into a silent
+failure.
 
-#### Anti-pattern 3. Inheritance
+I can't encourage breaking Rule 1: No failing silently.
 
 
+### 1. No failing silently.
+
+Failing is fine, but log, show errors to the user, and alert the on-call staff
+when you fail.
