@@ -1,5 +1,5 @@
 ---
-title: "Why I Avoid Ruby for new Projects"
+title: "Why I Avoid Ruby for New Projects"
 author: "Russell Waterhouse"
 description: "I worry about Ruby's ecosystem"
 tags: ["Ruby", "RubyOnRails"]
