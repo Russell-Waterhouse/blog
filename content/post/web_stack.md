@@ -165,6 +165,14 @@ Google Svelte Runes if you would like to read more.
 Not nearly as popular as Vue or Angular when looking at NPM downloads.
 Disqualified for not enough popularity today.
 
+### Other Solutions
+
+#### HTMX
+
+I like HTMX, and it has a place in my toolbox. However, it's not complex enough
+to make a twitter clone, and for that reason it's not a part of this
+conversation. Same goes for other minimal solutions like it, such as AlpineJS.
+
 
 ## The Dilemma
 
