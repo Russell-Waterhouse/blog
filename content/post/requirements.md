@@ -1,0 +1,112 @@
+---
+title: "Requirements are all that matter"
+author: "Russell Waterhouse"
+description: "Let's bring nuance back to software development"
+tags: ["requirements"]
+date: 2025-01-12T10:26:05-07:00
+draft: false
+---
+
+# Dear Software Engineers: Your Requirements Are All That Matter
+
+Browsing through whatever tech forum
+you choose, you'll see blog posts and
+rants from different engineers and
+influencers telling you that EVERYONE should
+go slower or faster or test more or test
+less or replace JavaScript with TypeScript
+or replace TypeScript with JavaScript
+or whatever.
+
+Every single one of these opinions is wrong,
+and I have no respect for anyone who
+propagates these absolutes.
+
+Perhaps you work in an environment
+where TDD is the right answer
+100% of the time.
+
+Not everyone does, and everyone that doesn't
+thinks that you're an idiot for proclaiming
+that it's the One True Way™️ to write software.
+
+What we as engineers should do is
+understand the requirements and make design
+choices based off of that.
+
+Most people don't like that, because most people think it's hard.
+
+It doesn't need to be hard.
+
+Let me give you an example.
+
+## Example: Tax Software
+
+Let's say you're writing tax software for the general public to use during tax season.  How should you design that? Well, let's just dtart with some obvious facts about this. 
+
+1. Taxes have to be correct. Incorrect values are unacceptable.
+2. Tax codes change all the time.
+3. Everyone does their taxes all pretty much at once.
+4. Nobody cares if their taxes take 500 ms or 5 seconds to calculate the final result.
+
+Based on these statements, we can draw requirements. 
+1. All tax calculating parts of the software need to have high correctness.
+2. All tax calculation code should be easily modifiable.
+3. This tax software should be able to handle a massive number of concurrent users.
+4. This solution does not need to be blazingly fast.
+
+And from the requirements, design decisions are also pretty easily made.
+1. Perhaps all tax calculations need to have 100% code coverage. Perhaps these calculations should be checked by tax professionals.
+2. All tax calculation code should be pure functions with no side effects to make modifying them easy. That module should have very loose coupling so updating one tax calculations does not affect others that should not be affeccted.
+3. Depending on how you define massive, perhaps you should wrap this service in docker and autoscale it horizontally and verticalky behind some load balancers. Perhaps you should run several instances in different AWS regions.
+4. We probably don't have to write it in C++ or Rust, we can probably just use any language with adequate math primitives.
+
+As you can see, facts about the environment lead naturally to requirements
+which lead naturally to design decisions.
+
+Now of course, you might think that I've chosen bad design decisions from the
+requirements, and fair enough. But now that we have both the context and the
+requirement, we can actually have a hope of discussing the design decision in a
+way that makes sense. We can run an experiment and measure which design
+decisions suit our requirements better, and then build our system with this
+knowledge. Before we drew up those requirements, we had no hope in hell of
+doing that kind of thing.
+
+
+## Answers For Common Cases
+
+Over my entire career, I've been putting tools in my toolbox for common cases.
+Here's a table of the answers I've come up with so far.
+
+| Requirement | Tool Or Technique |
+| ----------- | -------------------- |
+| Automating a simple task | BASH Scripting |
+| Automating a complex task | Python Scripting |
+| Low-performance programming | Python |
+| High-performance programming | Investigation In Progress |
+| CSS | Tailwind |
+| Runtime Environment Management | Docker |
+| Deployment of low-traffic web apps | Serverless |
+| Deployment of high-traffic web apps | Terraform + Kubernetes |
+| High-traffic Database | Postgres |
+| Low-traffic Database | SQLite |
+| Interactive SEO-friendly web app | Remix |
+| A website that's mostly forms that doesn't need to scale to infinity, but needs to be built fast. Minimal client-side interactivity is needed. | MPA framework, no SPA |
+| Your interactive web app needs great SEO and good first-page load times. | Server side rendering (Remix or Next perhaps?) |
+| An application that needs so much performance that it cannkt be interpreted, and this application is going to be open to the internet, so memory corruption vulnerabilities are unacceptable. | Write it in Rust |
+| You're working on an embedded project where you need to integrate deeply with some C or C++ libraries. Your project is never going to be connected to the internet. | Use C or C++ | 
+| A section of purely computational code with reasonably well-defined requirements that is complicated. | Use TDD |
+| You're a bootstrapped startup trying to quickly find product-market fit. | move as fast as you can without being negligent. |
+| You're a bank writing e-transfer software. | Do literally every check and balance under the sun. |
+| A one-time-use script that is only going to be used by you | Write it as quick and dirty as you can and move on. |
+| A service that needs to be maintained and updated over the next 10-25 years. | Make that maintainable as possible, lest whoever inherits it ever find your home address. Prefer dependencies that change very little. |
+
+
+## Why I Advocate For This
+
+I advocate for this "use the right tool for the right job approach" because
+using the wrong tool or wrong technique is actively harmful. We have enough software
+out there using enough tools and techniques where we should, as an industry and
+as individuals, start to be able to say when to use each tool.
+
+Until then, we're just using hammers to drive screws.
