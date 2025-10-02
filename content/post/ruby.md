@@ -11,9 +11,9 @@ draft: false
 # Why I Avoid Ruby for New Projects
 
 
-1. Azure SDK for Ruby is archived: (https://github.com/Azure/azure-sdk-for-ruby)[https://github.com/Azure/azure-sdk-for-ruby]
-2. PayPal deleted their Ruby SDK and started another one that only contains 3 of PayPal's API endpoints at the time of writing: (https://github.com/paypal/PayPal-Ruby-Server-SDK)[https://github.com/paypal/PayPal-Ruby-Server-SDK]
-3. Azure storage client library for Ruby is deprecated: (https://github.com/azure/azure-storage-ruby)[https://github.com/azure/azure-storage-ruby]
+1. Azure SDK for Ruby is archived: [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby)
+2. PayPal deleted their Ruby SDK and started another one that only contains 3 of PayPal's API endpoints at the time of writing: [https://github.com/paypal/PayPal-Ruby-Server-SDK](https://github.com/paypal/PayPal-Ruby-Server-SDK)
+3. Azure storage client library for Ruby is deprecated: [https://github.com/azure/azure-storage-ruby](https://github.com/azure/azure-storage-ruby)
 
 In general, if I use the dependencies that Shopify or GitHub use, the ecosystem
 seems to be flourishing. However, if I step one toe outside of that well-trodden
