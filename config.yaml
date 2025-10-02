@@ -139,7 +139,7 @@ params:
     title: "Russell."
     subtitle: "I make great software."
     content: ""
-    image: /images/pizzas.png
+    image: /images/me.png
     bottomImage:
       enable: true
     # roundImage: true # Make hero image circular | default false
@@ -163,7 +163,7 @@ params:
   about:
     enable: true
     title: "About Me"
-    image: "/images/pizzas.png"
+    image: "/images/me.png"
     content: |-
       I am a software developer specializing in developing high-reliability zero-defect software. I work in the medical device field, where we don't tolerate buggy, unreliable software.
 
