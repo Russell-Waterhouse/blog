@@ -152,3 +152,48 @@ Now, I view it differently, but at the time I had 2 CSC courses and 8 months of
 work experience, and I didn't know what I didn't know.
 
 Looking back, there were some things there that were good to learn. 
+
+## 2020: Deeper in OO: Dependency inversion, rigorous TDD
+
+## 2021: More Java
+
+In 2021 I got an internship at
+a java stack company. With all my app dev
+experience, the jump to backend web technology
+with Java Spring wasn't too bad. 
+
+The people were lovely and the company was good to me,
+but I remember leaving this job with the unshakable feeling
+that something was wrong with Java and OO.
+
+At the time, I remember the best that I could articulate ny
+feeling with the simple sentence "Java does not push you into the pit of success".
+
+This started me on a journey to alternatives.
+
+I found functional programming and Haskell. 
+Years later I would find that you can make a mess in Haskell too.
+
+
+## 2022: Haskell
+
+## 2023: Haskell and Ruby
+
+## 2024: 
+
+## 2025: 
+
+## 2026 and Beyond
+
+So how do I look at this journey now?
+
+Speaking just of quality of final product and how easy it is to work on that
+project in the future, I've determined the following:
+
+- Every error case should be handled appropriately.
+- Avoid every layer of abstraction that you can: it's MUCH easier to add the right abstraction later than to work with the wrong one.
+  - This includes inheritance and function parameters, ESPECIALLY when neither one is used yet.
+- be picky about dependencies.
+- end-to-end tests are invaluable
+- unit test everything that's pure functions
+- good dev and preview environments are invaluable
