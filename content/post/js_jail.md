@@ -33,29 +33,84 @@ and \<p> and \<li>.
 
 And we have made a god-aweful mess of it.
 
+## The Mess, in Detal
+
 And in making a god-aweful mess of it, I don't think we've had it right even
 for ten minutes. There's still so much work to be done.
 
 We were right that instead of viewing static documents, users should be able
-to have some interactivity, and we used JavaScript for it.
+to have some interactivity, and we used JavaScript for it. A language filled with
+so many holes and incomplete features that we've had to patch on:
+1. equality checking (===)
+2. A new module system (no, it doesn't play nice with the old one without work)
+3. async/await (but only ever on one CPU Core)
+4. string interpolation using backticks.
+5. a type system (complete with the any type so you can discover new and exciting ways you're shooting yourself in the foot!)
 
 We were right that we should be able to write a whole web app in one language,
 but instead of making webassembly good we brought js to the server.
+You know, JavaScript, the language that I just said only runs on one core at a time.
+yeah we put it on the server.
 
 We were right that web devs probably shouldn't reinvent the wheel every ten
-minutes, but then we made `node_modules` Gigabytes in size, and reinvented the wheel
+minutes, so we set up a package system and ecosystem, 
+but then we made `node_modules` Gigabytes in size, and reinvented the wheel
 every ten minutes anyways.
 
 And we said that because so much is written based on web tech, we can't change
-anything about CSS or HTML or JavaScript, and then we killed flash.
+anything about CSS or HTML or JavaScript, and then we killed flash, a technology
+that hundreds of thousands of sites used, including governmet tax portals.
 
 But not once did we realize that forcing every web-dev to completely rewrite
 major parts of their application every few years is unhinged behaviour.
 
 And for those that would say "React is great about backwards compatability",
-you obviously haven't ever had to re-write a whole frontend because some new
-thing your tech lead wanted to use didn't work well with class components.
 You and I both know react class components are just tech debt at this point,
 don't lie to me like that.
 
-Not once did we realize that ...
+And in all of this churn, what is the point of writing code to last a decade?
+If it's getting rewritten next quarter, why bother breakingout the memory profiler
+or even doing basic QA or gracefully handling errors?
+
+Every single time we do even a fraction of engineering work
+and measure something in this industry, we always find that
+initial page load and time to first interaction and
+reaction times to user actions ALL make our services better for the end-user.
+These metrics correlate to more sales and less churn.
+
+Then we ignore it, and the frontend guy fetches 25MB of
+bundle and data in several round trips for an initial page load
+and the backend guy uses the ORM
+to write a query that takes 4 seconds and the devops guy deploys a docker image 
+7.8GB in size with 239 CVE's and we pretend that GraphQL will save us.
+
+What have we done?
+
+Right now, if I open a chrome tab to Microsoft Teams and leave it open for 20 minutes,
+that single chrome tab will take 1 Gigabyte of memory. 
+For reference, TODO: bible example here.
+
+And that's everywhere. Youtube's play button just guesses if the video
+is playing or not. Outlook's web client is just guessing at whether or not
+I've read the email. Latest estimates show ~60% of web traffic is from mobile
+devices now, but we can't even ship things that work on chrome AND firefox on the desktop, nevermind
+mobile browsers. 
+
+I actually can't believe we've made it this far doing this bad.
+
+Before anyone says "but what about X? They don't have these problems that you're complaining about"
+Yes, there are pockets of web developers that haven't lost their mind.
+There are people that care. There are people who take pride in their work and are doing an excellent job.
+This isn't a post about them.
+
+This is about the majority. 
+This is about how the odds are in my favour that you have seen
+an initial page load of 25MB, and the odds are in my favour that you have seen a 7.8GB docker image in production,
+and the odds are in my favour that you've seen db queries run in production
+that take multiple seconds. I bet you've even seen a web portal or two with a "don't click the button more than once"
+warning on there, as if disabling a button and showing a loading spinner is a research project
+that we just don't have the budget for this quarter.
+This post is all about the normalization of insanity that any self-respecting
+field would not tolerate.
+
+
