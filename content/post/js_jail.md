@@ -1,8 +1,8 @@
 ---
-title: "Jail for JavaScript Developers."
+title: "Jail for JavaScript Developers"
 author: "Russell Waterhouse"
 description: "Fellow Web Devs, what are we doing?"
-tags: ["", ""]
+tags: ["webdev", "javascript"]
 date: 2026-01-13T19:45:11-07:00
 draft: false
 ---
@@ -123,3 +123,8 @@ everything's fine.
 
 Everything is not fine; it's not fine because we've made it not fine, and it's
 going to take work for things to ever be fine again.
+
+
+P.S. Yes, I am aware that on mobile my tags, social media, and table of
+contents all load after the main contents of my post. Yes, I am also aware of
+the irony of that.
