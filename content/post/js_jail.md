@@ -48,9 +48,9 @@ so many holes and incomplete features that we've had to patch on:
 5. a type system (complete with the any type so you can discover new and exciting ways you're shooting yourself in the foot!)
 
 We were right that we should be able to write a whole web app in one language,
-but instead of making webassembly good we brought js to the server.
-You know, JavaScript, the language that I just said only runs on one core at a time.
-yeah we put it on the server.
+but instead of making webassembly good we brought js to the server. You know,
+JavaScript, the language that I just said only runs on one core at a time. yeah
+we put it on the server.
 
 We were right that web devs probably shouldn't reinvent the wheel every ten
 minutes, so we set up a package system and ecosystem, 
@@ -58,8 +58,9 @@ but then we made `node_modules` Gigabytes in size, and reinvented the wheel
 every ten minutes anyways.
 
 And we said that because so much is written based on web tech, we can't change
-anything about CSS or HTML or JavaScript, and then we killed flash, a technology
-that hundreds of thousands of sites used, including governmet tax portals.
+anything about CSS or HTML or JavaScript, and then we killed flash, a
+technology that hundreds of thousands of sites used, including governmet tax
+portals.
 
 But not once did we realize that forcing every web-dev to completely rewrite
 major parts of their application every few years is unhinged behaviour.
@@ -69,8 +70,8 @@ You and I both know react class components are just tech debt at this point,
 don't lie to me like that.
 
 And in all of this churn, what is the point of writing code to last a decade?
-If it's getting rewritten next quarter, why bother breakingout the memory profiler
-or even doing basic QA or gracefully handling errors?
+If it's getting rewritten next quarter, why bother breakingout the memory
+profiler or even doing basic QA or gracefully handling errors?
 
 Every single time we do even a fraction of engineering work
 and measure something in this industry, we always find that
@@ -78,43 +79,47 @@ initial page load and time to first interaction and
 reaction times to user actions ALL make our services better for the end-user.
 These metrics correlate to more sales and less churn.
 
-Then we ignore it, and the frontend guy fetches 25MB of
-bundle and data in several round trips for an initial page load
-and the backend guy uses the ORM
-to write a query that takes 4 seconds and the devops guy deploys a docker image 
+Then we ignore it, and the frontend guy fetches 25MB of bundle and data in
+several round trips for an initial page load and the backend guy uses the ORM
+to write a query that takes 4 seconds and the devops guy deploys a docker image
 7.8GB in size with 239 CVE's and we pretend that GraphQL will save us.
 
 What have we done?
 
-Right now, if I open a chrome tab to Microsoft Teams and leave it open for 20 minutes,
-that single chrome tab will take 1 Gigabyte of memory. 
-For reference, TODO: bible example here.
+Right now, if I open a chrome tab to Microsoft Teams and leave it open for 20
+minutes, that single chrome tab will take 1 Gigabyte of memory. For reference,
+the King James .txt version of the bible is 4.4 MB. That means that Microsoft
+Teams is keeping 227.27 King James Bible's worth of text in memory. I haven't
+had 227.27 Bible's worth of conversations, so I'm really not sure what's
+actually being kept in memory.
 
-And that's everywhere. Youtube's play button just guesses if the video
-is playing or not. Outlook's web client is just guessing at whether or not
-I've read the email. Latest estimates show ~60% of web traffic is from mobile
-devices now, but we can't even ship things that work on chrome AND firefox on the desktop, nevermind
-mobile browsers. 
+And that's everywhere. Youtube's play button just guesses if the video is
+playing or not. Outlook's web client is just guessing at whether or not I've
+read the email. Latest estimates show ~60% of web traffic is from mobile
+devices now, but we can't even ship things that work on chrome AND firefox on
+the desktop, nevermind mobile browsers.
 
 I actually can't believe we've made it this far doing this bad.
 
-Before anyone says "but what about X? They don't have these problems that you're complaining about"
-Yes, there are pockets of web developers that haven't lost their mind.
-There are people that care. There are people who take pride in their work and are doing an excellent job.
-This isn't a post about them.
+Before anyone says "but what about X? They don't have these problems that
+you're complaining about" Yes, there are pockets of web developers that haven't
+lost their mind. There are people that care. There are people who take pride in
+their work and are doing an excellent job. This isn't a post about them.
 
-This is about the majority. 
-This is about how the odds are in my favour that you have seen
-an initial page load of 25MB, and the odds are in my favour that you have seen a 7.8GB docker image in production,
-and the odds are in my favour that you've seen db queries run in production
-that take multiple seconds. I bet you've even seen a web portal or two with a "don't click the button more than once"
-warning on there, as if disabling a button and showing a loading spinner is a research project
-that we just don't have the budget for this quarter.
-This post is all about the normalization of insanity that any self-respecting
-field would not tolerate.
+This is about the majority. This is about how the odds are in my favour that if
+you're a web developer, you probable have seen an initial page load of 25MB,
+and the odds are in my favour that you probably have seen a 7.8GB docker image
+in production, and the odds are in my favour that you probably have seen seen
+db queries run in production that take multiple seconds.
+
+Even if you're just a web user, I bet you've seen a web portal or two with a
+"don't click the button more than once" warning on there, as if disabling a
+button and showing a loading spinner is a research project that we just don't
+have the budget for this quarter. This post is all about the normalization of
+insanity that any self-respecting field would not tolerate.
 
 Web dev has serious problems, and everyone's just clocking into work pretending
-everything's fine. 
+everything's fine.
 
-Everything is not fine; it's not fine because we've made it not fine, and it's going to take
-work for things to ever be fine again.
+Everything is not fine; it's not fine because we've made it not fine, and it's
+going to take work for things to ever be fine again.
