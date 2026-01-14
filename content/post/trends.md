@@ -2,9 +2,9 @@
 title: "Trends in Software Development"
 author: "Russell Waterhouse"
 description: "Trends in Software Development"
-tags: ["", ""]
+tags: ["trends", "reflections", "2026"]
 date: 2026-01-07T12:59:24-07:00
-draft: true
+draft: false
 ---
 
 # Some Reflections to Start 2026
@@ -12,6 +12,10 @@ draft: true
 I want to start 2026 with some reflections on my journey in software
 development, and especially the things that I've tried that have really
 improved my craft. I'm going to break this down by year and what I've learned.
+
+I have simplified things slightly to fit a nice format, mostly by putting
+a topic into a year that I went deep on it, even if I might have started in
+November of the previous year or something like that.
 
 ## 2017: My Journey Begins
 
@@ -155,33 +159,131 @@ Looking back, there were some things there that were good to learn.
 
 ## 2020: Deeper in OO: Dependency inversion, rigorous TDD
 
+Before COVID really took hold, I started and finished my second app, a word
+guessing game. In this app, I went all in on Kotlin, OO, Dependency inversion,
+and TDD. Honestly, I don't think the project had enough lines of code to really
+get into the issues of this approach. I do remember feeling as though it wasn't
+as good as everyone on the internet said it should be. I suppose I wrote it off
+as inexperience.
+
+I think the rest of 2020 was just spent on coursework and adapting to the
+realities of living through a pandemic.
+
 ## 2021: More Java
 
-In 2021 I got an internship at
-a java stack company. With all my app dev
-experience, the jump to backend web technology
-with Java Spring wasn't too bad. 
+In 2021 I got an internship at a company using a common java tech stack. With
+all my app dev experience, the jump to backend web technology with Java Spring
+wasn't too bad.
 
-The people were lovely and the company was good to me,
-but I remember leaving this job with the unshakable feeling
-that something was wrong with Java and OO.
+The people were lovely and the company was good to me, but I remember leaving
+this job with the unshakable feeling that something was wrong with Java and OO.
 
-At the time, I remember the best that I could articulate ny
-feeling with the simple sentence "Java does not push you into the pit of success".
+At the time, I remember the best that I could articulate ny feeling with the
+simple sentence "Java does not push you into the pit of success".
 
-This started me on a journey to alternatives.
+This started me on a journey to alternatives, one that I continue today.
 
-I found functional programming and Haskell. 
-Years later I would find that you can make a mess in Haskell too.
+Looking for alternatives to the enterprise OO-style of writing code, I stumbled
+into some GOTO conference talk about functional programming.
 
+Years later I would find that you can make a mess in Haskell too, but at the time
+I was enamoured by the promises of functional programming.
+
+Code that's easier to reason about, less bugs from mutable state, composability,
+better concurrency support, easier testing, fearless refactoring, and so on.
+
+All of this was promised to me, none of it delivered.
 
 ## 2022: Haskell
 
+In 2022, I continued learning Haskell while I finished my degree. I didn't
+learn much else about programming, as I was going deep into cybersecurity with
+dreams of red-teaming.
+
 ## 2023: Haskell and Ruby
 
-## 2024: 
+In 2023 I got a job writing Haskell and Ruby.
+Very quickly, I learned two things.
 
-## 2025: 
+1. It's VERY possible to make a mess in Haskell. All the promised benefits of
+   functional programming go out the window if you let it.
+2. I cannot stand interpreted Dynamic name resolution without static checking
+   in Ruby.
+
+For real, here's such a common problem that I encountered more than I should
+have.
+```ruby
+def foo(bar)
+  baz2 = baz(bar)
+  begin
+    do_foo(baz2)
+  rescue => e
+    log_error("Failed to do foo with bar #{bat}")
+    handle_error_correctly
+  end
+```
+
+A small typo in your error logging code, which you may or may not be able to
+trigger easily in test or development, and now that error isn't being handled
+correctly.
+
+It was 2023. We should be adults and have a system in place to prevent this
+kind of error. Not rubocop rules that can silently break on your machine, hard
+constraints that don't involve me writing convoluted tests to test error
+handling.
+
+However, what idiomatic ruby lacks in safety it makes up for in aversion to
+abstraction.
+
+Ruby devs didn't feel the need to write a factoryProxy, they opened a file,
+wrote the contents to it, and closed it.
+
+And that was a breath of fresh air.
+
+## 2024: JavaScript and TypeScript
+
+In 2024 I sat down and finally got good at JavaScript/TypeScript, instead of
+just dabbling.
+
+JavaScript devs also don't write OO factoryProxy, but they will write code like this.
+
+
+```javascript
+async function foo(bar, baz) {
+  /* a hundred lines of setup */
+  const fooBar = await bar(baz);
+  /* a hundred lines of cleanup */
+  return fooBar;
+}
+async function baz2(foo) {
+  /* a hundred lines of nonsense */
+}
+
+const baz3 = initBaz3();
+const baz4 = await foo(baz2, baz3);
+console.log(JSON.stringify(baz4));
+```
+
+And they'll do this when the function foo is only called once, with the function
+parameter baz2. And it's not future-proofing, they'll do it when it would never
+make sense to call anything other thann baz2 from foo.
+
+For the love of god, it doesn't need to be a function parameter. Just call the
+function. Or, inline everything if that makes sense. But don't do this.
+
+I will not mince words here. This is just as bad as layers of obtuse
+inheritance.
+
+## 2025: Rust, Zig, Go, and C.
+
+Most of my learning in 2025 has been going deep on kubernetes and terraform,
+neither of which is the focus of this blog post.
+
+The small remaining time I had in 2025 I spent looking at Rust and Zig and Go
+and C and C++.
+
+This has changed my coding style to something that's pretty effective in any
+language.
 
 ## 2026 and Beyond
 
