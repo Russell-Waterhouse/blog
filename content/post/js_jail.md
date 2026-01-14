@@ -81,6 +81,14 @@ And in all of this churn, what is the point of writing code to last a decade?
 If it's getting rewritten next quarter, why bother breaking out the memory
 profiler or even doing basic QA or gracefully handling errors?
 
+And how did we solve the error handling thing? We found it too hard to keep
+JS running on the server for more than a few hours at a time because people
+forgot to `await` their promises and `catch` their errors, so we decided that
+we should just run JS serverless. Don't try to keep a server up and serving
+requests for days and days, just chuck it in a lambda so that the process can
+die after every request! Are cold-start times a good user experience? Hell No!
+Do we seem to care? Apparently not!
+
 Every single time we do even a fraction of engineering work
 and measure something in this industry, we always find that
 initial page load and time to first interaction and
