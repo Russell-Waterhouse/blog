@@ -113,4 +113,8 @@ that we just don't have the budget for this quarter.
 This post is all about the normalization of insanity that any self-respecting
 field would not tolerate.
 
+Web dev has serious problems, and everyone's just clocking into work pretending
+everything's fine. 
 
+Everything is not fine; it's not fine because we've made it not fine, and it's going to take
+work for things to ever be fine again.
