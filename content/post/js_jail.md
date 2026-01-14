@@ -31,11 +31,11 @@ all together on the frontend and we change what subset of CSS we're using and
 where we write the CSS, but at the end of the day we're mostly drawing \<h1>
 and \<p> and \<li>.
 
-And we have made a god-aweful mess of it.
+And we have made a god-awful mess of it.
 
-## The Mess, in Detal
+## The Mess, in Detail
 
-And in making a god-aweful mess of it, I don't think we've had it right even
+And in making a god-awful mess of it, I don't think we've had it right even
 for ten minutes. There's still so much work to be done.
 
 We were right that instead of viewing static documents, users should be able
