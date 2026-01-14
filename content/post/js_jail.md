@@ -39,11 +39,11 @@ for ten minutes. There's still so much work to be done.
 We were right that instead of viewing static documents, users should be able
 to have some interactivity, and we used JavaScript for it.
 
-We were right that we should be able to write the whole thing in one, language,
+We were right that we should be able to write a whole web app in one language,
 but instead of making webassembly good we brought js to the server.
 
 We were right that web devs probably shouldn't reinvent the wheel every ten
-minutes, but then we made `node_modules` GB in size, and reinvented the wheel
+minutes, but then we made `node_modules` Gigabytes in size, and reinvented the wheel
 every ten minutes anyways.
 
 And we said that because so much is written based on web tech, we can't change
@@ -57,3 +57,5 @@ you obviously haven't ever had to re-write a whole frontend because some new
 thing your tech lead wanted to use didn't work well with class components.
 You and I both know react class components are just tech debt at this point,
 don't lie to me like that.
+
+Not once did we realize that ...
