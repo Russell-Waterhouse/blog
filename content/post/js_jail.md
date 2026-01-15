@@ -64,6 +64,7 @@ minutes, so we set up a package system and ecosystem, but then we made
 anyway. How do you trust all of your dependencies when package-lock.json is
 thousands of lines long? How many NPM hacks and supply-chain attacks do we have
 to endure before we have to change? Evidently, more than we've endured so far.
+We didn't learn anything from leftpad, nothing has changed.
 
 And we said that because so much is written based on web tech, we can't change
 anything about CSS or HTML or JavaScript, and then we killed flash, a
