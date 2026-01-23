@@ -86,6 +86,32 @@ Did any of it make me a better developer?
 
 Not really, no.
 
+## To illustrate my point...
+
+I couldn't sleep, so I wanted to see how fast I would be able to get the
+equivalent Rust program working.
+
+The answer is something less than 50 minutes.
+
+This includes:
+
+1. Installing Rust.
+2. googling how to:
+  - initialize a struct
+  - declare a data-carrying enum
+  - declare a method
+  - write a test
+3. Writing out a rust struct enum that represents all PDF object types.
+4. Writing out the rust struct for the PDF.
+5. Writing out the equivalent "write" implementation.
+6. Writing out the equivalent "write" test.
+
+And my Rust implementation is better because the hashmap already exists,
+and the vec data type won't need to be rewritten.
+
+And I haven't looked at a line of Rust at all in 6 months.
+
+
 ## Conclusions
 
 I'm sticking with it for now, but the PDF writer
