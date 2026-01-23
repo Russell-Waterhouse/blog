@@ -32,13 +32,13 @@ IO 100%, I didn't understand 100% of why things were the way they were or what
 was happening behind the scenes, but I understood enough to make working
 programs. I was interested, but not yet passionate.
 
-Assignments involved programs that calculated fibonacci sequences in a loop,
-converted decimals to roman numerals, made SVG/HTML files, and probably a few
+Assignments involved programs that calculated Fibonacci sequences in a loop,
+converted decimals to Roman numerals, made SVG/HTML files, and probably a few
 other things.
 
 ## 2018: Robotics, Java, HTML, CSS
 
-### Robotics, January - April
+### Robotics, January-April
 In 2018, I took a course in University that required building and programming a
 robot in a group. Having the highest marks in the previous semester's CSC
 course, I became our group's programmer.
@@ -50,8 +50,8 @@ in that direction, then started the whole process again.
 
 Then I set him loose in the halls of my dorm building and watched him go.
 
-This was my programmers moment. I had made a thing that could do what I wanted.
-Not some command line applet that crunched fibonnacci numbers or put SVG
+This was my aha moment. I had made a thing that could do what I wanted.
+Not some command line applet that crunched Fibonacci numbers or put SVG
 pumpkins on an HTML page, this was a real thing.
 
 I could use this to do useful things.
@@ -67,7 +67,7 @@ they're valid and possible. Handle that error-case however appropriate
 (continue disregarding the data, log error, crash the process, blink a red LED,
 return a 502, whatever.), but you must handle that error case.
 
-### Java, May - December
+### Java, May-December
 
 In May, I was accepted into the Software Engineering Program.
 
@@ -100,12 +100,12 @@ public accessor methods but not a public instance variable. But there were so
 many things that I didn't know, I filed it away under "there must be a reason I
 don't understand yet".
 
-### HTML & CSS, September - December
+### HTML & CSS, September-December
 
 Around that CSC course, I started building a portfolio website. I had picked up
 a book on HTML and CSS in a bookstore somewhere, and was using that to figure
 out how to do things. Like most programming books, it was somewhat outdated. It
-didn't have things like flexbox in it, so all my CSS was some sort of
+didn't have things like Flexbox in it, so all my CSS was some sort of
 left-floating madness. Eventually, I did get something working.
 
 It was just a few static HTML and CSS files that I served statically, first
@@ -117,7 +117,7 @@ track of what CSS was actually being used, and what wasn't, so the CSS file was
 a mess.
 
 But hey, I could link to it in my resume. And later, when I learned better ways
-of doing things, like Flexbox CSS Styles or TailWind, I understood the problems
+of doing things, like Flexbox CSS Styles or TailWindCSS, I understood the problems
 they were solving, because I had experienced those problems.
 
 
@@ -131,20 +131,20 @@ classes prepared me to add features to an android app that some contractor had
 made and sold long ago. In the beginning, the most basic things tripped me up.
 How this weird syntax worked (it was a ternary), how logs print when I put them
 in this function that isn't called anywhere in my code base (it was using an
-annotations processor to set up an event bus that called the function, I'd
+annotations' processor to set up an event bus that called the function, I'd
 never seen an annotation before and had wrongly assumed it was a type of
 comment).
 
 I was in over my head, but too inexperienced to know it. So I bought books,
 looked for best-practices online, and found it.
 
-I found Clean Code by Rob Martin and read it conver-to-cover.  
-I found Head First Design Patterns and read it twice.  
-I found Working Effectively with Legacy Code and read every chapter I could.  
-I found Java Concurrency in Practice and read as much of it as I could.  
+- I found Clean Code by Rob Martin and read it cover-to-cover.
+- I found Head First Design Patterns and read it twice.
+- I found Working Effectively with Legacy Code and read every chapter I could.
+- I found Java Concurrency in Practice and read as much of it as I could.
 
-This is where two things happened in sequence: First, my code got better and my
-job got easier, then my code got worse and my job got harder.
+This is where two things happened in sequence: First, my code got better, and my
+job got easier, then my code got worse, and my job got harder.
 
 At the time, I still had so much left to learn that I didn't question the
 second part of that. Why, as a project neared its initial release, did adding
@@ -171,14 +171,14 @@ realities of living through a pandemic.
 
 ## 2021: More Java
 
-In 2021 I got an internship at a company using a common java tech stack. With
+In 2021, I got an internship at a company using a common java tech stack. With
 all my app dev experience, the jump to backend web technology with Java Spring
 wasn't too bad.
 
-The people were lovely and the company was good to me, but I remember leaving
-this job with the unshakable feeling that something was wrong with Java and OO.
+The people were lovely, and the company was good to me, but I remember leaving
+this job with the unshakeable feeling that something was wrong with Java and OO.
 
-At the time, I remember the best that I could articulate ny feeling with the
+At the time, I remember the best that I could articulate my feeling with the
 simple sentence "Java does not push you into the pit of success".
 
 This started me on a journey to alternatives, one that I continue today.
@@ -189,7 +189,7 @@ into some GOTO conference talk about functional programming.
 Years later I would find that you can make a mess in Haskell too, but at the time
 I was enamoured by the promises of functional programming.
 
-Code that's easier to reason about, less bugs from mutable state, composability,
+Code that's easier to reason about, fewer bugs from mutable state, composability,
 better concurrency support, easier testing, fearless refactoring, and so on.
 
 All of this was promised to me, none of it delivered.
@@ -202,7 +202,7 @@ dreams of red-teaming.
 
 ## 2023: Haskell and Ruby
 
-In 2023 I got a job writing Haskell and Ruby.
+In 2023, I got a job writing Haskell and Ruby.
 Very quickly, I learned two things.
 
 1. It's VERY possible to make a mess in Haskell. All the promised benefits of
@@ -228,7 +228,7 @@ trigger easily in test or development, and now that error isn't being handled
 correctly.
 
 It was 2023. We should be adults and have a system in place to prevent this
-kind of error. Not rubocop rules that can silently break on your machine, hard
+kind of error. Not Rubocop rules that can silently break on your machine, hard
 constraints that don't involve me writing convoluted tests to test error
 handling.
 
@@ -242,7 +242,7 @@ And that was a breath of fresh air.
 
 ## 2024: JavaScript and TypeScript
 
-In 2024 I sat down and finally got good at JavaScript/TypeScript, instead of
+In 2024, I sat down and finally got good at JavaScript/TypeScript, instead of
 just dabbling.
 
 JavaScript devs also don't write OO factoryProxy, but they will write code like this.
@@ -266,7 +266,7 @@ console.log(JSON.stringify(baz4));
 
 And they'll do this when the function foo is only called once, with the function
 parameter baz2. And it's not future-proofing, they'll do it when it would never
-make sense to call anything other thann baz2 from foo.
+make sense to call anything other than baz2 from foo.
 
 For the love of god, it doesn't need to be a function parameter. Just call the
 function. Or, inline everything if that makes sense. But don't do this.
@@ -295,7 +295,7 @@ project in the future, I've determined the following:
 - Every error case should be handled appropriately.
 - Avoid every layer of abstraction that you can: it's MUCH easier to add the right abstraction later than to work with the wrong one.
   - This includes inheritance and function parameters, ESPECIALLY when neither one is used yet.
-- be picky about dependencies.
-- end-to-end tests are invaluable
-- unit test everything that's pure functions
-- good dev and preview environments are invaluable
+- Be picky about dependencies.
+- End-to-end tests are invaluable
+- Unit test everything that's pure functions
+- Good dev and preview environments are invaluable
