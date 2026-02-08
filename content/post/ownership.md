@@ -2,7 +2,7 @@
 title: "Business, Ownership, Complexity, Bugs, and AI"
 author: "Russell Waterhouse"
 description: "Why I believe AI can't replace software developers"
-tags: ["complexity", "AI]
+tags: ["complexity", "AI"]
 date: 2026-02-08T09:48:33-06:00
 draft: false
 ---
