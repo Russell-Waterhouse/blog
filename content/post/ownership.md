@@ -1,9 +1,17 @@
-// TODO: hugo header
+---
+title: "Business, Ownership, Complexity, Bugs, and AI"
+author: "Russell Waterhouse"
+description: "Why I believe AI can't replace software developers"
+tags: ["complexity", "AI]
+date: 2026-02-08T09:48:33-06:00
+draft: false
+---
 
-# Business, Ownership, whack-a-mole, bugs, churn, ownership, and AI
+
+# Business, Ownership, Complexity, Bugs, and AI
 
 What a title eh? Where could this be going?
-First, let's do a little business talk.
+Let's jump in and find out. 
 
 ## Business 101
 
@@ -87,7 +95,7 @@ Remember, bugs cause customers to churn out of your product
 and leave bad reviews, and features allow you to charge customers more and
 charge more customers. Both make you an asset.
 
-## Whack-A-Mole and AI
+## Complexity, Bugs, and AI
 
 I've been a developer for a while now.
 Here's an assertion that I will make that I hope
@@ -104,6 +112,7 @@ Here's one that I believe to be true:
 
 Code where a change in one file can cause a bug
 14 files away much later in a process is more error-prone.
+Let's call this kind of code "Complex Code."
 
 Usually, if I'm writing a simple HTTP REST endpoint, 
 the code that I'm writing will often span a single function.
@@ -129,11 +138,11 @@ However, here is where I'm about to make two claims that some
 will disagree with.
 
 1. At a certain point, all non-trivial software will have some processes in it that
-will look like my bad example.
+will look like my complex example.
 2. AI makes this situation worse, not better.
 
 In my experience, every non-trivial production app I have worked on
-has had at least one workflow similar to the job I described above. Some because that
+has had at least one workflow similar to the complex job I described above. Some because that
 workflow wrapped real complexity, and some because of incidental complexity.
 Either way, it seems to be a feature of software that emerges
 after a few dozen lines of code are in the project.
@@ -159,5 +168,7 @@ If you hope to have a working bug-free product that provides a good
 experience to your users, you cannot just tell AI to make you something and merge the code
 without review. You must still own the code.
 
-That will lead to a buggy product that nobody will pay for.
+All of this is to say, until AI can solve this kind of problem
+profitably, I think software developers should still
+have jobs. 
 
