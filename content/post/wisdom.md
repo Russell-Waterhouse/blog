@@ -93,3 +93,7 @@ to make decisions."
 
 "If you always do what you've always done, you'll always get what you've always
 got."
+
+## Andrés Byun
+
+"If you want to force people to use a product, make it usable first"
