@@ -43,12 +43,14 @@ In 2018, I took a course in University that required building and programming a
 robot in a group. Having the highest marks in the previous semester's CSC
 course, I became our group's programmer.
 
-I remember one day I put together a basic robot with a sonar sensor and a drive
+I remember the day I put together a basic robot with a sonar sensor and a drive
 train and wrote a program that looked for the longest distance from the robot
-with the ultrasonic sonar sensor, turned the robot, that direction, drove 30cm
+with the ultrasonic sonar sensor, turned the robot that direction, drove 30cm
 in that direction, then started the whole process again.
 
 Then I set him loose in the halls of my dorm building and watched him go.
+He drove down the hall, scanning his path, course correcting. When the
+hall turned right, he turned right. When he reached the end, he turned around.
 
 This was my aha moment. I had made a thing that could do what I wanted.
 Not some command line applet that crunched Fibonacci numbers or put SVG
@@ -144,7 +146,14 @@ looked for best-practices online, and found it.
 - I found Java Concurrency in Practice and read as much of it as I could.
 
 This is where two things happened in sequence: First, my code got better, and my
-job got easier, then my code got worse, and my job got harder.
+job got easier.
+
+Then my code got worse, and my job got harder.
+
+The first part of that is easy to understand and explain. I was gaining experience
+and had a framework for organizing my code. From no experience and no
+organizing framework to some experience with some organization, of course things got
+better. 
 
 At the time, I still had so much left to learn that I didn't question the
 second part of that. Why, as a project neared its initial release, did adding
@@ -192,13 +201,15 @@ I was enamoured by the promises of functional programming.
 Code that's easier to reason about, fewer bugs from mutable state, composability,
 better concurrency support, easier testing, fearless refactoring, and so on.
 
-All of this was promised to me, none of it delivered.
+All of this was promised to me, and I was desperate to try it and experience
+the functional programming nirvana that the Haskell and F# talked about online.
 
 ## 2022: Haskell
 
 In 2022, I continued learning Haskell while I finished my degree. I didn't
 learn much else about programming, as I was going deep into cybersecurity with
-dreams of red-teaming.
+dreams of red-teaming. What I learned about cybersecurity was very helpful
+later, but there's no need to get into it in this blog post.
 
 ## 2023: Haskell and Ruby
 
@@ -207,7 +218,7 @@ Very quickly, I learned two things.
 
 1. It's VERY possible to make a mess in Haskell. All the promised benefits of
    functional programming go out the window if you let it.
-2. I cannot stand interpreted Dynamic name resolution without static checking
+2. I cannot stand interpreted dynamic name resolution without static checking
    in Ruby.
 
 For real, here's such a common problem that I encountered more than I should
@@ -223,7 +234,7 @@ def foo(bar)
   end
 ```
 
-A small typo in your error logging code, which you may or may not be able to
+A small typo in your error logging code, bat instead of bar, which you may or may not be able to
 trigger easily in test or development, and now that error isn't being handled
 correctly.
 
@@ -235,7 +246,7 @@ handling.
 However, what idiomatic ruby lacks in safety it makes up for in aversion to
 abstraction.
 
-Ruby devs didn't feel the need to write a factoryProxy, they opened a file,
+Ruby devs didn't feel the need to write a FileWriterFactoryProxy, they opened a file,
 wrote the contents to it, and closed it.
 
 And that was a breath of fresh air.
@@ -268,11 +279,11 @@ And they'll do this when the function foo is only called once, with the function
 parameter baz2. And it's not future-proofing, they'll do it when it would never
 make sense to call anything other than baz2 from foo.
 
-For the love of god, it doesn't need to be a function parameter. Just call the
+For the love of God, it doesn't need to be a function parameter. Just call the
 function. Or, inline everything if that makes sense. But don't do this.
 
 I will not mince words here. This is just as bad as layers of obtuse
-inheritance.
+inheritance. 
 
 ## 2025: Rust, Zig, Go, and C.
 
@@ -282,8 +293,10 @@ neither of which is the focus of this blog post.
 The small remaining time I had in 2025 I spent looking at Rust and Zig and Go
 and C and C++.
 
-This has changed my coding style to something that's pretty effective in any
-language.
+I did this with the plan to pick one of these languages to learn deeply as my
+go to compiled language. I have yet to pick one, but I have learned
+a lot of patterns from these languages and each one has changed how I program
+in one way or another.
 
 ## 2026 and Beyond
 
@@ -295,7 +308,8 @@ project in the future, I've determined the following:
 - Every error case should be handled appropriately.
 - Avoid every layer of abstraction that you can: it's MUCH easier to add the right abstraction later than to work with the wrong one.
   - This includes inheritance and function parameters, ESPECIALLY when neither one is used yet.
-- Be picky about dependencies.
-- End-to-end tests are invaluable
-- Unit test everything that's pure functions
-- Good dev and preview environments are invaluable
+- Be picky about dependencies. It's often better to write your own implementation
+ of a simple thing than to import a dependency.
+- End-to-end tests are invaluable.
+- Unit test everything that's pure functions.
+- Good dev and preview environments are invaluable.
