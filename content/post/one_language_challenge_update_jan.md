@@ -24,7 +24,7 @@ I love the simplicity. I love that the only complexity
 in these projects is the complexity I build.
 
 I also love that I depend only on LibC.
-I'm writing software that turns data steuctures into
+I'm writing software that turns data structures into
 a pdf and I have no dependencies. I need to know the PDF
 spec, which does not change, not some PDF
 library that changes every ten minutes.
@@ -33,7 +33,7 @@ Both of those feel amazing.
 
 ### What do I Hate?
 
-I hate how the nonexistent stamdard library and
+I hate how the nonexistent standard library and
 no dependencies kills my prototyping speed.
 
 Take my PDF Library as an example. 
@@ -42,7 +42,7 @@ I can't just model the PDF types as a struct, because
 one of the basic PDF object types is a string key-value type.
 
 Now, instead of modeling everything cleanly and
-immediately diving into how to populare a PDF XREF table,
+immediately diving into how to populate a PDF XREF table,
 I have to make a string hashmap implementation.
 
 And it's not a hard thing to do. I did it in Java in university.
