@@ -26,7 +26,7 @@ one of three things.
 
 1. take money from more customers.
 2. take more money from each customer.
-3. reduce cost to give your customer their product or service.
+3. reduce the cost to give your customer their product or service.
 
 That's it. Those are the only three choices. 
 
