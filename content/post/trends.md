@@ -360,6 +360,7 @@ languages right now. Rust and Go started it, but right behind them are
 - Jai
 - Carbon
 - C3
+
 and a bunch of others. Add on top of those, the new FIL-C compiler that
 compiles memory-safe C, new interpreted languages like Elixir, and I'm happy to
 see innovation coming out of programming languages. I think that the programming
