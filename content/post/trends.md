@@ -73,7 +73,7 @@ return a 502, whatever.), but you must handle that error case.
 
 In May, I was accepted into the Software Engineering Program.
 
-Knowing I would need Java for my next Software Engineering Course, I set out to
+Knowing I would need Java for my next CS course, I set out to
 learn the basics over the summer.
 
 I got the hang of it pretty quickly, and that made that course that fall very
@@ -244,12 +244,19 @@ constraints that don't involve me writing convoluted tests to test error
 handling.
 
 However, what idiomatic ruby lacks in safety it makes up for in aversion to
-abstraction.
+java-style abstraction.
 
-Ruby devs didn't feel the need to write a FileWriterFactoryProxy, they opened a file,
-wrote the contents to it, and closed it.
+Ruby devs didn't feel the need to write a FileWriterFactoryProxy, they opened a
+file, wrote the contents to it, and closed it.
 
 And that was a breath of fresh air.
+
+Now, of course, there are plenty of you that think that I must be out of my
+mind, even insinuating that the ecosystem that gave us Ruby on Rails doesn't do
+crazy abstraction. Believe me, I've seen Ruby metaprogramming that would make
+C++ template programmers cry. I'm not saying ruby developers don't have their
+own flaws, they do. I'm just saying I never saw the enterprise-OO-style of
+writing code in the Ruby ecosystem, and I think it was better for it.
 
 ## 2024: JavaScript and TypeScript
 
@@ -282,34 +289,123 @@ make sense to call anything other than baz2 from foo.
 For the love of God, it doesn't need to be a function parameter. Just call the
 function. Or, inline everything if that makes sense. But don't do this.
 
-I will not mince words here. This is just as bad as layers of obtuse
-inheritance. 
+This is just as bad as layers of obtuse inheritance that Java is known for.
 
 ## 2025: Rust, Zig, Go, and C.
 
-Most of my learning in 2025 has been going deep on kubernetes and terraform,
+Most of my learning in 2025 had been going deep on Kubernetes and Terraform,
 neither of which is the focus of this blog post.
 
 The small remaining time I had in 2025 I spent looking at Rust and Zig and Go
 and C and C++.
 
 I did this with the plan to pick one of these languages to learn deeply as my
-go to compiled language. I have yet to pick one, but I have learned
+default compiled language. I have yet to pick one, but I have learned
 a lot of patterns from these languages and each one has changed how I program
 in one way or another.
 
+Rust has made me embrace errors as values and concepts of ownership, zig has
+taught me that it's okay be more explicit sometimes, go taught me that
+explicit error handling is ok sometimes, and C has taught me about resource
+management (which is something that we do all the time as developers, not
+just in C with memory).
+
 ## 2026 and Beyond
 
-So how do I look at this journey now?
+To summarize so far, much of my journey has focused on when to use
+abstractions, when not to, what kinds are useful, and what aren't. What are
+some trends that I have my eye on now?
 
-Speaking just of quality of final product and how easy it is to work on that
-project in the future, I've determined the following:
+### The HandMade Network
 
-- Every error case should be handled appropriately.
-- Avoid every layer of abstraction that you can: it's MUCH easier to add the right abstraction later than to work with the wrong one.
-  - This includes inheritance and function parameters, ESPECIALLY when neither one is used yet.
-- Be picky about dependencies. It's often better to write your own implementation
- of a simple thing than to import a dependency.
-- End-to-end tests are invaluable.
-- Unit test everything that's pure functions.
-- Good dev and preview environments are invaluable.
+Some conference talks from the Better Software Conference and some of Casey
+Muratori's YouTube videos have brought me to the Handmade Hero series and
+the community that has sprouted up around that.
+
+For those that don't know, the Handmade Hero series is a series of livestreams
+from Casey Muratori where he programs a video game from scratch. No engine,
+no scripting language, I don't even think he links LibC into the project, he
+just calls Windows API's directly when he needs to interact with the hardware.
+
+This group might be a little bit extreme in their software development
+techniques (seriously, not even linking LibC!?), but they've really opened my
+eyes to how wasteful modern software development is. I have a Chrome tab opened
+to the Microsoft Teams web app taking 555 MiB of RAM open right now. I have
+seen that get as high as a Gigabyte. This is enterprise software that SHOULD be
+made to run on crappy enterprise laptops. How is it taking a Gig of RAM? Then
+think about how if you don't update JavaScript dependencies for more than a
+month there will be dozens of vulnerabilities in a modern JavaScript web app,
+each one requiring effort to either update the dependency or evaluate whether
+there is actually a code path that could get you wrecked. Neither of which is
+guaranteed to be trivial. Then think about how many bugs you've seen this week.
+Once you start paying attention to it, it's staggering. If you're a developer,
+think about how many times you've been trying to build a feature but the layer
+you're building on is making it harder.
+
+If I add up the time I've taken managing dependencies and fighting to work with
+bad abstractions and dependencies and the time taken to learn how to use these
+abstractions and dependencies, it's a toss-up for whether most of those
+abstractions and dependencies were actually worth it in the long-run.
+
+It makes me think maybe they aren't so extreme.
+
+
+### New Programming Languages
+
+I'm very impressed by the innovation that seems to be coming out of new
+languages right now. Rust and Go started it, but right behind them are
+
+- Zig
+- Odin
+- Jai
+- Carbon
+- C3
+and a bunch of others. Add on top of those, the new FIL-C compiler that
+compiles memory-safe C, new interpreted languages like Elixir, and I'm happy to
+see innovation coming out of programming languages. I think that the programming
+profession is much too young to think that the suite of languages that we had
+in 2005 perfectly solves everything that we want to do.
+
+### AI
+
+My thoughts on AI are long and complicated, but I'll write a quick summary here
+and put the rest in another blog post later.
+
+At current costs, I think having an AI-integration in my development
+environment has sped me up between 10-30% for some tasks in a way that
+economically makes sense. Here's an example of what that looked like today.
+
+I had to make sure a string that I plan to send to an API was compliant with
+a particular RFC. For human-legibility reasons, part of this string has
+user-generated input in it.
+
+I looked up the RFC, gave AI the RFC and told it to write a function that takes
+in this input string and makes it compliant with the RFC. It failed its first
+attempt (which only took maybe 10 seconds), so I re-wrote pretty much the whole
+thing by hand. Then I gave AI the RFC and told it to write unit tests for my
+function.
+
+And it did a decent job. I had to delete a few because they didn't test
+anything, and I had to add one because there was a combinatorial case that it
+missed, but reviewing the tests and making those two changes was faster than
+writing all of those tests out by hand, and losing ten seconds trying to get it
+to write the original function was more than made up for with the tests. Now I
+have a suite of regression tests to prevent anything from going wrong in the
+future, and more confidence in the code that I wrote for this, and I'm happy
+about both of those.
+
+And I sometimes use it to scaffold some UI demos, and sometimes I use it to
+make a first draft of documentation, and sometimes I use it as a jumping-off
+point for research.
+
+But anything much more complicated than that, it usually fails to produce
+anything that meets my standards, and everything it produces needs to be
+closely reviewed. I'm looking for improvements that make it better, I would
+love to use this tool more. But honestly I've tried a bunch of tools and the
+latest and greatest models, and I think that the last real step forward the AI
+industry took was when OpenAI released the first reasoning model with O1.
+
+Despite people yelling from the rooftops every two weeks that we've made
+major improvements to everything, every time I try to rely on it more, I find
+the limitations to be more or less where they were two weeks ago.
+
