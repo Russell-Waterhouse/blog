@@ -410,3 +410,12 @@ Despite people yelling from the rooftops every two weeks that we've made
 major improvements to everything, every time I try to rely on it more, I find
 the limitations to be more or less where they were two weeks ago.
 
+
+## Conclusions
+
+After writing code for 9 years, I think I'm relatively happy with the techniques
+I'm using to build things. Now, looking forward, I'm looking for tools to
+fill niches that I don't yet have a good solution for, and I'm looking for ways
+to get more efficient and create a better product.
+
+And I'm very excited.
