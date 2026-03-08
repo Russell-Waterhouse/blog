@@ -143,4 +143,10 @@ Vulkan
 + Clay
 + miniaudio
  
-all of that eliminates electron
+all of that eliminates electron.
+
+and if I wanted a desktop app, a mobile app, and a website,
+well the backend could just have a flag for how it's 
+serializing, and if you build your desktop app
+as a library, you might just have to maintain 2 platform layers,
+not 2 code bases.
