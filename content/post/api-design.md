@@ -11,8 +11,8 @@ draft: false
 
 
 These are going to be my notes on
-![Casey Muratori's talk on design and evaluation of reusable components](https://caseymuratori.com/blog_0024)
-![Youtube video here](https://www.youtube.com/watch?v=ZQ5_u8Lgvyk)
+[Casey Muratori's talk on design and evaluation of reusable components](https://caseymuratori.com/blog_0024)
+[Youtube video here](https://www.youtube.com/watch?v=ZQ5_u8Lgvyk)
 
 Quick disclaimer first.
 
