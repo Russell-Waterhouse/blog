@@ -84,7 +84,7 @@ by direct calls to B and C.
 ### Redundancy
 
 If an API does A in a specific way, it has more redundancy if there is another
-API call B, that does the same thing that A does, but in a different
+API B, that does the same thing that A does, but in a different
 way. For example, A takes a set of parameters and B takes a different set of
 parameters.
 
