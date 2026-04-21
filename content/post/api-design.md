@@ -1,10 +1,10 @@
 ---
 title: "Api Design"
 author: "Russell Waterhouse"
-description: "description here"
-tags: ["", ""]
+description: "Notes on API design"
+tags: ["API Design", "Component"]
 date: 2026-04-14T12:47:35-06:00
-draft: true
+draft: false
 ---
 
 # API Design that works in Practice
