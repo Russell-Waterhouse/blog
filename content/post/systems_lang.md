@@ -98,8 +98,8 @@ However, it's not nearly as simple to program as C, and if I put it down for a
 few months the odds are low that I'm going to remember all the different kinds
 of constructors, ways to initialize things, when to use `static_cast` and when
 not to, how to build programs in a way that doesn't blow out compile times,
-what functions in the standard library shouldn't be used (toUpper/toLower
-doesn't handle unicode), etc.
+what functions in the standard library shouldn't be used (`toUpper`/`toLower`
+doesn't handle Unicode), etc.
 
 C++ has a TON of that kind of complexity, and that makes it very hard to have
 that in my back pocket when I won't be working in C++ every day.
@@ -121,7 +121,7 @@ like Rust with worse developer experience.
 
 Rust really shines when thinking about how likely it is that I'll use it in my
 career. If I want to write a microservice in Rust, nobody in the security
-team is going to bawk at it.
+team is going to balk at it.
 
 Other developers may have objections, though they would likely have the same
 objections to C or C++, so I'm not going to count that against Rust.
@@ -150,7 +150,7 @@ everything I work on is connected to the internet in some way or another.
 
 So for that reason, I'm choosing Rust.
 
-This isn't a committment like a marriage. I may decide at any point that
+This isn't a commitment like a marriage. I may decide at any point that
 Rust isn't what I want. I may go back and choose C or C++,
 or Zig might declare a 1.0 release and I might switch to that.
 
