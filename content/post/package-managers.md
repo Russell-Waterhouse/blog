@@ -130,7 +130,7 @@ Here again, what I've observed in package managers is the opposite of what
 package managers advertise and what common sense would imply.
 
 Package managers should imply that if you have the same transitive dependency
-in 2 projects, you could just pull that dependency once and have both projects
+in 2 dependencies in the same project, you could just pull that dependency once and have both dependencies
 use it.
 
 Yet, when I build a project that uses npm or cargo or pip or ruby bundler,
@@ -170,7 +170,4 @@ pull in an entire package just to use one function.
 
 Package managers make it mindless. Need to left-pad a string? Why write the
 ten lines of code to do that when you could `npm install left-pad`?
-
-
-## Package Managers Hurt Stability
 
