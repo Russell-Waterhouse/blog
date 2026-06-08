@@ -40,10 +40,10 @@ the ones for installing software like homebrew and apt.
 I'm using the term "production software" here as a loosely defined term for
 software that has found product-market fit, and this is the version of software
 that is either the final release (like a game) or you plan to maintain for a
-long period of time (i.e. years).
+long period of time (at least 2 years).
 
 In that kind of software, things like performance, stability, executable size,
-etc. Usually start to matter. Security matters anytime you have something
+and such, usually start to matter. Security matters anytime you have something
 on the internet, so that goes without saying.
 
 I think package managers work against all of these.
