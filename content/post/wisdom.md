@@ -97,3 +97,8 @@ got."
 ## Andrés Byun
 
 "If you want to force people to use a product, make it usable first"
+
+## Niklaus Wirth
+
+“Increasingly, people seem to interpret complexity as sophistication, which is
+baffling – the incomprehensible should cause suspicion, not admiration."
