@@ -324,7 +324,7 @@ the community that has sprouted up around that.
 
 For those that don't know, the Handmade Hero series is a series of livestreams
 from Casey Muratori where he programs a video game from scratch. No engine,
-no scripting language, I don't even think he uses LibC into the project, he
+no scripting language, I don't even think he uses LibC in the project, he
 just calls Windows API's directly when he needs to interact with the hardware.
 
 This group might be a little bit extreme in their software development
