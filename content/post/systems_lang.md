@@ -150,3 +150,9 @@ everything I work on is connected to the internet in some way or another.
 
 So for that reason, I'm choosing Rust.
 
+This isn't a committment like a marriage. I may decide at any point that
+Rust isn't what I want. I may go back and choose C or C++,
+or Zig might declare a 1.0 release and I might switch to that.
+
+But today, with the work that I expect to do, Rust fills the gap
+nicely.
