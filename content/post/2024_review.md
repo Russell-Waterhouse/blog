@@ -59,7 +59,7 @@ need out of the toolbox and use it.
 Yes, you do have to think about different things than you would in any other
 programming language. That's true of all programming languages. I'm not
 convinced I spent more time thinking about memory management in C++ than I
-thought about JavaScript's event loop or whitespace in Python (that's a joke,
+thought about JavaScript's event loop or white space in Python (that's a joke,
 folks). Every language has some feature that you must be careful with. For some
 reason everyone seems to think C++'s quirks are harder to deal with than other
 languages' quirks. I'm unconvinced.
@@ -169,7 +169,7 @@ a place in my stack.
 ## Losing Development Environments
 1. Windows
 
-For a brief stint this year, I tried to use Windows as my main development
+    For a brief stint this year, I tried to use Windows as my main development
 OS. Everything that used to be just a cli command on Linux was now an electron
 app, which usually didn't install correctly the first time. The integration
 with WSL just left me confused. I haven't had to think about any of the
