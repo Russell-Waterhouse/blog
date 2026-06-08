@@ -171,3 +171,21 @@ pull in an entire package just to use one function.
 Package managers make it mindless. Need to left-pad a string? Why write the
 ten lines of code to do that when you could `npm install left-pad`?
 
+
+## What I'm Doing About It
+
+At work, I'm continuing to use the
+industry-standard package managers.
+
+For my personal projects, I'm vendoring
+everything. And in doing so, I've resolved to
+build more of what I need myself. It is undeniably
+slower. However, it's also undeniably more stable,
+I have infinitely more control, and I feel more sane.
+More frustrated too, at times, as
+I'll sit down to build a feature and instead of the feature,
+I'll only have enough time to set up the infrastructure and
+tools the feature will need.
+
+For now, I'm going to stick with that.
+I'll find out in a few years whether I'm right.
