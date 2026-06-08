@@ -43,7 +43,7 @@ that is either the final release (like a game) or you plan to maintain for a
 long period of time (i.e. years).
 
 In that kind of software, things like performance, stability, executable size,
-etc. usually start to matter. Security matters anytime you have something
+etc. Usually start to matter. Security matters anytime you have something
 on the internet, so that goes without saying.
 
 I think package managers work against all of these.
