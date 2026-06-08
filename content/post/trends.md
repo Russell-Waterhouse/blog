@@ -185,7 +185,7 @@ all my app dev experience, the jump to backend web technology with Java Spring
 wasn't too bad.
 
 The people were lovely, and the company was good to me, but I remember leaving
-this job with the unshakeable feeling that something was wrong with Java and OO.
+this job with the unshakable feeling that something was wrong with Java and OO.
 
 At the time, I remember the best that I could articulate my feeling with the
 simple sentence "Java does not push you into the pit of success".
@@ -306,7 +306,7 @@ in one way or another.
 
 Rust has made me embrace errors as values and concepts of ownership, zig has
 taught me that it's okay be more explicit sometimes, go taught me that
-explicit error handling is ok sometimes, and C has taught me about resource
+explicit error handling is OK sometimes, and C has taught me about resource
 management (which is something that we do all the time as developers, not
 just in C with memory).
 
@@ -324,11 +324,11 @@ the community that has sprouted up around that.
 
 For those that don't know, the Handmade Hero series is a series of livestreams
 from Casey Muratori where he programs a video game from scratch. No engine,
-no scripting language, I don't even think he links LibC into the project, he
+no scripting language, I don't even think he uses LibC in the project, he
 just calls Windows API's directly when he needs to interact with the hardware.
 
 This group might be a little bit extreme in their software development
-techniques (seriously, not even linking LibC!?), but they've really opened my
+techniques (seriously, not even using LibC!?), but they've really opened my
 eyes to how wasteful modern software development is. I have a Chrome tab opened
 to the Microsoft Teams web app taking 555 MiB of RAM open right now. I have
 seen that get as high as a Gigabyte. This is enterprise software that SHOULD be
@@ -357,7 +357,7 @@ languages right now. Rust and Go started it, but right behind them are
 
 - Zig
 - Odin
-- Jai
+- JAI
 - Carbon
 - C3
 

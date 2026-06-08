@@ -7,7 +7,7 @@ date: 2024-04-23T08:40:00-07:00
 draft: false
 ---
 
-# My Favorite Quotes and Nuggets of Wisdom
+# My Favourite Quotes and Nuggets of Wisdom
 
 In no particular order, here is every one of my favorite quotes, organized by
 author.

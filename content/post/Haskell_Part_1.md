@@ -25,7 +25,7 @@ returned from functions. This is known as treating functions as "first-class cit
 There are a lot of features of functional programming, but they all stem out of this paradigm of using functions instead of mutable state. 
 Later in this series, we will dive deeper into the hallmarks of functional programming, but for now you get the idea. 
 
-## Part 3: Why learn Haskell? 
+## Part 3: Why learn Haskell?
 Learning Haskell forces you to think about programming in an entirely new way, and in my opinion, makes you a better programmer. In my eyes, it is far more worth 
 learning Haskell and seeing programming in a new way than learning another programming language that uses the same paradigm you are used to. 
   
