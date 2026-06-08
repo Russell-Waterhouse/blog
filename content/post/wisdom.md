@@ -93,3 +93,8 @@ to make decisions."
 
 "If you always do what you've always done, you'll always get what you've always
 got."
+
+## Niklaus Wirth
+
+“Increasingly, people seem to interpret complexity as sophistication, which is
+baffling – the incomprehensible should cause suspicion, not admiration."
