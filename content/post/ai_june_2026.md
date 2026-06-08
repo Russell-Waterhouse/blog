@@ -66,7 +66,7 @@ internet and haven't bothered to investigate it for themselves.
 Neither one matches my experience. I can't
 prompt AI more than a few times before it will
 shoot itself in the foot. Often, in a way only
-a skilled software developer would notice. It will use a useEffect
+a skilled software developer would notice. It will use a `useEffect`
 in react in a way that creates an infinite render loop.
 It will change authentication middleware in an insecure way.
 It will re-implement something you already have a service for, and the re-implementation
@@ -82,15 +82,15 @@ software development falls into has
 led me to my rules of software
 development with AI:
 
-1. if the code is going to be thrown away, toss an AI agent at it, don't bother reviewing output.
-2. if the code is going to be maintained and I don't know exactly how I would implement it, don't use any AI code (though a little brainstorming with AI is ok as a jumping off point).
-3. if the code is going to be maintained and I know exactly how I would implement it, throw an AI agent at it once. If an agent can't get it in one shot, don't try again. Review the output closely and edit it manually. 
-4. use agents, not tab-complete. 
+1. If the code is going to be thrown away, toss an AI agent at it, don't bother reviewing output.
+2. If the code is going to be maintained and I don't know exactly how I would implement it, don't use any AI code (though a little brainstorming with AI is OK as a jumping off point).
+3. If the code is going to be maintained and I know exactly how I would implement it, throw an AI agent at it once. If an agent can't get it in one shot, don't try again. Review the output closely and edit it manually. 
+4. Use agents, not tab-complete. 
 
 This does a few things:
 
-1. where I want to move fast and have the confidence and knowledge to move fast, I can move faster with AI.
-2. where I don't have the knowleddge to move fast, I'm forced to slow down and learn.
+1. Where I want to move fast and have the confidence and knowledge to move fast, I can move faster with AI.
+2. Where I don't have the knowledge to move fast, I'm forced to slow down and learn.
 3. I never get trapped into a loop of "pull the slot machine and hope."
 4. I still know how the code works and can still write code very quickly. My skills aren't degrading.
 
@@ -100,20 +100,20 @@ this for years.
 
 ## The Economics
 
-When deepseek first cane out, I did the math to figure out
+When Deepseek first cane out, I did the math to figure out
 what you would need to charge as a subscription to make running that model worth it.
 
 It was a lot. I've lost the math, but it was way more
 than any AI company was charging for a subscription
-at the time. 
+at the time.
 
 Since then, we have seen the AI companies move to token-based
 billing as they look to change from grabbing market share to
-profitability. 
+profitability.
 
 I'm still not convinced token prices of today are sustainable,
 but I bet they are closer to sustainable than the subscriptions
-they were running. 
+they were running.
 
 So here is my warning. Right now, I use cursor with a $20/month
 plan. Most of the time, I use the auto feature to send my request to
@@ -128,7 +128,7 @@ But if I'm right, and the cost we are being charged per token is
 less than the cost they need to charge to make a profit, we could see
 the cost of tokens increase. By how much, who knows? OpenAI and Anthropic
 insiders, but they aren't exactly posting that number online for the rest of
-us. 
+us.
 
 So as a word of caution, if you're using AI right now,
 and wouldn't still be using it the same way if it was 8x more expensive,
