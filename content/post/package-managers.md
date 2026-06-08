@@ -51,7 +51,7 @@ I think package managers work against all of these.
 And the wort part is that in theory, package managers SHOULD make all of these
 better. Yet, when I look at what package managers actually give me in practice,
 that's not what I see. As I once heard a wise man say, "Theory always works, in
-theory"
+theory."
 
 ## Package Managers Hurt Security
 
@@ -115,7 +115,7 @@ API literally build into the browser and NodeJS), only people manually upgrading
 their dependencies in that 3.5 hour window would have been owned, instead of
 anyone that ran CI in that time.
 
-But while the most flashy attack recently, it's far from the only one.
+But while the axios hack was the most flashy attack recently, it's far from the only one.
 [TeamPCP](https://www.reversinglabs.com/blog/teampcp-supply-chain-attack-spreads)
 has been causing chaos in the PyPI world,
 [crates.io has been attacked](https://socket.dev/blog/two-malicious-rust-crates-impersonate-popular-logger-to-steal-wallet-keys),
@@ -185,7 +185,8 @@ I have infinitely more control, and I feel more sane.
 More frustrated too, at times, as
 I'll sit down to build a feature and instead of the feature,
 I'll only have enough time to set up the infrastructure and
-tools the feature will need.
+tools the feature will need. So far, the tradeoff
+has felt worthwhile.
 
 For now, I'm going to stick with that.
 I'll find out in a few years whether I'm right.
