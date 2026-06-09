@@ -8,7 +8,13 @@ draft: false
 ---
 
 
-##
+# Peeling Back the Curtain on the PDF
+
+Quick note: I may do more of these, but
+may not. there are a lot of projects I'm
+working on behind the scenes that are more important,
+but if I get the time I would love to do
+subsequent parts to this post.
 
 I'm going to be explaining this not in the order a PDF editor would parse it,
 because a PDF has trees and cross references and is designed to be parsed
@@ -58,9 +64,9 @@ A PDF file is organized using ASCII characters, except for certain elements that
 END QUOTE FROM WIKIPEDIA
 
 
-[https://en.wikipedia.org/wiki/PDF]
+[https://en.wikipedia.org/wiki/PDF](https://en.wikipedia.org/wiki/PDF)
 
-Every object starts with the object id, a space, the object generation (TODO: explain),
+Every object starts with the object id, a space, the object generation,
 and the `obj` keyword.
 The obj continues until the `endobj` keyword is reached.
 
@@ -190,7 +196,8 @@ This is all the contents that I'm going to put in the first PDF we do. If you
 wanted more contents, you would continue like this, adding objects to the pdf
 as we have been doing so far.
 
-We'll go deeper into what can be put in the contents of the PDF in part 2,
+We'll go deeper into what can be put in the contents of the PDF in part 2
+(if I ever do a part 2, which I do not guarantee),
 part 1 here is just for the structure of the PDF format.
 
 Let's finish up with the xref table and trailer.
@@ -346,7 +353,7 @@ startxref
 ```
 And knows that the xref table starts at byte 197.
 
-It will thenn back up to the trailer to find the document root.
+It will then back up to the trailer to find the document root.
 ```
 trailer <<
 /Root 1 0 R
@@ -450,3 +457,9 @@ endobj
 Object 4 is the null object, so this page's contents are null.
 
 And with that, we've read the entire PDF.
+
+I hope this was enough of a peek behind the curtain
+of what a PDF is to remove some of the mystery about them.
+
+If you ever need to work with them as a programmer,
+you'll now have an idea of what's going on behind the scenes.
