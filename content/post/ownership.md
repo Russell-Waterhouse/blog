@@ -24,9 +24,9 @@ If a business wants to make more money, it can do
 one of three things.
 
 
-1. take money from more customers.
-2. take more money from each customer.
-3. reduce the cost to give your customer their product or service.
+1. Take money from more customers.
+2. Take more money from each customer.
+3. Reduce the cost to give your customer their product or service.
 
 That's it. Those are the only three choices. 
 
@@ -83,8 +83,8 @@ shipped a buggy product.
 And you should be the one that has to fix these bugs.
 And you should be the one that has to tell customers that
 either you
-1. can't build that new feature because you're fixing bugs or
-2. can't fix that bug because you're building features.
+1. Can't build that new feature because you're fixing bugs or
+2. Can't fix that bug because you're building features.
 
 You will quickly learn what makes reliable software that is easy to troubleshoot under pressure,
 and what makes an obscure buggy mess that is hard to troubleshoot.
@@ -127,7 +127,7 @@ be able to fully understand any change you make.
 
 This leads to a "whack-a-mole" problem, where changes in one part of the code
 cause problems elsewhere in unexpected ways. I first heard the problem
-described clearly by the internet of bugs youtube channel (though the example
+described clearly by the internet of bugs YouTube channel (though the example
 about the job is entirely my own, inspired by real experience).
 
 I think, so far, I've laid out a solid argument that most people could agree with.
@@ -158,7 +158,7 @@ This means that, in order to continue to write features that attract more custom
 and to minimize bugs that churn out your users, you have to understand the system you're building.
 
 This means that you cannot have AI writing code you do not
-understand. You must choose an archtecture, and if you choose to use AI to
+understand. You must choose an architecture, and if you choose to use AI to
 implement any part of it, you must be reviewing it closely and enforcing your architecture.
 
 If you hope to have a working bug-free product that provides a good

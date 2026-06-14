@@ -148,7 +148,7 @@ So what projects do I have planned? Here's a list:
   - As an aside, I very nearly chose zig for this challenge because I wanted generic data structures.
   - Repo is already public [here](https://github.com/russell-waterhouse/c_generators), though far from complete at the time of posting.
 2. My own standard library.
-  - Obviously, I'm not re-implementing everything from the C standard library, but I want a few typedefs for ints, a few extra functions for working with strings, and maybe my own dynamic array implemntation.
+  - Obviously, I'm not re-implementing everything from the C standard library, but I want a few typedefs for ints, a few extra functions for working with strings, and maybe my own dynamic array implementation.
 3. My own screensaver.
   - I've had an idea for a screensaver with dots moving around the screen and lines appearing between them. I'm sure I got the idea from some hacking website I saw at some point, but I want to make my own.
 4. Advent of code 2025

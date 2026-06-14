@@ -25,7 +25,7 @@ in these projects is the complexity I build.
 
 I also love that I depend only on LibC.
 I'm writing software that turns data structures into
-a pdf and I have no dependencies. I need to know the PDF
+a PDF and I have no dependencies. I need to know the PDF
 spec, which does not change, not some PDF
 library that changes every ten minutes.
 
@@ -41,7 +41,7 @@ Take my PDF Library as an example.
 I can't just model the PDF types as a struct, because
 one of the basic PDF object types is a string key-value type.
 
-Now, instead of modeling everything cleanly and
+Now, instead of modelling everything cleanly and
 immediately diving into how to populate a PDF XREF table,
 I have to make a string hashmap implementation.
 
@@ -50,7 +50,7 @@ And once I've done it once in C, I never have to do it again.
 
 But it's tedious, an instead of having my xref table working right now,
 I have an arena allocated String Linked List,
-and a concat_strs function that iterates over that data structure
+and a `concat_strs` function that iterates over that data structure
 and concatenates it all into one string, with only one call
 to malloc.
 
@@ -117,7 +117,7 @@ And I haven't looked at a line of Rust at all in 6 months.
 I'm sticking with it for now, but the PDF writer
 is an exploration for work, so I might do that in some
 other language. From the very beginning, I've said that I
-would exclude "any exploration work I’m doing that will help my day job."
+would exclude "any exploration work I'm doing that will help my day job."
 from this challenge, and it might be time to ring that bell
 for PDF while I finish up my core library of data structures.
 

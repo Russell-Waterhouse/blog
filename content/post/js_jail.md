@@ -22,14 +22,14 @@ That's it.
 
 That's all we do.
 
-We draw some \<h1> and some \<p> on the screen of a user who has a web browser.
+We draw some `<h1>` and some `<p>` on the screen of a user who has a web browser.
 
 We change the format that we send over the wire (HTML or XML or JSON or
 binary or whatever), and we change what database we use, and we change what
 language we use on the backend, and we change what framework we use to tie it
 all together on the frontend, and we change what subset of CSS we're using and
-where we write the CSS, but at the end of the day we're mostly drawing \<h1>
-and \<p> and \<li>.
+where we write the CSS, but at the end of the day we're mostly drawing `<h1>`
+and `<p>` and `<li>`.
 
 And we have made a god-awful mess of it.
 

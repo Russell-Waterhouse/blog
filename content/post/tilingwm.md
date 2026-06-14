@@ -23,7 +23,7 @@ The best part is the workspaces.
 On a regular windows desktop, I might have to press alt-tab 8 or 10 times to get to one of the programs I had been using a while ago (or mouse through the 10 tabs on my home bar).
 In a workspaces environment, I simply have to press super key + 9 (for example).
 
-The tiling is a good thing, don't get me wrong. When I open a new program, I get to choose if it comes up fullscreen, if it comes up beside whatever program I'm already using, if it comes up in a little square, etc.
+The tiling is a good thing, don't get me wrong. When I open a new program, I get to choose if it comes up full-screen, if it comes up beside whatever program I'm already using, if it comes up in a little square, etc.
 I like to be able to choose where ad how big something opens up. It's a powerful feature, and I miss it when I'm using a regular desktop environment like Windows or KDE Plasma.
 
 The last thing that makes things work well for me is the keyboard-focused approach to computer interaction. Most of the time I'm using a computer, I'm using my laptop. I don't carry around a mouse because the amount that I have to use a trackpad in a day is very small. If there is a mouse present, I don't have a big issue using it, but I don't like using a trackpad (and I don't think I'm alone in that).

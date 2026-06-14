@@ -30,7 +30,7 @@ It's in the "Always Learning" spirit, it provides me with a more secure website,
 So, for now it's what I'm using. If I see something better, I'll be sure to try it, but right now it's the solution I've got. 
 
 ## My Setup
-I first downloaded HUGO onto my laptop. I then created a folder and used hugo to make a blank website. 
+I first downloaded HUGO onto my laptop. I then created a folder and used Hugo to make a blank website. 
 I then went onto Hugo's website and downloaded a theme that I liked. I spent another hour customizing the theme, 
 and deemed it good to go. 
 
@@ -50,13 +50,13 @@ That gives me a whole blog and CI setup for zero hosting cost, the cost of a dom
 ## Initial Impressions of the Workflow
 I've only been using HUGO for a week, but I already like the workflow I've set up. 
 It looks something like this. 
-1. I open my computer and write a blog post in a .md file
+1. I open my computer and write a blog post in a `.md` file
 2. I use 
     ```bash
     hugo serve
     ```
-    to test that the blog post looks ok locally  
-3. I push my changes to github and open a PR  
+    to test that the blog post looks OK locally  
+3. I push my changes to GitHub and open a PR  
 4. I look at the deploy preview, to make sure there are no glaring mistakes.   
 5. I merge the PR  
 
