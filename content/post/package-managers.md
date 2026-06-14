@@ -47,10 +47,10 @@ the ones for installing software like homebrew and apt.
 I'm using the term "production software" here as a loosely defined term for
 software that has found product-market fit, and this is the version of software
 that is either the final release (like a game) or you plan to maintain for a
-long period of time (i.e. years).
+long period of time (at least 2 years).
 
 In that kind of software, things like performance, stability, executable size,
-etc. usually start to matter. Security matters anytime you have something
+and such, usually start to matter. Security matters anytime you have something
 on the internet, so that goes without saying.
 
 I think package managers work against all of these.
@@ -58,7 +58,7 @@ I think package managers work against all of these.
 And the wort part is that in theory, package managers SHOULD make all of these
 better. Yet, when I look at what package managers actually give me in practice,
 that's not what I see. As I once heard a wise man say, "Theory always works, in
-theory"
+theory."
 
 ## Package Managers Hurt Security
 
@@ -124,7 +124,7 @@ literally build into the browser and NodeJS), only people manually upgrading
 their dependencies in that 3.5 hour window would have been owned, instead of
 anyone that ran CI in that time.
 
-But while the most flashy attack recently, it's far from the only one.
+But while the axios hack was the most flashy attack recently, it's far from the only one.
 [TeamPCP](https://www.reversinglabs.com/blog/teampcp-supply-chain-attack-spreads)
 has been causing chaos in the PyPI world,
 [crates.io has been attacked](https://socket.dev/blog/two-malicious-rust-crates-impersonate-popular-logger-to-steal-wallet-keys),
@@ -139,7 +139,7 @@ Here again, what I've observed in package managers is the opposite of what
 package managers advertise and what common sense would imply.
 
 Package managers should imply that if you have the same transitive dependency
-in 2 projects, you could just pull that dependency once and have both projects
+in 2 dependencies in the same project, you could just pull that dependency once and have both dependencies
 use it.
 
 Yet, when I build a project that uses npm or cargo or pip or ruby bundler,
@@ -210,3 +210,22 @@ Package managers don't make stability worse all on their own. But they are a
 tool with no guardrails that put you into a bad spot if you use them the way
 they encourage you to use them.
 
+
+## What I'm Doing About It
+
+At work, I'm continuing to use the
+industry-standard package managers.
+
+For my personal projects, I'm vendoring
+everything. And in doing so, I've resolved to
+build more of what I need myself. It is undeniably
+slower. However, it's also undeniably more stable,
+I have infinitely more control, and I feel more sane.
+More frustrated too, at times, as
+I'll sit down to build a feature and instead of the feature,
+I'll only have enough time to set up the infrastructure and
+tools the feature will need. So far, the tradeoff
+has felt worthwhile.
+
+For now, I'm going to stick with that.
+I'll find out in a few years whether I'm right.

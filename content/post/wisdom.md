@@ -7,7 +7,7 @@ date: 2024-04-23T08:40:00-07:00
 draft: false
 ---
 
-# My Favorite Quotes and Nuggets of Wisdom
+# My Favourite Quotes and Nuggets of Wisdom
 
 In no particular order, here is every one of my favorite quotes, organized by
 author.
@@ -93,3 +93,12 @@ to make decisions."
 
 "If you always do what you've always done, you'll always get what you've always
 got."
+
+## Andrés Byun
+
+"If you want to force people to use a product, make it usable first"
+
+## Niklaus Wirth
+
+“Increasingly, people seem to interpret complexity as sophistication, which is
+baffling – the incomprehensible should cause suspicion, not admiration."
