@@ -50,7 +50,7 @@ processing. Here are my thoughts:
 - The difference between me typing just letters and me typing letters, numbers,
   and punctuation is kinda comical to watch. I go from nearly 100wpm for just
   letters down to probably 50 for letters, numbers, and punctuation. In the new
-  year, I'll have to spend some time practicing that specifically.
+  year, I'll have to spend some time practising that specifically.
 4. Vim Motions was still a good choice. 
 - I'm blown away by the speed at which I can edit text with vim. I learned vim
   motions in 2021, and that was a great investment. I would like to find a way
@@ -61,12 +61,12 @@ processing. Here are my thoughts:
 5. I need a way to record thoughts when I have them in an organized way for
 later.
 - In the middle of this, I find myself googling "Why do my ruby specs take 15
-  secons to load". While that question is worthwhile to answer, that's not what
+  seconds to load". While that question is worthwhile to answer, that's not what
   I was doing at the time. I would find it easier to focus on what I'm working
   on if I had a really solid way of capturing thoughts like that. I'll add that
   to my "investigate in 2024" list.
 6. Copilot is still a win
-- As much as I don't want to admit this, github copilot is a win for me. I
+- As much as I don't want to admit this, GitHub copilot is a win for me. I
   mostly use it for when I need to write comments, test cases with similar
   structure, or other boilerplate. It writes very little production code for
   me, simply because I find it's really not that great at that. However, making
@@ -115,6 +115,6 @@ are already paying dividends, and we love to bet on winning horses.
 the languages that I work with all of the time.
 4. I need to find a place to record thoughts that need to be dealt with later, 
 not when I'm in the zone.
-5. I need to spend some time practicing typing numbers and curly braces, and 
+5. I need to spend some time practising typing numbers and curly braces, and 
 get that as fast as the rest of my typing.
 

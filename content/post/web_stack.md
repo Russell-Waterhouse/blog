@@ -29,7 +29,7 @@ web development on the internet. I'll catch you up on what you've missed.
 
 These are the highlights as I see them. The below are NOT data-driven summaries of events,
 but my opinion of what has happened and what trends are happening now.
-1. React dominated frontend web development. What isn't a React SPA is a Vue/Angular/Solid/Svelte SPA. New MPA projects are rare.
+1. React dominated frontend web development. What isn't a React SPA is a Vue/Angular/Solid/Svelte SPA. New Multi-Page-App projects are rare.
 2. Create-react-app died.
 3. TypeScript dominates almost every new frontend project, no matter what JS framework you're using.
 4. "Meta-frameworks" became super popular. NextJS and Remix/React Router v7 are popular on React, Nuxt is popular in the Vue Ecosystem, SvelteKit for Svelte, etc.
@@ -208,7 +208,7 @@ web apps without a meta-framework in 9 years. I'm not sure the trend supports
 that. Unfortunately, I still think that bet is my best choice.
 
 If I was starting something new today, I would just use react and know
-that in 8 years my codebase is going to look dated to anyone who started their
+that in 8 years my code base is going to look dated to anyone who started their
 web dev career in the age of NextJS.
 
 I can eat the cost of an extra day here or

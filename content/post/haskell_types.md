@@ -87,7 +87,7 @@ A class is a generic interface that defines a common feature set that can be
 used over a wide variety of types. Examples of this are ord (for ordering) or
 eq (for testing equality) in haskell. A simplified implementation of the eq
 typeclass is shown below, taken from page 130 of the book "Real world Haskell"
-by Bryan O’Sullivan, John Goerzen, and Don Stewart.
+by Bryan O'Sullivan, John Goerzen, and Don Stewart.
 
 ```
 class BasicEq a where

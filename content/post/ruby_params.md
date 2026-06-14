@@ -65,9 +65,9 @@ Hello with some other value
 ```
 
 ### Keyword Arguments
-This was introduced in Ruby2 and allows you to pass key-value pairs into
+This was introduced in Ruby 2 and allows you to pass key-value pairs into
 functions. Personally, I find it makes client code (i.e. the code 
-calling my function) more readible.
+calling my function) more readable.
 ```ruby
 def foo(val1:, val2:)
   puts val1
@@ -81,7 +81,7 @@ end
 bar()
 ```
 
-it producest the following: 
+it produces the following: 
 ```
 Hello,
 world!

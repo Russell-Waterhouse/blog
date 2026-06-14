@@ -117,7 +117,7 @@ And I haven't looked at a line of Rust at all in 6 months.
 I'm sticking with it for now, but the PDF writer
 is an exploration for work, so I might do that in some
 other language. From the very beginning, I've said that I
-would exclude "any exploration work I’m doing that will help my day job."
+would exclude "any exploration work I'm doing that will help my day job."
 from this challenge, and it might be time to ring that bell
 for PDF while I finish up my core library of data structures.
 
