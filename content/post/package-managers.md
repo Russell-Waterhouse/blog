@@ -28,6 +28,13 @@ time or provides a feature to your user that you would otherwise not have the
 time to provide them, use it! You probably don't have to write an HTTP server
 from scratch using sockets, and it would probably be a waste of your time.
 
+Third, I'm not the first one to say this about package managers. The idea was
+first introduced to me by
+[Ginger Bill](https://www.gingerbill.org/article/2025/09/08/package-managers-are-evil/).
+I had initially dismissed this idea when I first heard it. But the more I paid
+attention, the more I saw the arguments for it. Here are those arguments, laid
+out in my own words.
+
 Okay, with that out of the way, here's my claim.
 
 ## Package Managers are a Poor Fit for Production Software
@@ -59,18 +66,20 @@ Package managers are supposed to help security. They're supposed to allow you
 to easily patch your software so that the vulnerability in your transitive
 dependency just disappears with one CLI command and one deploy.
 
-And sometimes, they do. However, sometimes, they make it so much harder.
+And sometimes, they do. Sometimes, they make it so much harder.
 
 Often, there are vulnerabilities in a package 4 transitive dependencies deep.
 If transitive dependency number 2 doesn't release a patched version that
 depends on the patched version of transitive dependency number 3 that depends
-on the patched version of transitive dependency number 4, what are your options?
+on the patched version of transitive dependency number 4, what are your
+options?
 
 1. Analyze the bug and how it is triggered and decide if there's any actual
-code path between your code and the vulnerable code. You'd have to understand
-how 4 packages work together to do this, but sometimes it can be done.
-2. Fork these 4 dependencies, update all of their code, push these on NPM or pip,
-and update your dependency to point to your own forked versions.
+   code path between your code and the vulnerable code. You'd have to
+   understand how 4 packages work together to do this, but sometimes it can be
+   done.
+2. Fork these 4 dependencies, update all of their code, push these on NPM or
+   pip, and update your dependency to point to your own forked versions.
 3. Hope.
 
 If you're lucky, transitive dependency 2 isn't abandoned. I haven't always been
@@ -78,9 +87,9 @@ that lucky. Maybe you have been.
 
 Now, if you had just vendored them into your own project, you would still have
 to update those 4 dependencies, like option 2. However, once you did that, you
-wouldn't have to push them to NPM or pip. You would just build your project like
-normal and move on with life. If the license required, you may have to publish
-your changes, but that's besides my point.
+wouldn't have to push them to NPM or pip. You would just build your project
+like normal and move on with life. If the license required, you may have to
+publish your changes, but that's besides my point.
 
 People often say that "every line of code that you write is a liability" as a
 justification for why you should depend on third-party dependencies
@@ -88,7 +97,7 @@ where possible. However, if there's a bug in code that you depend on, that's
 your liability too. A more accurate way to put that might be "every line of
 code that your project runs is a liability." It's still not right, because
 that completely ignores that code can be an asset, not just a liability, but
-I think my point is made.
+it illustrates my point better, so we'll take it for now.
 
 If you're responsible for every line of code that runs in your project, using
 a package manager to pull in all of these dependencies means that you now have
@@ -102,16 +111,16 @@ And none of this even mentions the growing possibility of supply-chain attacks
 that the package manager makes so much more dangerous.
 
 The biggest supply-chain attack recently was
-[Axios,](https://cloud.google.com/blog/topics/threat-intelligence/north-korea-threat-actor-targets-axios-npm-package/)
+[Axios](https://cloud.google.com/blog/topics/threat-intelligence/north-korea-threat-actor-targets-axios-npm-package/),
 a common networking package.
 
-The malicious package was only available for 3.5 hours or so, but because
-many people use `npm install` instead of `npm ci` in their CI pipelines, many
+The malicious package was only available for 3.5 hours or so, but because many
+people use `npm install` instead of `npm ci` in their CI pipelines, many
 people's package-lock.json was ignored, and the malicious minor version was
 pulled, and those people are now trying to figure out how to evict North Korean
 hackers from their environment and how to roll all the credentials that got
-exfiltrated. If people had vendored Axios (or even better, used the `fetch`
-API literally build into the browser and NodeJS), only people manually upgrading
+exfiltrated. If people had vendored Axios (or even better, used the `fetch` API
+literally build into the browser and NodeJS), only people manually upgrading
 their dependencies in that 3.5 hour window would have been owned, instead of
 anyone that ran CI in that time.
 
@@ -143,7 +152,7 @@ function, serve templated responses and static files, and serialize data for a
 response?
 
 For this cargo.toml, my `target/debug/deps` folder is 1.5 GiB.
-```
+```toml
 [package]
 name = "data-star-test"
 version = "0.1.0"
@@ -170,6 +179,36 @@ pull in an entire package just to use one function.
 
 Package managers make it mindless. Need to left-pad a string? Why write the
 ten lines of code to do that when you could `npm install left-pad`?
+
+## Package Managers Hurt Stability
+
+Here again, what I've observed in package managers is the opposite of what
+package managers advertise.
+
+If you run "generic-package-manager update," you should, in theory, get the
+latest security patches and feature updates, without getting a changed API.
+
+Except nobody actually follows [semver](https://semver.org/).
+
+I've been broken on minor version and patch version updates that did not follow
+semver.
+
+Package manager best practice is to routinely update everything like that.
+
+I've tried, and unless you have GREAT end-to-end tests and a GREAT QA
+department, something will get by you and bite you.
+
+And if you vendored everything, and just applied security patches when
+required, and pulled in new features when YOU want the new feature, you would
+probably have a product that feels more stable.
+
+I admit, this is my weakest point. You may argue "Just use a package manager
+the way you would update things in a vendored folder and there's no more
+problem." And you'd be right, but you'd also be missing my point.
+
+Package managers don't make stability worse all on their own. But they are a
+tool with no guardrails that put you into a bad spot if you use them the way
+they encourage you to use them.
 
 
 ## What I'm Doing About It
