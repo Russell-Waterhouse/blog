@@ -68,7 +68,7 @@ Linux offers a wide range of software options and settings to accomplish this, a
 ## Sandboxing
 
 I plan to setup my system with some fairly strict sandboxing options. This just generally prevents apps in my system from acting in a malicious way.  It is well documented that supply chain attacks are very hard to mitigate on open source platforms, so this is one of my more important projects.
-## Setting up a RaspberryPi for DNS blocking
+## Setting up a Raspberry Pi for DNS blocking
 
 I have lots of plans for my raspberry pi, and this is just the start. Updates coming as soon as the chip shortage ends!
 

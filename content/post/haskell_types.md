@@ -26,7 +26,7 @@ data Book = Book {
   price :: Double
 }
 ```
-Here a book can have an id, title, author, isbn, and a price. Of course this is
+Here a book can have an id, title, author, ISBN, and a price. Of course this is
 a massively simplified example, and I've used a Double to represent currency,
 which should never be done in the real world. Nonetheless, this example gets
 the point across.
@@ -57,12 +57,12 @@ Here the Optional Type can be `Empty` or it can hold data of any type (a)
 ## type:
 
 This is just a synonym for an existing type. An example of this is `String` and
-`[char]`. You can use one interchangably with the other.
+`[char]`. You can use one interchangeably with the other.
 
 ## newtype:
 
 This gives an existing type a new identity. It is often used to make
-typechecking more strict.
+type-checking more strict.
 
 For example:
 
@@ -77,15 +77,15 @@ string. If the parameter just accepts any string, this mistake would not be
 caught until runtime. It is generally considered good practice to define and
 use types like this within your code base for this reason. Remember, one of the
 goals of good software development is to catch bugs as early as possible. This
-is the reason for tdd, static typechecking, etc. If we can catch a bug at
-compile time, the end user will never see it. Okay, rant over, onto the class
-keyword.
+is the reason for test-driven-development, static type-checking, etc. If we can
+catch a bug at compile time, the end user will never see it. Okay, rant over,
+onto the class keyword.
 
 ## class:
 
 A class is a generic interface that defines a common feature set that can be
-used over a wide variety of types. Examples of this are ord (for ordering) or
-eq (for testing equality) in haskell. A simplified implementation of the eq
+used over a wide variety of types. Examples of this are `ord` (for ordering) or
+`eq` (for testing equality) in haskell. A simplified implementation of the `eq`
 typeclass is shown below, taken from page 130 of the book "Real world Haskell"
 by Bryan O'Sullivan, John Goerzen, and Don Stewart.
 
@@ -98,7 +98,7 @@ It should be noted that a class must be declared in its own file
 
 ## instance:
 
-instance is the keyword used to define an implementation of a class. This is
+`instance` is the keyword used to define an implementation of a class. This is
 demonstrated below, using an example from page 131 of "Real World Haskell"
 
 ```
@@ -108,5 +108,5 @@ isEqual False False = True
 isEqual _ _ = False
 ```
 
-As long as this is defined, you'll be able to use the isEqual function on Bool
+As long as this is defined, you'll be able to use the `isEqual` function on `Bool`
 types.

@@ -8,7 +8,7 @@ date: 2022-10-25T11:44:38-07:00
 
 # Projects Projects Projects!
 I've always got some projects on the go, and I thought I would provide some updates 
-since many of these projects aren't visible on github.
+since many of these projects aren't visible on GitHub.
 
 ## Current Projects
 
@@ -26,7 +26,7 @@ I've flashed an old laptop with an Ubuntu Server image. I've used it for a myria
 from dev environments to rough drafts of this blog. 
 The big thing that I'm using it for right now is my own [nextcloud](https://nextcloud.com/) instance. 
 Nextcloud is a replacement for google drive, and when I'm hosting it locked behind a VPN on my LAN, quite secure from attack. 
-Right now, everything is currently working. I have posted the configuration, on my github here: [https://github.com/Russell-Waterhouse/selfhost_nextcloud](https://github.com/Russell-Waterhouse/selfhost_nextcloud)   
+Right now, everything is currently working. I have posted the configuration, on my GitHub here: [https://GitHub.com/Russell-Waterhouse/selfhost_nextcloud](https://GitHub.com/Russell-Waterhouse/selfhost_nextcloud)   
 There is also a README included to allow everyone to do this in just 2 steps. 
 
 
