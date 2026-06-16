@@ -9,7 +9,7 @@ draft: false
 
 # My Favourite Quotes and Nuggets of Wisdom
 
-In no particular order, here is every one of my favorite quotes, organized by
+In no particular order, here is every one of my favourite quotes, organized by
 author.
 
 As a disclaimer, just because I list an author here doesn't mean that I agree
@@ -26,7 +26,7 @@ take action on your last book."
 
 "If you need perfect conditions to start it means your success is conditional.
 If you want unconditional success, then be willing to start in under any
-circumstance. That includes the one you’re in right now. "
+circumstance. That includes the one you're in right now. "
 
 "Entrepreneurship is about acquiring skills, beliefs, and character traits. To
 advance, I find that we must determine which skills, beliefs, and character
@@ -54,7 +54,7 @@ cold and timid souls who neither know victory nor defeat."
 
 ## Jordan Peterson
 
-"Don’t hide baby monsters under the carpet. They will flourish. They will grow
+"Don't hide baby monsters under the carpet. They will flourish. They will grow
 large in the dark. Then, when you least expect it, they will jump out and
 devour you."
 
@@ -86,7 +86,7 @@ think they can win."
 
 ## Gregor Hohpe
 
-"Excessive complexity is nature’s punishment for organizations that are unable
+"Excessive complexity is nature's punishment for organizations that are unable
 to make decisions."
 
 ## Henry Ford

@@ -629,7 +629,7 @@ management and strings as arrays, and Haskell took so short because it made
 heavy use of the inherent recursive nature of the data structure, something that 
 Haskell handles very well. 
 
-## Appendix A: Futurie Analysis
+## Appendix A: Future Analysis
 
 If you're interested to see these implementations compared on the following 
 dimensions, please follow me on [LinkedIn](https://www.linkedin.com/in/russell-waterhouse-a4b1351a2)
@@ -638,7 +638,7 @@ where I post all of my blog posts.
 - Memory usage
 - CPU usage
 - Footprint (compiled size)
-- Maintenance/Extensibility
+- Maintenance/Extendibility
 - Safety/Security
 - Tooling
 - Paradigm

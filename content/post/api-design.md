@@ -12,7 +12,7 @@ draft: false
 
 These are going to be my notes on
 [Casey Muratori's talk on design and evaluation of reusable components](https://caseymuratori.com/blog_0024)
-[Youtube video here](https://www.youtube.com/watch?v=ZQ5_u8Lgvyk)
+[YouTube video here](https://www.youtube.com/watch?v=ZQ5_u8Lgvyk)
 
 Quick disclaimer first.
 
@@ -42,7 +42,7 @@ An example is character animation or physics.
 Layers have two problems.
 
 1. They require a well-defined service at the bottom to abstract over (3d hardware works, but doing something like AI doesn't make sense as a layer).
-2. Two layers can conflict. For example, you could never use openGL AND Direct3D at the same time in a project.
+2. Two layers can conflict. For example, you could never use OpenGL AND Direct3D at the same time in a project.
 
 
 Integrating components is not linear and not a unit-step function. Integration
@@ -101,7 +101,7 @@ This is almost always bad but is sometimes unavoidable.
 There are several types.
 1. Inter-object coupling: When actions taken on a subset of objects effects many objects.
 2. APIs that depend on some state that you set.
-3. Code that enforces serial operations (GLBegin and GLEnd, for example)
+3. Code that enforces serial operations (`GLBegin` and `GLEnd`, for example)
 4. Are internal buffers something we need to know about and couple together otherwise unrelated actions.
 5. Coupling allocation to initialization.
 6. Coupling to a specific type. For example, if the API defines a type that you don't want to use, forcing you to constantly be creating them.
@@ -133,9 +133,9 @@ and forth? Does the library use exceptions for flow control?
 - Flow Control: Keeping the flow control in YOUR calling code, not the component API code, is always better.
 
 Noteworthy: What tradeoffs you want WILL CHANGE. At the beginning, you'll
-favor simplicity and orthogonality.
+favour simplicity and orthogonality.
 
-As your code gets more complicated, you'll favor flexibility and convenience,
+As your code gets more complicated, you'll favour flexibility and convenience,
 and probably less retention.
 
 ## Notes on Retention
@@ -161,7 +161,7 @@ else if (Hookline)
 Simulate();
 ```
 
-it would be much easier to write code like this:
+It would be much easier to write code like this:
 ```c
 if (XButtonDown) DoJoint(Rocket, Pole);
 Simulate();

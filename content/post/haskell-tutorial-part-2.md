@@ -7,7 +7,7 @@ date: 2023-10-10T11:18:03-07:00
 draft: False
 ---
 
-# Haskell Tutoriall Part 2
+# Haskell Tutorial Part 2
 
 ![](/post/images/haskell-pt-2.png)
 
@@ -15,14 +15,14 @@ In this part 2 of our Haskell tutorial, I'm going to show you how to install
 Haskell from scratch on your computer. 
 
 
-## Part 1: Install GHCUP
+## Part 1: Install `GHCUP`
 
 For this tutorial, we'll be using `ghcup`, an all-in one tool to install 
 the following 
-1. the ghc compiler (haskell's most popular compiler)
-2. cabal (haskell's package manager, similar to npm in javascript)
-3. stack (a layer around cabal that makes sure packages work together nicely)
-4. the haskell language server (HLS) (a language server, resposible for things like "go to definition" and intelligent autocomplete) 
+1. The `ghc compiler` (haskell's most popular compiler)
+2. Cabal (haskell's package manager, similar to npm in JavaScript)
+3. Stack (a layer around cabal that makes sure packages work together nicely)
+4. The haskell language server (`HLS`) (a language server, responsible for things like "go to definition" and intelligent auto-complete) 
 
 
 With that, let's get into it! 
@@ -47,7 +47,7 @@ curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org > ghcup-insta
 ```
 
 
-take a look at the script to see if there's anything sketchy in it: 
+Take a look at the script to see if there's anything sketchy in it: 
 ```bash
 less ghcup-installer.sh
 ```
@@ -62,7 +62,7 @@ chmod +x ghcup-installer.sh && ./ghcup-installer.sh
 
 ## Part 2: Running ghcup
 
-Now that you've got ghcup installed, run the terminal user interface (tui) 
+Now that you've got ghcup installed, run the terminal user interface (TUI) 
 with the following command:
 
 ```bash
@@ -99,14 +99,14 @@ However, for the sake of this simple smoke test, we're not going to use anything
 extra. 
 
 
-create a file called `hello.hs` and copy the following line into it:
+Create a file called `hello.hs` and copy the following line into it:
 ```haskell
 main :: IO ()
 main = putStrLn "Hello, world!"
 ```
 
 
-Compile it with ghc (the haskell compiler we installed earlier)
+Compile it with GHC (the haskell compiler we installed earlier)
 
 ```bash
 ghc hello.hs -o hello.bin

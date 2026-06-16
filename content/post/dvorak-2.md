@@ -24,8 +24,8 @@ on all those computers, and I cannot be so inefficient looking at the keys
 all the time. 
 
 So, as much as I believe that the dvorak layout is better, I'm going back to 
-the QWERTY layout for the forseeable future. Maybe I'll get to a place where 
-I can use both layouts interchangably, but considering how much I'm struggling 
+the QWERTY layout for the foreseeable future. Maybe I'll get to a place where 
+I can use both layouts interchangeably, but considering how much I'm struggling 
 to write this blog post, I doubt it. The good news is that my fingers didn't 
 forget everything about this layout. I think I'll be able to pick it up again
 much faster than I was able to learn a new layout.

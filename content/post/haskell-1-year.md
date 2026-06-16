@@ -107,7 +107,7 @@ the answer to all of my problems. Problems like:
 
 It also promised a lot of other things that I hadn't even struggled with yet:
 - Fearless concurrency, which was important because the future of hardware was
-  more concurrency with GPU's and CPU's with more cores.
+  more concurrency with GPUs and CPUs with more cores.
 - Reduced logical errors because the code is easier to read.
 - Provably correct programs
 - Easier debugging and unit testing
@@ -233,7 +233,7 @@ my code base in two for very little benefit.
 
 ### The Immutability
 
-This is by far my least-favorite part of Haskell. I have two problems with it.
+This is by far my least-favourite part of Haskell. I have two problems with it.
 1. I don't think it delivers the claim of reducing logical bugs
 2. I think it encourages gross code.
 
@@ -455,7 +455,7 @@ misunderstood your problems and their root causes.
 To be fair, I don't believe that's malicious. I believe it comes out of dealing
 with much less complexity in weekend-sized Haskell projects than production
 code has. If my only experience with Haskell was getting home from my day-job
-writing enterprise Java, firing up neovim instead of IntelliJ, and working on a
+writing enterprise Java, firing up Neovim instead of IntelliJ, and working on a
 passion project that has no users, I would think Haskell was God's gift to man.
 I know that was certainly the case for me.
 

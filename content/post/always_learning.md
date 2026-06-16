@@ -14,7 +14,7 @@ Go is a newer language that is all the buzz these days. I've heard great things 
 learn it.   
 I've been reading "Go Programming" by John P. Baugh, and while it's not the most recent or comprehensive book on the topic, I got it for free second-hand. 
 Lastly, I've and started a project in Go to make use of what I learn. 
-The project is available on Github here: [https://github.com/Russell-Waterhouse/RoboScan](https://github.com/Russell-Waterhouse/RoboScan)
+The project is available on GitHub here: [https://github.com/Russell-Waterhouse/RoboScan](https://github.com/Russell-Waterhouse/RoboScan)
 
 
 ## Honing my SysAdmin Skills
@@ -24,6 +24,4 @@ Recently, I set up my own GitLab Runner to run CI/CD pipelines in GitLab on the 
 I've also acquired some hardware that I plan to turn into an OpenMediaVault server.   
 I've also got a post coming down the pipe about setting up a new computer with Fedora 37, as I've just recently done that.  
 Lastly, I've been gaining experience with some secret projects on Microsoft Azure. I'll be posting about that here when that project is more polished. 
-
-
 

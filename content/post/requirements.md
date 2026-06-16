@@ -42,7 +42,7 @@ Let me give you an example.
 
 ## Example: Tax Software
 
-Let's say you're writing tax software for the general public to use during tax season.  How should you design that? Well, let's just dtart with some obvious facts about this. 
+Let's say you're writing tax software for the general public to use during tax season.  How should you design that? Well, let's just start with some obvious facts about this. 
 
 1. Taxes have to be correct. Incorrect values are unacceptable.
 2. Tax codes change all the time.
@@ -57,8 +57,8 @@ Based on these statements, we can draw requirements.
 
 And from the requirements, design decisions are also pretty easily made.
 1. Perhaps all tax calculations need to have 100% code coverage. Perhaps these calculations should be checked by tax professionals.
-2. All tax calculation code should be pure functions with no side effects to make modifying them easy. That module should have very loose coupling so updating one tax calculations does not affect others that should not be affeccted.
-3. Depending on how you define massive, perhaps you should wrap this service in docker and autoscale it horizontally and verticalky behind some load balancers. Perhaps you should run several instances in different AWS regions.
+2. All tax calculation code should be pure functions with no side effects to make modifying them easy. That module should have very loose coupling so updating one tax calculations does not affect others that should not be affected.
+3. Depending on how you define massive, perhaps you should wrap this service in docker and autoscale it horizontally and vertically behind some load balancers. Perhaps you should run several instances in different AWS regions.
 4. We probably don't have to write it in C++ or Rust, we can probably just use any language with adequate math primitives.
 
 As you can see, facts about the environment lead naturally to requirements

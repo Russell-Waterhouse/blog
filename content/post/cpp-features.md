@@ -47,13 +47,13 @@ Here is a short overview.
 
 
 ## Primitive Types
-- int
-- char
-- bool
-- float
-- double
-- void
-- wchar_t (for unicode support)
+- `int`
+- `char`
+- `bool`
+- `float`
+- `double`
+- `void`
+- `wchar_t` (for Unicode support)
 
 ```cpp
 int foo = 10;
@@ -160,7 +160,7 @@ while (i < 10) {
 }
 ```
 
-do while loops: 
+`do while` loops: 
 ```cpp
 int i = 0;
 do {
@@ -169,14 +169,14 @@ do {
 } while (i < 10);
 ```
 
-for loops: 
+`for` loops: 
 ```cpp
 for (int i = 0; i < 99; i++) {
     std::cout << "Another one" << std::endl;
 }
 ```
 
-for-each loops: 
+`for-each` loops: 
 ```cpp
 Vector<int> v = {0, 1, 2, 3}
 for(int number: v) {
@@ -293,8 +293,8 @@ int main() {
 
 ### Debugging Segfaults
 1. Compile your program with debug information (the `-g` flag)
-2. Run your program with gdb (`gdb ./program_name`)
-3. Examine the output. Example: 
+2. Run your program with `gdb` (`gdb ./program_name`)
+3. Examine the output. `Example`: 
 
 Program that could segfault in several places: 
 ```cpp
@@ -336,7 +336,7 @@ Output when run:
 Segmentation fault (core dumped)
 ```
 
-GDB output: 
+`GDB` output: 
 ```bash
 gdb ./segfault
 GNU gdb (GDB) Fedora Linux 13.2-6.fc38
@@ -380,7 +380,7 @@ holistic approach I'm taking here to make sure that I limit the number of
 errors that I create. 
 - Use smart pointers or references instead of raw pointers.
 - Returning std::optional<> when I might return a value.
-- Limit the use of NULL, void, and null_ptr.
+- Limit the use of `NULL`, `void`, and `null_ptr`.
 - Avoid macros.
 - Return status codes from functions that might have problems instead of throwing exceptions.
 - Not doing any weird typecasting, have safe functions for converting types.
@@ -419,7 +419,7 @@ private:
 ## Objects
 There are a few ways to create objects. 
 
-### Stack Allocated Objects (Autumatically Managed)
+### Stack Allocated Objects (Automatically Managed)
 Do this when at all possible.
 ```cpp
 #include <vector>
@@ -663,7 +663,7 @@ In order, the arguments mean the following:
 - -o name for the output file, default is `a.out`
 
 ## Debugger
-For a debugger, I don't think I can do better than GDB, the GNU Debugger.
+For a debugger, I don't think I can do better than gdb, the GNU Debugger.
 I'll be using that while learning C++.
 
 ## Language Server
@@ -716,13 +716,13 @@ I'll be using
 to set it up and get using it
 
 ## Packages
-I'm not going to list every popular package on Conan's center, but I will 
+I'm not going to list every popular package on Conan's centre, but I will 
 highlight a few that I might use very soon. 
-- OpenSSL: Needs no introduction
-- fmt: A safe and fast alternative to printf and IOStreams
-- gtest: Google's C++ testing framework
-- nlohmann_json: C++ json parser
-- spdlog: C++ Logging library
-- libbacktrace: Can be linked into a C++ program to produce symbolic backtraces.
+- `OpenSSL`: Needs no introduction
+- `fmt`: A safe and fast alternative to `printf` and `IOStreams`
+- `gtest`: Google's C++ testing framework
+- `nlohmann_json`: C++ json parser
+- `spdlog`: C++ Logging library
+- `libbacktrace`: Can be linked into a C++ program to produce symbolic backtraces.
 
 

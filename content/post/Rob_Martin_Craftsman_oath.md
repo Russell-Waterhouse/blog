@@ -30,7 +30,7 @@ I will not allow stakeholders to be unaware of the technical aspects of the proj
 regardless of their technical knowledge.
 I will not allow myself to be unaware of the business and logistical aspects of the project.
 
-You, the reader, may take or reject this addition as you see fit. I will be encorporating it into my oath like I have adopted the rest of this list, as well as the EGBC code of ethics. I still like the idea of ending this code of ethics with "I will never stop learning and improving my craft," so my list eventually becomes:
+You, the reader, may take or reject this addition as you see fit. I will be incorporating it into my oath like I have adopted the rest of this list, as well as the EGBC code of ethics. I still like the idea of ending this code of ethics with "I will never stop learning and improving my craft," so my list eventually becomes:
 
 1. I will not produce harmful code.
 2. The code that I produce will always be my best work.
