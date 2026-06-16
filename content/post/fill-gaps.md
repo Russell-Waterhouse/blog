@@ -56,7 +56,7 @@ filling it out with the things that I want to master, going back to the basics.
 This repo has been really nice for me, as it has given me a chance to implement
 some really basic things like linked lists and quicksort, which have given me a
 really simple way to practice the fundamentals of these languages.
-It also comes with the benefit of practicing these programming tools, useful 
+It also comes with the benefit of practising these programming tools, useful 
 for both a job and a technical interview.
 
 I've also been working through the [2022 advent of code in Ruby](https://github.com/Russell-Waterhouse/advent_of_code_2022),
@@ -72,7 +72,7 @@ little more time with the fundamentals of the framework.
 ## Conclusion
 
 Once you feel, as a junior engineer, that you're no longer drowning while
-drinking from the firehose, go back and fill in the gaps in your knowledge. Go
+drinking from the fire hose, go back and fill in the gaps in your knowledge. Go
 back and learn those basics that you missed while fixing bugs and building
 features. Learn the algorithms, learn the language features, learn the standard
 libraries, and learn your frameworks. 

@@ -363,7 +363,8 @@ than consistency, keep the consistency.
 
 ## Conclusion
 
-And that's it. That's what Haskell has taught me. Good code isn't about OO or
-FP or procedural code. Good code isn't about knowing the GoF design patterns or
-TDD. Good code is about following these 8 principles.
+And that's it. That's what Haskell has taught me. Good code isn't about
+object-oriented or functional programming or procedural code. Good code isn't
+about knowing the Gang-of-Four design patterns or TDD. Good code is about following
+these 8 principles.
 

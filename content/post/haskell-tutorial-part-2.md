@@ -19,10 +19,10 @@ Haskell from scratch on your computer.
 
 For this tutorial, we'll be using `ghcup`, an all-in one tool to install 
 the following 
-1. the `ghc compiler` (haskell's most popular compiler)
-2. cabal (haskell's package manager, similar to npm in JavaScript)
-3. stack (a layer around cabal that makes sure packages work together nicely)
-4. the haskell language server (`HLS`) (a language server, responsible for things like "go to definition" and intelligent auto-complete) 
+1. The `ghc compiler` (haskell's most popular compiler)
+2. Cabal (haskell's package manager, similar to npm in JavaScript)
+3. Stack (a layer around cabal that makes sure packages work together nicely)
+4. The haskell language server (`HLS`) (a language server, responsible for things like "go to definition" and intelligent auto-complete) 
 
 
 With that, let's get into it! 
@@ -99,14 +99,14 @@ However, for the sake of this simple smoke test, we're not going to use anything
 extra. 
 
 
-create a file called `hello.hs` and copy the following line into it:
+Create a file called `hello.hs` and copy the following line into it:
 ```haskell
 main :: IO ()
 main = putStrLn "Hello, world!"
 ```
 
 
-Compile it with ghc (the haskell compiler we installed earlier)
+Compile it with GHC (the haskell compiler we installed earlier)
 
 ```bash
 ghc hello.hs -o hello.bin

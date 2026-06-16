@@ -91,7 +91,7 @@ Simply ask yourself "Would this advice work on my mountain today?"
 ## Back to the Real World
 
 Of course, the real world isn't just mountaineers. It's merchants and 
-engineers and single mothers and venture captalists and singers and 
+engineers and single mothers and venture capitalists and singers and 
 forklift operators and fast food managers and mountaineers and everyone else.
 
 So when you read advice on the internet telling you to do ANYTHING, any 
