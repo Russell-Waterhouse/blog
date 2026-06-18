@@ -102,3 +102,10 @@ got."
 
 “Increasingly, people seem to interpret complexity as sophistication, which is
 baffling – the incomprehensible should cause suspicion, not admiration."
+
+
+## User HarryBlank on the SCP Wiki
+
+"rules fill the space meant for understanding. You never need both."
+
+[link](https://scp-wiki.wikidot.com/scp-8605)
