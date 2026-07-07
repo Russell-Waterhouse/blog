@@ -72,7 +72,7 @@ it would have been too hard, just because after working on web servers
 all day, I didn't really have much motivation to do it after work.
 
 I am writing a desktop app in C, and it's nearly ready for use.
-That has been the project that has taught me the most by far.
+That has been the project that has taught me the most.
 
 
 As for the feelings of non-trivial accomplishments and deep understanding,
@@ -103,7 +103,7 @@ the layers that I sit on top of.
 Third, it has removed some fear of "not-invented-here" syndrome.
 I think web developers in general rely on third-party open source
 software too much, to the detriment of their products and their
-happiness and productivity. The project in C has removed some of my
+happiness and productivity. The projects in C have removed some of my
 apprehensions about slipping into "not-invented-here" syndrome.
 
 Overall, I feel like this has made me a better developer than I am now.
@@ -126,7 +126,7 @@ Not in the type of work I do, which is almost always connected to the internet.
 
 I'm not entirely happy about that. If I didn't have to work for other people,
 I'd probably choose Odin or Zig, as they appeal to my sensibilities and style
-more than  Rust.
+more than Rust.
 
 However, paying my mortgage is awesome, so I'm going to pick up Rust.
 
@@ -140,7 +140,8 @@ After that, I'll probably take some time to do the
 me back up to speed. I've written Rust before but not in a long time.
 
 After that, I plan the following projects:
-- 
+- an app accessible on mobile that looks for parking around your destination, sorted by
+proximity or cost.
 - 
 - 
 
