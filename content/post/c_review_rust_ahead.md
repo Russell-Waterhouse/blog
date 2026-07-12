@@ -119,16 +119,27 @@ any AI it wouldn't be a cost at all.
 In February I wrote a post about picking a systems programming language. You
 can find it [here](https://www.rwater.house/post/systems_lang/).
 
-The conclusion of that boils down to the fact that languages like Odin, Zig,
+The conclusion of that boils down to the fact that languages like Odin\*, Zig,
 and JAI aren't mature enough for me to bet on, and I would have a hard time
 convincing any CISO to let start projects in C or C++ when Rust exists.
 Not in the type of work I do, which is almost always connected to the internet.
+
+\* See UPDATE NOTE below.
 
 I'm not entirely happy about that. If I didn't have to work for other people,
 I'd probably choose Odin or Zig, as they appeal to my sensibilities and style
 more than Rust.
 
 However, paying my mortgage is awesome, so I'm going to pick up Rust.
+
+UPDATE NOTE: I wrote that paragraph before the first stable Odin release (Odin
+2027) was announced. The part about a CISO being unhappy hooking a manually
+memory managed language to the internet still stands for Odin, which is why
+this announcement doesn't change my decision about Rust. However I will admit
+that I find what Odin offers to be very enticing, and if at the end of my Rust
+experiment I decide that I don't like Rust, Odin would be the next thing on my
+list to try.
+
 
 ## My Plan for the Future
 
@@ -140,9 +151,9 @@ After that, I'll probably take some time to do the
 me back up to speed. I've written Rust before but not in a long time.
 
 After that, I plan the following projects:
-- an app accessible on mobile that looks for parking around your destination, sorted by
-proximity or cost.
-- 
+- An app accessible on mobile that looks for parking around your destination,
+  sorted by proximity and/or cost.
+- Advent of code 2026 in Rust.
 - 
 
 
