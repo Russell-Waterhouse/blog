@@ -1,5 +1,5 @@
 baseURL: "https://rwater.house" # url address of the website | required
-languageCode: "en-us" # recommended | no default
+locale: "en-ca"
 title: "Russell Waterhouse" # title of the site; usually same as brand name | required
 theme: "hugo-profile"
 
@@ -172,6 +172,8 @@ params:
       enable: true
       title: "Here are a few technologies I've been working with recently:"
       items:
+        - "Rust"
+        - "C"
         - "Python"
         - "Docker"
         - "Kubernetes"
@@ -179,7 +181,7 @@ params:
         - "Azure"
         - "HTML"
         - "CSS"
-        - "JavaScript"
+        - "TypeScript"
         - "React"
         - "Node"
         - "Express"
