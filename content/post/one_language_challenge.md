@@ -168,7 +168,7 @@ good year. However, there's some stretch goals I have in mind.
 
 I really hope that I can get to these stretch goals and complete them.  
 Even more than that, I really hope that I complete these stretch goals in a
-reasonable amount of time. 
+reasonable amount of time.
 
 If I can do it reasonably efficiently, that would prove a theory that I have:
 languages like Java and Ruby and frameworks like React and Electron are

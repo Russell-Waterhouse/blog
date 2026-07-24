@@ -36,7 +36,7 @@ Both of those feel amazing.
 I hate how the nonexistent standard library and
 no dependencies kills my prototyping speed.
 
-Take my PDF Library as an example. 
+Take my PDF Library as an example.
 
 I can't just model the PDF types as a struct, because
 one of the basic PDF object types is a string key-value type.
