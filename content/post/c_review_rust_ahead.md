@@ -153,7 +153,6 @@ me back up to speed. I've written Rust before but not in a long time.
 After that, I plan the following projects:
 - An app accessible on mobile that looks for parking around your destination,
   sorted by proximity and/or cost.
-- A Microsoft Teams Client.
 - Advent of code 2026 in Rust.
 
 
