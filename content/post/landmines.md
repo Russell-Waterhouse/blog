@@ -95,4 +95,112 @@ in a code base like this, you'll be forced to follow this style of programming
 by your team.
 
 In this style of code, everything you work with is an interface. Data is
-very tightly coupled to behaviour.
+very tightly coupled to behaviour. Inheritance is used liberally. Methods
+are all very short. Gang of Four design patterns are found everywhere. 
+
+Now, because many of these qualities cannot be measured,
+and some not even quantified, saying things like
+"wading through nine hundred small methods to get the most trivial
+of work done doesn't feel very good," is met with a lot of
+no true scotsman arguments. Things like "well if it feels bad you
+obviously violated the single responsibility principle" or "you didn't design for
+the open/closed principle" get thrown around
+on the internet (or at least did, before we all decided to
+nonstop argue about AI).
+
+Don't listen to this kind of argument. This flavour of code
+leads to too much abstraction, not enough granularity, too tight of
+coupling, and a general tendency towards more complexity than is needed.
+
+I'll give two quick examples in Java, because the Java ecosystem
+loves this kind of code. 
+
+Example 1: getters and setters.
+
+If you have this code in Java, how should it be called?
+
+class User {
+  private String userId;
+
+  public void setUserId(String userId) {
+    this.userId = userId;
+  }
+
+  public String getUserId() {
+    return this.userId;
+  }
+
+  public void doThing() {
+    Standard.Out.printLine("thing happened");
+  }
+}
+
+... somewhere else in the program
+
+{
+  User user = new User();
+  user.setUserId(userId);
+  user.doThing();
+}
+  
+Every new Java programmer is taught code like this is
+"best practice." That this ensures "encapsulation."
+
+Functionally, it provides no different semantics 
+for the user than the following:
+
+class User {
+  public String userId;
+
+  public void doThing() {
+    Standard.Out.printLine("thing happened");
+  }
+}
+
+... somewhere else in the program
+
+{
+  User user = new User();
+  user.userId = userId;
+  user.doThing();
+}
+
+yet Java developers that follow this dogma will never write that code,
+despite the second version being quicker to compile and/or more performant
+(depending on how much your compiler is optimizing and how well your
+JIT is working). The first version either has the extra cost that
+the compiler has to calculate the function call does nothing and
+optimize it out,
+or we're doing a function call with every memory access. That's setting up the
+stack frame, managing registers, and whatever else a function call entails in
+Java. 
+
+Now getters and setters can be useful.
+
+When a chunk of data needs validation, 
+a private variable with a public setter is great. 
+But then, the setter should return an error Option (my preference)
+or throw an exception, not ever just fail silently. 
+
+second example, here's how I would write a function to send an email
+to a user.
+
+enum FromAddress {
+  Info: info@company.com,
+  NoReply: no-reply@company.com
+}
+
+class Email {
+  public static Result scheduleEmailSend(String userId, String subject, String body, FromAddress fromAddress, IsoTimestamp sendTime) {
+    // schedule email to send
+  }
+
+  public static Result sendEmailNow(String userId, String subject, String body, FromAddress fromAddress) {
+     // do email send
+  }
+}
+
+that would be it. that's the whole thing. these two functions handle
+turning the userID into an email address (I'm assuming you've set up access control
+so your db tables with PII don’t mix with your tables without PII, right?)
+sending the email, logging the results, and everything else it should do.
