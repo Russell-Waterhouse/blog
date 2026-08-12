@@ -2,7 +2,7 @@
 title: "Landmines"
 author: "Russell Waterhouse"
 description: "A Guide Through The Minefield For Future Generations"
-tags: ["", ""]
+tags: ["AI", "OOP", "FP", "DVORAK"]
 date: 2026-08-11T18:40:42-06:00
 draft: false
 ---
@@ -67,7 +67,7 @@ abstraction, performance, regulatory concerns, maintainability, cybersecurity,
 observability, and much more.
 
 I don't think most people know that's what we do. I think there's even many
-programmers don't know that's what we do. But that's the truth of it, and to
+programmers that don't know that's what we do. But that's the truth of it, and to
 offload all your programming to an LLM is to offload all your decisions to an
 LLM, and they just aren't that good at making these decisions. Maybe one day
 they will be, but not today.
