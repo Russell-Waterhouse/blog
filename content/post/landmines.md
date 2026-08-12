@@ -183,7 +183,7 @@ or we're doing a function call with every memory access. That's setting up the
 stack frame, managing registers, and whatever else a function call entails in
 Java. And it's more tediuous to write. 
 
-Now getters and setters can be useful.
+Now, getters and setters can be useful.
 
 When a chunk of data needs validation, 
 a private variable with a public setter is great. 
