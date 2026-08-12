@@ -12,7 +12,7 @@ draft: false
 
 Hello, reader from the future! Why is my proverbial leg gone, you ask?
 
-You see, I've stepped on many programming's landmines.
+You see, I've stepped on many of programming's landmines.
 
 Programming, as an industry, is strangely religious. For something that was
 supposedly backed by "computer science," there isn't a lot of science to be
