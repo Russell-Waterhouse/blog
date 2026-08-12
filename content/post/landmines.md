@@ -72,6 +72,12 @@ offload all your programming to an LLM is to offload all your decisions to an
 LLM, and they just aren't that good at making these decisions. Maybe one day
 they will be, but not today.
 
+This cult will read my take and say "good luck in your next career."
+To them I say, "good luck shipping anything that works when you've outsourced decision
+making to the technology that tells you to walk to the carwash."
+
+These people were Crypto grifters before AI and they'll move on when the bubble pops.
+
 In healthy quantities, AI can be a useful tool. Just don't offload decision making
 and don't go crazy. If you want to see how I currently do that, read this post
 // TODO: link post here.
@@ -80,12 +86,14 @@ and don't go crazy. If you want to see how I currently do that, read this post
 ## Minefield 2: SOLID, DRY, Clean Code, OO, GoF Design Patterns
 
 This one isn't a single thing, like AI psychosis, but it's more of a style of
-code that is pushed as a somewhat cohesive unit.
+code that is pushed as a somewhat loosely cohesive unit.
 
 This one is tricky because these principles are taught at many respectable
 institutions, and they were considered industry standard at one point to large
 subsections of the industry (and I think many practitioners would argue these
 still are industry standard).
+
+Many developers today only know this cult, and have never experienced anything else.
 
 And as techniques, on their own, some aren't bad. But as a cohesive unit, I've
 only ever seen this lead me to a minefield.
@@ -99,7 +107,7 @@ very tightly coupled to behaviour. Inheritance is used liberally. Methods
 are all very short. Gang of Four design patterns are found everywhere. 
 
 Now, because many of these qualities cannot be measured,
-and some not even quantified, saying things like
+and some not even qualified, saying things like
 "wading through nine hundred small methods to get the most trivial
 of work done doesn't feel very good," is met with a lot of
 no true scotsman arguments. Things like "well if it feels bad you
@@ -173,14 +181,14 @@ the compiler has to calculate the function call does nothing and
 optimize it out,
 or we're doing a function call with every memory access. That's setting up the
 stack frame, managing registers, and whatever else a function call entails in
-Java. 
+Java. And it's more tediuous to write. 
 
 Now getters and setters can be useful.
 
 When a chunk of data needs validation, 
 a private variable with a public setter is great. 
 But then, the setter should return an error Option (my preference)
-or throw an exception, not ever just fail silently. 
+or throw an exception, not ever just fail validation silently. 
 
 second example, here's how I would write a function to send an email
 to a user.
@@ -204,3 +212,106 @@ that would be it. that's the whole thing. these two functions handle
 turning the userID into an email address (I'm assuming you've set up access control
 so your db tables with PII don’t mix with your tables without PII, right?)
 sending the email, logging the results, and everything else it should do.
+
+Because the residents of this minefield are obsessed with
+unit tests and, therefore, dependency injection (because you could not unit test this
+kind of a function without dependency injection, so you could inject a mock function
+pointer that you could then assert(sendEmail.wasCalledOnce()); in your unit tests)
+they would immediately decry this function as not testable.
+
+Not so. You would just test these functions in an integration test.
+you call the function, and check that the email was received at the right time
+with the right contents. You might not ever run the integration test on your
+machine, but you would run it in CI on every deploy.
+
+Of course, the next rebuttle is that integration tests are flaky.
+
+No. They're not. Your code is flaky. Integration tests just show you that.
+
+My integration test suite runs on every deploy and in the last year has only failed
+when there is a bug in my code. It runs in CI, and it is slow, and it doesn't bother me
+at all because it's running in CI, and while it's running in CI I'm working on my next ticket.
+
+"What if the email service I use goes down!? Then the test
+will fail and that's not my fault! There's nothing I can do about that!"
+
+Well, two things.
+1. Put some retry and error handling logic in there so your email service returning a 500 doesn't lose your email, you bozo.
+2. If your email service is going down so often that your failing tests are causing you deployment issues, it's time to find a different email service. 
+
+Seriously, if YOUR customers aren't getting YOUR emails, that is YOUR problem
+to solve. Don't rely on that which is unreliable. Find a better partner and sign a contract. 
+And when you sign a contract and have to migrate your code, there's only one function to change: sendEmailNow(). 
+
+"Integration tests don't show you what's wrong with the same granularity that unit tests do!"
+Yeah. That's why we have logging and alerting, and far more advanced observability tools if you
+want to get fancy. 
+
+And on it goes. Every one of the decisions made by this cult is justified with
+a statement that just isn't true, or is true but besides the point.
+
+The only statement I will accept from this group is the following.
+"yeah, these aren't really the best practices anymore, but the entire code base was written
+before we knew that, so best to follow the style and standards that are already there, rather than
+add new styles and standards."
+
+Fair enough. Legacy code is our burden, and there is a no trivial cost to a code
+base that isn't cohesive.
+
+I spent a long time in this minefield.
+
+## Minefield 3: Functional Programming, Specifically the Haskell Flavour
+
+Now, if you wade around in the OO minefield for a few years, then
+one day wake up and realize you're in a minefield, you might do the logical
+thing of looking for a map to get out of the minefield and into the glowing pastures of
+happiness. 
+
+You may stumble, as I did, into the Functional programming cult.
+At its core, functional programming makes all of their decisions based on
+one core tenet: "most bugs in programs happen because of mutability. Remove mutability
+and your programs become better."
+
+Now, at face value, sure, some bugs have been caused by mutability where none was expected.
+You can fix this with const in js/ts or final in Java/Kotlin or not using mut in Rust.
+
+But most bugs have, in my experience, been caused by two distant parts of a system depending
+on each other in ways that are unclear, or typos, or bad/nonexistant error handling code
+or an edge case that wasn't considered. Mutability isn't the problem in most of these places.
+
+But if you assume that mutability is the root issue and const
+isn't good enough, you get Haskell. And like the Java example with getters and setters,
+you can havk together something with the State Monad that semantically works like a mutable
+variable, but now there's countless thunks on the stack and debugging is harder.
+
+This cult does have some meritts. The type system in Rust that everyone loves came from here, for example.
+Array.map() came from here, and that's great. I yse it all the time.
+
+But largely, this is a mine field. You can write fucked up hard to read too abstract
+functional code too. Debugging clojures that have been passed through nineteen functions
+isn't fun, and if you write enough Haskell, you'll walk into that mine eventually. 
+
+Mutable data is ok. Doing IO is ok. Both of those are what we built computers to do.
+Trying to fight those only serve to make our jobs harder.
+
+Also, the claims about concurrent optimizations are largely a falsehood.
+Using immutable data structures does not automatically mean your program will run in 1/32 the
+time on 32 threads. Haskell models data as if time doesn't exist, but time does exist,
+and some things happen before other things, and because of that fact, you can't just parallelize everything,
+even when your data is "immutable."
+
+I spent quite a bit of time in this minefield too.
+
+## Minefield 4: DVORAK
+
+Not as big of a minefield, but worth mentioning. If your wrists hurt,
+you need an ergonomic keyboard, not to learn a new keyboard layout.
+
+Seriously, look at all the symbols programmers type, and then look at
+the dvorak keyboard layout, and realize the right pinky is pressing a nontrivial
+percent of your programming symbol keys in that layout, and then don't try dvorak.
+
+If you eant to type faster, just practice typing faster. That helps far more than
+dvorak.
+
+ 
