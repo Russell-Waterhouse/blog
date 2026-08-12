@@ -255,10 +255,10 @@ The only statement I will accept from this group is the following.
 before we knew that, so best to follow the style and standards that are already there, rather than
 add new styles and standards."
 
-Fair enough. Legacy code is our burden, and there is a no trivial cost to a code
+Fair enough. Legacy code is our burden, and there is a non-trivial cost to a code
 base that isn't cohesive.
 
-I spent a long time in this minefield.
+I spent a long time in this minefield. Stay out if you can.
 
 ## Minefield 3: Functional Programming, Specifically the Haskell Flavour
 
@@ -300,7 +300,7 @@ time on 32 threads. Haskell models data as if time doesn't exist, but time does 
 and some things happen before other things, and because of that fact, you can't just parallelize everything,
 even when your data is "immutable."
 
-I spent quite a bit of time in this minefield too.
+I spent quite a bit of time in this minefield too. Again, I would stay out if you can.
 
 ## Minefield 4: DVORAK
 
