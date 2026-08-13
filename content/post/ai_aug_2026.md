@@ -1,7 +1,7 @@
 ---
 title: "AI In August of 2026"
 author: "Russell Waterhouse"
-description: "How I've changed how I use AI (1 new rule plus examples)"
+description: "How I've changed how I use AI (1 new rule, a few examples, and a rant)"
 tags: ["AI"]
 date: 2026-08-11T17:11:30-06:00
 draft: false
@@ -29,11 +29,11 @@ developers could do well with these rules. However, with two more months of
 programming in this new world with agentic AI, I have one additional rule.
 
 5. An AI Agent isn't allowed to write more than two hundred lines of code
-   that needs to be maintained in one shot. Two hundred is more ideal.
+   that needs to be maintained in one shot.
 
 This new rule is a soft rule. I'm obviously not counting the lines of code that are
-output and tossing it out if it hits 301. Lines of code isn't a great way to
-measure most things. It's a north star that I use.
+output and tossing it out if it hits 201. Lines of code isn't a great way to
+measure most things anyways. It's a north star that I use.
 
 "But why on Earth would you do that?! That's limiting what these machines can do!"
 I hear you screaming into your computer.
@@ -132,9 +132,13 @@ good decisions about that, and for me it certainly hasn't, why would you trust
 it to make decisions about how to use an API for which you are unfamiliar with
 and therefore can't determine right from wrong.
 
-And to those companies running ads where "anyone can code now," you're not just
-asking AI to make decisions about logging and how to use an API, you're asking
-AI to make decisions about:
+## Lastly, a Rant, as a Treat
+
+To those companies running ads where "anyone can code now," and the people on
+Reddit and twitter claiming the agents are good enough to write 100% of the
+code and ship it without human review, you're not just asking AI to make
+decisions about logging and how to use an API, you're asking AI to make
+decisions about:
 
 - What APIs to use
 - Architecture
@@ -147,24 +151,31 @@ AI to make decisions about:
 - Regulatory concerns
 - ...and so much more
 
-And if the decisions about all of that and much more don't matter, if the
-decisions about all of that in this hypothetical software that you're building
-doesn't matter, then fair enough, fling the AI at it and ship at the speed
-of fibre optic cable.
+If the decisions about all of that in this hypothetical software that you're
+building doesn't matter, then fair enough, fling the AI at it and ship at the
+speed of fibre optic cable.
 
 But I do have to wonder, what is your software doing that is worth doing but
-not worth doing correctly? That sounds like a hostile question, but I don't mean
-it to be; I simply can't find a way of wording the question that doesn't sound
-like that.
+not worth doing correctly? That sounds like a hostile question, but I don't
+mean it to be; I simply can't find a way of wording the question that doesn't
+sound like that.
 
 I can't think of a software project that I could blindly throw an AI at, read
 none of the code, and ship it, and have it be worth my time and money.
 
-And I know that if you squint, that comes off gatekeep-ey. I don't mean it that
-way either. If anyone wants to do things with computers, be that for a career
-or a project they want to do on the side or whatever, I encourage you to go for
-it! There's so many resources free online, and so many helpful people, and so
-many good books. If you reach out to me, I would even be happy to be a mentor
-to you! I've spent many afternoons in coffee shops and on discord calls with
-junior developers sharing all that I know with them.
+And I know that if you squint, that comes off gatekeep-ey. It sounds like I'm
+saying "only I, this one specific benevolent human, possess the judgement
+required to ship software, and the normies are doomed to only use software that
+me and my cronies give them." I don't mean it that way either. If anyone wants
+to do things with computers, be that for fun or profit, I encourage you to go
+for it! There's so many resources free online, and so many helpful people, and
+so many good books. If you reach out to me, I would even be happy to be a
+mentor to you! I've spent many afternoons in coffee shops and on discord calls
+with junior developers sharing all that I know with them, and I'd happily do
+the same for you, dear stranger.
+
+But I don't see how this idea of "let the agents run wild with our code base"
+leads to anywhere other than technical debt on a scale we haven't seen before
+in the industry. Unless the agents get much better at making decisions,
+this kind of thinking is going to make a mess we'll be cleaning up for decades.
 
