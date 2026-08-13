@@ -35,8 +35,9 @@ If you want the morale of my story, I can give it to you now.
 Most problems in industry aren't that hard, and if they are that hard, there's
 a good chance we're making it that hard.
 
-There are no silver bullets to fix what's actually hard. The very best "silver
-bullet" we have is not making things any harder for ourselves.
+There are [no silver bullets](https://www.cs.unc.edu/techreports/86-020.pdf) to
+fix what's actually hard. The very best "silver bullet" we have is not making
+things any harder for ourselves.
 
 Anyone trying to sell you a silver bullet has probably downplayed the costs of
 their religion.
@@ -131,11 +132,16 @@ leads to too much abstraction, not enough granularity, too tight of
 coupling, and a general tendency towards more complexity than is needed.
 
 I'll give two quick examples in Java, because the Java ecosystem
-loves this kind of code. 
+loves this kind of code.
 
 Example 1: getters and setters.
 
-If you have this code in Java, how should it be called?
+Quick note: because I'm making a point about getters and setters, I'm not using
+a constructor here. I do know what constructors are. Just try to understand the
+point I'm making.
+
+If you have some field in java, you are taught to make it private
+and use getters and setters like this.
 
 ```java
 class User {
@@ -155,7 +161,6 @@ class User {
 }
 
 // somewhere else in the program
-
 {
   String userId = "abc123";
   User user = new User();
@@ -180,7 +185,6 @@ class User {
 }
 
 // somewhere else in the program
-
 {
   String userId = "abc123";
   User user = new User();
@@ -236,8 +240,8 @@ class Email {
 
 That would be it. That's the whole thing. These two functions handle
 turning the `userID` into an email address (I'm assuming you've set up access control
-so your db tables with PII don’t mix with your tables without PII, right?)
-sending the email, logging the results, and everything else it should do.
+so your db tables with PII don’t mix with your tables without PII, right?),
+sending the email, retry logic, logging the results, and everything else it should do.
 
 Because the residents of this minefield are obsessed with
 unit tests and, therefore, dependency injection (because you could not unit test this
@@ -293,7 +297,7 @@ one day wake up and realize you're in a minefield, you might do the logical
 thing of looking for a map to get out of the minefield and into the glowing pastures of
 happiness.
 
-You may stumble, as I did, into the Functional programming cult.
+You may stumble, as I did, into the functional programming cult.
 At its core, functional programming makes all of their decisions based on
 one core tenet: "most bugs in programs happen because of mutability. Remove mutability
 and your programs become better."
@@ -317,10 +321,15 @@ Array.map() came from here, and that's great. I use it all the time.
 But largely, this is a mine field. You can write fucked up, hard to read, too
 abstract functional code too. Debugging closures that have been passed through
 nine functions isn't fun, and if you write enough Haskell, you'll walk into
-that mine eventually.
+that mine eventually. Category Theory is cool (all devs should know more math),
+but if you find yourself reading about [Monad Transformers on
+Wikipedia](https://en.wikipedia.org/wiki/Monad_transformer) in order to fill a
+ticket, you should find some small part of your brain screaming, "There's no
+way this is essential complexity! We passed accidental complexity many miles
+ago!"
 
-Mutable data is OK. Doing IO is OK. Both of those are what we built computers to do.
-Trying to fight those only serve to make our jobs harder.
+Mutable data is OK. Doing IO is OK. Both of those are what we built computers
+to do. Trying to fight those only serve to make our jobs harder.
 
 Also, the claims about concurrent optimizations are largely a falsehood. Using
 immutable data structures does not automatically mean your program will run in
@@ -342,7 +351,7 @@ app development.
 This cult will proclaim that performance doesn't matter; not on the server, and
 not on the user's device. This cult loves to say things like:
 - "Bug not reproducible, closing the ticket."
-- "it works on my machine."
+- "It works on my machine."
 - "My unit tests pass so it's not my issue."
 - "If there's a bug in it, our users will report the bug, and we'll fix it
   fast, so it's no big deal to ship fast and break things"
@@ -351,9 +360,8 @@ not on the user's device. This cult loves to say things like:
 
 Developers that think like this do not care about their users or their craft.
 
-If you want to do good work in this field, you can't have this mentality.
-
-You need to care about your users and about your craft.
+If you want to do good work in this field, you can't have this mentality. You
+need to care about your users and about your craft.
 
 You need to understand that performance matters. Using 100MB of RAM when 10MB
 would do is wasteful. Making the user wait 1.2 seconds (or worse, 1.2 minutes)
@@ -364,7 +372,8 @@ exists, and if it doesn't exist, we need to fix the user experience so the user
 doesn't think this is a bug. And if the bug does exist, we should update our QA
 process to figure out how this slipped through, and probably look for more bugs
 in this class, and add regression tests to prevent this class of bug in the
-future.
+future. If this class of bug has been pervasive, architectural changes should
+be considered.
 
 Anything less than excellent documentation for your fellow developers and for
 your users should be repugnant to you. Your documentation should offer
@@ -377,7 +386,7 @@ your blood run cold.
 When you hear things like "It's fine for the server to be slow, most of the
 time is in the network call or db call," you should immediately think of ways
 to make the network requests faster (doing less of them would probably be a
-good start, looking at you Microsoft Teams, which will make 700+ network
+good start. I'm looking at you Microsoft Teams, which will make 700+ network
 requests on an initial load of my conversations), and check whether you have
 things like a sane db schema with good indexes, and if you need more than that,
 read replicas. Then, you should make the server fast and lean on memory
@@ -426,7 +435,7 @@ were legitimately good things for my programs.
 - Kubernetes (As long as you actually need it, it's great, but you probably don't actually need it)
 - Structured Logging
 - Neovim (as long as you don't go way overboard with plugins)
-- Writing the usage code of an API before writing the API, then writing the API.
+- Writing the usage code of an API before writing the API, then writing the API
 
 ## Conclusion
 
@@ -446,9 +455,10 @@ it does mean that eventually I can smell bullshit.
 Like I said at the beginning, most problems in industry aren't that hard, we
 just write code in a way that makes it harder.
 
-There are no silver bullets, except the silver bullet of "don't shoot yourself
-in the foot". Anyone trying to sell you a silver bullet has probably downplayed
-the costs of their religion.
+There are [no silver bullets](https://www.cs.unc.edu/techreports/86-020.pdf),
+except the silver bullet of "don't shoot yourself in the foot." Anyone trying
+to sell you a silver bullet has probably downplayed the costs of their
+religion.
 
 If you want to make good products, you'll need to learn a lot. In order to
 learn a lot and not fall for someone's snake oil, you need to be good at
