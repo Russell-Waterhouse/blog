@@ -12,7 +12,7 @@ draft: false
 
 Hello, reader from the future! Why is my proverbial leg gone, you ask?
 
-You see, I've stepped on many of programming's landmines.
+I've lost it, you see; I've stepped on many of programming's landmines.
 
 Programming, as an industry, is strangely religious. For something that was
 supposedly backed by "computer science," there isn't a lot of science to be
@@ -74,16 +74,16 @@ they will be, but not today.
 
 This cult will read my take and say "good luck in your next career."
 To them I say, "good luck shipping anything that works when you've outsourced decision
-making to the technology that tells you to walk to the carwash."
+making to the technology that tells you to walk to the car wash."
 
-These people were Crypto grifters before AI and they'll move on when the bubble pops.
+These people were crypto grifters before AI and they'll move on when the bubble pops.
 
 In healthy quantities, AI can be a useful tool. Just don't offload decision making
 and don't go crazy. If you want to see how I currently do that, read this post
 // TODO: link post here.
 
 
-## Minefield 2: SOLID, DRY, Clean Code, OO, GoF Design Patterns
+## Minefield 2: SOLID, DRY, Clean Code, OO, Gang of Four Design Patterns
 
 This one isn't a single thing, like AI psychosis, but it's more of a style of
 code that is pushed as a somewhat loosely cohesive unit.
@@ -110,7 +110,7 @@ Now, because many of these qualities cannot be measured,
 and some not even qualified, saying things like
 "wading through nine hundred small methods to get the most trivial
 of work done doesn't feel very good," is met with a lot of
-no true scotsman arguments. Things like "well if it feels bad you
+no true Scotsman arguments. Things like "well if it feels bad you
 obviously violated the single responsibility principle" or "you didn't design for
 the open/closed principle" get thrown around
 on the internet (or at least did, before we all decided to
@@ -127,6 +127,7 @@ Example 1: getters and setters.
 
 If you have this code in Java, how should it be called?
 
+```java
 class User {
   private String userId;
 
@@ -143,20 +144,22 @@ class User {
   }
 }
 
-... somewhere else in the program
+// somewhere else in the program
 
 {
   User user = new User();
   user.setUserId(userId);
   user.doThing();
 }
-  
+```
+
 Every new Java programmer is taught code like this is
 "best practice." That this ensures "encapsulation."
 
 Functionally, it provides no different semantics 
 for the user than the following:
 
+```Java
 class User {
   public String userId;
 
@@ -165,15 +168,16 @@ class User {
   }
 }
 
-... somewhere else in the program
+// somewhere else in the program
 
 {
   User user = new User();
   user.userId = userId;
   user.doThing();
 }
+```
 
-yet Java developers that follow this dogma will never write that code,
+Yet Java developers that follow this dogma will never write that code,
 despite the second version being quicker to compile and/or more performant
 (depending on how much your compiler is optimizing and how well your
 JIT is working). The first version either has the extra cost that
@@ -181,17 +185,19 @@ the compiler has to calculate the function call does nothing and
 optimize it out,
 or we're doing a function call with every memory access. That's setting up the
 stack frame, managing registers, and whatever else a function call entails in
-Java. And it's more tediuous to write. 
+Java. And it's more tedious to write.
 
 Now, getters and setters can be useful.
 
-When a chunk of data needs validation, 
-a private variable with a public setter is great. 
+When a chunk of data needs validation,
+a private variable with a public setter is great.
 But then, the setter should return an error Option (my preference)
-or throw an exception, not ever just fail validation silently. 
+or throw an exception, not ever just fail validation silently.
 
-second example, here's how I would write a function to send an email
+Second example, here's how I would write a function to send an email
 to a user.
+
+```java
 
 enum FromAddress {
   Info: info@company.com,
@@ -208,23 +214,25 @@ class Email {
   }
 }
 
-that would be it. that's the whole thing. these two functions handle
-turning the userID into an email address (I'm assuming you've set up access control
+```
+
+That would be it. That's the whole thing. These two functions handle
+turning the `userID` into an email address (I'm assuming you've set up access control
 so your db tables with PII don’t mix with your tables without PII, right?)
 sending the email, logging the results, and everything else it should do.
 
 Because the residents of this minefield are obsessed with
 unit tests and, therefore, dependency injection (because you could not unit test this
 kind of a function without dependency injection, so you could inject a mock function
-pointer that you could then assert(sendEmail.wasCalledOnce()); in your unit tests)
+pointer that you could then `assert(sendEmail.wasCalledOnce());` in your unit tests)
 they would immediately decry this function as not testable.
 
 Not so. You would just test these functions in an integration test.
-you call the function, and check that the email was received at the right time
+You call the function, and check that the email was received at the right time
 with the right contents. You might not ever run the integration test on your
 machine, but you would run it in CI on every deploy.
 
-Of course, the next rebuttle is that integration tests are flaky.
+Of course, the next rebuttal is that integration tests are flaky.
 
 No. They're not. Your code is flaky. Integration tests just show you that.
 
@@ -240,12 +248,12 @@ Well, two things.
 2. If your email service is going down so often that your failing tests are causing you deployment issues, it's time to find a different email service. 
 
 Seriously, if YOUR customers aren't getting YOUR emails, that is YOUR problem
-to solve. Don't rely on that which is unreliable. Find a better partner and sign a contract. 
-And when you sign a contract and have to migrate your code, there's only one function to change: sendEmailNow(). 
+to solve. Don't rely on that which is unreliable. Find a better partner and sign a contract.
+And when you sign a contract and have to migrate your code, there's only one function to change: `sendEmailNow()`.
 
 "Integration tests don't show you what's wrong with the same granularity that unit tests do!"
 Yeah. That's why we have logging and alerting, and far more advanced observability tools if you
-want to get fancy. 
+want to get fancy.
 
 And on it goes. Every one of the decisions made by this cult is justified with
 a statement that just isn't true, or is true but besides the point.
@@ -265,7 +273,7 @@ I spent a long time in this minefield. Stay out if you can.
 Now, if you wade around in the OO minefield for a few years, then
 one day wake up and realize you're in a minefield, you might do the logical
 thing of looking for a map to get out of the minefield and into the glowing pastures of
-happiness. 
+happiness.
 
 You may stumble, as I did, into the Functional programming cult.
 At its core, functional programming makes all of their decisions based on
@@ -273,25 +281,25 @@ one core tenet: "most bugs in programs happen because of mutability. Remove muta
 and your programs become better."
 
 Now, at face value, sure, some bugs have been caused by mutability where none was expected.
-You can fix this with const in js/ts or final in Java/Kotlin or not using mut in Rust.
+You can fix this with `const` in js/ts or `final` in Java/Kotlin or not using `mut` in Rust.
 
 But most bugs have, in my experience, been caused by two distant parts of a system depending
-on each other in ways that are unclear, or typos, or bad/nonexistant error handling code
+on each other in ways that are unclear, or typos, or bad/nonexistent error handling code
 or an edge case that wasn't considered. Mutability isn't the problem in most of these places.
 
 But if you assume that mutability is the root issue and const
 isn't good enough, you get Haskell. And like the Java example with getters and setters,
-you can havk together something with the State Monad that semantically works like a mutable
+you can hack together something with the State Monad that semantically works like a mutable
 variable, but now there's countless thunks on the stack and debugging is harder.
 
-This cult does have some meritts. The type system in Rust that everyone loves came from here, for example.
-Array.map() came from here, and that's great. I yse it all the time.
+This cult does have some merritts. The type system in Rust that everyone loves came from here, for example.
+Array.map() came from here, and that's great. I use it all the time.
 
 But largely, this is a mine field. You can write fucked up hard to read too abstract
-functional code too. Debugging clojures that have been passed through nineteen functions
-isn't fun, and if you write enough Haskell, you'll walk into that mine eventually. 
+functional code too. Debugging closures that have been passed through nineteen functions
+isn't fun, and if you write enough Haskell, you'll walk into that mine eventually.
 
-Mutable data is ok. Doing IO is ok. Both of those are what we built computers to do.
+Mutable data is OK. Doing IO is OK. Both of those are what we built computers to do.
 Trying to fight those only serve to make our jobs harder.
 
 Also, the claims about concurrent optimizations are largely a falsehood.
@@ -311,7 +319,7 @@ Seriously, look at all the symbols programmers type, and then look at
 the dvorak keyboard layout, and realize the right pinky is pressing a nontrivial
 percent of your programming symbol keys in that layout, and then don't try dvorak.
 
-If you eant to type faster, just practice typing faster. That helps far more than
+If you want to type faster, just practice typing faster. That helps far more than
 dvorak.
 
  
