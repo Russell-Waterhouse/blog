@@ -140,13 +140,14 @@ class User {
   }
 
   public void doThing() {
-    Standard.Out.printLine("thing happened");
+    System.out.println("thing happened");
   }
 }
 
 // somewhere else in the program
 
 {
+  String userId = "abc123";
   User user = new User();
   user.setUserId(userId);
   user.doThing();
@@ -164,13 +165,14 @@ class User {
   public String userId;
 
   public void doThing() {
-    Standard.Out.printLine("thing happened");
+    System.out.println("thing happened");
   }
 }
 
 // somewhere else in the program
 
 {
+  String userId = "abc123";
   User user = new User();
   user.userId = userId;
   user.doThing();
@@ -198,22 +200,28 @@ Second example, here's how I would write a function to send an email
 to a user.
 
 ```java
-
 enum FromAddress {
-  Info: info@company.com,
-  NoReply: no-reply@company.com
+  INFO("info@company.com"),
+  NO_REPLY("no-reply@company.com");
+
+  final String address;
+
+  FromAddress(String address) {
+    this.address = address;
+  }
 }
 
 class Email {
-  public static Result scheduleEmailSend(String userId, String subject, String body, FromAddress fromAddress, IsoTimestamp sendTime) {
+  public static Result scheduleEmailSend(String userId, String subject, String body, FromAddress fromAddress, Instant sendTime) {
     // schedule email to send
+    return Success;
   }
 
   public static Result sendEmailNow(String userId, String subject, String body, FromAddress fromAddress) {
-     // do email send
+    // do email send
+    return Success;
   }
 }
-
 ```
 
 That would be it. That's the whole thing. These two functions handle
