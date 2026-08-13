@@ -28,7 +28,7 @@ The rules from June were good. I think many code bases and professional
 developers could do well with these rules. However, with two more months of
 programming in this new world with agentic AI, I have one additional rule.
 
-5. An AI Agent isn't allowed to write more than three hundred lines of code
+5. An AI Agent isn't allowed to write more than two hundred lines of code
    that needs to be maintained in one shot. Two hundred is more ideal.
 
 This new rule is a soft rule. I'm obviously not counting the lines of code that are
@@ -79,8 +79,8 @@ Within these rules, there is still A LOT that I can use AI for!
 And all of that is awesome.
 
 However, in cases like the following, I slow down.
-- Working with an API you're unfamiliar with? Read the docs, write most of it by hand. Helper functions < 300 lines of code can be AI.
-- Working on a large or complicated feature? Write most of it by hand. Helper functions < 300 lines of code can be AI.
+- Working with an API you're unfamiliar with? Read the docs, write most of it by hand. Helper functions < 200 lines of code can be AI.
+- Working on a large or complicated feature? Write most of it by hand. Helper functions < 200 lines of code can be AI.
 
 The fundamental nature of code hasn't changed with AI. In code, the details matter.
 Every line matters, and the lines that you don't include matter too.
