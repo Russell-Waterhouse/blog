@@ -12,7 +12,7 @@ draft: false
 
 Hello, reader from the future! Why is my proverbial leg gone, you ask?
 
-I've lost it, you see; I've stepped on many of programming's landmines.
+I lost it many moons ago, 
 
 Programming, as an industry, is strangely religious. For something that was
 supposedly backed by "computer science," there isn't a lot of science to be
@@ -30,13 +30,23 @@ traversed and my leaky stumps will be enough of a warning for you to avoid
 stepping on some of the same landmines I did. With any luck, you'll find
 new landmines to step on.
 
-If you want the summary of this article, I can give it to you now. Most
-problems in industry aren't that hard. There are no silver bullets. Anyone
-trying to sell you a silver bullet has probably downplayed the costs of their
-religion. You need a good bullshit detector. If you feel like there's constant
-pain with something you're doing, you have probably stepped on a landmine, and
-that's an excellent time to stop walking and figure out exactly what turn led
-you into the minefield.
+If you want the morale of my story, I can give it to you now.
+
+Most problems in industry aren't that hard, and if they are that hard, there's
+a good chance we're making it that hard.
+
+There are no silver bullets to fix what's actually hard. The very best "silver
+bullet" we have is not making things any harder for ourselves.
+
+Anyone trying to sell you a silver bullet has probably downplayed the costs of
+their religion.
+
+Because so many people are selling snake oil, you need a good bullshit
+detector.
+
+And lastly, if you feel like there's constant pain with something you're doing,
+you have probably stepped on a landmine, and that's an excellent time to stop
+walking and figure out exactly what turn led you into the minefield.
 
 You can stop here if you want, or you can keep going to get the details and
 more specific advice.
@@ -289,11 +299,12 @@ one core tenet: "most bugs in programs happen because of mutability. Remove muta
 and your programs become better."
 
 Now, at face value, sure, some bugs have been caused by mutability where none was expected.
-You can fix this with `const` in js/ts or `final` in Java/Kotlin or not using `mut` in Rust.
+You can fix this with `const` in JS/TS or `final` in Java/Kotlin or not using `mut` in Rust.
 
-But most bugs have, in my experience, been caused by two distant parts of a system depending
-on each other in ways that are unclear, or typos, or bad/nonexistent error handling code
-or an edge case that wasn't considered. Mutability isn't the problem in most of these places.
+But most bugs have, in my experience, been caused by two distant parts of a
+system depending on each other in ways that are unclear, or typos, or
+bad/nonexistent error handling code or an edge case that wasn't considered.
+Mutability isn't the problem in most bugs I've fixed.
 
 But if you assume that mutability is the root issue and const
 isn't good enough, you get Haskell. And like the Java example with getters and setters,
@@ -303,31 +314,147 @@ variable, but now there's countless thunks on the stack and debugging is harder.
 This cult does have some merritts. The type system in Rust that everyone loves came from here, for example.
 Array.map() came from here, and that's great. I use it all the time.
 
-But largely, this is a mine field. You can write fucked up hard to read too abstract
-functional code too. Debugging closures that have been passed through nineteen functions
-isn't fun, and if you write enough Haskell, you'll walk into that mine eventually.
+But largely, this is a mine field. You can write fucked up, hard to read, too
+abstract functional code too. Debugging closures that have been passed through
+nine functions isn't fun, and if you write enough Haskell, you'll walk into
+that mine eventually.
 
 Mutable data is OK. Doing IO is OK. Both of those are what we built computers to do.
 Trying to fight those only serve to make our jobs harder.
 
-Also, the claims about concurrent optimizations are largely a falsehood.
-Using immutable data structures does not automatically mean your program will run in 1/32 the
-time on 32 threads. Haskell models data as if time doesn't exist, but time does exist,
-and some things happen before other things, and because of that fact, you can't just parallelize everything,
-even when your data is "immutable."
+Also, the claims about concurrent optimizations are largely a falsehood. Using
+immutable data structures does not automatically mean your program will run in
+1/32 the time on 32 threads. Haskell models data as if time doesn't exist, but
+time does exist, and some things happen before other things, and because of
+that fact, you can't just parallelize everything, even when your data is
+"immutable."
 
-I spent quite a bit of time in this minefield too. Again, I would stay out if you can.
+I spent quite a bit of time in this minefield too. Again, I would stay out if
+you can.
 
-## Minefield 4: DVORAK
+## Minefield 4: The cult of "Good Enough"
 
-Not as big of a minefield, but worth mentioning. If your wrists hurt,
-you need an ergonomic keyboard, not to learn a new keyboard layout.
+This one isn't a cult that is so easily identifiable as the functional
+programming bros or the AI boosters. They don't move as one like the other
+cults do. However, it's a pervasive sentiment in the field, especially in web
+app development.
 
-Seriously, look at all the symbols programmers type, and then look at
-the dvorak keyboard layout, and realize the right pinky is pressing a nontrivial
-percent of your programming symbol keys in that layout, and then don't try dvorak.
+This cult will proclaim that performance doesn't matter; not on the server, and
+not on the user's device. This cult loves to say things like:
+- "Bug not reproducible, closing the ticket."
+- "it works on my machine."
+- "My unit tests pass so it's not my issue."
+- "If there's a bug in it, our users will report the bug, and we'll fix it
+  fast, so it's no big deal to ship fast and break things"
+  - This is always said when the backlog is miles long, so obviously we aren't
+    fixing things fast.
 
-If you want to type faster, just practice typing faster. That helps far more than
+Developers that think like this do not care about their users or their craft.
+
+If you want to do good work in this field, you can't have this mentality.
+
+You need to care about your users and about your craft.
+
+You need to understand that performance matters. Using 100MB of RAM when 10MB
+would do is wasteful. Making the user wait 1.2 seconds (or worse, 1.2 minutes)
+when you should be able to do it in 16 milliseconds is unacceptable.
+
+You need to grasp that if the user took the time to report a bug, it probably
+exists, and if it doesn't exist, we need to fix the user experience so the user
+doesn't think this is a bug. And if the bug does exist, we should update our QA
+process to figure out how this slipped through, and probably look for more bugs
+in this class, and add regression tests to prevent this class of bug in the
+future.
+
+Anything less than excellent documentation for your fellow developers and for
+your users should be repugnant to you. Your documentation should offer
+plentiful examples for new users, and detailed reference for experienced power
+users.
+
+It's the idea that a Gigabyte of dependencies to do trivial work should make
+your blood run cold.
+
+When you hear things like "It's fine for the server to be slow, most of the
+time is in the network call or db call," you should immediately think of ways
+to make the network requests faster (doing less of them would probably be a
+good start, looking at you Microsoft Teams, which will make 700+ network
+requests on an initial load of my conversations), and check whether you have
+things like a sane db schema with good indexes, and if you need more than that,
+read replicas. Then, you should make the server fast and lean on memory
+anyways, because it's running in the cloud and if you can drop a VM size you
+can save costs.
+
+And look, I get it. I live in the real world too. I know sometimes you need to
+get a project out the door and can't do as good of a job on it as you would
+like. But there's a wide chasm between cutting a corner and knowing you cut
+that corner, and genuinely thinking it's good enough. You'll cut different
+corners, and when excellence is practically free, you'll take it.
+
+You have to give a shit, or else you don't stand a chance. You're reading this
+article, so you probably do, but it's always worth reiterating.
+
+## Minefield 5: DVORAK
+
+Not as big of a minefield, but worth mentioning. If your wrists hurt, you need
+an ergonomic keyboard (and probably two weeks off the computer), not to learn a
+new keyboard layout.
+
+Seriously, look at all the symbols programmers type, and then look at the
+dvorak keyboard layout, and realize the right pinky is pressing a nontrivial
+percent of your programming symbol keys in that layout, and then don't try
 dvorak.
 
- 
+If you want to type faster, just practice typing faster. That helps far more
+than dvorak.
+
+## Bonus! Fields that Aren't Full of Landmines!
+
+As a reward for getting this far, here's a list of things that I've tried and
+were legitimately good things for my programs.
+
+- TDD (within reason, it's great for pure functions that don't do IO)
+- Unit testing (again, within reason, see example 1 in minefield 2)
+- Integration testing (as long as you are only integration testing your
+  integration code)
+- End-to-end testing (as long as you don't pretend they're a replacement for
+  the rest of your test suite and you take the time to set them up right)
+- A reliable deployment pipeline
+- A hot-reloading development environment (I call this "dev")
+- A development environment that closely resembles production (I call this "preview")
+- Infra as code
+- Docker (I'm not stoked about how slow it is, but it does solve a lot of problems)
+- Kubernetes (As long as you actually need it, it's great, but you probably don't actually need it)
+- Structured Logging
+- Neovim (as long as you don't go way overboard with plugins)
+- Writing the usage code of an API before writing the API, then writing the API.
+
+## Conclusion
+
+I'm not the most talented developer out there. I've done some good work, but I'm
+not the best, and I'm not working on the hardest problems out there.
+
+If I have one strength, it's that I've tried more things than most developers.
+I've shipped nontrivial projects in C, Haskell, Java, Kotlin, Python, Ruby,
+JavaScript, TypeScript, and Groovy. I've done DevOps with Terraform and AWS
+CDK, Kubernetes and AWS Lambda, and self-hosted many of my own programs for
+fun. I'm learning Rust to see if that lives up to the hype.
+
+Luckily, I have enough confidence in myself and my abilities to know when I've
+tried something enough to know it doesn't work. While a somewhat slow process,
+it does mean that eventually I can smell bullshit.
+
+Like I said at the beginning, most problems in industry aren't that hard, we
+just write code in a way that makes it harder.
+
+There are no silver bullets, except the silver bullet of "don't shoot yourself
+in the foot". Anyone trying to sell you a silver bullet has probably downplayed
+the costs of their religion.
+
+If you want to make good products, you'll need to learn a lot. In order to
+learn a lot and not fall for someone's snake oil, you need to be good at
+detecting bullshit. If you try something, and it sucks, trust your experience.
+If you feel like there's constant pain with something you're doing, you have
+probably stepped on a landmine, and that's an excellent time to stop walking
+and figure out exactly what turn led you into the minefield.
+
+
