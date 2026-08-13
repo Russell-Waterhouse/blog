@@ -4,7 +4,7 @@ author: "Russell Waterhouse"
 description: "description here"
 tags: ["", ""]
 date: 2026-08-11T19:20:24-06:00
-draft: true
+draft: false
 ---
 
 # AI And Programming Explained To Those Who Don't Program
@@ -26,13 +26,13 @@ of AI and the companies involved in it. THIS IS NOT INVESTING ADVICE. Indeed,
 if you took my words as investment advice, you would have done terribly in this
 raging bull market. You make your investment decisions by talking to a
 professional who has a feduciary duty to you and your money, not by reading
-some dude's blog on the internet, got it?
+some dude's blog on the internet, got it? Good.
 
 Second, a quick note to my fellow tech people. If you know what TCP stands for,
 or if you know what a compiler is, this article isn't for you. I'm going to
 simplify a lot for the common computer user. I'm not going to talk about the
 differences between interpreted languages and compiled languages and how JIT
-can kinda make one look like the other. I know all of this, but the target
+can kinda make one work like the other. I know all of this, but the target
 reader of this article doesn't, and doesn't need to. I'm just going to say the
 computer can read code and move on, because that's what this reader needs to
 know. This isn't written for users that have an opinion on the difference
@@ -40,6 +40,57 @@ between Chrome or Edge. This is written for the user that thinks both the
 colourful logo and the green/blue logo can go to Facebook and Email.
 
 Ok, let's go!
+
+## So, Why are We Talking About This?
+
+Well, two reasons. First, everyone is talking about it in tech and finance. They
+haven't stopped talking about it since 2023. Don't you want to be one of the cool kids talking
+about the cool topics? Second, and more importantly,
+this little tech and finance fascination has grown so much bigger than you could know
+unless you're very plugged in. It has grown so big for so many reasons. Some I understand,
+and some I don't. But it has grown bigger than the fundamentals of the technology
+can support. To me, and many of my peers, it looks like a gargantuan bubble that
+is set to pop. I want to give you a peek behind that curtain for how we got
+here and how everyone got it so wrong. 
+
+## The Scale of The Bubble
+
+## What the Boosters Promise
+
+## Why that Doesn't Work
+
+## The Metaverse, Crypto, Growth, and Tech Thought Leaders
+
+So naturally, you might be wondering, "why does this random developer on
+the internet think he knows more than all these brilliant CEO's. Surely
+the people running these giant companies and their boards and their
+investors can't all be wrong at this scale."
+
+I wish you were right. I really do. 
+
+Surely, some don't believe it. Some are just playing the game, saying the right things
+to make their stock go higher in a frothy bull market.
+
+But some of these CEO's have spent more money than these companies have ever invested in
+anything betting that this wins.
+
+And it's not the first time CEOs and investors and boards have invested big and lost
+it all. 
+
+Remember a few years ago when everyone was saying BitCoin would be the
+new money? Nobody checked how long it takes on average for a transaction to
+settle. The average is thirty minutes per transaction, and it's not guaranteed
+the transaction will ever settle.
+
+// tell story of eth and eth classic.
+
+// tell story of metaverse.
+
+
+
+
+
+
 
 ## So, What Do Programmers Do?
 
@@ -56,15 +107,7 @@ Here's a quick example.
   1. We turn the 'like' button blue.
   2. We start saving the fact that the like button was pressed, so we can show other users the correct number of 'likes' on the post.
   3. If that save fails, we turn the like button back to the colour it was, and send a message to one of our engineers letting them know the save process is broken and they should look into it.
-3. We write the code to make 2 happen.
+3. We write the code to make the above three steps happen, in that order.
 
 Now of course, it's more complicated than that in real life, but this paints a
 picture we can work with, so we're going to roll with it.
-
-
-
-Plan:
-
-- talk about metaverse and crypto
-- talk about the scale of the investment
-- 
