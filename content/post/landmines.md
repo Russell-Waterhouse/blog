@@ -341,7 +341,7 @@ that fact, you can't just parallelize everything, even when your data is
 I spent quite a bit of time in this minefield too. Again, I would stay out if
 you can.
 
-## Minefield 4: The cult of "Good Enough"
+## Minefield 4: The Cult of "Good Enough"
 
 This one isn't a cult that is so easily identifiable as the functional
 programming bros or the AI boosters. They don't move as one like the other
