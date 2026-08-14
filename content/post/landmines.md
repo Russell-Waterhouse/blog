@@ -91,7 +91,7 @@ These people were crypto grifters before AI and they'll move on when the bubble 
 
 In healthy quantities, AI can be a useful tool. Just don't offload decision making
 and don't go crazy. If you want to see how I currently do that, read [this post
-about my rules for using AI](https://www.rwater.house/post/ai_aug_2026/)
+about my rules for using AI.](https://www.rwater.house/post/ai_aug_2026/)
 
 
 ## Minefield 2: SOLID, DRY, Clean Code, OO, Gang of Four Design Patterns
