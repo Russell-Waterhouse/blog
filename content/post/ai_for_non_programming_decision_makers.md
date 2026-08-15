@@ -55,6 +55,9 @@ here and how everyone got it so wrong.
 
 ## The Scale of The Bubble
 
+// TODO
+
+
 ## AI For Programming
 
 ## What Programmers Actually Do
@@ -139,6 +142,16 @@ because the time to make all of those decisions is larger than the
 amount of
 time it takes to actually write it all down.
 
+If the boosters had said "For programming the technology
+will make small trivial things instant and big expensive things
+5-25% faster," and everyone had invested into the technology
+with this in mind, there would be no bubble. The fundamentals
+would match the investment, and I wouldn't be writing this post while
+on vacation. 
+
+This is not what has happened. 
+
+
 ## The Metaverse, Crypto, Growth, and Tech Thought Leaders
 
 So naturally, you might be wondering, "why does this random developer on
@@ -162,11 +175,113 @@ new money? Nobody checked how long it takes on average for a transaction to
 settle. The average is thirty minutes per transaction, and it's not guaranteed
 the transaction will ever settle.
 
-// tell story of eth and eth classic.
+Maybe you've heard people say "crypto won't be the next dollar, but it
+will be the next gold. It will be a durable store of wealth."
 
-// tell story of metaverse.
+Imagine if, on a beautiful day in June of 2016,
+someone stole over 4% of all of the world's gold.
 
+Then, in response to that, everyone that had gold or knew about gold
+disagreed one what to do: return the stolen gold, or ignore it.
 
+The solution they finally came up with was to announce gold 2.
+Everyone that had one ounce of gold before the big theft happened would get one
+ounce of gold 2. 
+
+You might very well look at gold and gold 2 and say,
+"This is clearly not how I want to store the funds that I plan to
+use in retirement, it doesn't seem that this is reliable enough for
+me to rely on it."
+
+But that's what happened to Etherium,the number two most well-known
+cryptocurrency in the world, behind bitcoin.
+
+You might look at all of this and say "it would be
+foolhardy to sink __ billion dollars into building a
+virtual world for everyone to use that would run on this
+cryptocurrency and rename my company after this
+new virtual world. There would be no chance at a return
+on investment of that __ billion dollars."
+
+But that's what the Metaverse was. The metaverse, a project that
+Meta, formerly Facebook, invested __ dollars into, and last month finally
+killed, after earning __ dollars on their investment, for a net loss
+of __ dollars. 
+
+To me, that was also ovbiously insane at the time of the
+peak.
+
+I actually took the blockchain and cryptocurrencies course
+in University because I thought there MUST be something
+I was missing. How could this thing that looked so insane
+to me possibly be this big? Surely I was missing something.
+
+I wasn't, and the more I learned in that course, the worse it looked.
+
+My final essay was actually a detailed technical explanation of why
+cryptocurrencies couldn't possibly live up to the expectations.
+it earned an 89%. 
+
+## What? How?
+
+If your head is spinning, and you're wondering how the hell
+all of this has happened, and how nobody ever bothered to mention it,
+good. That was the point of this article.
+
+But I don't want to just leave you dazed and confused. I want to
+try to explain how the hell we got here. 
+
+This is going to be difficult. Details will be missed.
+I'm going to try to weave together enough threads that
+you can see the picture in the tapestry, and this is where
+talk of tech will fade into talk of finance of tech.
+
+Since computers were invented and have become widespread,
+tech companies have been making so much money
+building things on computers that are so much more efficient
+than their pre-computer equivalent.
+
+Apple, Dell, IBM, Lenovo, AMD, Nvidia, Intel, and many others have made a
+killing selling computer hardware.
+
+Microsoft has made a killing selling services for Email (far more
+efficient than real mail), Excel (far more efficient and powerful
+than doing everything that excel does with pencil and paper),
+word, powerpoint, etc.
+
+Amazon, google, and Microsoft have made billions renting servers
+to every other internet company through AWS, GCP, and Azure.
+
+Amazon has made a killing doing the more efficient version of what
+Sears and Etons used to do with catalogs.
+
+During the time of these companies' growth, anyone who
+invested in them made a ton of money. 
+
+Since there was money to be made, startup funding
+started getting big.
+
+Now despite what you might expect me to say here, startup
+investors aren't stupid. They know that there
+are too many factors influencing who wins and who loses
+for them to pick winners 100% of the time. They know that
+if they invest in 100 companies, 80 might fail, 18 will turn into
+successful companies, and 2 might turn into companies so big that
+it makes investing in the 80 failed companies totally worth it.
+They also know that if 3 get that big, they all get a bonus
+so big they never have to work again.
+
+Because this is the nature of what they're doing, anyone
+that approaches them and says "I want to start a business that will
+grow at a healthy pace and be a profitable company worth running,"
+HAS TO BE IGNORED. 
+
+A startup that says this has a zero percent chance of turning into
+the behemoth success that will make their portfolio profitable.
+
+They can ONLY make these bets on startups that promise to
+become the next Uber or Facebook. These startups have that 1%
+chance of making their portfolio beat the market, and that's what they need.
 
 
 
