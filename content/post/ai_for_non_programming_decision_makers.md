@@ -283,9 +283,59 @@ They can ONLY make these bets on startups that promise to
 become the next Uber or Facebook. These startups have that 1%
 chance of making their portfolio beat the market, and that's what they need.
 
+So anyone running a startup that needs investment has
+to make big claims about their total addressable market.
+They get no funding otherwise.
 
+The equity markets drive the big companies into
+outlandish things too. All of the Mag seven, even before the
+AI hype wave started, were valued as growth companies.
 
+Were they to show persistent signs that they were no longer growing,
+equity markets might decide that they should no longer value these
+companies as growth companies. Boards and current shareholders
+would not appreciate that. This puts large pressures on the
+executive teams of these companies to continue to show
+growth and investment into projects that could feasibly grow.
 
+The metaverse makes more sense as an investment when you
+understand that every time Meta's exec's dumped more money into
+the metaverse, their stock price went up. //TODO FACT CHECK THAT
 
+And when none of the people investing in this technology
+and the executives running these companies aren't trying to write
+production code with them (because they're running investment firms or
+running companies, not programming. They're doing their jobs).
+
+When someone tells them that it's going to be the next big thing,
+and it sounds exactly like what Jeff Bezos said when he said Amazon
+would be huge, they think that they have found the next Amazon.
+
+And then, if they try to do their owm research and sit down with it,
+when they try to program with it, the like button from
+my example before turns blue. It looks convincing. 
+
+And all of a sudden, the bubble starts to make sense.
+
+Except for one thing. 
+
+"If all of this is so obvious to you, Russell, the
+writer of this blog, why aren't all the programmers
+flooding the media with this opinion."
+
+And there's a few reasons for that.
+
+First, none of us started multi-billion
+dollar companies, so we don't exactly get the
+same airtime as the CEOs do. Elon Musk can call
+ip CNBC and get airtime that afternoon. I can't.
+
+Second, many of have been. TODO EXPAND
+
+And third, many of the people that claim to be
+programmers just aren't that good. This isn't a
+regulated industry. All you need to do to be a programmer at
+Amazon is to convince the recruiting team at amazon
+that you can write code at Amazon.
 
 
