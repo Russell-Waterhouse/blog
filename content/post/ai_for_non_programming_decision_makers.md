@@ -55,9 +55,89 @@ here and how everyone got it so wrong.
 
 ## The Scale of The Bubble
 
-## What the Boosters Promise
+## AI For Programming
 
-## Why that Doesn't Work
+## What Programmers Actually Do
+
+At the heart of it, we, the people that put the pixels on your screens usually
+work like this:
+
+1. Someone tells us what a computer needs to do, at a high level.
+2. We decide what that means in great detail.
+3. We write down those decisions as instructions the computer can read (this is code).
+
+Here's a quick example.
+1. Our boss tells us "when the user clicks the 'like' button on Facebook, the button should turn blue."
+2. We decide that means that:
+  1. We turn the 'like' button blue immediately so the user gets instant feedback.
+  2. We start saving the fact that the like button was pressed, so we can show other users the correct number of 'likes' on the post.
+  3. If that save fails, we turn the like button back to the colour it was, and send a message to one of our engineers letting them know the save process is broken and they should look into it.
+3. We write the code to make the above three steps happen, in that order.
+
+Now of course, it's more complicated than that in real life, but this paints a
+picture we can work with, so we're going to roll with it.
+
+### What the Boosters Promise
+
+The boosters promise that with AI, you'll
+be able to tell your AI agent,
+
+"when the user clicks the 'like' button on Facebook, the button should turn blue."
+
+and your agent will go off and write and deploy
+the correct code.
+
+No need to hire programmers, no need to fuss.
+
+### Why that Doesn't Work
+
+This doesn't work because there's actually a lot
+that "turn the like button blue" could mean to an AI.
+
+If the AI is really braindead that day, it might literally
+just turn the button blue and never save the fact that you
+liked this post. They're not usually this braindead, but every
+once in a while they are.
+
+However, the AI might start the save process and wait for it to finish
+successfully before turning the button blue, which might offer a worse
+experience to the user, who wants instant feedback knowing the button
+press was registered.
+
+And the AI often will not write the code for "if the save fails, do X."
+That means that every time the save process fails, nobody knows.
+If the save process works 100% of the time, there's no issue.
+In the real world, nothing works first try 100% of the time.
+
+Maybe the AI will decide that if the save process fails, it should just try
+again until it succeeds. That means if your save service goes down
+for a few minutes, when it comes back up, it will immediately be hit
+with every single save request that happened in those few minutes all at once, because
+all of those users' computers are constantly retrying the save. 
+
+If the AI didn't design the servers to immediately scale to this kind of load,
+it will end in more downtime.
+
+This is a trivial example, and already there is more complexity
+than the average non-programmer would have thought.
+
+Now, there are more reasonable ways to use AI.
+
+A programmer might give their agent a detailed design document
+explaining all the nuance and more about what this feature means and how
+to implement it, then check the output code to ensure the AI agent
+actually followed the instructions. 
+
+But remember, that's far smaller of a market than what the boosters
+are promising, and it's far smaller a market than the scale of the investment
+needs in order to pay off. It also doesn't replace programmers, because
+someone who understands all the nuance about retry logic and error
+handling still needs to be the one making the design document. 
+
+It also doesn't offer incredible speedups in writing code,
+because the time to make all of those decisions is larger than the
+amount of
+time it takes to actually write it all down.
 
 ## The Metaverse, Crypto, Growth, and Tech Thought Leaders
 
@@ -92,22 +172,5 @@ the transaction will ever settle.
 
 
 
-## So, What Do Programmers Do?
 
-At the heart of it, we, the people that put the pixels on your screens usually
-work like this:
 
-1. Someone tells us what a computer needs to do, at a high level.
-2. We decide what that means in great detail.
-3. We write down those decisions as instructions the computer can read (this is code).
-
-Here's a quick example.
-1. Our boss tells us "when the user clicks the 'like' button on Facebook, the button should turn blue."
-2. We decide that means that:
-  1. We turn the 'like' button blue.
-  2. We start saving the fact that the like button was pressed, so we can show other users the correct number of 'likes' on the post.
-  3. If that save fails, we turn the like button back to the colour it was, and send a message to one of our engineers letting them know the save process is broken and they should look into it.
-3. We write the code to make the above three steps happen, in that order.
-
-Now of course, it's more complicated than that in real life, but this paints a
-picture we can work with, so we're going to roll with it.
