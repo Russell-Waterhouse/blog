@@ -55,7 +55,21 @@ here and how everyone got it so wrong.
 
 ## The Scale of The Bubble
 
-// TODO
+Using the numbers from https://isaiprofitable.com/
+
+at the time of writing, 1.5 Trillion USD have been
+spent on AI. This gargantuan investment has
+produced 769 Billion dollars of revenue.
+
+The problem with these mind melting numbers is not just that
+the spend is bigger than the revenue. The problem is that
+the numbers are negative AND this needs to be bigger.
+
+OpenAI and Anthropic have signed __ dollars in spending
+committments. This is much more than they're spending
+currently. They know they need to grow, and they're subsidizing
+their services to make it happen. OpenAI lost nearly 21 Billion USD
+in 2025. 
 
 
 ## AI For Programming
