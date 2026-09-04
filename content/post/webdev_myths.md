@@ -33,7 +33,8 @@ I define belief as "you think something is true and act accordingly."
 If you believe cars are dangerous to pedestrians, you will look both ways before
 crossing the road.
 
-If you actually believed this, here are some things you would do:
+If you actually believed "it doesn't matter that the server is slow, most of the latency will be in the
+db call or the network.", here are some things you would do:
 
 1. Have indexes on all of your common db queries.
 2. Have tried different versions of your most common queries to see what performs best with your database.
@@ -82,22 +83,27 @@ fair.
 
 ### Memory
 
-In my experience, an ExpressJS process takes about 100mb for a non-trivial
-backend. One of two things is true. 
-Either your market is so small and niche that your web app would be able to
-serve them all without any issue with only one server process.
-OR
-Your market is big that you might need more than one server process.
+The cool thing about the cloud is that you pay for CPU and memory. 
 
-In both cases, the amount of memory your app uses matters.
+This means if your server process uses less memory, you spend less money.
+Often, by a lot.
 
+If you're running your server process serverless, every megabyte of memory you
+don't use you aren't charged for.
+
+If you're running kubernetes, every megabyte you save, you save at least twice, because
+you always have at least two pods running. This means saving memory can usually save you a VM
+size.
+
+If you're buying your own servers and not in the cloud, you're paying RAM
+prices directly. You can't escape the savings from using less memory.
 
 ### Speed
 
-So what about the speed? Well, let's do some napkin math to figure out
-what's going to fail first, our network, our db, or our CPU?
+So what about the speed? 
 
-
+I think a lot of people think that the speed of a web language doesn't
+matter. 
 
 ## Appendix A: Breaking Down The "Napkin Math" Numbers
 
