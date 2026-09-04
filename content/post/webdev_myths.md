@@ -80,7 +80,6 @@ reason I'm going to talk both about memory AND speed, not just speed, even
 though the common saying is "it doesn't matter if it's slow." I think that's
 fair.
 
-
 ### Memory
 
 The cool thing about the cloud is that you pay for CPU and memory. 
@@ -104,6 +103,18 @@ So what about the speed?
 
 I think a lot of people think that the speed of a web language doesn't
 matter. 
+
+For a single request, they might be right. But for many requests?
+The speed hit that slow interpreted languages take means they degrade
+much quicker.
+
+Take a look at Anton Putra's youtube channel, where he frequently
+does failure tests with different web technologies like
+[NodeJS and Go](https://youtu.be/ZslbMp_T90k?si=QF8-MuYJhgJjix0R)
+
+In every one, the slow interpreted language gets trounced by the fast one.
+
+Saturation is how your web app will fail, and by then it's too late.
 
 ## Appendix A: Breaking Down The "Napkin Math" Numbers
 
