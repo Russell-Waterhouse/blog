@@ -128,7 +128,7 @@ average blink takes 100-400ms (again, according to google AI overview).
 So the worst case is the blink of an eye. What's the best case, for a user
 closer to your data centre, or if you were doing something fancy with a CDN?
 
-Let's take all the upper ranges of the numbers above: db lookup network latency
+Let's take all the faster ranges of the numbers above: db lookup network latency
 of 0.2ms each way, db lookup time of 0.5 ms, and your customer is close to your
 data centre and network takes 20ms, which is what I get right now if I ping
 8.8.8.8 (google's DNS server), your total response time is 20 + 2(0.2) + 0.5 =
