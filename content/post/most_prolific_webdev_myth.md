@@ -40,7 +40,7 @@ is bad, keep reading.
 ## The Part That's Not True
 
 The part that's not true is that the speed of your server doesn't matter. It
-matters. This is usually used to justify using python or ruby or JavaScript on
+matters. This is usually used to justify using Python or Ruby or JavaScript on
 the server. These languages are known to be both slow and memory-hogs. For this
 reason I'm going to talk both about memory AND speed, not just speed, even
 though the common saying is "it doesn't matter if it's slow." I think that's
