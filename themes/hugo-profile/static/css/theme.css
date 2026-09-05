@@ -1,4 +1,9 @@
 /* light mode */
+body {
+    min-height: 100vh;
+    background-color: var(--background-color) !important;
+}
+
 .light > *{
     background-color: var(--background-color) !important;
     color: var(--text-color) !important;
