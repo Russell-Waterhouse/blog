@@ -185,8 +185,8 @@ I leave it to you to figure out how to get buy-in.
 Maybe you mention that there are whole new waves of products that are taking
 market share almost purely on performance features. [FilePilot, the fast file
 explorer for windows is replacing Windows Native File
-Explorer](https://filepilot.tech/), [Linear is replacing
-Jira](https://linear.app/), and [Blick Video Editor just hit open
+Explorer,](https://filepilot.tech/) [Linear is replacing
+Jira,](https://linear.app/) and [Blick Video Editor just hit open
 beta](https://blickeditor.com/)
 
 Maybe you mention the [massive re-writes in Facebook, Twitter (now X), Uber,
