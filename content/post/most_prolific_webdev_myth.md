@@ -152,24 +152,18 @@ And that's my point. If the massive lag we see on most web apps is just about
 network and database, without even doing anything like pre-loading or caching,
 we could get much better performance.
 
-### How Could we Handle That?
+### So, Why so Laggy?
 
-If you actually believed "it doesn't matter that the server is slow, most of
-the latency will be in the db call or the network.", here are some things you
-would do:
+So if the network call or the database only accounts for 250ms, why does 
+every web app you log into take multiple seconds to load?
 
-1. Have indexes on all of your common db queries.
-2. Have tried different versions of your most common queries to see what performs best with your database.
-3. Have tried different ways to speed up your db queries. Redis caches, read replicas, and so on.
-4. Have read browser HTML specifications so that you can take advantage of browser caching so network requests don't need to be repeated.
-5. Batch large operations. Loading a page should really only take one network request.
-6. Pre-fetch other pages in the background. If the user just clicked to page 2 of a paginated table, why not pre-fetch page 3?
+Mostly bad design. 
 
-I could go on, I didn't even mention anything fancy like a CDN, but you get the point;
-if you actually thought that your database and network were going to be
-the biggest problems, you would adopt strategies that would actually measurably
-mitigate that.
-
+The initial page load isn't one request, it's seven hundred (in the
+case of microsoft teams, that's not an exageration).
+And those seven hundred aren't in parallel, they're in series.
+And each request isn't hitting the database once, it's hitting multiple
+times.
 
 ## So What Can You Do?
 
@@ -205,7 +199,7 @@ I leave that to your decision.
 
 Assuming you have buy in, here's what you can do:
 
-1. Use a compiled language. I would choose Go or Rust.
+1. Use a compiled language on the server. I would choose Go or Rust.
 2. Track performance metrics throughout development. Failing to meet a certain
    bar should block a merge.
 3. Do things with performance in mind. JSON is actually pretty CPU-expensive to
@@ -214,7 +208,7 @@ serialize and de-serialize. Look at alternatives.
 5. Try a few different ways to speed up your db queries. Redis caches, read replicas, and so on.
 6. Pre-fetch other pages in the background. If the user just clicked to page 2 of a paginated table, why not pre-fetch page 3?
 7. Batch large operations. Loading a page should really only take one network request.
-8. Look at smart ways to ise network resources. Maybe re-use connections so you aren't round-tripping 3x for every request for the TCP handshake.
+8. Look at smart ways to use network resources. Maybe re-use connections so you aren't round-tripping 3x for every request for the TCP handshake.
 
 A bunch of that isn't very hard, objectively speaking. The hardest part will be that it's not
 normal.
@@ -223,8 +217,8 @@ into /api/v1/page/settings.
 In that endpoint, you might have to do a join. 
 In that join, you might have to fiddle with the raw SQL a few ways to get it to perform well.
 Maybe a db index is required.
-You might have to not serialize with JSON. Maybs protobuf, maybe you just send the raw html
-and use a framework like data star.
+You might have to not serialize with JSON. Maybe protobuf, maybe you just send the raw html
+and use a framework like data-star.
 You might have to pre-fetch that data so that when the user clicks it, page is ready on
 the next frame. 
 
