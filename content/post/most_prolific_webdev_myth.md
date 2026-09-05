@@ -17,8 +17,8 @@ db call or the network."
 I have.
 
 This is bad for two reasons. It's bad because the part of it that's somewhat
-true, nobody actually acts accordingly, and it's bad because the part of it
-that isn't true everyone believes.
+true, nobody actually actually uses, and it's bad because the part of it
+that isn't true everyone takes as gospel.
 
 The part that's true is the second part. Most of a user's latency will probably
 be in the network call and the db call.
@@ -37,24 +37,6 @@ Muratori.
 If you want to know why the "server's performance doesn't matter" argument
 is bad, keep reading.
 
-## The Part That's True
-
-If you actually believed "it doesn't matter that the server is slow, most of
-the latency will be in the db call or the network.", here are some things you
-would do:
-
-1. Have indexes on all of your common db queries.
-2. Have tried different versions of your most common queries to see what performs best with your database.
-3. Have tried different ways to speed up your db queries. Redis caches, read replicas, and so on.
-4. Have read browser HTML specifications so that you can take advantage of browser caching so network requests don't need to be repeated.
-5. Batch large operations. Loading a page should really only take one network request.
-6. Pre-load other pages in the background. If the user just clicked to page 2 of a paginated table, why not pre-load page 3?
-
-I could go on, I didn't even mention anything fancy like a CDN, but here's my
-point: if you actually thought that your database and network were going to be
-the biggest problems, you would adopt strategies that would actually measurably
-mitigate that.
-
 ## The Part That's Not True
 
 The part that's not true is that the speed of your server doesn't matter. It
@@ -69,14 +51,14 @@ fair.
 The cool thing about the cloud is that you pay for CPU and memory.
 
 This means if your server process uses less memory, you spend less money.
-Often, by a lot.
+Often by a lot.
 
 If you're running your server process serverless, every megabyte of memory you
 don't use you aren't charged for.
 
 If you're running kubernetes, every megabyte you save, you save at least twice, because
 you always have at least two pods running. This means saving memory can usually save you a VM
-size.
+size, if not several.
 
 If you're buying your own servers and not in the cloud, you're paying RAM
 prices directly. You can't escape the savings from using less memory.
@@ -99,9 +81,15 @@ breaking point.
 
 In every one, the slow interpreted language gets trounced by the fast one.
 
-Saturation is how your web app will fail, and by then it's too late.
+Saturation is how your web app will fail at scale, and by then it's too late.
+You're in a hell of horizontal scaling, vertical scaling, caching, and rewrites.
 
-## Breaking Down The "Napkin Math" Numbers
+## The Part That's True
+
+The part that's true is a bunch of the user's time is going
+to be taken by network calls. How bad of a problem is that? Let's find out!
+
+### Breaking Down The "Napkin Math" Numbers
 
 So what are the numbers, roughly? If the user clicks "submit" on your
 web app, how long should it take to show the result of that action, assuming
@@ -164,10 +152,30 @@ And that's my point. If the massive lag we see on most web apps is just about
 network and database, without even doing anything like pre-loading or caching,
 we could get much better performance.
 
+### How Could we Handle That?
+
+If you actually believed "it doesn't matter that the server is slow, most of
+the latency will be in the db call or the network.", here are some things you
+would do:
+
+1. Have indexes on all of your common db queries.
+2. Have tried different versions of your most common queries to see what performs best with your database.
+3. Have tried different ways to speed up your db queries. Redis caches, read replicas, and so on.
+4. Have read browser HTML specifications so that you can take advantage of browser caching so network requests don't need to be repeated.
+5. Batch large operations. Loading a page should really only take one network request.
+6. Pre-fetch other pages in the background. If the user just clicked to page 2 of a paginated table, why not pre-fetch page 3?
+
+I could go on, I didn't even mention anything fancy like a CDN, but you get the point;
+if you actually thought that your database and network were going to be
+the biggest problems, you would adopt strategies that would actually measurably
+mitigate that.
+
+
 ## So What Can You Do?
 
 First, I have to say that if you don't have buy-in from your team and your
-management, everything I'm about to propose will be hard. Here's what you can
+management, everything I'm about to propose will be hard, if not impossible.
+Here's what you can
 probably do without the buy in.
 
 1. Put indexes on database tables and keep them up to date.
@@ -187,7 +195,8 @@ beta](https://blickeditor.com/)
 
 Maybe you mention the [massive re-writes in Facebook, Twitter (now X), Uber,
 Slack, Netflix, Yelp, Shopify, LinkedIn, eBay, HubSpot, PayPal, SalesForce,
-and Microsoft](https://www.computerenhance.com/p/performance-excuses-debunked)
+and Microsoft where the entire point of the rewrite was to improve
+performance](https://www.computerenhance.com/p/performance-excuses-debunked)
 
 Maybe you mention that ["every 100ms in added page load time costs amazon 1% of
 revenue"](https://www.conductor.com/academy/page-speed-resources/faq/amazon-page-speed-study/)
@@ -195,7 +204,32 @@ revenue"](https://www.conductor.com/academy/page-speed-resources/faq/amazon-page
 I leave that to your decision.
 
 Assuming you have buy in, here's what you can do:
+
 1. Use a compiled language. I would choose Go or Rust.
 2. Track performance metrics throughout development. Failing to meet a certain
    bar should block a merge.
-3. 
+3. Do things with performance in mind. JSON is actually pretty CPU-expensive to
+serialize and de-serialize. Look at alternatives.
+4. Take the time to find the SQL Query that performs best.
+5. Try a few different ways to speed up your db queries. Redis caches, read replicas, and so on.
+6. Pre-fetch other pages in the background. If the user just clicked to page 2 of a paginated table, why not pre-fetch page 3?
+7. Batch large operations. Loading a page should really only take one network request.
+
+A bunch of that isn't very hard, objectively speaking. The hardest part will be that it's not
+normal.
+You might have to combine two GET endpoints like api/v1/user/theme and api/v1/user/settings
+into /api/v1/page/settings.
+In that endpoint, you might have to do a join. 
+In that join, you might have to fiddle with the raw SQL a few ways to get it to perform well.
+Maybe a db index is required.
+You might have to not serialize with JSON. Maybs protobuf, maybe you just send the raw html
+and use a framework like data star.
+You might have to pre-fetch that data so that when the user clicks it, page is ready on
+the next frame. 
+
+But you could do all of that. Literally none of what I just said is impossible. 
+
+Most of it isn't even hard. The idea of pre-fetching requests or batching network data
+into one request isn't radical, it's just different from what we normally do in web dev.
+
+But it doesn't have to be.
