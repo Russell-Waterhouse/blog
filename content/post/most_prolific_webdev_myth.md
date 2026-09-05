@@ -214,6 +214,7 @@ serialize and de-serialize. Look at alternatives.
 5. Try a few different ways to speed up your db queries. Redis caches, read replicas, and so on.
 6. Pre-fetch other pages in the background. If the user just clicked to page 2 of a paginated table, why not pre-fetch page 3?
 7. Batch large operations. Loading a page should really only take one network request.
+8. Look at smart ways to ise network resources. Maybe re-use connections so you aren't round-tripping 3x for every request for the TCP handshake.
 
 A bunch of that isn't very hard, objectively speaking. The hardest part will be that it's not
 normal.
