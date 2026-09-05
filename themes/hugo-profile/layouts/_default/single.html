@@ -37,6 +37,16 @@
             <img class="img-fluid mx-auto d-block" src="{{ .Params.image }}" alt="{{ .Title }}">
           </div>
           {{ end }}
+          {{ if .Params.toc | default true}}
+          <aside class="toc toc-mobile">
+              <h5>
+                {{ .Site.Params.terms.toc | default "Table Of Contents" }}
+              </h5>
+              <div class="toc-content">
+                {{.TableOfContents}}
+              </div>
+          </aside>
+          {{ end }}
           <article class="page-content  p-2">
           {{ .Content | emojify }}
           </article>
@@ -45,7 +55,7 @@
       <div class="col-sm-12 col-md-12 col-lg-3">
         <div id="stickySideBar" class="sticky-sidebar">
           {{ if .Params.toc | default true}}
-          <aside class="toc">
+          <aside class="toc toc-desktop">
               <h5>
                 {{ .Site.Params.terms.toc | default "Table Of Contents" }}
               </h5>
