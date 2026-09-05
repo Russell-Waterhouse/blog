@@ -1,13 +1,13 @@
 ---
-title: "Web Development Myths"
+title: "The Most Prolific Web Dev Myth"
 author: "Russell Waterhouse"
-description: ""
-tags: ["", ""]
+description: "The most common web dev myth examined"
+tags: ["Ruby", "JavaScript", "Python"]
 date: 2026-09-03T16:36:11-06:00
 draft: false
 ---
 
-# TODO: title here
+# The Most Prolific Web Dev Myth
 
 Tell me if you've heard this before:
 
