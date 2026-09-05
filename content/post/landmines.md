@@ -422,7 +422,7 @@ As a reward for getting this far, here's a list of things that I've tried and
 were legitimately good things for my programs.
 
 - TDD (within reason, it's great for pure functions that don't do IO)
-- Unit testing (again, within reason, see example 1 in minefield 2)
+- Unit testing (again, within reason, see example 2 in minefield 2)
 - Integration testing (as long as you are only integration testing your
   integration code)
 - End-to-end testing (as long as you don't pretend they're a replacement for
