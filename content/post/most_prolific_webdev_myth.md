@@ -214,7 +214,7 @@ serialize and de-serialize. Look at alternatives.
 
 A bunch of that isn't very hard, objectively speaking. The hardest part will be that it's not
 normal.
-You might have to combine two GET endpoints like api/v1/user/theme and api/v1/user/settings
+You might have to combine two GET endpoints like api/v1/user/account and api/v1/user/settings
 into /api/v1/page/settings.
 In that endpoint, you might have to do a join. 
 In that join, you might have to fiddle with the raw SQL a few ways to get it to perform well.
