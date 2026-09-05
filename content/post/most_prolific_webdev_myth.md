@@ -103,12 +103,14 @@ that's how surface-level this is. If I wanted real numbers, I would measure
 them myself.
 
 Google query: "how long does an SQL query take in an indexed database in the same data centre as my server?"
+
 AI Overview answer: "A simple indexed SQL query in the same data centre usually takes between 1 and 5 milliseconds to finish.
 Time Breakdown
 - Network Latency: Moving data between your server and the database inside the same building takes about 0.2 to 1 millisecond.
 - Query Execution: Finding the row using an index and reading it takes about 0.5 to 4 milliseconds for simple lookups."
 
 Google query: "how long does a network request take to go from Canada to Australia"
+
 AI Overview answer: "A round-trip network request (ping) between Canada and Australia typically takes 180 to 240 milliseconds (ms).
 Key Breakdown of Network Speed
 - One-Way Travel Time: A single-direction request takes about 90 to 120 ms to go from one country to the other."
