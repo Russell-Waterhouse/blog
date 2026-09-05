@@ -207,6 +207,20 @@
     overflow: scroll;
 }
 
+#single aside.toc-mobile {
+    display: none;
+}
+
+@media (max-width: 991.98px) {
+    #single aside.toc-mobile {
+        display: block;
+    }
+
+    #single aside.toc-desktop {
+        display: none;
+    }
+}
+
 #single aside.toc h5 {
     margin: .7em 0;
     margin-bottom: 1em;
