@@ -192,12 +192,12 @@ beta](https://blickeditor.com/)
 Maybe you mention the [massive re-writes in Facebook, Twitter (now X), Uber,
 Slack, Netflix, Yelp, Shopify, LinkedIn, eBay, HubSpot, PayPal, SalesForce,
 and Microsoft where the entire point of the rewrite was to improve
-performance](https://www.computerenhance.com/p/performance-excuses-debunked)
+performance.](https://www.computerenhance.com/p/performance-excuses-debunked)
 
 Maybe you mention that ["every 100ms in added page load time costs amazon 1% of
-revenue"](https://www.conductor.com/academy/page-speed-resources/faq/amazon-page-speed-study/)
+revenue."](https://www.conductor.com/academy/page-speed-resources/faq/amazon-page-speed-study/)
 
-I leave that to your decision.
+I leave that to your discretion.
 
 Assuming you have buy in, here's what you can do:
 
