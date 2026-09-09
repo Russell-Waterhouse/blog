@@ -197,8 +197,8 @@ explaining all the nuance and more about what this feature means and how
 to implement it, then check the output code to ensure the AI agent
 actually followed the instructions. 
 
-But remember, that's far smaller of a market than what the boosters
-are promising, and it's far smaller a market than the scale of the investment
+But remember, that's a far smaller market than what the boosters
+are promising, and it's a far smaller market than the scale of the investment
 needs in order to pay off. It also doesn't replace programmers, because
 someone who understands all the nuance about retry logic and error
 handling still needs to be the one making the design document. 
