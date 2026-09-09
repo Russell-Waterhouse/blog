@@ -260,7 +260,7 @@ You might very well look at gold and gold 2 and say,
 use in retirement, it doesn't seem that this is reliable enough for
 me to rely on it."
 
-But that's what happened to Etherium,the number two most well-known
+But that's what happened to Etherium, the number two most well-known
 cryptocurrency in the world, behind bitcoin.
 
 You might look at all of this and say "it would be
