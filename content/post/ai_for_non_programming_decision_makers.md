@@ -93,7 +93,7 @@ profits.
 A little worried, you ask a few more questions. 
 
 Your friend sheepishly admits that he's selling a hot dog with a one dollar
-bun and four dollars of meat for a out five dollars. He has also been paying
+bun and four dollars of meat for five dollars. He has also been paying
 someone to tweak his hot dog recipe every night for years now, and is also burning a
 ton of cash in "advertising."
 
