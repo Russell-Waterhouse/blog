@@ -1,23 +1,31 @@
 ---
-title: "Ai_for_non_programming_decision_makers"
+title: "A Peek Into The Tech Industry"
 author: "Russell Waterhouse"
-description: "description here"
+description: "A Peek Behind The Curtain"
 tags: ["", ""]
 date: 2026-08-11T19:20:24-06:00
 draft: false
 ---
 
-# AI And Programming Explained To Those Who Don't Program
+# A Peek Into The Tech Industry
 
 Hello! T'is I, the nephew you call when your email stops
 working!
 
-There's this thing that's been in the news a lot lately, AI.
+You know how ever few months the news will run some
+story about AI or cryptocurrency?
 
-A lot of things have been said about it. Most of them aren't really true.
+As someone who works in the industry, they sometimes do a good job
+talking about a topic. Most of the time, they don't.
+
+And in no case do they ever explain the full range of cool and insanity
+that is today's tech industry.
 
 I want to explain some of it to you in a way that neither babies you nor
 overwhelms you.
+
+Not because my industry is more important, just because things are getting weird
+behind the scenes, and you mightdo well to know that.
 
 ## DISCLAIMER
 
@@ -43,13 +51,11 @@ Ok, let's go!
 
 ## So, Why are We Talking About This?
 
-Well, two reasons. First, everyone is talking about it in tech and finance. They
-haven't stopped talking about it since 2023. Don't you want to be one of the cool kids talking
-about the cool topics? Second, and more importantly,
-this little tech and finance fascination has grown so much bigger than you could know
+Right now the tech industry's big thing is AI.
+This little tech and finance fascination has grown so much bigger than you could know
 unless you're very plugged in. It has grown so big for so many reasons. Some I understand,
 and some I don't. But it has grown bigger than the fundamentals of the technology
-can support. To me, and many of my peers, it looks like a gargantuan bubble that
+can currently support. To me, and many of my peers, it looks like a gargantuan bubble that
 is set to pop. I want to give you a peek behind that curtain for how we got
 here and how everyone got it so wrong. 
 
@@ -71,10 +77,56 @@ currently. They know they need to grow, and they're subsidizing
 their services to make it happen. OpenAI lost nearly 21 Billion USD
 in 2025. 
 
+Let me illustrate it a different way.
+
+Say your friend bought a hot dog stand and started selling hot dogs.
+
+He's been at it for a few years, so you ask how things are going.
+
+Your friend tells you that sales are way up! People love the hot dogs!
+
+What excellent news! Being a little business-minded, you ask about last year's
+profits.
+
+"Well, we didn't make profit last year, but we grew tremendously!"
+
+A little worried, you ask a few more questions. 
+
+Your friend sheepishly admits that he's selling a hot dog with a one dollar
+bun and four dollars of meat for a out five dollars. He has also been paying
+someone to tweak his hot dog recipe every night for years now, and is also burning a
+ton of cash in "advertising."
+
+He doesn't say it, but you're pretty sure your friend is giving out free samples and calling it
+advertising.
+
+Worried, you ask if your friend is in debt for this.
+
+He admits he is.
+
+Worried, you suggest he should raise his prices, try to turn a profit.
+
+He says he can't do that. He signed agreements with his beef wholesaler
+and an industrial kitchen. He needs way more revenue to buy services from
+them that he has promised to buy.
+
+And that's roughly where OpenAI and Anthropic are today. People are 
+building data centers for them. Their AI isn't profitable, and they
+can't raise prices because of the spending committments they have made,
+which makes growth their only option.
+
+And if AI lived up to the claims they were making, they might be fine,
+just like how your friend might be fine if everyone stopped eating all food
+that wasn't his hot dogs.
+
+But "boots on the ground," it doesn't look like their claims hold water.
+
+Let me explain why using the one thing they've been claiming they can automate
+completely for years now, programming.
 
 ## AI For Programming
 
-## What Programmers Actually Do
+### What Programmers Actually Do
 
 At the heart of it, we, the people that put the pixels on your screens usually
 work like this:
@@ -109,7 +161,7 @@ No need to hire programmers, no need to fuss.
 ### Why that Doesn't Work
 
 This doesn't work because there's actually a lot
-that "turn the like button blue" could mean to an AI.
+that "turn the like button blue" could mean.
 
 If the AI is really braindead that day, it might literally
 just turn the button blue and never save the fact that you
@@ -165,7 +217,6 @@ on vacation.
 
 This is not what has happened. 
 
-
 ## The Metaverse, Crypto, Growth, and Tech Thought Leaders
 
 So naturally, you might be wondering, "why does this random developer on
@@ -187,7 +238,9 @@ it all.
 Remember a few years ago when everyone was saying BitCoin would be the
 new money? Nobody checked how long it takes on average for a transaction to
 settle. The average is thirty minutes per transaction, and it's not guaranteed
-the transaction will ever settle.
+the transaction will ever settle. You couldn't use that as currency.
+A fast food drive through doesn't work when it takes a half hour for a transaction
+to finish.
 
 Maybe you've heard people say "crypto won't be the next dollar, but it
 will be the next gold. It will be a durable store of wealth."
@@ -226,7 +279,7 @@ To me, that was also ovbiously insane at the time of the
 peak.
 
 I actually took the blockchain and cryptocurrencies course
-in University because I thought there MUST be something
+in university because I thought there MUST be something
 I was missing. How could this thing that looked so insane
 to me possibly be this big? Surely I was missing something.
 
@@ -280,14 +333,14 @@ investors aren't stupid. They know that there
 are too many factors influencing who wins and who loses
 for them to pick winners 100% of the time. They know that
 if they invest in 100 companies, 80 might fail, 18 will turn into
-successful companies, and 2 might turn into companies so big that
+moderately successful companies, and 2 might turn into companies so big that
 it makes investing in the 80 failed companies totally worth it.
 They also know that if 3 get that big, they all get a bonus
 so big they never have to work again.
 
 Because this is the nature of what they're doing, anyone
 that approaches them and says "I want to start a business that will
-grow at a healthy pace and be a profitable company worth running,"
+grow at a healthy pace and be a moderately profitable company worth running,"
 HAS TO BE IGNORED. 
 
 A startup that says this has a zero percent chance of turning into
@@ -302,7 +355,7 @@ to make big claims about their total addressable market.
 They get no funding otherwise.
 
 The equity markets drive the big companies into
-outlandish things too. All of the Mag seven, even before the
+outlandish things too. All of the magnificent seven, even before the
 AI hype wave started, were valued as growth companies.
 
 Were they to show persistent signs that they were no longer growing,
@@ -316,12 +369,15 @@ The metaverse makes more sense as an investment when you
 understand that every time Meta's exec's dumped more money into
 the metaverse, their stock price went up. //TODO FACT CHECK THAT
 
-And when none of the people investing in this technology
-and the executives running these companies aren't trying to write
-production code with them (because they're running investment firms or
-running companies, not programming. They're doing their jobs).
+Investors and the executives running these companies aren't trying to write
+production code every day, because they're running investment firms or
+running companies, not programming. They're doing their job.
 
-When someone tells them that it's going to be the next big thing,
+This means when someone comes along and tells them AI can replace programmers,
+and their AI spits out a little bit of code, these people are inclined to believe it.
+They're not qualified to know whether the code actually works.
+
+When someone  tells them that AI is going to be the next big thing,
 and it sounds exactly like what Jeff Bezos said when he said Amazon
 would be huge, they think that they have found the next Amazon.
 
@@ -342,9 +398,10 @@ And there's a few reasons for that.
 First, none of us started multi-billion
 dollar companies, so we don't exactly get the
 same airtime as the CEOs do. Elon Musk can call
-ip CNBC and get airtime that afternoon. I can't.
+up CNBC and get airtime that afternoon. I can't.
 
-Second, many of have been. TODO EXPAND
+Second, many of have been. But tech people like to talk about tech
+with tech people. It doesn't often reach mainstream.
 
 And third, many of the people that claim to be
 programmers just aren't that good. This isn't a
@@ -352,4 +409,5 @@ regulated industry. All you need to do to be a programmer at
 Amazon is to convince the recruiting team at amazon
 that you can write code at Amazon.
 
-
+Things that were "best practice" 6 years ago are known today to be
+horrible techniques that lead to disaster.
