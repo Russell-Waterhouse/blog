@@ -2,7 +2,7 @@
 title: "Testing Explained In Depth"
 author: "Russell Waterhouse"
 description: "How Logging, Assertions, Performance, DevOps, TDD, Integration Testing, and End-To-End Testing Help Make Great Software"
-tags: ["", ""]
+tags: ["Testing", "TDD", "Software Development"]
 date: 2026-09-08T12:36:57-06:00
 draft: false
 ---
@@ -72,16 +72,17 @@ tests, they'll usually say something about one of the following:
 - Integration/E2E tests don't provide the same level of granularity for when things go wrong.
 - Integration/E2E tests are slow.
 - Integration/E2E tests are flaky.
-- You should have more unit tests than Integration/E2E tests
+- You should have more unit tests than Integration/E2E tests.
 
 
-I want to tackle these together.
+I want to tackle each of these.
 
 
 ### MYTH: Integration/E2E tests don't provide the same level of granularity for when things go wrong.
 
-Honestly, that's a true statement. If a unit test called "test_isValidEmail"
-fails, your email validation function isn't working.
+Honestly, that's a true statement. It's not worth anything, but it is a true
+statement. If a unit test called "test_isValidEmail" fails, your email
+validation function isn't working.
 
 If an integration test called "test_sendEmailNow" fails, it could have been
 the email validation, it could have been networking code, it could have been
@@ -135,10 +136,9 @@ If your end-to-end tests are slow, this means that your product is slow.
 
 It's really that simple.
 
-Chances are high that your product is just slow. Take a sprint, do some
-performance work. It's worth it. You've been saying for years that "premature
-optimization is the root of all evil."  Now that it's no longer premature,
-do the work. Also, stop using that phrase as an excuse!
+Take a sprint, do some performance work. It's worth it. You've been saying for
+years that "premature optimization is the root of all evil."  Now that it's no
+longer premature, do the work. Also, stop using that phrase as an excuse!
 
 Now let's say that you are actually working on a hard problem that takes
 hours to compute, no matter what you do.
@@ -173,11 +173,14 @@ If your end-to-end tests are flaky, this means that your product is flaky.
 I use playwright. Literally every integration or E2E test failure I've had
 in the last year has been because there was a bug in my code.
 
+If your tests work sometimes and fail other times, the code you are testing
+works sometimes and fails other times, and your users are experiencing that.
+
 ### Myth: You should have more unit tests than Integration/E2E tests
 
 Maybe? I'm not sure.
 
-Let me walk you through an example to illustrate my point.
+Let me walk you through an example to illustrate my thinking.
 
 The basic pattern here is you have a function that does something. Some of it
 is very unit-testable. Some of it is very integration-testable.
@@ -304,6 +307,19 @@ information with an assertion.
 Almost everything runs super fast, and the parts that don't run super fast
 I run in CI, so they run on every release, but I'm never waiting for things
 to complete.
+
+When APIs that I'm using change under me, my tests start to fail immediately.
+
+If I oopsy something, my tests catch regressions.
+
+My integration and E2E tests don't care very much about implementation details,
+so refactoring doesn't produce a ton of failing tests.
+
+I always have at least a little bit of a grip on what the user experience is,
+because my E2E tests are acting as the user does.
+
+If external services that I depend on start to degrade, my integration tests
+will catch that. I can take that knowledge and migrate away.
 
 Everything about it feels really nice, and has been well worth the of effort
 that it takes to get it all set up.
