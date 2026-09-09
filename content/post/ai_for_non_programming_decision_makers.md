@@ -25,7 +25,7 @@ I want to explain some of it to you in a way that neither babies you nor
 overwhelms you.
 
 Not because my industry is more important, just because things are getting weird
-behind the scenes, and you mightdo well to know that.
+behind the scenes, and you might do well to know that.
 
 ## DISCLAIMER
 
