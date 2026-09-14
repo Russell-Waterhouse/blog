@@ -32,9 +32,9 @@ applicable to many types of software.
 Since some of these terms are only loosely defined in industry, I'll give my
 definitions here.
 
-- Assertion: something you check at runtime that should always be true.
+- Assertion: Something you check at runtime that should always be true.
   - For me, assertions failing in production page the on-call team and kills the current action. In development, they crash.
-- TDD: classic red-green-refactor test-driven-development.
+- TDD: Classic red-green-refactor test-driven-development.
 - Performance: Ensuring latency is low and throughput is high.
 - Unit tests: Any test that does not pass an IO boundary.
 - Integration Testing: Any test that passes an IO boundary. Network requests, disk writes, DB queries, etc.
