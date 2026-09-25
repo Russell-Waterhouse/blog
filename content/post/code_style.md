@@ -7,7 +7,7 @@ date: 2026-09-14T11:07:05-06:00
 draft: false
 ---
 
-# Tactics, Techniques, and Procedures for Good Code
+# Tactics, Techniques, and Procedures for Robust Software
 
 I've tried writing a code style document a whole bunch of times.
 Hopefully, this one will be the one that I finally get working.
@@ -18,6 +18,9 @@ What I'm tackling here:
 What I'm not tackling here:
 - UX.
 - Product Design.
+- In-depth arguments about why I believe these are effective techniques.
+
+This is hoing to be brief, but very good. 
 
 ## 1. Assertions.
 
@@ -73,15 +76,28 @@ trying to teach me.
 If you don't have enough granularity in your logs to confidently know exactly
 what function something went wrong at, you aren't logging enough.
 
-## 6. Excellent DevOps (deployment pipeline, infra as code, tests run on every release).
+## 6. Excellent DevOps (deployment pipeline, infra as code, tests run on every release, dev environment, preview environment).
+
+Being able to deploy quickly and painlessly
+means fixing bugs and adding features has less friction.
+
+Good dev environments make it a joy to program, where otherwise it would
+be pain.
+
 ## 7. Never ignore a bug during development. Fix any bugs you encounter before adding new features.
+
+This ensures you're building on a solid foundation and delivering a solid product.
+
+If you find a bug in development, one of two things are true.
+
+1. It's trivial to fix, and you should fix it quick to get it out to your users.
+2. It's not trivial to fix, and the change would be large, in which case you shouldn't build more on what is likely to change.
+
 ## 8. Check the return value of all non-void functions.
 
 This ensures either you're doing enough error handling or
-you have enough assertions and logging. These three rules go together like
-
-
-
+you have enough assertions and logging. These three rules go together
+beautifully and make some very robust code.
 
 ## 9. Use a statically-typed language
 
