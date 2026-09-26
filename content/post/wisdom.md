@@ -19,6 +19,9 @@ from everyone. If Hitler had a great doughnut recipe, I would use it.
 
 ## Alex Hormozi
 
+"Messing up stuff that matters is the cost
+of figuring out things worth learning."
+
 "There are no silver bullets, only hundreds of golden BB's."
 
 "Rather than picking up your next book,
