@@ -20,7 +20,7 @@ What I'm not tackling here:
 - Product Design.
 - In-depth arguments about why I believe these are effective techniques.
 
-This is hoing to be brief, but very good. 
+This is going to be brief, but very good. 
 
 ## 1. Assertions.
 
@@ -59,6 +59,8 @@ aggressive policy that yields great results.
 
 ## 3. Heavy use of unit tests for pure functions (no IO).
 
+pure functions that have no side effects should be unit tested.
+I usually write them with TDD. 
 
 ## 4. Heavy use of integration tests for impure functions (network, disk, peripherals).
 ## 5. Heavy use of logging.
