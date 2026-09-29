@@ -59,10 +59,15 @@ aggressive policy that yields great results.
 
 ## 3. Heavy use of unit tests for pure functions (no IO).
 
-pure functions that have no side effects should be unit tested.
+Pure functions that have no side effects should be unit tested.
 I usually write them with TDD. 
 
 ## 4. Heavy use of integration tests for impure functions (network, disk, peripherals).
+
+If your function does IO, for the love of god test it. If you need to mock
+out some stuff to test an error case, fine, but have a few integration
+tests that actually do the IO.
+
 ## 5. Heavy use of logging.
 
 I remember how much my co-workers in my second co-op harped on me about not
